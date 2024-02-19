@@ -1,0 +1,24 @@
+{% extends "han_ji_dict/base.html" %}
+
+{% block title %}
+顯示漢字音標明細
+{% endblock %}
+
+{% block han_ji_dict_content %}
+<h1>漢字音標明細</h1>
+<p>漢字: {{ object.han_ji }}</p>
+<p>讀音編碼: {{ object.chu_im }}</p>
+<p>聲母碼: {{ object.siann }}</p>
+<p>韻母碼: {{ object.un }}</p>
+<p>調號: {{ object.tiau }}</p>
+<!-- 其他漢字屬性，如所需 -->
+
+<!-- 回 App 主頁 -->
+<a href="{% url 'han_ji_dict:home' %}" class="btn btn-success">回主頁</a>
+
+<!-- 更新按鈕 -->
+<a href="{% url 'han_ji_dict:update' object.pk %}" class="btn btn-primary">更新</a>
+
+<!-- 刪除按鈕 -->
+<a href="{% url 'han_ji_dict:delete' object.pk %}" class="btn btn-danger">刪除</a>
+{% endblock %}

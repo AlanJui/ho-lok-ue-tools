@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} 文章標讀音 {% endblock %}
+
+{% block styles %}
+<!-- 加入自己的 CSS 樣式表 -->
+<link
+    rel="stylesheet"
+    href="{% static 'article_pronunciation/css/articles.css' %}"
+    />
+{% endblock styles %}
+
+{% block content %}
+<div class="container">
+  <form method="post">
+    {% csrf_token %}
+    <h3><label for="text">輸入欲找讀音的漢字：</label></h3>
+    <select name="pronunciation" id="pronunciation">
+      {% for value, name in pronunciation_options.items %}
+      <option value="{{ value }}"{% if selected_pronunciation == value %} selected{% endif %}>{{ name }}</option>
+      {% endfor %}
+      <!-- <option value="tai_lo">台羅拼音</option> -->
+      <!-- <option value="peh_oe_ji">白話字</option> -->
+      <!-- <option value="ban_phing">閩南語拼音方案</option> -->
+      <!-- <option value="sip_ngoo">十五音</option> -->
+      <!-- <option value="fong_yim">方音符號</option> -->
+    </select>
+    <br />
+    <textarea name="text" id="text" rows="4" cols="80">{{ default_text }}</textarea>
+    <br />
+    <button type="submit">送出</button>
+  </form>
+  <br />
+  {% if annotated_text %}
+    <h3 class="content-header">已標註讀音的漢字</h3>
+    <div class="content-area">
+      {% for char in annotated_text %}
+        {% if char.han_ji.strip == '' %}
+          <br />
+        {% elif char.han_ji %}
+          <ruby>
+            <rb>{{ char.han_ji }}</rb>
+            <rp>(</rp>
+            {% if selected_pronunciation == "sip_ngoo" %}
+              <rt class="sip_ngoo">{{ char.chu_im_fu_ho }}</rt>
+            {% elif selected_pronunciation == "fong_yim" %}
+              <rt class="fong_yim">{{ char.chu_im_fu_ho }}</rt>
+            {% else %}
+              <rt>{{ char.chu_im_fu_ho }}</rt>
+            {% endif %}
+            <rp>)</rp>
+          </ruby>
+        {% else %}
+          {{ char|safe }}
+        {% endif %}
+      {% endfor %}
+    </div>
+    <br />
+    <!-- 使用者可將已注音漢字存檔 -->
+    <form action="{% url 'article_pronunciation:save_file' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="text" value="{{ default_text }}">
+        <input type="hidden" name="pronunciation" value="{{ selected_pronunciation }}">
+        <button type="submit">存檔</button>
+    </form>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+  $(document).ready(function () {})
+</script>
+{% endblock javascript %}

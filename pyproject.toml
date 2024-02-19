@@ -1,0 +1,223 @@
+[tool.poetry]
+name = "han-gi"
+version = "0.1.0"
+description = ""
+authors = ["Alan Jui <AlanJui.1960@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "han_gi" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.1.7"
+psycopg2-binary = "^2.9.5"
+asgiref = "^3.6.0"
+sqlparse = "^0.4.3"
+numpy = "^1.24.2"
+python-dotenv = "^1.0.0"
+django-mathfilters = "^1.0.0"
+djangorestframework = "^3.14.0"
+beautifulsoup4 = "^4.12.2"
+requests = "^2.31.0"
+django-summernote = "^0.8.20.0"
+django-stubs = "^4.2.4"
+
+
+[tool.poetry.group.dev.dependencies]
+pyright = "^1.1.299"
+pylint = "^2.17.0"
+pylint-django = "^2.5.3"
+pydocstyle = "^6.3.0"
+flake8 = "^6.0.0"
+djlint = "^1.19.16"
+autopep8 = "^2.0.2"
+black = "^23.1.0"
+lorem = "^0.1.1"
+ipykernel = "^6.21.3"
+jupyter = "^1.0.0"
+selenium = "^4.8.2"
+chromedriver-autoinstaller = "^0.4.0"
+jupyterlab = "^3.6.1"
+types-requests = "^2.31.0.1"
+mypy = "^1.5.1"
+django-stubs = "^4.2.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+#====================================================================
+# 專案環境設定檔：setup.cfg，管制以下所列工具之設定：
+# pydocstyle, flake8,
+#====================================================================
+
+[tool.pyright]
+# executionEnvironments = [
+#   { root = "src/web", pythonVersion = "3.5", pythonPlatform = "Windows", extraPaths = [ "src/service_libs" ] },
+#   { root = "src/sdk", pythonVersion = "3.0", extraPaths = [ "src/backend" ] },
+#   { root = "src/tests", extraPaths = ["src/tests/e2e", "src/sdk" ]},
+#   { root = "src" }
+# ]
+pythonVersion = "3.10"
+venvPath = "."
+venv = ".venv"
+extraPaths = [".venv/lib/python3.10/site-packages"]
+exclude = [
+  "**/__pycache__",
+  "**/migrations/**",
+  "**/venv/**",
+  "**/.venv/**",
+  "**/node_modules/**",
+  "**/dist/**",
+  "**/build/**",
+  "**/docs/**",
+  "**/tests/**",
+  "**/test/**",
+  "**/tests.py",
+  "**/.*",
+]
+ignore = [
+  "**/__pycache__",
+  "**/migrations/**",
+  "**/venv/**",
+  "**/.venv/**",
+  "**/node_modules/**",
+  "**/dist/**",
+  "**/build/**",
+  "**/docs/**",
+  "**/tests/**",
+  "**/test/**",
+  "**/tests.py",
+]
+defineConstant = { DEBUG = true }
+
+reportUnknownParameterType = "none"
+# reportUnusedImport = false
+# reportUnusedFunction = false
+# reportUnusedVariable = false
+# reportUnusedImport = "none"
+# reportUnusedFunction = "none"
+# reportUnusedVariable = "none"
+# reportUnusedClass = "none"
+# reportMissingImports = "warning"
+# typeCheckingMode = "off"
+# useLibraryCodeForTypes = true
+# reportMissingTypeStubs = false
+# reportGeneralTypeIssues = "none"
+# reportOptionalMemberAccess = "none"
+# typeshedPaths = []
+
+[tool.pylint]
+# init-hook = "import sys; import os; from pylint.config import find_pylintrc; sys.path.append(os.path.dirname(find_pylintrc()))"
+# load-plugins = [ "pylint_django" ]
+# django-settings-module = "web_app.settings"
+# disable = ["R0903", "E0307", "E1101", "C0103" ,"C0116", "C0115", "C0114", "C0115", "C0116", "R1710", "E401", "W0621"]
+output-format = "colorized"
+ignore = "migrations"
+
+[tool.pylint."MESSAGES CONTROL"]
+max-line-length = 120
+disable = """
+	raw-checker-failed,
+	bad-inline-option,
+	locally-disabled,
+	file-ignored,
+	suppressed-message,
+	useless-suppression,
+	deprecated-pragma,
+	use-symbolic-message-instead,
+	too-many-instance-attributes,
+	len-as-condition,
+	too-few-public-methods,
+	anomalous-backslash-in-string,
+	no-else-return,
+	simplifiable-if-statement,
+	too-many-arguments,
+	duplicate-code,
+	no-name-in-module,
+	no-member,
+	import-error,
+	missing-module-docstring,
+	missing-class-docstring,
+	missing-function-docstring,
+	missing-docstring,
+	invalid-name,
+	invalid-str-returned,
+	unused-import,
+	unused-variable,
+	consider-using-enumerate
+"""
+
+[tool.pydocstyle]
+ignore = ["D100", "D103", "D104"]
+# match-dir = "tests/*"
+
+[tool.mypy]
+exclude = ['.venv', 'venv']
+# ignore_missing_imports = true
+plugins = ["mypy_django_plugin.main"]
+
+[[tool.mypy.overrides]]
+module = ["PyQt5"]
+ignore_missing_imports = true
+
+
+[tool.django-stubs]
+django_settings_module = "web_app.settings"
+
+[tool.django-summernote]
+ignore_missing_imports = true
+
+# [mypy-web_app.models.*]
+# ignore_errors = true
+
+[tool.flake8]
+max-line-length = 120
+max-complexity = 10
+extend-ignore = ['E231', 'E241', 'E501', 'F841']
+exclude = ['.git', '__pycache__', 'docs/source/conf.py', 'old', 'build', 'dist']
+per-file-ignores = ['__init__.py:F401']
+count = true
+
+[tool.autopep8]
+max_line_length = 120
+ignore = ["E501", "W6"]
+in-place = true
+recursive = true
+aggressive = 3
+
+# [tool.djlint]
+# 實際設定，請參考設定檔： .djlint_rules.yaml
+# profile = "django"
+# preserve_blank_lines = true
+# use_gitignore = true
+# format_css = true
+# format_js = true
+# rules = [
+#   "djlint.rules.model_field_order",
+#   "djlint.rules.model_field_type_annotations",
+# ]
+#
+# [tool.djlint.options]
+# ignore = [
+# 	"djlint.rules.html_tag_self_closing",
+# 	"djlint.rules.html_tag_lang_attribute",
+# 	"migrations/",
+# ]
+
+[tool.black]
+line-length = 88
+max-line-length = 120
+skip-string-normalization = true
+no-tidy = true
+# target-version = ['py37']
+# include = '\.pyi?$'
+# 'extend-exclude' excludes files or directories in addition to the defaults
+# extend-exclude = '''
+# # A regex preceded with ^/ will apply only to files and directories
+# # in the root of the project.
+# (
+#   ^/foo.py    # exclude a file named foo.py in the root of the project
+#   | .*_pb2.py  # exclude autogenerated Protocol Buffer files anywhere in the project
+# )
+# '''

@@ -1,0 +1,25 @@
+@startuml
+actor    User
+control	 Router             as Router
+control	 View               as View
+boundary Form           	  as Form
+boundary Template	          as Template
+boundary CommentForm     	  as Form
+entity   HanJi				      as Model
+database PostgreSQL		      as DB
+
+User -> Router : GET /huan_tshiat_huat/ 
+Router -> View : name = 'huan_tshiat_huat'
+Form --> Template: FanQieForm
+Template --> View : huan_tshiat_huat.html
+View --> User: render(request, uri_of_template, { form })
+User -> Router : POST /huan_tshiat_huat/ 
+Router -> View : FanQieForm(request.POST)
+View -> View : parse_fan_qie(siong_han_ji, e_han_ji)
+View -> Model : HanJi(han_ji)
+Model -> DB : sql_query()
+DB --> Model : query result
+Model --> View : han_ji_pin_yin
+Template --> View : huan_tshiat_huat.html
+View --> User: render(request, uri_of_template, {form, han_ji_pin_yin})
+@enduml

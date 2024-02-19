@@ -1,0 +1,14 @@
+@startuml
+actor User #Grey
+' The only difference between actor
+'and participant is the drawing
+participant System
+/' You can also declare:
+   participant L as "I have a really\nlong name"  #99FF99
+  '/
+
+User->System: 輸入「漢字」、「反切法雙漢字」
+System->System: 將輸入之「雙漢字」，分割成「上字」與「下字」
+System->System: 依據「反切法規則」，查找上字與下字之拼音，最後組合成「漢字拼音」
+System->User: 顯示「漢字」與「漢字拼音」
+@endumlenduml

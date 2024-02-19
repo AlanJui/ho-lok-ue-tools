@@ -1,0 +1,34 @@
+{
+  "name": "han_gi",
+  "version": "0.0.1",
+  "description": "為漢字加註福建話音標。",
+  "main": "index.js",
+  "authors": {
+    "name": "居正中（Alan Jui）",
+    "email": "alanjui.1960@gmail.com"
+  },
+  "repository": "PM &amp; Dev/han_gi",
+  "scripts": {
+    "docs:dev": "set NODE_OPTIONS=--openssl-legacy-provider & vuepress dev docs",
+    "docs:build": "set NODE_OPTIONS=--openssl-legacy-provider & vuepress build docs",
+    "dev": "set NODE_OPTIONS=--openssl-legacy-provider & vuepress dev docs",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider & vuepress build docs",
+    "review": "live-server docs/.vuepress/dist"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/markdown": "^2.0.0-beta.61",
+    "@vuepress/plugin-back-to-top": "^1.9.9",
+    "@vuepress/plugin-medium-zoom": "^1.9.9",
+    "@vuepress/plugin-palette": "^2.0.0-alpha.26",
+    "markdown-it": "^13.0.1",
+    "markdown-it-imsize": "^2.0.1",
+    "markdown-it-mermaid": "^0.2.5",
+    "stylelint-config-standard": "^33.0.0",
+    "vuepress": "^1.9.9"
+  },
+  "dependencies": {
+    "@vscode/codicons": "^0.0.32",
+    "prismjs": "^1.29.0"
+  }
+}

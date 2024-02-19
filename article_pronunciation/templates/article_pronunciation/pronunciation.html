@@ -1,0 +1,28 @@
+<!-- article_pronunciation/templates/article_pronunciation/pronunciation.html -->
+{% extends "article_pronunciation/base.html" %}
+{% load static %}
+
+{% block title %}
+  Article Pronunciation
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+  <div class="pronunciation">
+    {% for item in pronunciation_list %}
+      {% if item.han_ji %}
+        <ruby>
+          {{ item.han_ji }}<rt>{{ item.chu_im }}</rt>
+        </ruby>
+      {% else %}
+        {{ item|safe }}
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endblock %}
+
+{% block footer %}
+    <!-- {% include "footer.html" %} -->
+{% endblock %}

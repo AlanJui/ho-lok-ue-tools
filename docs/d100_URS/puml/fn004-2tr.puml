@@ -1,0 +1,32 @@
+@startuml
+header Page Header
+autonumber "<b>[00] </b>"
+actor    User
+control	 Router             as Router
+control	 View               as View
+boundary Form           	  as Form
+boundary Template	          as Template
+boundary CommentForm     	  as Form
+entity   HanJi				      as Model
+database PostgreSQL		      as DB
+
+title 透過網站查找漢字反切讀音
+
+User -[#0000FF]> Router : GET /tsa_huan_tshiat/ 
+Router -[#0000FF]> View : path('/tsa_huan_tshiat', \nviews.tsa_huan_tshiat,\nname = 'tsa_huan_tshiat')
+Form --[#118888]> Template: TsaHuanTshiatForm
+Template --[#118888]> View : tsa_huan_tshiat.html
+View --[#118888]> User: render(request, uri_of_template, { form })
+User -[#0000FF]> Router : POST /tsa_huan_tshiat/ 
+Router -[#0000FF]> View : path('/tsa_huan_tshiat', \nviews.tsa_huan_tshiat,\nname = 'tsa_huan_tshiat')
+View -[#0000FF]> View : tsa_huan_tshiat(han_ji)
+View -[#0000FF]> View : parse_fan_qie(siong_ji, e_ji)
+  loop#Gold #LightBlue 2 次
+    View -[#0000FF]> Model : HanJi(han_ji)
+    Model -[#0000FF]> DB : sql_query()
+    DB --[#118888]> Model : query result
+    Model --[#118888]> View : han_ji_pin_yin
+  end
+  Template --[#118888]> View : tsa_huan_tshiat.html
+View --[#118888]> User: render(request, uri_of_template, {form, han_ji_pin_yin})
+@enduml

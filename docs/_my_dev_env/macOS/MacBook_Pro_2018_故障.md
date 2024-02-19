@@ -1,0 +1,21 @@
+# MacBook Pro 2018 故障
+日期： 2020/8/31
+
+
+![](https://paper-attachments.dropbox.com/s_517020E5F807B4DDA60566A90CA8915D4C1C8D2466EE8FF0F088CD71B58329F6_1598890246072_IMG_8008.jpg)
+
+![](/static/img/pixel.gif)
+
+
+
+![](https://paper-attachments.dropbox.com/s_517020E5F807B4DDA60566A90CA8915D4C1C8D2466EE8FF0F088CD71B58329F6_1598890270732_IMG_6097.jpg)
+
+![](/static/img/pixel.gif)
+
+
+
+![](https://paper-attachments.dropbox.com/s_517020E5F807B4DDA60566A90CA8915D4C1C8D2466EE8FF0F088CD71B58329F6_1598890283733_IMG_5068.jpg)
+
+
+
+

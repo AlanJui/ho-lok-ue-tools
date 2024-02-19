@@ -1,0 +1,73 @@
+{% extends "article_pronunciation/base.html" %}
+{% load static %}
+
+{% block title %}反切法求漢字拼音{% endblock %}
+
+{% block styles %}
+<!-- 加入自己的 CSS 樣式表 -->
+<link rel="stylesheet" href="{% static 'article_pronunciation/css/articles.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">提交</button>
+    </form>
+    <br/>
+    {% if han_ji_haut_im %}
+      <div class="content-area" style="font-size: 1.0em">
+        <table>
+          <tr>
+            <th>反切音：</th>
+            <td>{{ han_ji_haut_im.piau_im }}</td>
+          </tr>
+          <tr>
+            <th>上&nbsp;&nbsp;&nbsp;&nbsp;字：</th>
+            <td>{{ siong_ji }}({{ han_ji_haut_im.siann_bu_piau_im }})</td>
+            <td>&nbsp;&nbsp;</td>
+            <td>聲：</td>
+            <td>{{ han_ji_haut_im.siann_piau_im }}</td>
+            <td>&nbsp;&nbsp;</td>
+            <td>分清濁：</td>
+            <td>{{ han_ji_haut_im.tshing_lo_im}}音</td>
+            <td>&nbsp;&nbsp;</td>
+          </tr>
+          <tr>
+            <th>下&nbsp;&nbsp;&nbsp;&nbsp;字：</th>
+            <td>{{ e_ji }}({{ han_ji_haut_im.un_bu_piau_im }})</td>
+            <td>&nbsp;&nbsp;</td>
+            <td>韻：</td>
+            <td>{{ han_ji_haut_im.un_piau_im }}</td>
+            <td>&nbsp;&nbsp;</td>
+            <td>定四聲：</td>
+            <td>{{ han_ji_haut_im.si_siann_tiau }}聲</td>
+            <td>&nbsp;&nbsp;</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td></td>
+            <td>&nbsp;&nbsp;</td>
+            <td></td>
+            <td>&nbsp;&nbsp;</td>
+            <td>&nbsp;&nbsp;</td>
+            <td>聲&nbsp;&nbsp;調：</td>
+            <td>{{ han_ji_haut_im.tiau_ho }}</td>
+            <td>&nbsp;&nbsp;</td>
+          </tr>
+      </div>
+
+      {% for sion_ji in han_ji_haut_sion_ji.siong_ji_sion_ji %}
+          <p>{{ sion_ji }}</p>
+      {% endfor %}
+
+    {% endif %}
+
+{% endblock content %}
+
+{% block footer %}
+{% endblock %}
+
+{% block javascript %}
+<!-- 加入自己的 JavaScript -->
+{% endblock %}

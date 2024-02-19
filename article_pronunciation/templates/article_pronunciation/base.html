@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{% endblock %}
+
+{% block styles %}
+    <!-- 加入自己的 CSS 樣式表 -->
+    <link rel="stylesheet" href="{% static 'article_pronunciation/css/articles.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    {% block han_ji_dict_content %}
+    {% endblock %}
+{% endblock %}
+
+{% block footer %}
+    {% include "footer.html" %}
+{% endblock %}
+
+{% block javascript %}
+    <!-- 加入自己的 JavaScript -->
+{% endblock %}

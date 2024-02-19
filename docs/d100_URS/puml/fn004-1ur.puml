@@ -1,0 +1,24 @@
+@startuml
+header Page Header
+autonumber "<b>[00] "
+actor User #Grey
+participant System #LightBlue
+
+title 透過網站查找漢字反切讀音
+
+User-[#red]>System: 輸入「漢字」
+activate System
+System-[#118888]>System: 將「漢字」，透過 HTTP GET Request \n向網站發送「查詢請求」
+
+... 約 1-3 秒後 ...
+
+System-[#118888]>System: 將網站回傳的「查詢結果」，透過 huan_tshiat_huat 功能，\n查找「漢字」的「反切拼音」
+
+System -[#0000FF]-> User: 顯示「漢字反切讀音查找結果」
+alt#Gold #LightBlue 成功找到
+  System-->User: 顯示「漢字」、「反切讀音」\n與「漢字拼音」
+else #Pink 查找不到
+  System-->User: 顯示「查找不到漢字的反切讀音」
+end
+@enduml
+

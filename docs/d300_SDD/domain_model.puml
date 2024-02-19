@@ -1,0 +1,116 @@
+@startuml
+class Order {
+    -int id
+    -String name
+    -String address
+    -String phone
+    -String email
+    -String note
+    -Date date
+    -int status
+    -int total
+    -int payment
+    -int delivery
+    -int user_id
+    -int coupon_id
+    -int discount
+    -int shipping
+    -int shipping_fee
+    -int shipping_fee_discount
+    -int total_discount
+    -int total_payment
+    -int total_payment_discount
+    +calcSubTotal()
+    +calcTax()
+    +calcTotal()
+    +calcTotalDiscount()
+}
+
+class Payment {
+    -int id
+    -String name
+    -String description
+    -int status
+}
+
+Order "1" -- "1..*" Payment
+
+class Cash extends Payment {
+  -castTendered float
+}
+
+class Check extends Payment {
+    -String bank
+    -String account
+    -String name
+    +authorized()
+}
+
+class CreditCard extends Payment {
+    -String card_number
+    -String card_name
+    -String card_cvv
+    -String card_exp
+    +authorized()
+}
+
+class Customer {
+    -int id
+    -String name
+    -String address
+    -String phone
+    -String email
+    -String note
+    -Date date
+    -int status
+    -int user_id
+    -int coupon_id
+    -int discount
+    -int shipping
+    -int shipping_fee
+    -int shipping_fee_discount
+    -int total_discount
+    -int total_payment
+    -int total_payment_discount
+    +calcSubTotal()
+    +calcTax()
+    +calcTotal()
+    +calcTotalDiscount()
+}
+
+Customer "1" - "0..*" Order : place order
+
+class OrderDetail {
+    -int id
+    -int order_id
+    -int product_id
+    -int quantity
+    -int price
+    -int discount
+    -int total
+    -int status
+    -Date date
+    +calcTotal()
+}
+
+Order "1" o- "1..*" OrderDetail: line item
+
+class Product {
+    -int id
+    -String name
+    -String description
+    -String image
+    -int price
+    -int discount
+    -int stock
+    -int status
+    -Date date
+    -int category_id
+    -int brand_id
+    -int supplier_id
+    -int user_id
+    +calcTotal()
+}
+
+OrderDetail "0..*" --> "1" Product
+@enduml

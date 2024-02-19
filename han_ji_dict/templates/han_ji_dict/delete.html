@@ -1,0 +1,24 @@
+{% extends "han_ji_dict/base.html" %}
+
+{% block title %}
+刪漢字
+{% endblock %}
+
+{% block han_ji_dict_content %}
+<h1>確認要刪此漢字嗎？？？</h1>
+<p>漢字: {{ object.han_ji }}</p>
+<p>讀音編碼: {{ object.chu_im }}</p>
+<p>聲母碼: {{ object.siann }}</p>
+<p>韻母碼: {{ object.un }}</p>
+<p>調號: {{ object.tiau }}</p>
+<!-- 其他漢字屬性，如所需 -->
+
+<!-- 回 App 主頁 -->
+<a href="{% url 'han_ji_dict:home' %}" class="btn btn-success">回主頁</a>
+
+<!-- 刪除按鈕 -->
+<form action="{% url 'han_ji_dict:delete' object.pk %}" method="post" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">刪除</button>
+</form>
+{% endblock %}

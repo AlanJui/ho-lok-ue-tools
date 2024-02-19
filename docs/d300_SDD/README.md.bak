@@ -1,0 +1,22 @@
+<!-- markdownlint-disable MD024 MD043 -->
+
+# SDD Backup File
+
+## Base Template
+
+```html
+<!-- prettier-ignore -->
+\{\% extends "base.html" \%\}
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="fang-yin.css" />
+  </head>
+
+  <body>
+    {% block content %} {% endblock content %}
+  </body>
+</html>
+```

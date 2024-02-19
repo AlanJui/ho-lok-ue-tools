@@ -1,0 +1,61 @@
+{% extends "han_ji_dict/base.html" %}
+
+{% load mathfilters %}
+
+{% block title %}
+漢字典首頁
+{% endblock %}
+
+{% block han_ji_dict_content %}
+<div class="text-center">
+    <h4>漢字字典</h4>
+    <a href="{% url 'han_ji_dict:create' %}" class="btn btn-success"
+       style="font-size: 70%;">
+        新增漢字
+    </a>
+</div>
+<br>
+<table class="table table-bordered">
+    <thead style="font-size: 10px; color: darkblue; background-color: lightgrey;">
+        <tr>
+            <th>序號</th>
+            <th>漢字</th>
+            <th>讀音編碼</th>
+            <th>台羅拼音</th>
+            <th>白話字</th>
+            <th>閩拼方案</th>
+            <th>雅俗通15音</th>
+            <th>方音符號</th>
+            <th>聲母碼</th>
+            <th>韻母碼</th>
+            <th>調&nbsp;&nbsp;號</th>
+            <th>常用頻率</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for han_ji in object_list %}
+        <tr>
+            {% with page_offset=page_obj.number|add:-1|mul:page_obj.paginator.per_page %}
+                <td>{{ forloop.counter|add:page_offset }}</td>
+            {% endwith %}
+            <td>
+                <a href="{% url 'han_ji_dict:detail' han_ji.pk %}">{{ han_ji.han_ji }}</a>
+            </td>
+            <td>{{ han_ji.chu_im }}</td>
+            <td>{{ han_ji.get_tai_lo_chu_im }}</td>
+            <td>{{ han_ji.get_peh_oe_ji_chu_im }}</td>
+            <td>{{ han_ji.get_ban_phing_chu_im }}</td>
+            <td>{{ han_ji.get_sip_ngoo_im_chu_im }}</td>
+            <td>{{ han_ji.get_fong_yim_fu_ho_chu_im }}</td>
+            <td>{{ han_ji.siann }}</td>
+            <td>{{ han_ji.un }}</td>
+            <td>{{ han_ji.tiau }}</td>
+            <td>{{ han_ji.freq }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% include "pagination.html" with page=page_obj %}
+
+
+{% endblock %}

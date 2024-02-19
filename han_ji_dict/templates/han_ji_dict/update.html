@@ -1,0 +1,16 @@
+{% extends "han_ji_dict/base.html" %}
+
+{% block title %}
+編輯漢字音標明細
+{% endblock %}
+
+{% block han_ji_dict_content %}
+<h1>編輯漢字音標明細</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">保存更改</button>
+  <!-- 回 App 主頁 -->
+  <a href="{% url 'han_ji_dict:home' %}" class="btn btn-danger">回主頁</a>
+</form>
+{% endblock %}

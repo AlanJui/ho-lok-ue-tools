@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'han_ji_dict/css/han_ji_dict.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    {% block han_ji_dict_content %}
+    {% endblock %}
+{% endblock %}

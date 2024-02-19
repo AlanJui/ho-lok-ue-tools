@@ -1,0 +1,64 @@
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+/* 在導航欄下方的主要內容區域添加 20px 頂部間距 */
+main {
+    padding-top: 60px;
+    flex-grow: 1;
+}
+
+footer {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+/* 灰藍色導航欄底色 */
+.navbar {
+    background-color: #708090; /* 這是灰藍色的代碼 */
+}
+
+/* 將導航欄上的文字顏色設置為白色 */
+.navbar .navbar-brand,
+.navbar .nav-link {
+    color: white;
+}
+
+/* 滑鼠指標指向導航項目時的高亮度
+   將滑鼠懸停在導航欄項目上時的文字顏色設置為黑色 */
+.navbar .nav-item .nav-link:hover {
+    color: black;
+    background-color: #d3d3d3; /* 這是高亮度的顏色 */
+    border-radius: 5px; /* 添加圓角，使外觀更加美觀 */
+    transition: background-color 0.2s; /* 添加過渡動畫，使顏色變化更平滑 */
+}
+
+/* 突顯 WebApp 標題 */
+.title-brand {
+    color: yellow !important; /* 標題顏色 */
+    margin-left: 15px; /* 與網頁左邊的距離 */
+}
+
+.title-brand:hover {
+    color: orange !important; /* 當滑鼠懸停在標題上時的顏色 */
+    text-decoration: none; /* 移除懸停時的下劃線 */
+}
+
+.pronunciation-container {
+    background-color: #f0f0f0; /* 淺灰色背景 */
+    padding: 15px; /* 為內容添加內邊距 */
+    border-radius: 5px; /* 圓角邊框 */
+}
+
+.content-area {
+    background-color: #f0f0f0; /* 淺灰色背景 */
+    padding: 15px 0; /* 為內容添加內邊距 */
+    border-radius: 5px; /* 圓角邊框 */
+    margin: 0;
+}
