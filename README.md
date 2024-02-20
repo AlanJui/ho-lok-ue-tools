@@ -5,10 +5,11 @@
 
 ## 專案摘要
 
-目的：建置「以 Poetry 用於管理 Python 套件」的 Django 專案模版。
+建置「河洛話」工具網站，用以滿足以下應用需求：
 
-參考：
-<https://rasulkireev.com/managing-django-with-poetry/>
+- 查詢漢字的彙集雅俗通十五音標音
+- 查詢反切的台羅音標
+- 收集漢字在河洛話之標準用字
 
 ## 專案目錄結構
 
@@ -509,7 +510,8 @@ git
 - typescript-language-server
 - eslint-lsp
 - stylelint-lsp
-- null-ls: html/htmldjango, django, css, javascript, jason, jsonc
+- null-ls: html/htmldjango, django, css, javascript, jason,
+  jsonc
 - tailwindcss
 - copilot
 
@@ -540,8 +542,10 @@ git
 - 登入： /account/login/ [name='login']
 - 登出： /account/logout/ [name='logout']
 - 註冊： /account/register/ [name='user_register']
-- 變更密碼： /account/change-password/ [name='change_password']
-- 重設密碼： /account/password-change-done/ [name='password_change_done']
+- 變更密碼： /account/change-password/
+  [name='change_password']
+- 重設密碼： /account/password-change-done/
+  [name='password_change_done']
 
 ### 部落格（Blog）
 
@@ -565,7 +569,8 @@ git
 
 ### Django 參考
 
-- 程式碼來源：[《跟著老齊學 Python: Django 實戰》](https://github.com/qiwsir/DjangoPracticeProject)
+- 程式碼來
+  源：[《跟著老齊學 Python: Django 實戰》](https://github.com/qiwsir/DjangoPracticeProject)
 
 - [Django V3.2 文档内容](https://docs.djangoproject.com/zh-hans/3.2/contents/)
 
