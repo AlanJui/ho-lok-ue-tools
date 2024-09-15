@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "han-gi"
+name = "han-gi-tools"
 version = "0.1.0"
 description = ""
 authors = ["Alan Jui <AlanJui.1960@gmail.com>"]
 readme = "README.md"
-packages = [{ include = "han_gi" }]
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.10"
