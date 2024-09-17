@@ -9,10 +9,10 @@
   },
   "repository": "PM &amp; Dev/han_gi",
   "scripts": {
-    "docs:dev": "set NODE_OPTIONS=--openssl-legacy-provider & vuepress dev docs",
-    "docs:build": "set NODE_OPTIONS=--openssl-legacy-provider & vuepress build docs",
-    "dev": "set NODE_OPTIONS=--openssl-legacy-provider & vuepress dev docs",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider & vuepress build docs",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
     "review": "live-server docs/.vuepress/dist"
   },
   "license": "MIT",
