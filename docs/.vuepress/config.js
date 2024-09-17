@@ -4,7 +4,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  base: "/han_gi_chu_im/",
+  base: "/ho-lok-ue-tools/",
   locales: {
     "/": {
       lang: "zh-TW",
