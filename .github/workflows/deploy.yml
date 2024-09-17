@@ -1,4 +1,4 @@
-name: Deploy Project Documents to GitHub Pages
+name: Deploy VuePress to GitHub Pages
 
 on:
   push:
@@ -30,7 +30,11 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/.vuepress/dist
+        run: |
+          mkdir -p docs
+          cp -r docs/.vuepress/dist/* docs/
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add docs
+          git commit -m 'Deploy to GitHub Pages'
+          git push origin main
