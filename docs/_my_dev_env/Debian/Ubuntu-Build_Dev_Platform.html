@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ubuntu 建置 Django 開發作業環境指引 | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css" as="style"><link rel="preload" href="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/88.3506e2f0.js" as="script"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/101.e14056d5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/102.5a78f801.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/103.e198a428.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/104.449b67e1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/105.825b86d6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/106.173be714.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/107.03f96c6c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/108.57957213.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/109.0a4b39eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/11.3e9ab894.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/111.802a4ef3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/112.8fb9f4c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/113.163f649e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/114.8da6ef94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/116.f901450e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/117.4898b362.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/118.80d06981.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/12.4a40a2fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/120.1955a557.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/121.1865eac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/122.1d79306c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/123.df62f490.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/124.4a9f1fcb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/125.d294aced.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/126.0558f46b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/127.71e4ae03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/128.cf355591.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/129.29c3a2f4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/13.c3911464.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/130.21e8b50e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/131.2a22915e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/132.23c7e418.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/133.b40de47b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/134.3b21be27.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/135.e33241e8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/136.e1fad00a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/137.4d051254.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/138.f95b7b98.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/139.2b8d3e50.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/14.c9886b34.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/140.1b8e8cd0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/141.ff03f551.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/142.8de335ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/144.6b438904.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/145.dd73b692.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/146.a5721fc9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/147.be2503d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/148.3012abdb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/149.5172325c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/15.0cce8ecb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/150.5304d46a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/152.6fb52d1e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/153.eaa379eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/154.e4a08e57.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/155.2a0dcb32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/157.ef0d4e6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/159.e58cd5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/16.fa6f05c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/160.b14498b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/161.6f58600a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/162.5088d732.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/163.cdfabcd3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/164.33af30e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/165.82251337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/166.729d4da0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/167.5021a127.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/168.82153370.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/169.0aad21a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/170.57bd13b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/171.23ff00be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/172.364d6e16.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/173.efa01f08.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/174.69d30215.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/175.265d6949.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/176.008e238b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/177.822a15ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/178.d1eee661.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/179.956fe469.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/180.bb68de5c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/181.6ca43cc3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/182.b784ea03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/183.cf75a717.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/184.a486267a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/185.35a0a735.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/186.67964623.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/187.13410beb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/188.962c6776.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/189.4786f58b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/19.ee358577.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/190.c4e5a3ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/191.ab08e553.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/193.95d606b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/194.2931aac2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/195.66817182.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/196.3841de25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/197.6d0aa566.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/198.f0525295.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/199.ae76c070.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/200.c57f2a39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/201.d63f8f6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/202.f9e03aa9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/203.95ffec51.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/204.3787443f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/205.27e200a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/206.45652af0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/208.3c2a60e9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/209.feeb4956.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/21.46ede3be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/210.6401ff88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/211.cfb8dc53.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/212.3ddf2b32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/213.647e2ffe.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/214.8e117d35.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/216.bc2d671c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/217.6371c831.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/218.ec43176a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/219.d69f53c2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/220.ca6bdcd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/221.e36810e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/222.715b43c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/223.808a43ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/224.e4df9237.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/225.6d08d9a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/226.4a72d290.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/227.93c9df65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/228.89cf25a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/229.27539a77.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/23.74ec33ae.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/232.c03f5450.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/233.a50b7053.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/234.e24679d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/236.03949180.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/237.077ec90b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/238.84598708.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/239.43007d0a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/24.dfaf327e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/240.2df91873.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/242.3066009f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/243.1ff09887.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/244.30430b7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/246.473b271a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/247.edc9641e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/248.6f7f74e5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/249.24762885.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/25.50731498.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/250.cc52a908.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/251.87f791a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/252.1e285f58.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/253.d783bd23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/254.bbeda6d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/255.1601d594.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/256.644af9ee.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/257.369bfcaf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/258.95ae1b47.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/259.02650516.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/26.7308cd5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/260.49df9ac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/261.7018bbf8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/262.b7de7d79.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/264.b82abc65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/265.9f4300d1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/266.868fd3db.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/267.c47ce979.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/268.d0ab9778.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/269.3b3efc3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/27.79b71a65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/270.4f788569.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/271.4fe4a762.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/273.cb605436.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/274.0efe455c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/275.5bc2a05c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/277.4724df32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/278.7e88e133.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/279.d117afb1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/28.96c7e30c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/280.1747c540.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/281.1df8dad8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/282.fb3b056e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/283.7238e6a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/284.333828fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/285.b4db7f5d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/286.203a528e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/287.3c26123e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/288.7b1abc61.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/289.f27ef80f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/29.0be0ff39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/290.b888b1dc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/291.db0ad529.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/292.491ba209.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/293.6222a09d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/294.ac3715a7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/295.3717bceb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/296.88ac43bd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/297.b2519337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/298.4094ee4b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/299.f1b57bd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/3.d8645ed1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/30.6c3af224.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/300.05acfc97.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/301.8b308b88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/302.649b0f63.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/303.02024141.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/304.0e1196b1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/305.b1ea83fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/306.0a66cafd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/307.a06f603b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/308.c5ff11ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/309.884aca03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/31.841f3ded.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/310.06a43026.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/311.7705aadb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/312.16c67c7e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/313.3a6cccf5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/314.bddfc342.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/316.445c3681.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/317.6698324c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/318.83b94f00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/32.283b7a44.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/33.dd6bc432.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/34.88232fa7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/35.aecd5410.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/36.32967ae8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/37.7a64c1c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/38.4556399d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/39.5c25123c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/4.c0ad8e6f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/41.f689f7c8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/42.25c15d8a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/43.14f65079.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/44.4b91b24a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/45.576f776e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/46.6da1e5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/49.d4e60513.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/50.c8b22d33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/56.f2597707.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/57.51fbeade.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/62.1cf89df2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/63.0f78d5dd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/66.fd2de134.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/67.6a554fd7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/69.80992696.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/70.d3126764.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/71.a2e07128.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/72.b5189fa6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/73.367f0392.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/74.f315c04a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/75.1aa88d55.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/76.41b88fff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/77.c6d47945.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/78.f3084837.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/79.8c5a82d4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/80.975fdb87.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/81.efc8d138.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/82.fccf7493.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/83.2978c41b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/85.a3074c64.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/86.6813c6c5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/89.7a73b80d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/9.4a24de8d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/90.6d7286c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/91.65b2c391.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/93.aeac5506.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/94.4c8e5a25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/95.2972011e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/97.be960e26.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/98.39761100.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ho-lok-ue-tools/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Ubuntu 建置 Django 開發作業環境指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#摘要" class="sidebar-link">摘要</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#安裝開發作業基礎工具" class="sidebar-link">安裝開發作業基礎工具</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#安裝-node-js-作業環境" class="sidebar-link">安裝 Node.js 作業環境</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#安裝-node-與-npm-套件" class="sidebar-link">安裝 node 與 npm 套件</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#安裝套件管理器-yarn" class="sidebar-link">安裝套件管理器：yarn</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#安裝-python-作業環境" class="sidebar-link">安裝 Python 作業環境</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#ubuntu-python-特性" class="sidebar-link">Ubuntu Python 特性</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#安裝版本管理器-pyenv" class="sidebar-link">安裝版本管理器 pyenv</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#安裝指定版本-python" class="sidebar-link">安裝指定版本 Python</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#設定作業系統預設-python" class="sidebar-link">設定作業系統預設 Python</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#安裝-vim-編輯器" class="sidebar-link">安裝 Vim 編輯器</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#安裝軟體" class="sidebar-link">安裝軟體</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#設定作業環境" class="sidebar-link">設定作業環境</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#建置-django-app-開發作業環境" class="sidebar-link">建置 Django App 開發作業環境</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#建置-django-app-專案" class="sidebar-link">建置 Django App 專案</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#安裝-uwsgi-wsgi-介面" class="sidebar-link">安裝 uWSGI （WSGI 介面）</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#驗證-uwsgi-可串接-django" class="sidebar-link">驗證 uwsgi 可串接 Django</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#安裝-nginx-http-server" class="sidebar-link">安裝 Nginx (HTTP Server)</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#設定-nginx-uwsgi-作業環境" class="sidebar-link">設定 Nginx + uWSGI 作業環境</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#建置-nginx-虛擬網站" class="sidebar-link">建置 Nginx 虛擬網站</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#驗證-django-app-已能整合運作" class="sidebar-link">驗證 Django App 已能整合運作</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#啟用-nginx-靜態檔的服務" class="sidebar-link">啟用 Nginx 靜態檔的服務</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#使用-uwsgi-介面設定檔" class="sidebar-link">使用 uwsgi 介面設定檔</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#建置-uwsgi-服務" class="sidebar-link">建置 uWSGI 服務</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#停用開發作業虛擬環境" class="sidebar-link">停用開發作業虛擬環境</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#安裝作業系統用-uwsgi" class="sidebar-link">安裝作業系統用 uwsgi</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#建置及啟用-uwsgi-服務" class="sidebar-link">建置及啟用 uWSGI 服務</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#啟用-django-app-服務" class="sidebar-link">啟用 Django App 服務</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#建置多種作業環境機制" class="sidebar-link">建置多種作業環境機制</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#設定多種作業環境" class="sidebar-link">設定多種作業環境</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#建置基礎作業環境" class="sidebar-link">建置基礎作業環境</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#建置開發作業環境" class="sidebar-link">建置開發作業環境</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#建置測試作業環境" class="sidebar-link">建置測試作業環境</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#建置試行作業環境" class="sidebar-link">建置試行作業環境</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#建置上線作業環境" class="sidebar-link">建置上線作業環境</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#建置-heroku-平台作業環境" class="sidebar-link">建置 Heroku 平台作業環境</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#問題診斷與狀況排除" class="sidebar-link">問題診斷與狀況排除</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#解除作業系統預設之-vim" class="sidebar-link">解除作業系統預設之 vim</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#常見操作" class="sidebar-link">常見操作</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#啟用「虛擬環境」" class="sidebar-link">啟用「虛擬環境」</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#啟用與停止虛擬環境" class="sidebar-link">啟用與停止虛擬環境</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#建立虛擬環境" class="sidebar-link">建立虛擬環境</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#套用目前的-python-建立虛擬環境" class="sidebar-link">套用目前的 Python 建立虛擬環境</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#查詢有那些虛擬環境" class="sidebar-link">查詢有那些虛擬環境</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#刪除已建立之虛擬環境" class="sidebar-link">刪除已建立之虛擬環境</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#更新-pip-至最新版" class="sidebar-link">更新 pip 至最新版</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#問題診斷與狀況排除-2" class="sidebar-link">問題診斷與狀況排除</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#執行-uwsgi-發生-run-time-error" class="sidebar-link">執行 uwsgi 發生 run time error</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#啟動-uwsgi-發生-uninx-socket-錯誤" class="sidebar-link">啟動 uwsgi ，發生 uninx socket 錯誤</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#終止使用中的-port" class="sidebar-link">終止使用中的 Port</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#資料參考" class="sidebar-link">資料參考</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-Build_Dev_Platform.html#pyenv-virtualenv-官網資料" class="sidebar-link">pyenv-virtualenv 官網資料</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ubuntu-建置-django-開發作業環境指引"><a href="#ubuntu-建置-django-開發作業環境指引" class="header-anchor">#</a> Ubuntu 建置 Django 開發作業環境指引</h1> <h2 id="摘要"><a href="#摘要" class="header-anchor">#</a> 摘要</h2> <p>在 VirtualBox VM 執行安裝作業，使 VM 成為 Django App 之「作業平台」。</p> <ul><li>安裝開發作業基礎工具</li> <li>安裝 Node.js 作業環境</li> <li>安裝 Python 作業環境</li> <li>安裝編輯器</li> <li>安裝 nginx 服務</li> <li>安裝 Django App 原始碼</li> <li>安裝 uWSGI 服務</li></ul> <h2 id="安裝開發作業基礎工具"><a href="#安裝開發作業基礎工具" class="header-anchor">#</a> 安裝開發作業基礎工具</h2> <ol><li>安裝 git 版本管理套件。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo apt install git
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>安裝檔案下載工具。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo apt install curl
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="安裝-node-js-作業環境"><a href="#安裝-node-js-作業環境" class="header-anchor">#</a> 安裝 Node.js 作業環境</h2> <h3 id="安裝-node-與-npm-套件"><a href="#安裝-node-與-npm-套件" class="header-anchor">#</a> 安裝 node 與 npm 套件</h3> <ol><li>安裝 n 套件管理器</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd
+curl -L https://git.io/n-install | bash
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>或</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>brew install n
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>在 Bash Shell 設定檔，設定 PATH 環境變數。</li></ol> <p>🔖 ~/.bashrc</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>#export N_PREFIX=&quot;$HOME/n&quot;; [[ :$PATH: == *&quot;:$N_PREFIX/bin:&quot;* ]] || PATH+=&quot;:$N_PREFIX/bin&quot;  # Added by n-install (see http://git.io/n-install-repo).
+export N_PREFIX=&quot;$HOME/n&quot;;
+export PATH=&quot;$N_PREFIX/bin:$PATH&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ol start="3"><li>重啟 Bash Shell 。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>source ~/.bashrc
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="4"><li>透過 n 套件管理器，安裝 node 與 npm 套件。</li></ol> <ul><li>最新版</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>n latest
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>最近 LTS 版</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>n lts
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="安裝套件管理器-yarn"><a href="#安裝套件管理器-yarn" class="header-anchor">#</a> 安裝套件管理器：yarn</h3> <p>npm 本身即是 Node 之「套件管理器」。何以要再安裝 yarn ，主要原因是有些套件的安裝
+偏好使用 yarn 所致。</p> <ol><li>安裝</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo npm i -g yarn
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>驗證</li></ol> <p>yarn 安裝位置： /usr/local/bin/yarn</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>which yarn
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="安裝-python-作業環境"><a href="#安裝-python-作業環境" class="header-anchor">#</a> 安裝 Python 作業環境</h2> <h3 id="ubuntu-python-特性"><a href="#ubuntu-python-特性" class="header-anchor">#</a> Ubuntu Python 特性</h3> <ol><li>Ubuntu 20.04 作業系統，預設安裝 <strong>Python 3.8.5</strong> ；但無 Python 2.X 。</li></ol> <p>作業系統預設的安裝目錄路徑：<strong><code>/usr/bin/</code></strong> 。</p> <p>📺 使用指令 python, pyton3 觀察作業系統的預設：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@MBP2018:~$ ssh 192.168.66.220
+Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.8.0-48-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+現在可以安裝 0 項更新。
+其中有 0 項更新為安全性更新。
+
+Your Hardware Enablement Stack (HWE) is supported until April 2025.
+Last login: Sat Apr  3 11:28:46 2021 from 192.168.66.21
+alanjui@VB02-Ubuntu-2004:~$ which python
+alanjui@VB02-Ubuntu-2004:~$ which python3
+/usr/bin/python3
+alanjui@VB02-Ubuntu-2004:~$ python3
+Python 3.8.5 (default, Jan 27 2021, 15:41:15)
+[GCC 9.3.0] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+alanjui@VB02-Ubuntu-2004:~$
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>📺 觀察作業系統預設的「安裝目錄路徑」：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:~$ ll /usr/bin/python*
+lrwxrwxrwx 1 root root       9  3月 13  2020 /usr/bin/python2 -&gt; python2.7*
+-rwxr-xr-x 1 root root 3674216  3月  8 21:02 /usr/bin/python2.7*
+lrwxrwxrwx 1 root root       9  3月 24 21:24 /usr/bin/python3 -&gt; python3.8*
+-rwxr-xr-x 1 root root 5486384  1月 27 23:41 /usr/bin/python3.8*
+lrwxrwxrwx 1 root root      33  1月 27 23:41 /usr/bin/python3.8-config -&gt; x86_64-linux-gnu-python3.8-config*
+lrwxrwxrwx 1 root root      16  3月 13  2020 /usr/bin/python3-config -&gt; python3.8-config*
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><ol start="2"><li>需要使用套件管理器時，得手動安裝 pip3 。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo apt install python3-pip
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>上述指令執行後，使用者即可在作業系統以 pip3 指令，安裝 Python 套件。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>pip3 install [Package_Name]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺 若有需要可查詢 pip3 之版本編號，與其安裝目錄路徑：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:~$ pip3 --version
+pip 21.0.1 from /usr/local/lib/python3.8/dist-packages/pip (python 3.8)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ol start="3"><li>更新 pip3 至最新版本。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>pip3 install --upgrade pip
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>【注意】： 指令最後是 pip ；而非 pip3 。自更新到最新版後，往後使用 pip 這個
+Python 套件管理器，可以改成 pip ；不一定要特別標示為 Python 3.x 版本之 pip3 。</p> <p>📺 pip3 完成更新後，將衍生出 pip ；且 pip3 與 pip 為同一版本。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:~$ ll /usr/local/lib/python3.8/dist-packages/
+總用量 52
+drwxrwsr-x 10 root staff  4096  4月  3 01:37 ./
+drwxrwsr-x  3 root staff  4096  4月 23  2020 ../
+drwxr-sr-x  3 root staff  4096  3月 28 12:01 asgiref/
+drwxr-sr-x  2 root staff  4096  3月 28 12:01 asgiref-3.3.1.dist-info/
+drwxr-sr-x  5 root staff  4096  3月 30 20:55 pip/
+drwxr-sr-x  2 root staff  4096  3月 30 20:55 pip-21.0.1.dist-info/
+drwxr-sr-x  2 root staff  4096  4月  3 01:37 __pycache__/
+drwxr-sr-x  5 root staff  4096  3月 28 12:01 sqlparse/
+drwxr-sr-x  2 root staff  4096  3月 28 12:01 sqlparse-0.4.1.dist-info/
+drwxr-sr-x  2 root staff  4096  4月  3 01:37 uWSGI-2.0.19.1.dist-info/
+-rw-r--r--  1 root staff 10392  4月  3 01:37 uwsgidecorators.py
+
+alanjui@VB02-Ubuntu-2004:~$ which pip3
+/usr/local/bin/pip3
+
+alanjui@VB02-Ubuntu-2004:~$ pip --version
+pip 21.0.1 from /usr/local/lib/python3.8/dist-packages/pip (python 3.8)
+
+alanjui@VB02-Ubuntu-2004:~$ pip3 --version
+pip 21.0.1 from /usr/local/lib/python3.8/dist-packages/pip (python 3.8)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><ol start="4"><li>sudo pip install 與 pip install 的不同。</li></ol> <p>sudo pip install [Package_Name] 會將 Python 套件安裝在如下目錄路徑：</p> <ul><li>套件檔： /usr/local/lib/python3.8/dies-package/[Package_Name]</li> <li>執行檔： /usr/local/bin/[Package_Name]</li></ul> <p>pip install [Package_Name] 會將套件安裝在如下目錄路徑：</p> <ul><li>套件檔： ~/.local/lib/python3.8/dies-package/[Package_Name]</li> <li>執行檔： ~/.local/bin/[Package_Name]</li></ul> <h3 id="安裝版本管理器-pyenv"><a href="#安裝版本管理器-pyenv" class="header-anchor">#</a> 安裝版本管理器 pyenv</h3> <p>安裝 Python 版本管理器：pyenv。</p> <ol><li>執行安裝。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ol start="2"><li>設定 Shell 環境，執行 pyenv 所需「環境變數」。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim ~/.bashrc
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>🔖 ~/.bashrc:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then
+  eval &quot;$(pyenv init -)&quot;
+  eval &quot;$(pyenv virtualenv-init -)&quot;
+fi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><ol start="3"><li>重啟 Shell ，啟用 pyenv 。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>source ~/.bashrc
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="4"><li>查驗 pyenv 安裝路徑：</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>which pyenv
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="5"><li>驗證 pyenv 已能運作。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv versions
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:~$ which pyenv
+/home/alanjui/.pyenv/bin/pyenv
+
+alanjui@VB02-Ubuntu-2004:~$ pyenv versions
+* system (set by /home/alanjui/.pyenv/version)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="安裝指定版本-python"><a href="#安裝指定版本-python" class="header-anchor">#</a> 安裝指定版本 Python</h3> <p>透過 pyenv 指令，安裝指定版本之 Python 直譯器。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv install [Version_No]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺 安裝 Python v3.9.1</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv install 3.9.1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="設定作業系統預設-python"><a href="#設定作業系統預設-python" class="header-anchor">#</a> 設定作業系統預設 Python</h3> <p>將某版本 Python 直譯器，設定成作業系統的「預設 Python 直譯器」。</p> <ol><li>使用 pyenv global 指令，指派作業系統層級之「預設 Python」。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv global [Version_No]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>使用 pyenv versions 指令，查詢「預設 Python」之版本編號。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv versions
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="3"><li>執行下列二指令，用以驗證「Python 直譯器所月嵬之版本編號」與「預設 Python」
+所見「版本編號」一致。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv versions
+python
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ol start="4"><li>執行下列指令，用以驗證 Python [Version_No] 之一致性</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv --version
+~/.pyenv/shims/python --version
+~/.pyenv/versions/[Version_No]/bin/python --version
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>📺 指定「作業系統」的「預設」為 pyenv 的預設： pyenv</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:~$ pyenv global system
+alanjui@VB02-Ubuntu-2004:~$ pyenv versions
+* system (set by /home/alanjui/.pyenv/version)
+  3.8.5
+  3.8.5/envs/mysite.ccc.tw.local
+  3.9.1
+  3.9.1/envs/venv-3.9.1
+  mysite.ccc.tw.local
+  venv-3.9.1
+alanjui@VB02-Ubuntu-2004:~$ pyenv which python
+pyenv: python: command not found
+
+The `python' command exists in these Python versions:
+  3.8.5
+  3.8.5/envs/mysite.ccc.tw.local
+  3.9.1
+  3.9.1/envs/venv-3.9.1
+  mysite.ccc.tw.local
+  venv-3.9.1
+
+Note: See 'pyenv help global' for tips on allowing both
+      python2 and python3 to be found.
+
+alanjui@VB02-Ubuntu-2004:~$ python3 -V
+Python 3.8.5
+
+alanjui@VB02-Ubuntu-2004:~$ echo $PATH
+/home/alanjui/.pyenv/plugins/pyenv-virtualenv/shims:/home/alanjui/.pyenv/shims:/home/alanjui/.pyenv/bin:/home/alanjui/n/bin:/home/alanjui/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/alanjui/n/bin
+
+alanjui@VB02-Ubuntu-2004:~$ which python3
+/home/alanjui/.pyenv/shims/python3
+
+alanjui@VB02-Ubuntu-2004:~$ ~/.pyenv/shims/python3 -V
+Python 3.8.5
+
+alanjui@VB02-Ubuntu-2004:~$ pyenv which python3
+/usr/bin/python3
+
+alanjui@VB02-Ubuntu-2004:~$ /usr/bin/python3 -V
+Python 3.8.5
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><p>📺 使用 pyenv which [Python_Package] ，可確認將執行的 Python 套件，來自那個
+「目錄路徑」。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:~$ pyenv which pip3
+/usr/local/bin/pip3
+
+alanjui@VB02-Ubuntu-2004:~$ pyenv which pip
+/usr/local/bin/pip
+
+alanjui@VB02-Ubuntu-2004:~$ pyenv which uwsgi
+/usr/local/bin/uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p><img src="https://files.realpython.com/media/pyenv-pyramid.d2f35a19ded9.png" alt=""></p> <h2 id="安裝-vim-編輯器"><a href="#安裝-vim-編輯器" class="header-anchor">#</a> 安裝 Vim 編輯器</h2> <p>安裝 Vim 編輯器。</p> <h3 id="安裝軟體"><a href="#安裝軟體" class="header-anchor">#</a> 安裝軟體</h3> <ol><li>下載原始碼。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>git clone https://github.com/vim/vim.git
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>編輯原始碼與安裝執行檔。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd vim
+./configure
+sudo apt install ncurses-dev
+make
+sudo make install
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="設定作業環境"><a href="#設定作業環境" class="header-anchor">#</a> 設定作業環境</h3> <ol><li>安裝 vim 作業設定檔</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>git clone https://github.com/AlanJui/vim8.git ~/.vim
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>安裝 Vim Plugins。</li></ol> <p>啟動 vim ，以便 vim 自動安裝 vim plugins 。</p> <ol start="3"><li>安裝 vim plugins 相依套件。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo apt install vifm
+sudo apt install fzf
+sudo apt install ripgrep
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>npm i -g bash-language-server
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:~$ npm i -g bash-language-server
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN deprecated request-promise-native@1.0.9: request-promise-native has been deprecated because it extends the now deprecated request package, see https://github.com/request/request/issues/3142
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm WARN deprecated left-pad@1.3.0: use String.prototype.padStart()
+/home/alanjui/n/bin/bash-language-server -&gt; /home/alanjui/n/lib/node_modules/bash-language-server/bin/main.js
++ bash-language-server@1.17.0
+added 115 packages from 220 contributors in 9.368s
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h2 id="建置-django-app-開發作業環境"><a href="#建置-django-app-開發作業環境" class="header-anchor">#</a> 建置 Django App 開發作業環境</h2> <p>說明如何建置可供開發 Django App 之作業環境。</p> <h3 id="建置-django-app-專案"><a href="#建置-django-app-專案" class="header-anchor">#</a> 建置 Django App 專案</h3> <ol><li>建置 Django App 專案目錄</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd ~/workspace/django
+mkdir mysite &amp;&amp; cd $_
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ol start="2"><li>建置及啟用虛擬環境。</li></ol> <ul><li>確認作業系統中，已安裝之 Python 有那些版本？</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv versions
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>套用 Python 3.9.1 ，建置名稱為 venv-3.9.1 之「虛擬環境」。</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv virtualenv 3.9.1 venv-3.9.1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>啟動 pyenv-virtualenv「依設定自動啟用虛擬環境」功能</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv local venv-3.9.1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="3"><li>安裝 Django 套件。</li></ol> <ul><li>更新 pip 到最新版</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>pip install --upgrade pip
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>或 ⋯⋯</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>~/.pyenv/versions/3.9.1/envs/venv-3.9.1/bin/python3.9 -m pip install --upgrade pip
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>安裝 Django 套件</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>pip install Django
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>確認 Django 套件版本編號</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>python -m django --version
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ python -m pip install Django
+Collecting Django
+  Using cached Django-3.1.7-py3-none-any.whl (7.8 MB)
+Collecting pytz
+  Using cached pytz-2021.1-py2.py3-none-any.whl (510 kB)
+Collecting asgiref&lt;4,&gt;=3.2.10
+  Using cached asgiref-3.3.1-py3-none-any.whl (19 kB)
+Collecting sqlparse&gt;=0.2.2
+  Using cached sqlparse-0.4.1-py3-none-any.whl (42 kB)
+Installing collected packages: sqlparse, pytz, asgiref, Django
+Successfully installed Django-3.1.7 asgiref-3.3.1 pytz-2021.1 sqlparse-0.4.1
+
+(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ python -m django --version
+3.1.7
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><ol start="4"><li>建置 Django App 專案。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>django-admin startproject app_config .
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ django-admin startproject app_config .
+
+(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ ll
+總用量 20
+drwxrwxr-x 3 alanjui alanjui 4096  4月  1 14:08 ./
+drwxrwxr-x 3 alanjui alanjui 4096  4月  1 13:16 ../
+drwxrwxr-x 2 alanjui alanjui 4096  4月  1 14:08 app_config/
+-rwxrwxr-x 1 alanjui alanjui  666  4月  1 14:08 manage.py*
+-rw-rw-r-- 1 alanjui alanjui   11  4月  1 13:59 .python-version
+
+(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ tree .
+.
+├── app_config
+│   ├── asgi.py
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── manage.py
+
+1 directory, 6 files
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><ol start="5"><li>設定 Django App 能使用之 Domain Name 或 IP 。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim app_config/settings.py
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>🔖</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>ALLOWED_HOSTS = [
+    'mysite.ccc.tw.local',
+    '192.168.66.220',
+    'localhost',
+    '127.0.0.1',
+]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><ol start="6"><li>驗證 Django App 已能運作。</li></ol> <ul><li>啟用 Django App</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>python manage.py runserver 0.0.0.0:8000
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>使用「瀏覽器」觀察以下網址，若能看到如下畫面，即表通過驗證。</p> <ul><li>http://192.168.66.220:8000/</li> <li>http://mysite.ccc.tw.local:8000/</li></ul> <p><img src="/assets/img/django/django-app-default-home.png" alt=""></p> <h3 id="安裝-uwsgi-wsgi-介面"><a href="#安裝-uwsgi-wsgi-介面" class="header-anchor">#</a> 安裝 uWSGI （WSGI 介面）</h3> <p>WSGI: Web Server Gateway Interface ，為 HTTP Server 與 Application Server 串接
+之介面。在此指引，Application Server 即代表 Django App 應用系統。</p> <p>以下說明，如何安裝 uwsgi 套件。在安裝結束後，進行一個簡單的測試，用以驗證 uwsgi
+能與 Python 程式串接。此 Python 測試程式，扮演「偽 Application Server」（或稱：
+假 Django App）。這個測試可用以驗證 uwsgi 的安裝正確；另外亦能用於證明 uwsgi 可
+用於串接 Python 程式碼。</p> <ol><li>安裝 python 套件：uwsgi</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>pip install uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ pip install uwsgi
+    Collecting uwsgi
+Using cached uWSGI-2.0.19.1.tar.gz (803 kB)
+    Using legacy 'setup.py install' for uwsgi, since package 'wheel' is not installed.
+    Installing collected packages: uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><ol start="2"><li>建立測試原始碼： wsgi_test.py 。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code># wsgi_test.py
+
+def application(env, start_response):
+start_response('200 OK', [('Content-Type','text/html')])
+return [b&quot;Hello World&quot;] # python3
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><ol start="3"><li>啟動 WSGI 介面程式，要求 uwsgi 監聽 Port: 9000 ，將收到之 HTTP Request，依據
+--wsgi-file 參數之設定，轉交「偽 Application Server （假 Django App）」 處理。</li></ol> <p>通信路徑：
+Web Client ⬅➡ uWSGI (Port: 9000) ⬅➡ Django App（Fake）</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>uwsgi --http :9000 --wsgi-file wsgi_test.py
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="4"><li>啟動「瀏覽器」觀察網址： http://mysite.ccc.tw.local:9000/ 。若在「網頁」看到
+Hello World 即代表測試通過。</li></ol> <p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ uwsgi --http :9000 --wsgi-file wsgi_test.py
+*** Starting uWSGI 2.0.19.1 (64bit) on [Thu Apr  1 15:19:16 2021] ***
+compiled with version: 9.3.0 on 01 April 2021 07:04:38
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /home/alanjui/workspace/django/mysite
+detected binary path: /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 15511
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :9000 fd 4
+spawned uWSGI http 1 (pid: 22278)
+uwsgi socket 0 bound to TCP address 127.0.0.1:37807 (port auto-assigned) fd 3
+Python version: 3.9.1 (default, Mar 26 2021, 13:50:53)  [GCC 9.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55f5d0d131e0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72920 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55f5d0d131e0 pid: 22236 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 22236, cores: 1)
+[pid: 22236|app: 0|req: 1/1] 192.168.66.21 () {38 vars in 725 bytes} [Thu Apr  1 15:19:45 2021] GET / =&gt; generated 11 bytes in 0 msecs (HTTP/1.1 200) 1 headers in 44 bytes (1 switches on core 0)
+[pid: 22236|app: 0|req: 2/2] 192.168.66.21 () {38 vars in 689 bytes} [Thu Apr  1 15:19:45 2021] GET /favicon.ico =&gt; generated 11 bytes in 0 msecs (HTTP/1.1 200) 1 headers in 44 bytes (1 switches on core 0)
+^C(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><h3 id="驗證-uwsgi-可串接-django"><a href="#驗證-uwsgi-可串接-django" class="header-anchor">#</a> 驗證 uwsgi 可串接 Django</h3> <p>要求 uwsgi 監聽 Port: 8001 ，將收到之 HTTP Request ，依據 --module 參數之設定
+，將 Port: 8001 所收到之 HTTP Request 轉交 Django App 處理。</p> <p>通信路徑：
+Web Client ⬅➡ uWSGI (Port: 8001) ⬅➡ Django App</p> <ol><li>啟動 uwsgi 介面程式。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>uwsgi --http :8001 --module app_config.wsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ uwsgi --http :8001 --module app_config.wsgi
+*** Starting uWSGI 2.0.19.1 (64bit) on [Mon Apr  5 10:31:55 2021] ***
+compiled with version: 9.3.0 on 02 April 2021 17:30:08
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/alanjui/workspace/django/mysite
+detected binary path: /home/alanjui/.pyenv/versions/3.8.5/envs/mysite.ccc.tw.local/bin/uwsgi
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 15511
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8001 fd 4
+spawned uWSGI http 1 (pid: 7888)
+uwsgi socket 0 bound to TCP address 127.0.0.1:33437 (port auto-assigned) fd 3
+Python version: 3.8.5 (default, Apr  3 2021, 00:06:18)  [GCC 9.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x558a67952e20
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72920 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x558a67952e20 pid: 7846 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 7846, cores: 1)
+[pid: 7846|app: 0|req: 1/1] 192.168.66.21 () {38 vars in 726 bytes} [Mon Apr  5 02:32:12 2021] GET / =&gt; generated 16351 bytes in 18 msecs (HTTP/1.1 200) 5 headers in 153 bytes (1 switches on core 0)
+Not Found: /static/admin/css/fonts.css
+[pid: 7846|app: 0|req: 2/2] 192.168.66.21 () {38 vars in 674 bytes} [Mon Apr  5 02:32:13 2021] GET /static/admin/css/fonts.css =&gt; generated 2031 bytes in 13 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 7846|app: 0|req: 3/3] 192.168.66.21 () {38 vars in 690 bytes} [Mon Apr  5 02:32:13 2021] GET /favicon.ico =&gt; generated 1986 bytes in 4 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+^C(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><ol start="2"><li>啟動「瀏覽器」觀察網址： http://mysite.ccc.tw.local:8001/ 。若能在「網頁」看到
+如下畫面，即表測試通過。</li></ol> <p><img src="/assets/img/django/django-app-default-home.png" alt=""></p> <h3 id="安裝-nginx-http-server"><a href="#安裝-nginx-http-server" class="header-anchor">#</a> 安裝 Nginx (HTTP Server)</h3> <p>安裝 nginx 作為 HTTP Server。</p> <ol><li>安裝 nginx 套件。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo apt install nginx -y
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>驗證 nginx 服務已啟動。</li></ol> <ul><li>驗證服務已啟用，且能隨作業系統開機自動啟動</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>systemctl status nginx
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:~$ systemctl status nginx
+● nginx.service - A high performance web server and a reverse proxy server
+Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+Active: active (running) since Fri 2021-03-26 14:30:00 CST; 1min 10s ago
+Docs: man:nginx(8)
+Main PID: 67493 (nginx)
+Tasks: 3 (limit: 4653)
+Memory: 4.8M
+CGroup: /system.slice/nginx.service
+├─67493 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+├─67494 nginx: worker process
+└─67495 nginx: worker process
+
+3 月 26 14:30:00 VB02-Ubuntu-2004 systemd[1]: Starting A high performance web server and a reverse proxy ser&gt;
+3 月 26 14:30:00 VB02-Ubuntu-2004 systemd[1]: Started A high performance web server and a reverse proxy serv&gt;
+lines 1-14/14 (END)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><ol start="3"><li>驗證 nginx 的 HTTP Server 已能正常運作</li></ol> <p>使用 Web 瀏覽器，瀏覽如下網址，若能正常閱讀「網頁」內容，則表 HTTP Server 已能
+正常運作。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>http://[IP_Address]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p><img src="/assets/img/nginx/nginx_browse_test.png" alt="ArchLinux: Django Project"></p> <h2 id="設定-nginx-uwsgi-作業環境"><a href="#設定-nginx-uwsgi-作業環境" class="header-anchor">#</a> 設定 Nginx + uWSGI 作業環境</h2> <h3 id="建置-nginx-虛擬網站"><a href="#建置-nginx-虛擬網站" class="header-anchor">#</a> 建置 Nginx 虛擬網站</h3> <ol><li>套用 defaut 虛擬網站設定檔，建置 Django App 虛擬網站。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd ~/workspace/django/mysite
+cp /etc/nginx/sites-available/default config/mysite.ccc.tw.local.conf
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ol start="2"><li>設定 Django App 的「Nginx 虛擬網站」作業環境。</li></ol> <ul><li>監聽 Port：8001</li></ul> <p>Nginx 依據「虛擬網站設定」，處理接收到之 HTTP Request ，對於無法處理之 Request ，
+則依據「設定檔中最後一條處理規則：uwsgi_pass」，轉交 upstream django { ... } 其中
+的設定處理。</p> <p>也就是 Nginx 虛擬網站，對於無法處理的 HTTP Request ，將透過 Port: 8001 轉交 WSGI
+介面的程式 uwsgi 。uwsgi 這個介面程式，將把收到的 HTTP Request ，再次轉傳給最終的
+Django App 進行處理。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim config/mysite.ccc.tw.local.conf
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>🔖 mysite.ccc.tw.local.conf</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>upstream django {
+    # for a web port socket
+    server 127.0.0.1:8001;
+}
+
+server {
+    # the port mysite will be served on
+    listen 80;
+
+    server_name mysite.ccc.tw.local;
+
+    root /home/alanjui/worksapce/django/mysite;
+
+    # Finally, send all non-static, non-media requests to the Django App server.
+    location / {
+        uwsgi_pass  django;
+        include     /etc/nginx/uwsgi_params;
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><ol start="3"><li>停用 Default 虛擬網站</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo unlink /etc/nginx/sites-enabled/default
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="4"><li>啟用 Django App 虛擬網站</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo ln -nfs ~/workspace/django/mysite/config/mysite.ccc.tw.local.conf /etc/nginx/sites-enabled
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="5"><li>檢驗虛擬網站的設定，正確無誤。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo nginx -t
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺 驗證失敗</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite/config\$ sudo nginx -t
+nginx: [emerg] unexpected &quot;}&quot; in /etc/nginx/sites-enabled/mysite.ccc.tw.local.conf:81
+nginx: configuration file /etc/nginx/nginx.conf test failed
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>📺 驗證通過</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite/config\$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ol start="6"><li>重啟 nginx 服務。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo sytemctl restart nginx
+systemctl status nginx
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ol start="7"><li>啟動 WSGI 介面程式，要求 uwsgi 監聽 Port: 8001 ，然後透過 --module 參數的設定
+，將 Port: 8001 收到的 HTTP Request 轉交 Django App 處理。</li></ol> <p>通信路徑：
+Web Client ⬅➡ Web Server (Nginx) ⬅➡ uWSGI (Port: 8001) ⬅➡ Django App</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>uwsgi --socket :8001 --module app_config.wsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ uwsgi --http :8001 --module app_config.wsgi
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Apr  2 10:42:19 2021] ***
+compiled with version: 9.3.0 on 01 April 2021 07:04:38
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /home/alanjui/workspace/django/mysite
+detected binary path: /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 15511
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8001 fd 4
+spawned uWSGI http 1 (pid: 28180)
+uwsgi socket 0 bound to TCP address 127.0.0.1:43009 (port auto-assigned) fd 3
+Python version: 3.9.1 (default, Mar 26 2021, 13:50:53)  [GCC 9.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55e0c9c181d0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72920 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55e0c9c181d0 pid: 28138 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 28138, cores: 1)
+[pid: 28138|app: 0|req: 1/1] 192.168.66.21 () {40 vars in 750 bytes} [Fri Apr  2 02:42:40 2021] GET / =&gt; generated 16351 bytes in 11 msecs (HTTP/1.1 200) 5 headers in 153 bytes (1 switches on core 0)
+Not Found: /static/admin/css/fonts.css
+[pid: 28138|app: 0|req: 2/2] 192.168.66.21 () {40 vars in 728 bytes} [Fri Apr  2 02:42:40 2021] GET /static/admin/css/fonts.css =&gt; generated 2031 bytes in 5 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 28138|app: 0|req: 3/3] 192.168.66.21 () {38 vars in 690 bytes} [Fri Apr  2 02:42:44 2021] GET /favicon.ico =&gt; generated 1986 bytes in 6 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+^C(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><ol start="8"><li>驗證 Django App 虛擬網站的 HTTP 服務已能正常運作。</li></ol> <p>使用 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/ 。若一切正常，應能於瀏覽器
+看到如下「內容」之網頁。</p> <p><img src="/assets/img/django/django-app-default-home.png" alt=""></p> <h3 id="驗證-django-app-已能整合運作"><a href="#驗證-django-app-已能整合運作" class="header-anchor">#</a> 驗證 Django App 已能整合運作</h3> <ol><li>變更 socket 串連方式為 uninx socket 。</li></ol> <p>令 Nginx 虛擬網站與 uwsgi 介面程式的串接，自原來的 uwsgi 監聽 Port: 8001 ，改為：
+監聽 uninx socket 檔案。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim config/mysite.ccc.tw.local.conf
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>🔖 mysite.ccc.tw.local.conf</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>upstream django {
+    # for a web port socket
+    # server 127.0.0.1:8001;
+
+    # for a file socket
+    # server unix:///path/to/your/mysite/mysite.sock;
+    # server unix:///home/alanjui/worksapce/django/mysite/run/mysite.ccc.tw.local.sock;
+    server unix:///run/uwsgi/mysite.ccc.tw.local.sock;
+}
+
+server {
+    # the port mysite will be served on
+    listen 80;
+
+    server_name mysite.ccc.tw.local;
+
+    root /home/alanjui/worksapce/django/mysite;
+
+    # Finally, send all non-static, non-media requests to the Django App server.
+    location / {
+        uwsgi_pass  django;
+        include     /etc/nginx/uwsgi_params;
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><ol start="2"><li>備妥 unix socket 檔案，欲存放之「目錄」： /run/uwsgi/ 。</li></ol> <ul><li>建立目錄</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo mkdir -p /run/uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>設定目錄及檔案的「擁有著」與「使用權限」</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo chown -R www-data:www-data /run/uwsgi
+sudo chmod -R 775 /run/uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ol start="3"><li>重啟 nginx 服務。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo systemctl restart nginx
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="4"><li>啟動 WSGI 介面。</li></ol> <p>通信路徑：
+Web Client ⬅➡ Web Server ⬅➡ Web Socket (Socket File) ⬅➡ uWSGI ⬅➡ Django App</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>uwsgi --socket /run/uwsgi/mysite.ccc.tw.local.sock --module app_config.wsgi --chmod-socket=666
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ uwsgi --socket /run/uwsgi/mysite.ccc.tw.local.sock --module app_config.wsgi --chmod-socket=666
+*** Starting uWSGI 2.0.19.1 (64bit) on [Mon Apr  5 11:59:53 2021] ***
+compiled with version: 9.3.0 on 02 April 2021 17:30:08
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/alanjui/workspace/django/mysite
+detected binary path: /home/alanjui/.pyenv/versions/3.8.5/envs/mysite.ccc.tw.local/bin/uwsgi
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 15511
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /run/uwsgi/mysite.ccc.tw.local.sock fd 3
+Python version: 3.8.5 (default, Apr  3 2021, 00:06:18)  [GCC 9.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x563b16c43890
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72920 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x563b16c43890 pid: 11003 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 11003, cores: 1)
+[pid: 11003|app: 0|req: 1/1] 192.168.66.21 () {42 vars in 797 bytes} [Mon Apr  5 04:00:25 2021] GET / =&gt; generated 16351 bytes in 11 msecs (HTTP/1.1 200) 5 headers in 153 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 11003|app: 0|req: 2/2] 192.168.66.21 () {42 vars in 756 bytes} [Mon Apr  5 04:00:25 2021] GET /favicon.ico =&gt; generated 1981 bytes in 8 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+^C(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><ol start="4"><li>啟動「瀏覽器」觀察網址： http://mysite.ccc.tw.local/ ，若能看到以下畫面，
+即表通過測試。</li></ol> <p><img src="/assets/img/django/django-app-default-home.png" alt=""></p> <h3 id="啟用-nginx-靜態檔的服務"><a href="#啟用-nginx-靜態檔的服務" class="header-anchor">#</a> 啟用 Nginx 靜態檔的服務</h3> <p>啟用 Nginx 的「靜態檔」服務。當 HTTP Request 僅只是要求下載 static 或 media 類型
+的檔案時，Nginx 服務將發揮扮演「HTTP Server」的角色，直接提供檔案下載的服務；但
+若 HTTP Request 不是要求下載靜態檔時，Nginx 即透過 upstream 中的設定，將 HTTP Request
+轉交予 uwsgi 介面程式，再由 uwsgi 交付給最終的 Django App 處理。</p> <p>通信路徑：
+Web Client ⬅➡ Web Server ⬅➡ Web Socket (Socket File) ⬅➡ uWSGI ⬅➡ Django App</p> <p>驗證 Web Client 傳來之 HTTP Request ，能被 uwsgi 服務接收，並轉傳至 Django App 。</p> <ol><li>建置「靜態檔案類型目錄」。</li></ol> <p>建立 static 及 media 靜態檔使用目錄。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd ~/workspace/django/mysite
+mkdir media
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ol start="2"><li>編輯 Django App 的設定檔</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim app_config/settings.py
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>設定 static_root ，令「靜態檔」集中匯入：專案目錄下的子目錄：static_files</li></ul> <p>🔖 settings.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static_files'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><ol start="3"><li>佈署 Django App 的「靜態檔案（static files）」。</li></ol> <p>匯集所有靜態檔案至「靜態檔佈署目錄」：
+/home/alanjui/workspace/django/mysite/static_files/</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>python manage.py collectstatic
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="4"><li>佈署 Django App 的 Media 檔案</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>cp static_files/admin/img/search.svg media/
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="5"><li>變更 Nginx 虛擬網站設定檔。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim config/mysite.ccc.tw.local.conf
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>🔖 mysite.ccc.tw.local</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>upstream django {
+    # server 127.0.0.1:8001;
+    server unix:///run/uwsgi/mysite.ccc.tw.local.sock;
+}
+
+server {
+    # listen 8000;
+    listen 80;
+
+    server_name mysite.ccc.tw.local;
+
+    root /home/alanjui/workspace/django/mysite;
+    # index index.html;
+    charset utf-8;
+
+    # max upload size
+    client_max_body_size 75M; # adjust to taste
+
+    # Django media
+    location /media {
+        alias /home/alanjui/workspace/django/mysite/media;
+    }
+
+    # Django static
+    location /static {
+        # alias /home/alanjui/workspace/django/mysite/static_collected;
+        alias /home/alanjui/workspace/django/mysite/static_files;
+    }
+
+    # Finally, send all non-media requests to the Djang server.
+    location / {
+        # try_files $uri $uri/ =404;
+        uwsgi_pass      django;
+        include         /etc/nginx/uwsgi_params;
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><ol start="6"><li>驗證設定語法正確。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo nginx -t
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="7"><li>重啟 Nginx 服務</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo systemctl restart nginx
+systemctl status nginx
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ol start="8"><li>啟動 uwsgi 介面程式。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>uwsgi --socket ./run/mysite.ccc.tw.local.sock --module app_config.wsgi --chmod-socket=666
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📚 若執行 uwsgi 時，不在「Django App 專案目錄」時（如：Shell 的現行目錄在 Home），
+則可加入 chdir 選項，令 uwsgi 仍能正常執行。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd
+
+uwsgi --socket ~/workspace/django/mysite/run/mysite.ccc.tw.local.sock \
+--chdir ~/workspace/django/mysite \
+--module app_config.wsgi \
+--chmod-socket=666
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><ol start="9"><li>驗證能存取 static 靜態檔案</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/static/admin/img/search.svg
+，確認「網頁」能見到「放大鏡圖示」。</p> <ol start="10"><li>驗證能存取 media 靜態檔案</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/media/search.svg
+，確認「網頁」能見到「放大鏡圖示」。</p> <ol start="11"><li>驗證非存取 static 與 media 的 HTTP Request 會被送往 Django App ，使用者會
+在「網頁」看到如下畫面。</li></ol> <p><img src="/assets/img/django/django-app-default-home.png" alt=""></p> <ol start="12"><li>清除測試後，遺留下的 unix socket 檔案。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>ls -al /etc/uwsgi/
+sudo rm -f /etc/uwsgi/mysite.ccc.tw.local.sock
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="使用-uwsgi-介面設定檔"><a href="#使用-uwsgi-介面設定檔" class="header-anchor">#</a> 使用 uwsgi 介面設定檔</h3> <p>為使 uwsgi 介面程式啟動的時候，可以更簡便些，不用輸入那麼多的「參數」。改善的
+方法便是，設定 uwsgi 介面設定檔。</p> <ol><li>建置 uwsgi 服務設定檔</li></ol> <p>建置 uWSGI 介面設定檔： mysite_uwsgi.ini 。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd /home/alanjui/worksapce/django/mysite
+vim config/mysite_uwsgi.ini
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>🔖 uwsgi_mysite.ini</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># uwsgi_mysite.ini
+[uwsgi]
+project = mysite
+domain = %(project).ccc.tw.local
+uid = www-data
+gid = www-data
+base = /home/alanjui/workspace/django/%(project)
+
+# Django-related settings
+# the base directory (full path)
+#chdir = /home/alanjui/workspace/django/mysite
+chdir = %(base)
+
+# Django's wsgi file
+module = app_config.wsgi
+
+# the virtualenv (full path)
+#home = /home/alanjui/worksapce/django/mysite/.venv
+#home = %(chdir)/.venv
+#home = /home/alanjui/.pyenv/versions/3.8.5/envs/mysite.ccctw.local
+home = /home/alanjui/.pyenv/versions/$(domain)
+
+# process-related settings
+# master
+master = true
+
+# maximum number of worker processes
+processes = 10
+
+# the socket (use the full path to be safe
+# socket = /run/uwsgi/%(project).sock
+# socket = /home/alanjui/workspace/django/mysite/run/mysite.ccc.tw.local.sock
+socket = /run/uwsgi/%(domain).sock
+
+# ... with appropriate permissions - may be needed
+#chmod-socket = 664
+chmod-socket = 666
+
+# clear environment on exit
+vacuum = true
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><ol start="7"><li>使用 uwsgi 介面設定檔，啟動 uwsgi 介面程式。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>uwsgi --ini config/uwsgi_mysite.ini
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ uwsgi --ini config/mysite_uwsgi.ini
+[uWSGI] getting INI configuration from config/mysite_uwsgi.ini
+*** Starting uWSGI 2.0.19.1 (64bit) on [Sat Apr  3 01:51:54 2021] ***
+compiled with version: 9.3.0 on 02 April 2021 17:30:08
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/alanjui/workspace/django/mysite
+detected binary path: /home/alanjui/.pyenv/versions/3.8.5/envs/mysite.ccc.tw.local/bin/uwsgi
+chdir() to /home/alanjui/workspace/django/mysite
+your processes number limit is 15511
+your memory page size is 409 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/alanjui/workspace/django/mysite/run/mysite.ccc.tw.local.sock fd 3
+Python version: 3.8.5 (default, Apr  3 2021, 00:06:18)  [GCC 9.3.0]
+PEP 405 virtualenv detected: /home/alanjui/.pyenv/versions/mysite.ccc.tw.local
+Set PythonHome to /home/alanjui/.pyenv/versions/mysite.ccc.tw.local
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5612b7a9bab0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x5612b7a9bab0 pid: 54009 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 54009)
+spawned uWSGI worker 1 (pid: 54052, cores: 1)
+spawned uWSGI worker 2 (pid: 54053, cores: 1)
+spawned uWSGI worker 3 (pid: 54054, cores: 1)
+spawned uWSGI worker 4 (pid: 54055, cores: 1)
+spawned uWSGI worker 5 (pid: 54056, cores: 1)
+spawned uWSGI worker 6 (pid: 54057, cores: 1)
+spawned uWSGI worker 7 (pid: 54058, cores: 1)
+spawned uWSGI worker 8 (pid: 54059, cores: 1)
+spawned uWSGI worker 9 (pid: 54060, cores: 1)
+spawned uWSGI worker 10 (pid: 54061, cores: 1)
+[pid: 54058|app: 0|req: 1/1] 192.168.66.21 () {44 vars in 828 bytes} [Fri Apr  2 17:52:01 2021] GET / =&gt; generated 16351 bytes in 16 msecs (HTTP/1.1 200) 5 headers in 153 bytes (1 switches on core 0)
+Not Found: /static/admin/css/fonts.css
+[pid: 54058|app: 0|req: 2/2] 192.168.66.21 () {42 vars in 740 bytes} [Fri Apr  2 17:52:01 2021] GET /static/admin/css/fonts.css =&gt; generated 2026 bytes in 8 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+^CSIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+worker 6 buried after 1 seconds
+worker 7 buried after 1 seconds
+worker 8 buried after 1 seconds
+worker 9 buried after 1 seconds
+worker 10 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/alanjui/workspace/django/mysite/run/mysite.ccc.tw.local.sock removed.
+(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$6
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br></div></div><ol start="8"><li>驗證能存取 static 靜態檔案</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/static/admin/img/search.svg
+，確認「網頁」能見到「放大鏡圖示」。</p> <ol start="9"><li>驗證能存取 media 靜態檔案</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/media/search.svg
+，確認「網頁」能見到「放大鏡圖示」。</p> <ol start="10"><li>驗證非存取 static 與 media 的 HTTP Request 會被送往 Django App ，使用者會
+在「網頁」看到如下畫面。</li></ol> <p><img src="/assets/img/django/django-app-default-home.png" alt=""></p> <h2 id="建置-uwsgi-服務"><a href="#建置-uwsgi-服務" class="header-anchor">#</a> 建置 uWSGI 服務</h2> <p>建置作業系統完成開機，便能自動啟動的 uWSGI 服務，以為 HTTP Server（Nginx Service）
+引用的 WSGI (Web Server Gateway Interface) 。</p> <p>📚 <a href="https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/uwsgi/" target="_blank" rel="noopener noreferrer">How to use Django with uWSGI<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="停用開發作業虛擬環境"><a href="#停用開發作業虛擬環境" class="header-anchor">#</a> 停用開發作業虛擬環境</h3> <p>停止使用 Django App 在「開發作業」使用的虛擬環境：mysite.ccc.tw.local。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>由於啟用 pyenv-virtualenv 及 pyenv local ，故而 Django App 專案，無法使用下列
+指令，停用虛擬環境。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd ~/workspace/django/mysite
+pyenv deactivate
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="安裝作業系統用-uwsgi"><a href="#安裝作業系統用-uwsgi" class="header-anchor">#</a> 安裝作業系統用 uwsgi</h3> <ol><li>安裝作業系統層級使用之 uWSGI 套件。</li></ol> <ul><li>Install current stable version</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo /usr/bin/python3.8 -m pip instal uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ul><li>Install LTS (Long Term Support)</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo /usr/bin/python3.8 -m pip install https://projects.unbit.it/downloads/uwsgi-lts.tar.gz
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>使用 pip 指令，驗證作業系統已安裝：uwsgi ，這個 Python 套件。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>/usr/bin/python3.8 -m pip list
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:~$ /usr/bin/python3.8 -m pip list
+[sudo] alanjui 的密碼：
+Package                Version
+---------------------- --------------------
+apturl                 0.5.2
+asgiref                3.3.1
+astroid                2.4.2
+blinker                1.4
+Brlapi                 0.7.0
+certifi                2019.11.28
+chardet                3.0.4
+Click                  7.0
+colorama               0.4.3
+....
+ssh-import-id          5.10
+systemd-python         234
+ubuntu-advantage-tools 20.3
+ubuntu-drivers-common  0.0.0
+ufw                    0.36
+unattended-upgrades    0.1
+urllib3                1.25.8
+uWSGI                  2.0.19.1
+wadllib                1.3.3
+wheel                  0.34.2
+wrapt                  1.12.1
+xkit                   0.0.0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br></div></div><ol start="3"><li>透過「安裝目錄路徑」，驗證 uwsgi 已安裝。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>ll /usr/local/lib/python3.8/dist-packages/
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:~$ ll /usr/local/lib/python3.8/dist-packages/
+總用量 52
+drwxrwsr-x 10 root staff  4096  4月  3 22:59 ./
+drwxrwsr-x  3 root staff  4096  4月 23  2020 ../
+drwxr-sr-x  3 root staff  4096  3月 28 12:01 asgiref/
+drwxr-sr-x  2 root staff  4096  3月 28 12:01 asgiref-3.3.1.dist-info/
+drwxr-sr-x  5 root staff  4096  3月 30 20:55 pip/
+drwxr-sr-x  2 root staff  4096  3月 30 20:55 pip-21.0.1.dist-info/
+drwxr-sr-x  2 root staff  4096  4月  3 22:59 __pycache__/
+drwxr-sr-x  5 root staff  4096  3月 28 12:01 sqlparse/
+drwxr-sr-x  2 root staff  4096  3月 28 12:01 sqlparse-0.4.1.dist-info/
+drwxr-sr-x  2 root staff  4096  4月  3 22:59 uWSGI-2.0.19.1.dist-info/
+-rw-r--r--  1 root staff 10392  4月  3 22:59 uwsgidecorators.py
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h3 id="建置及啟用-uwsgi-服務"><a href="#建置及啟用-uwsgi-服務" class="header-anchor">#</a> 建置及啟用 uWSGI 服務</h3> <ol><li>建立 uwsgi 使用的 systemd 服務設定檔。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo vim /etc/systemd/system/uwsgi.service
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>🔖 uwsgi.service</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[Unit]
+Description=uWSGI Empermor Mode Service
+After=syslog.target
+
+[Service]
+ExecStartPre=/bin/bash -c &quot;mkdir -p /run/uwsgi; chown www-data:www-data /run/uwsgi&quot;
+ExecStart=/usr/local/bin/uwsgi --emperor /etc/uwsgi/apps-enabled --uid www-data --gid www-data
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><ol start="2"><li>啟用 uwsgi 的 systemd 服務。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo systemctl enable uwsgi
+sudo systemctl start uwsgi
+systemctl status uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="啟用-django-app-服務"><a href="#啟用-django-app-服務" class="header-anchor">#</a> 啟用 Django App 服務</h3> <p>透過 uwsgi 服務，將 Django App 當成服務啟用。（意即：當作業系統完成開機後，
+Django App 即能操作使用。）</p> <p>以 Emperor Mode 啟用 uWSGI 服務。</p> <ol><li>建置 Emperor Mode 服務用 vassals 目錄</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo mkdir -p /etc/uwsgi/apps-available
+sudo mkdir -p /etc/uwsgi/apps-enabled
+
+sudo chown -R www-data:www-data /etc/uwsgi
+sudo chmod -R 775 /etc/uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><ol start="2"><li>啟用服務設定</li></ol> <p>建立 uwsgi 服務設定檔的連結，放至目錄路徑中： /etc/uwsgi/apps-enabled/</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo ln -nfs /home/alanjui/workspace/django/mysite/config/uwsgi_mysite.ini /etc/uwsgi/apps-available
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="3"><li>以 Emper Mode 啟用 uwsgi 服務</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo systemctl restart uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="4"><li>驗證能存取 static 靜態檔案</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/static/admin/img/search.svg
+，確認「網頁」能見到「放大鏡圖示」。</p> <ol start="5"><li>驗證能存取 media 靜態檔案</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/media/search.svg
+，確認「網頁」能見到「放大鏡圖示」。</p> <ol start="6"><li>驗證非存取 static 與 media 的 HTTP Request 會被送往 Django App</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/ ，確認「網頁」能見到
+如下圖之內容。</p> <p><img src="/assets/img/django/django-app-default-home.png" alt=""></p> <h2 id="建置多種作業環境機制"><a href="#建置多種作業環境機制" class="header-anchor">#</a> 建置多種作業環境機制</h2> <p>為配合 uwsgi 服務之正常運作，Django App 宜有「多環境設定檔」，以便「開發作業」、
+「測試（SIT）作業」、「試行（Staging）作業」與「上線（Production）作業」，各種
+不同作業時期，都能自動切換應有的設定。</p> <ul><li>開發作業：dev.py</li> <li>測試作業：test.py</li> <li>試行作業：staging.py</li> <li>上線作業：prod.py</li></ul> <h3 id="設定多種作業環境"><a href="#設定多種作業環境" class="header-anchor">#</a> 設定多種作業環境</h3> <p>設定多種作業環境機制，需配合變更之檔案：</p> <ul><li>manage.py</li> <li>wsgi.py</li> <li>urls.py</li></ul> <p>🔖 managy.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+#!/usr/bin/env python
+import os
+import sys
+
+if **name** == &quot;**main**&quot;:
+os.environ.setdefault(&quot;DJANGO_SETTINGS_MODULE&quot;, &quot;web_site.settings.prod&quot;)
+try:
+from django.core.management import execute_from_command_line
+except ImportError as exc:
+raise ImportError(
+&quot;Couldn't import Django. Are you sure it's installed and &quot;
+&quot;available on your PYTHONPATH environment variable? Did you &quot;
+&quot;forget to activate a virtual environment?&quot;
+) from exc
+execute_from_command_line(sys.argv)
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>🔖 wsgi.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+&quot;&quot;&quot;
+WSGI config for web_site project.
+
+It exposes the WSGI callable as a module-level variable named `application`.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/
+&quot;&quot;&quot;
+
+import os
+
+from django.core.wsgi import get_wsgi_application
+
+# os.environ.setdefault(&quot;DJANGO_SETTINGS_MODULE&quot;, &quot;web_site.settings&quot;)
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web_site.settings.prod')
+
+application = get_wsgi_application()
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>🔖 urls.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+&quot;&quot;&quot;web_site URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+https://docs.djangoproject.com/en/2.0/topics/http/urls/
+Examples:
+Function views
+
+1. Add an import: from my_app import views
+2. Add a URL to urlpatterns: path('', views.home, name='home')
+   Class-based views
+3. Add an import: from other_app.views import Home
+4. Add a URL to urlpatterns: path('', Home.as_view(), name='home')
+   Including another URLconf
+5. Import the include() function: from django.urls import include, path
+6. Add a URL to urlpatterns: path('blog/', include('blog.urls'))
+   &quot;&quot;&quot;
+   from django.contrib import admin
+   from django.urls import path, include
+
+urlpatterns = [
+path('admin/', admin.site.urls),
+path('accounts/', include('accounts.urls')),
+path('accounts/', include('django.contrib.auth.urls')),
+path('books/', include('books.urls')),
+path('posts/', include('posts.urls')),
+path('', include('pages.urls')),
+]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><h3 id="建置基礎作業環境"><a href="#建置基礎作業環境" class="header-anchor">#</a> 建置基礎作業環境</h3> <p>建置 Django App 基礎作業環境，以為其它各種作業環境
+所引用的「基底」。</p> <p>🔖 base.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+&quot;&quot;&quot;
+Django settings for web_site project.
+
+Generated by 'django-admin startproject' using Django 2.0.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/2.0/topics/settings/
+
+For the full list of settings and their values, see
+https://docs.djangoproject.com/en/2.0/ref/settings/
+&quot;&quot;&quot;
+
+import os
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(**file**)))
+
+# Quick-start development settings - unsuitable for production
+
+# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+
+SECRET*KEY = '7g@&amp;s!bkka+)w70=9=t2+%&amp;r7um*!dg!7^5^yso%on@w&amp;u&amp;7g6'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+
+# DEBUG= True
+
+ALLOWED_HOSTS = [
+'app.ccc.tw.local',
+'localhost',
+'127.0.0.1',
+]
+
+# Application definition
+
+INSTALLED_APPS = [
+'django.contrib.admin',
+'django.contrib.auth',
+'django.contrib.contenttypes',
+'django.contrib.sessions',
+'django.contrib.messages',
+'whitenoise.runserver_nostatic',
+'django.contrib.staticfiles',
+
+    # Libs
+    'crispy_forms',
+
+    # My Apps
+    'pages.apps.PagesConfig',
+    'posts.apps.PostsConfig',
+    'books.apps.BooksConfig',
+    'accounts.apps.AccountsConfig',
+
+]
+
+MIDDLEWARE = [
+'django.middleware.security.SecurityMiddleware',
+'whitenoise.middleware.WhiteNoiseMiddleware',
+'django.contrib.sessions.middleware.SessionMiddleware',
+'django.middleware.common.CommonMiddleware',
+'django.middleware.csrf.CsrfViewMiddleware',
+'django.contrib.auth.middleware.AuthenticationMiddleware',
+'django.contrib.messages.middleware.MessageMiddleware',
+'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # My MiddleWare
+
+]
+
+ROOT_URLCONF = 'web_site.urls'
+
+TEMPLATES = [
+{
+'BACKEND': 'django.template.backends.django.DjangoTemplates',
+'DIRS': [
+os.path.join(BASE_DIR, 'templates'),
+],
+'APP_DIRS': True,
+'OPTIONS': {
+'context_processors': [
+'django.template.context_processors.debug',
+'django.template.context_processors.request',
+'django.contrib.auth.context_processors.auth',
+'django.contrib.messages.context_processors.messages',
+],
+},
+},
+]
+
+WSGI_APPLICATION = 'web_site.wsgi.application'
+
+# Database
+
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
+DATABASES = {
+'default': {
+'ENGINE': 'django.db.backends.sqlite3',
+'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+}
+}
+
+# Password validation
+
+# https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
+
+AUTH_PASSWORD_VALIDATORS = [
+{
+'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+},
+{
+'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+},
+{
+'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+},
+{
+'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+},
+]
+
+# Internationalization
+
+# https://docs.djangoproject.com/en/2.0/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'UTC'
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
+
+# Static files (CSS, JavaScript, Images)
+
+# https://docs.djangoproject.com/en/2.0/howto/static-files/
+
+STATIC_URL = '/static/'
+
+# The absolute path to the directory where collectstatic will collect static files for deployment.
+
+STATIC_ROOT = BASE_DIR / 'collectstatic'
+
+# Simplified static file serving.
+
+# https://warehouse.python.org/project/whitenoise/
+
+# Document Ref: http://whitenoise.evans.io/en/stable/django.html
+
+STATICFILES_STORAGEGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Media Files
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media')
+
+# User Account Management
+
+LOGIN_REDIRECT_URL = 'pages:home'
+LOGOUT_REDIRECT_URL = 'pages:home'
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# Form formatting
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br></div></div><h3 id="建置開發作業環境"><a href="#建置開發作業環境" class="header-anchor">#</a> 建置開發作業環境</h3> <p>🔖 dev.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+from .base import \*
+
+# SECURITY WARNING: don't run with debug turned on in production!
+
+DEBUG = True
+
+# Quick-start development settings - unsuitable for production
+
+# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+
+ALLOWED_HOSTS = [
+'127.0.0.1',
+'0.0.0.0',
+]
+
+# Database
+
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
+if 'DATABASE_HOST' in os.environ:
+DATABASES\['default'\]['HOST'] = os.getenv('DATABASE_HOST')
+DATABASES\['default'\]['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+DATABASES\['default'\]['NAME'] = os.getenv('DATABASE_NAME')
+DATABASES\['default'\]['USER'] = os.getenv('DATABASE_USER')
+DATABASES\['default'\]['PASSWORD'] = os.getenv('DATABASE_PASSWORD')
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'django2_helloworld_db',
+            'USER': 'django2_helloworld',
+            'PASSWORD': 'Passw0rd',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+
+else:
+DATABASES = {
+'default': {
+'ENGINE': 'django.db.backends.sqlite3',
+'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+}
+}
+
+# Contact Us From
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# BASE_URL required for notification emails
+
+BASE_URL = 'http://localhost:8000'
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br></div></div><h3 id="建置測試作業環境"><a href="#建置測試作業環境" class="header-anchor">#</a> 建置測試作業環境</h3> <p>🔖 test.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="建置試行作業環境"><a href="#建置試行作業環境" class="header-anchor">#</a> 建置試行作業環境</h3> <p>🔖 staging.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+# from web_site.settings.base import \*
+
+from .base import \*
+
+# SECURITY WARNING: don't run with debug turned on in production!
+
+DEBUG = False
+
+ALLOWED_HOSTS = [
+'127.0.0.1',
+'192.168.66.10',
+'localhost',
+'app.ccc.tw.local',
+]
+
+DATABASES = {
+'default': {
+'ENGINE': 'django.db.backends.postgresql_psycopg2',
+'NAME': 'django2_helloworld_db',
+'USER': 'django2_helloworld',
+'PASSWORD': 'Passw0rd',
+'HOST': 'localhost',
+'PORT': '5432',
+}
+}
+
+DATABASE_URL = 'postgres://django2_helloworld:Passw0rd@localhost:5432/django2_hellowrold_db'
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><h3 id="建置上線作業環境"><a href="#建置上線作業環境" class="header-anchor">#</a> 建置上線作業環境</h3> <p>🔖 prod.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+# from web_site.settings.base import \*
+
+from .base import \*
+
+# SECURITY WARNING: don't run with debug turned on in production!
+
+DEBUG = False
+
+ALLOWED_HOSTS = [
+'127.0.0.1',
+'192.168.66.10',
+'localhost',
+'app.ccc.tw',
+]
+
+DATABASES = {
+'default': {
+'ENGINE': 'django.db.backends.postgresql_psycopg2',
+'NAME': 'django2_helloworld_db',
+'USER': 'django2_helloworld',
+'PASSWORD': 'Passw0rd',
+'HOST': 'localhost',
+'PORT': '5432',
+}
+}
+
+DATABASE_URL = 'postgres://django2_helloworld:Passw0rd@localhost:5432/django2_hellowrold_db'
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><h3 id="建置-heroku-平台作業環境"><a href="#建置-heroku-平台作業環境" class="header-anchor">#</a> 建置 Heroku 平台作業環境</h3> <p>🔖 heroku.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+# from web_site.settings.base import \*
+
+from .base import \*
+import django_heroku
+import dj_database_url
+
+# Set environment variables (SECRET_KEY and others)
+
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
+# SECURITY WARNING: keep the secret key used in production secret!
+
+# SECRET_KEY = 'CHANGE_ME!!!! (P.S. the SECRET_KEY environment variable will be used, if set, instead).'
+
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+
+# DEBGUG = True
+
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+
+# # Quick-start development settings - unsuitable for production
+
+# # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+
+ALLOWED_HOSTS = [
+'127.0.0.1',
+'localhost',
+'.herokuapp.com',
+'serene-crag-30137.herokuapp.com',
+]
+
+# Database
+
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
+# Heroku: Update database configuration from \$DATABASE_URL
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+django_heroku.settings(locals())
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br></div></div><h2 id="問題診斷與狀況排除"><a href="#問題診斷與狀況排除" class="header-anchor">#</a> 問題診斷與狀況排除</h2> <h3 id="解除作業系統預設之-vim"><a href="#解除作業系統預設之-vim" class="header-anchor">#</a> 解除作業系統預設之 vim</h3> <p>如下方式安裝之 VIM 套件，無法安裝「最新版」。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+sudo apt install vim
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>若欲安裝最新版之 VIM ，可使用 GitHub 之原始碼建置。已安裝之 VIM ，可依以下方法，
+解除原先安裝及清除設定。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+sudo apt remove vim --purge
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+alanjui@VB02-Ubuntu-2004:~\$ sudo apt remove vim --purge
+正在讀取套件清單... 完成
+正在重建相依關係
+正在讀取狀態資料... 完成
+以下套件為自動安裝，並且已經無用：
+vim-runtime
+使用 'sudo apt autoremove' 將之移除。
+下列套件將會被【移除】：
+vim\*
+升級 0 個，新安裝 0 個，移除 1 個，有 0 個未被升級。
+此操作完成之後，會空出 3,111 kB 的磁碟空間。
+是否繼續進行 [Y/n]？ [Y/n] y
+（讀取資料庫 ... 目前共安裝了 171827 個檔案和目錄。）
+正在移除 vim (2:8.1.2269-1ubuntu5)……
+update-alternatives: 在自動模式下以 /usr/bin/vim.tiny 來提供 /usr/bin/vi (vi)
+update-alternatives: 在自動模式下以 /usr/bin/vim.tiny 來提供 /usr/bin/view (view)
+update-alternatives: 在自動模式下以 /usr/bin/vim.tiny 來提供 /usr/bin/ex (ex)
+update-alternatives: 在自動模式下以 /usr/bin/vim.tiny 來提供 /usr/bin/rview (rview)
+（讀取資料庫 ... 目前共安裝了 171818 個檔案和目錄。）
+正在清除 vim (2:8.1.2269-1ubuntu5) 的設定檔……
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h2 id="常見操作"><a href="#常見操作" class="header-anchor">#</a> 常見操作</h2> <h3 id="啟用「虛擬環境」"><a href="#啟用「虛擬環境」" class="header-anchor">#</a> 啟用「虛擬環境」</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+pyenv [Virtual_Env]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ pyenv shell venv39
+(venv39) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="啟用與停止虛擬環境"><a href="#啟用與停止虛擬環境" class="header-anchor">#</a> 啟用與停止虛擬環境</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+pyenv active [Virtual_Env]
+pyenv deactivate
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ pyenv activate venv-3.9.1
+pyenv-virtualenv: prompt changing will be removed from future release. configure `export PYENV_VIRTUALENV_DISABLE_PROMPT=1' to simulate the behavior.
+
+(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ pyenv deactivate
+alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="建立虛擬環境"><a href="#建立虛擬環境" class="header-anchor">#</a> 建立虛擬環境</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+pyenv virtualenv [Version_No][virtual_env]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+alanjui@VB02-Ubuntu-2004:~\$ pyenv virtualenvs
+
+alanjui@VB02-Ubuntu-2004:~\$ pyenv virtualenv 3.9.1 venv-3.9.1
+Looking in links: /tmp/tmp6e0qe2zi
+Requirement already satisfied: setuptools in /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1/lib/python3.9/site-packages (49.2.1)
+Requirement already satisfied: pip in /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1/lib/python3.9/site-packages (20.2.3)
+
+alanjui@VB02-Ubuntu-2004:~\$ pyenv virtualenvs
+3.9.1/envs/venv-3.9.1 (created from /home/alanjui/.pyenv/versions/3.9.1)
+venv-3.9.1 (created from /home/alanjui/.pyenv/versions/3.9.1)
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h3 id="套用目前的-python-建立虛擬環境"><a href="#套用目前的-python-建立虛擬環境" class="header-anchor">#</a> 套用目前的 Python 建立虛擬環境</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+pyenv virtualenv [Virtual_Env]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ pyenv version
+3.9.1 (set by /home/alanjui/.pyenv/version)
+
+alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ pyenv virtualenv venv39
+Looking in links: /tmp/tmp4fyfh4dr
+Requirement already satisfied: setuptools in /home/alanjui/.pyenv/versions/3.9.1/envs/venv39/lib/python3.9/site-packages (49.2.1)
+Requirement already satisfied: pip in /home/alanjui/.pyenv/versions/3.9.1/envs/venv39/lib/python3.9/site-packages (20.2.3)
+
+alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ pyenv virtualenvs
+3.9.1/envs/venv39 (created from /home/alanjui/.pyenv/versions/3.9.1)
+3.9.1/envs/venv-3.9.1 (created from /home/alanjui/.pyenv/versions/3.9.1)
+venv39 (created from /home/alanjui/.pyenv/versions/3.9.1)
+venv-3.9.1 (created from /home/alanjui/.pyenv/versions/3.9.1)
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h3 id="查詢有那些虛擬環境"><a href="#查詢有那些虛擬環境" class="header-anchor">#</a> 查詢有那些虛擬環境</h3> <p>List existing virtualenvs:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+pyenv virtualenvs
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ pyenv virtualenvs
+3.9.1/envs/venv-3.9.1 (created from /home/alanjui/.pyenv/versions/3.9.1)
+venv-3.9.1 (created from /home/alanjui/.pyenv/versions/3.9.1)
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="刪除已建立之虛擬環境"><a href="#刪除已建立之虛擬環境" class="header-anchor">#</a> 刪除已建立之虛擬環境</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+pyenv uninstall [Virtual_Env]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$ pyenv uninstall venv39
+pyenv-virtualenv: remove /home/alanjui/.pyenv/versions/3.9.1/envs/venv39? y
+alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite$
+
+alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ pyenv virtualenvs
+3.9.1/envs/venv-3.9.1 (created from /home/alanjui/.pyenv/versions/3.9.1)
+venv-3.9.1 (created from /home/alanjui/.pyenv/versions/3.9.1)
+
+alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ ll ~/.pyenv/versions
+總用量 12
+drwxrwxr-x 3 alanjui alanjui 4096 4 月 1 13:33 ./
+drwxrwxr-x 14 alanjui alanjui 4096 3 月 26 20:45 ../
+drwxr-xr-x 7 alanjui alanjui 4096 3 月 26 20:45 3.9.1/
+lrwxrwxrwx 1 alanjui alanjui 51 3 月 26 20:45 venv-3.9.1 -&gt; /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1/
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h3 id="更新-pip-至最新版"><a href="#更新-pip-至最新版" class="header-anchor">#</a> 更新 pip 至最新版</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+python -m pip install --upgrade pip
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>
+/home/alanjui/.pyenv/versions/3.8.5/envs/mysite.ccc.tw.local/bin/python3.8 -m pip install --upgrade pip
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ pip list
+Package Version
+
+---
+
+pip 20.1.1
+setuptools 47.1.0
+WARNING: You are using pip version 20.1.1; however, version 21.0.1 is available.
+You should consider upgrading via the '/home/alanjui/.pyenv/versions/3.8.5/envs/mysite.ccc.tw.local/bin/python3.8 -m pip install --upgrade pip' command.
+
+(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ /home/alanjui/.pyenv/versions/3.8.5/envs/mysite.ccc.tw.local/bin/python3.8 -m pip install --upgrade pip
+Collecting pip
+Using cached pip-21.0.1-py3-none-any.whl (1.5 MB)
+Installing collected packages: pip
+Attempting uninstall: pip
+Found existing installation: pip 20.1.1
+Uninstalling pip-20.1.1:
+Successfully uninstalled pip-20.1.1
+Successfully installed pip-21.0.1
+
+(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ pip list
+Package Version
+
+---
+
+pip 21.0.1
+setuptools 47.1.0
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><h2 id="問題診斷與狀況排除-2"><a href="#問題診斷與狀況排除-2" class="header-anchor">#</a> 問題診斷與狀況排除</h2> <h3 id="執行-uwsgi-發生-run-time-error"><a href="#執行-uwsgi-發生-run-time-error" class="header-anchor">#</a> 執行 uwsgi 發生 run time error</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+!!! no internal routing support, rebuild with pcre support !!!
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ uwsgi --ini config/mysite\*uwsgi.ini
+[uWSGI] getting INI configuration from config/mysite_uwsgi.ini
+\*\*\* Starting uWSGI 2.0.19.1 (64bit) on [Sat Apr 3 01:14:22 2021] \_\*\*
+compiled with version: 9.3.0 on 28 March 2021 03:24:44
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /home/alanjui/workspace/django/mysite
+detected binary path: /home/alanjui/.pyenv/versions/3.8.5/envs/mysite.ccc.tw.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/alanjui/worksapce/django/mysite
+chdir(): No such file or directory [core/uwsgi.c line 2625]
+chdir(): No such file or directory [core/uwsgi.c line 1649]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>🔨</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+# Uninstall uwsgi
+
+pip uninstall uwsgi
+sudo apt remove uwsgi
+
+# install pcre libaries
+
+sudo apt install libpcre3 libpcre3-dev
+
+pip install uwsgi -I --no-cache-dir
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ pip install uwsgi -I --no-cache-dir
+Collecting uwsgi
+Downloading uWSGI-2.0.19.1.tar.gz (803 kB)
+|████████████████████████████████| 803 kB 1.7 MB/s
+Using legacy 'setup.py install' for uwsgi, since package 'wheel' is not installed.
+Installing collected packages: uwsgi
+Running setup.py install for uwsgi ... done
+Successfully installed uwsgi-2.0.19.1
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>📺 使用 pip install uwsgi 安裝，pip 預設用 cache ，參考如下之安裝畫面，可見
+Using cached uWSGI-2.0.19.1... 字樣。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ pip install uwsgi
+Collecting uwsgi
+Using cached uWSGI-2.0.19.1-cp38-cp38-linux_x86_64.whl
+Installing collected packages: uwsgi
+Successfully installed uwsgi-2.0.19.1
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="啟動-uwsgi-發生-uninx-socket-錯誤"><a href="#啟動-uwsgi-發生-uninx-socket-錯誤" class="header-anchor">#</a> 啟動 uwsgi ，發生 uninx socket 錯誤</h3> <p>啟動 uwsgi 介面時，使用 uwsgi 設定檔，無法正常執行，發生如下錯誤：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+error removing unix socket, unlink(): Permission denied [core/socket.c line 198]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ uwsgi --ini config/mysite\*uwsgi.ini
+[uWSGI] getting INI configuration from config/mysite_uwsgi.ini
+\*\*\* Starting uWSGI 2.0.19.1 (64bit) on [Sat Apr 3 11:39:31 2021] \_\*\*
+compiled with version: 9.3.0 on 02 April 2021 17:30:08
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/alanjui/workspace/django/mysite
+detected binary path: /home/alanjui/.pyenv/versions/3.8.5/envs/mysite.ccc.tw.local/bin/uwsgi
+chdir() to /home/alanjui/workspace/django/mysite
+your processes number limit is 15511
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+error removing unix socket, unlink(): Permission denied [core/socket.c line 198]
+bind(): Address already in use [core/socket.c line 230]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>🔍 問題診斷：因為前次執行 uwsgi ，沒能讓 uwsgi 正常終止，致使「目錄」： /run/uwsgi/
+仍留下當時執行的 unix socket 檔： mysite.ccc.tw.local.sock 。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ ll /run/uwsgi/
+總用量 0
+drwxr-xr-x 2 www-data www-data 60 3 月 31 10:42 ./
+drwxr-xr-x 34 root root 1020 4 月 3 11:28 ../
+srw-rw-rw- 1 www-data www-data 0 3 月 31 10:42 mysite.ccc.tw.local.sock=
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>🔨 狀況排除：先刪除前次執行遺留下的 unix socket 檔，然後再啟動 uwsgi 。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+(mysite.ccc.tw.local) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ sudo rm /run/uwsgi/mysite.ccc.tw.local.sock
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><h3 id="終止使用中的-port"><a href="#終止使用中的-port" class="header-anchor">#</a> 終止使用中的 Port</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+fuser -n tcp [Port_No]
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ python manage.py runserver 0.0.0.0:8000
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+April 01, 2021 - 07:26:08
+Django version 3.1.7, using settings 'app_config.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+
+(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/workspace/django/mysite\$ fuser -n tcp -k 8000
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="資料參考"><a href="#資料參考" class="header-anchor">#</a> 資料參考</h2> <h3 id="pyenv-virtualenv-官網資料"><a href="#pyenv-virtualenv-官網資料" class="header-anchor">#</a> pyenv-virtualenv 官網資料</h3> <p><a href="https://github.com/pyenv/pyenv-virtualenv" target="_blank" rel="noopener noreferrer">pyenv-virtualenv<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" defer></script><script src="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" defer></script><script src="/ho-lok-ue-tools/assets/js/88.3506e2f0.js" defer></script>
+  </body>
+</html>

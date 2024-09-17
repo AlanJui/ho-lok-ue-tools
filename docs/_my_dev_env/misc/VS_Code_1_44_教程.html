@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VS Code 1.44 教程 | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css" as="style"><link rel="preload" href="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/213.647e2ffe.js" as="script"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/101.e14056d5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/102.5a78f801.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/103.e198a428.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/104.449b67e1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/105.825b86d6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/106.173be714.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/107.03f96c6c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/108.57957213.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/109.0a4b39eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/11.3e9ab894.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/111.802a4ef3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/112.8fb9f4c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/113.163f649e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/114.8da6ef94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/116.f901450e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/117.4898b362.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/118.80d06981.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/12.4a40a2fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/120.1955a557.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/121.1865eac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/122.1d79306c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/123.df62f490.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/124.4a9f1fcb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/125.d294aced.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/126.0558f46b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/127.71e4ae03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/128.cf355591.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/129.29c3a2f4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/13.c3911464.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/130.21e8b50e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/131.2a22915e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/132.23c7e418.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/133.b40de47b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/134.3b21be27.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/135.e33241e8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/136.e1fad00a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/137.4d051254.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/138.f95b7b98.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/139.2b8d3e50.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/14.c9886b34.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/140.1b8e8cd0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/141.ff03f551.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/142.8de335ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/144.6b438904.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/145.dd73b692.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/146.a5721fc9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/147.be2503d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/148.3012abdb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/149.5172325c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/15.0cce8ecb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/150.5304d46a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/152.6fb52d1e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/153.eaa379eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/154.e4a08e57.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/155.2a0dcb32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/157.ef0d4e6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/159.e58cd5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/16.fa6f05c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/160.b14498b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/161.6f58600a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/162.5088d732.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/163.cdfabcd3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/164.33af30e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/165.82251337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/166.729d4da0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/167.5021a127.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/168.82153370.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/169.0aad21a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/170.57bd13b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/171.23ff00be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/172.364d6e16.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/173.efa01f08.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/174.69d30215.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/175.265d6949.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/176.008e238b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/177.822a15ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/178.d1eee661.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/179.956fe469.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/180.bb68de5c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/181.6ca43cc3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/182.b784ea03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/183.cf75a717.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/184.a486267a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/185.35a0a735.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/186.67964623.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/187.13410beb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/188.962c6776.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/189.4786f58b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/19.ee358577.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/190.c4e5a3ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/191.ab08e553.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/193.95d606b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/194.2931aac2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/195.66817182.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/196.3841de25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/197.6d0aa566.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/198.f0525295.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/199.ae76c070.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/200.c57f2a39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/201.d63f8f6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/202.f9e03aa9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/203.95ffec51.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/204.3787443f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/205.27e200a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/206.45652af0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/208.3c2a60e9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/209.feeb4956.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/21.46ede3be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/210.6401ff88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/211.cfb8dc53.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/212.3ddf2b32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/214.8e117d35.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/216.bc2d671c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/217.6371c831.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/218.ec43176a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/219.d69f53c2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/220.ca6bdcd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/221.e36810e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/222.715b43c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/223.808a43ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/224.e4df9237.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/225.6d08d9a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/226.4a72d290.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/227.93c9df65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/228.89cf25a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/229.27539a77.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/23.74ec33ae.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/232.c03f5450.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/233.a50b7053.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/234.e24679d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/236.03949180.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/237.077ec90b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/238.84598708.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/239.43007d0a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/24.dfaf327e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/240.2df91873.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/242.3066009f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/243.1ff09887.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/244.30430b7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/246.473b271a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/247.edc9641e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/248.6f7f74e5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/249.24762885.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/25.50731498.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/250.cc52a908.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/251.87f791a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/252.1e285f58.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/253.d783bd23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/254.bbeda6d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/255.1601d594.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/256.644af9ee.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/257.369bfcaf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/258.95ae1b47.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/259.02650516.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/26.7308cd5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/260.49df9ac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/261.7018bbf8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/262.b7de7d79.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/264.b82abc65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/265.9f4300d1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/266.868fd3db.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/267.c47ce979.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/268.d0ab9778.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/269.3b3efc3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/27.79b71a65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/270.4f788569.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/271.4fe4a762.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/273.cb605436.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/274.0efe455c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/275.5bc2a05c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/277.4724df32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/278.7e88e133.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/279.d117afb1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/28.96c7e30c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/280.1747c540.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/281.1df8dad8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/282.fb3b056e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/283.7238e6a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/284.333828fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/285.b4db7f5d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/286.203a528e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/287.3c26123e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/288.7b1abc61.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/289.f27ef80f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/29.0be0ff39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/290.b888b1dc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/291.db0ad529.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/292.491ba209.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/293.6222a09d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/294.ac3715a7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/295.3717bceb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/296.88ac43bd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/297.b2519337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/298.4094ee4b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/299.f1b57bd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/3.d8645ed1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/30.6c3af224.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/300.05acfc97.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/301.8b308b88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/302.649b0f63.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/303.02024141.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/304.0e1196b1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/305.b1ea83fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/306.0a66cafd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/307.a06f603b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/308.c5ff11ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/309.884aca03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/31.841f3ded.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/310.06a43026.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/311.7705aadb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/312.16c67c7e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/313.3a6cccf5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/314.bddfc342.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/316.445c3681.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/317.6698324c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/318.83b94f00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/32.283b7a44.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/33.dd6bc432.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/34.88232fa7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/35.aecd5410.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/36.32967ae8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/37.7a64c1c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/38.4556399d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/39.5c25123c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/4.c0ad8e6f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/41.f689f7c8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/42.25c15d8a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/43.14f65079.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/44.4b91b24a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/45.576f776e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/46.6da1e5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/49.d4e60513.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/50.c8b22d33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/56.f2597707.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/57.51fbeade.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/62.1cf89df2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/63.0f78d5dd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/66.fd2de134.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/67.6a554fd7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/69.80992696.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/70.d3126764.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/71.a2e07128.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/72.b5189fa6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/73.367f0392.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/74.f315c04a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/75.1aa88d55.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/76.41b88fff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/77.c6d47945.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/78.f3084837.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/79.8c5a82d4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/80.975fdb87.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/81.efc8d138.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/82.fccf7493.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/83.2978c41b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/85.a3074c64.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/86.6813c6c5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/88.3506e2f0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/89.7a73b80d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/9.4a24de8d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/90.6d7286c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/91.65b2c391.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/93.aeac5506.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/94.4c8e5a25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/95.2972011e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/97.be960e26.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/98.39761100.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ho-lok-ue-tools/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>作業指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ho-lok-ue-tools/d100_URS/" class="sidebar-link">使用者需求</a></li><li><a href="/ho-lok-ue-tools/d200_SRS/" class="sidebar-link">系統需求</a></li><li><a href="/ho-lok-ue-tools/d300_SDD/" class="sidebar-link">系統設計</a></li><li><a href="/ho-lok-ue-tools/d400_DEV/" class="sidebar-link">開發與測試</a></li><li><a href="/ho-lok-ue-tools/d500_OP/" class="sidebar-link">系統維運</a></li><li><a href="/ho-lok-ue-tools/d900_REF/" class="sidebar-link">參考資料</a></li><li><a href="/ho-lok-ue-tools/guide/" class="sidebar-link">作業指引</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>電腦硬體</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>開發環境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>參考資料</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vs-code-1-44-教程"><a href="#vs-code-1-44-教程" class="header-anchor">#</a> VS Code 1.44 教程</h1> <p>https://code.visualstudio.com/updates/v1_44#_python</p> <p>https://code.visualstudio.com/docs/containers/quickstart-python</p> <p>https://docs.microsoft.com/zh-tw/cli/azure/install-azure-cli-apt?view=azure-cli-latest</p> <p>https://docs.microsoft.com/zh-tw/azure/container-registry/container-registry-get-started-portal</p> <p>https://code.visualstudio.com/docs/containers/tutorial-django-push-to-registry</p> <p>https://docs.microsoft.com/zh-tw/azure/developer/python/tutorial-deploy-containers-01</p> <p>https://code.visualstudio.com/docs/python/tutorial-django</p> <p>https://code.visualstudio.com/docs/python/debugging</p> <p>https://code.visualstudio.com/docs/python/python-tutorial</p> <p>https://docs.microsoft.com/zh-tw/cli/azure/?view=azure-cli-latest</p> <hr> <p>https://github.com/microsoft/python-sample-vscode-django-tutorial/tree/tutorial</p> <p>https://code.visualstudio.com/docs/containers/quickstart-python</p> <p>https://docs.microsoft.com/zh-tw/azure/container-registry/container-registry-get-started-portal</p> <p>https://code.visualstudio.com/docs/containers/tutorial-django-push-to-registry</p> <hr> <h1 id="使用-github-範例檔"><a href="#使用-github-範例檔" class="header-anchor">#</a> 使用 GitHub 範例檔</h1> <ol><li><p>git clone git@github.com:microsoft/python-sample-vscode-django-tutorial.git</p></li> <li><p>Setup version of python interpreter to  3.8.2
+pyenv local 3.8.2</p></li> <li><p>Verify
+python --version</p></li> <li><p>Create a subdirectory named env for virtual environment in current directory of project
+python -m venv env</p></li> <li><p>Activate the virtual environment by running
+source env/bin/activate</p></li> <li><p>Install python package
+pip install -r requirements.txt</p></li> <li><p>Create and initialize the database by running</p> <p>python manage.py migrate</p></li> <li><p>Create an account for admin</p> <p>python manage.py createsuperuser</p></li> <li><p>Collect static files</p> <p>python manage.py collectstatic</p></li> <li><p>Run App
+python manage.py runserver 8000</p></li></ol> <p>launch.json</p> <div class="language- extra-class"><pre><code>{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    &quot;version&quot;: &quot;0.2.0&quot;,
+    &quot;configurations&quot;: [
+        {
+            &quot;name&quot;: &quot;Docker: Python - Django&quot;,
+            &quot;type&quot;: &quot;docker&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;preLaunchTask&quot;:  &quot;docker-run: debug&quot;,
+            &quot;python&quot;: {
+                &quot;pathMappings&quot;: [
+                    {
+                        &quot;localRoot&quot;: &quot;${workspaceFolder}&quot;,
+                        &quot;remoteRoot&quot;: &quot;/app&quot;
+                    }
+                ],
+                &quot;projectType&quot;: &quot;django&quot;
+            }
+        },
+        {
+            &quot;name&quot;: &quot;Python: Current File (Integrated Terminal)&quot;,
+            &quot;type&quot;: &quot;python&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;program&quot;: &quot;${file}&quot;,
+            &quot;console&quot;: &quot;integratedTerminal&quot;
+        },
+        {
+            &quot;name&quot;: &quot;Python: Attach&quot;,
+            &quot;type&quot;: &quot;python&quot;,
+            &quot;request&quot;: &quot;attach&quot;,
+            &quot;port&quot;: 5678,
+            &quot;host&quot;: &quot;localhost&quot;
+        },
+        {
+            &quot;name&quot;: &quot;Python: Django&quot;,
+            &quot;type&quot;: &quot;python&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;program&quot;: &quot;${workspaceFolder}/manage.py&quot;,
+            &quot;console&quot;: &quot;integratedTerminal&quot;,
+            &quot;args&quot;: [
+                &quot;runserver&quot;,
+                &quot;--noreload&quot;,
+                &quot;--nothreading&quot;
+            ],
+            &quot;django&quot;: true
+        },
+        {
+            &quot;name&quot;: &quot;Python: Current File (External Terminal)&quot;,
+            &quot;type&quot;: &quot;python&quot;,
+            &quot;request&quot;: &quot;launch&quot;,
+            &quot;program&quot;: &quot;${file}&quot;,
+            &quot;console&quot;: &quot;externalTerminal&quot;
+        }
+    ]
+}
+</code></pre></div><p>settings.py</p> <div class="language- extra-class"><pre><code> ALLOWED_HOSTS = [
+  'localhost',
+  '127.0.0.1',
+  'mydjangoapp001.azurewebsites.net',
+]
+
+
+
+$ az acr login --name mydjangoapp001
+
+
+
+$ docker build --tag my-django-app-001 .
+...
+$ docker run -p 8000:8000 my-django-app-001
+...
+$ docker tag my-django-app-001 mydjangoapp001.azurecr.io/my-django-app-001:latest
+...
+$ docker push mydjangoapp001.azurecr.io/my-django-app-001:latest
+</code></pre></div><p>將映像推送至您的容器登錄之後，請從您的本機 Docker 環境中移除 hello-world:v1 映像。 (請注意，此 docker rmi 命令並不會從 Azure 容器登錄中的 hello-world 存放區移除映像。)</p> <p>docker rmi <acrLoginServer>/hello-world:v1</acrLoginServer></p> <div class="language- extra-class"><pre><code>docker run mydjangoapp001.azurecr.io/django-tutorial:v2
+
+
+
+
+$ pipenv lock --requirements &gt; requirements.txt
+$ docker build -t mydjangoapp001.azurecr.io/my-django-app-001 .
+$ docker images
+REPOSITORY                                    TAG                   IMAGE ID            CREATED             SIZE
+my-django-app-001                             latest                f99755fd7f7c        29 minutes ago      219MB
+mydjangoapp001.azurecr.io/my-django-app-001   latest                f99755fd7f7c        29 minutes ago      219MB
+ccc99docker001.azurecr.io/my-docker-image     v1.1.0                e377e2b4a1f6        10 hours ago        994MB
+my-docker-image                               latest                e377e2b4a1f6        10 hours ago        994MB
+ccc99docker001.azurecr.io/my-docker-image     v1.0.0                bcb46af95658        23 hours ago        994MB
+
+
+
+
+$ az acr login --name mydjangoapp001
+$ docker run -p 8000:8000 mydjangoapp001.azurecr.io/my-django-app-001
+...
+$ docker ps
+CONTAINER ID        IMAGE                                         COMMAND                  CREATED             STATUS              PORTS                                     NAMES
+862678c714d9        mydjangoapp001.azurecr.io/my-django-app-001   &quot;sh /entrypoint.sh /…&quot;   56 seconds ago      Up 55 seconds       80/tcp, 443/tcp, 0.0.0.0:8000-&gt;8000/tcp   busy_bassi
+
+$ docker stop 862
+862
+
+docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+
+
+
+
+$ docker push mydjangoapp001.azurecr.io/my-django-app-001:latest
+</code></pre></div><hr> <div class="language- extra-class"><pre><code>az webapp up --sku F1 -n ccc99-tw-app-001
+Webapp ccc99-tw-app-001 already exists. The command will deploy contents to the existing app.
+Creating zip with contents of dir /home/alanjui/workspace/django/python-sample-vscode-django-tutorial ...
+Getting scm site credentials for zip deployment
+Starting zip deployment. This operation can take a while to complete ...
+Deployment endpoint responded with status code 202
+You can launch the app at http://ccc99-tw-app-001.azurewebsites.net
+{
+  &quot;URL&quot;: &quot;http://ccc99-tw-app-001.azurewebsites.net&quot;,            
+  &quot;appserviceplan&quot;: &quot;appsvc_linux_centralus&quot;,
+  &quot;location&quot;: &quot;centralus&quot;,
+  &quot;name&quot;: &quot;ccc99-tw-app-001&quot;,
+  &quot;os&quot;: &quot;Linux&quot;,
+  &quot;resourcegroup&quot;: &quot;appsvc_linux_centralus&quot;,
+  &quot;runtime_version&quot;: &quot;python|3.7&quot;,
+  &quot;runtime_version_detected&quot;: &quot;-&quot;,
+  &quot;sku&quot;: &quot;FREE&quot;,
+  &quot;src_path&quot;: &quot;//home//alanjui//workspace//django//python-sample-vscode-django-tutorial&quot;
+}
+</code></pre></div><hr> <h1 id="azure教程"><a href="#azure教程" class="header-anchor">#</a> Azure教程</h1> <p>透過 CLI 介面的 Azure Cloud Shell ，將容器的「影像檔」發佈至 ACR (Azure Container Registry)，並將此「容器」佈署成為「網路服務」（Azure App Service）。</p> <p>https://docs.microsoft.com/zh-tw/azure/app-service/containers/tutorial-custom-docker-image</p> <p>〖註〗：以下為：「如何在 VS Code 安裝 Azure Cloud Shell」之參考文件。</p> <p>https://dev.to/azure/how-to-use-cloud-shell-in-visual-studio-code-3acf</p> <h2 id="下載範例"><a href="#下載範例" class="header-anchor">#</a> 下載範例</h2> <p>在終端機視窗中執行下列命令，將範例應用程式存放庫複製到本機電腦，然後變更為包含範例程式碼的目錄。</p> <p>bash</p> <div class="language- extra-class"><pre><code>git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git --config core.autocrlf=input
+
+cd docker-django-webapp-linux
+
+
+pyenv install 3.4.10
+pyenv local 3.4.10
+pyenv version
+python --version
+pip install pipenv
+pipenv --python 3.4
+pipenv shell
+pipenv install -r requirements.txt
+</code></pre></div><h2 id="從-docker-檔案建立映像"><a href="#從-docker-檔案建立映像" class="header-anchor">#</a> 從 Docker 檔案建立映像</h2> <p>在 Git 存放庫中，看看 <em>Dockerfile</em>。 此檔案會描述執行您應用程式所需的 Python 環境。 此外，映像會設定 <a href="https://www.ssh.com/ssh/protocol/" target="_blank" rel="noopener noreferrer">SSH<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 伺服器，以在容器與主機之間進行安全通訊。 <em>Dockerfile</em> 的最後一行 <code>ENTRYPOINT [&quot;init.sh&quot;]</code> 會叫用 <code>init.sh</code> 來啟動 SSH 服務和 Python 伺服器。</p> <p>Dockerfile</p> <div class="language- extra-class"><pre><code>FROM python:3.4
+
+RUN mkdir /code
+WORKDIR /code
+ADD requirements.txt /code/
+RUN pip install -r requirements.txt
+ADD . /code/
+
+# ssh
+ENV SSH_PASSWD &quot;root:Docker!&quot;
+RUN apt-get update \
+        &amp;&amp; apt-get install -y --no-install-recommends dialog \
+        &amp;&amp; apt-get update \
+    &amp;&amp; apt-get install -y --no-install-recommends openssh-server \
+    &amp;&amp; echo &quot;$SSH_PASSWD&quot; | chpasswd 
+
+COPY sshd_config /etc/ssh/
+COPY init.sh /usr/local/bin/
+    
+RUN chmod u+x /usr/local/bin/init.sh
+EXPOSE 8000 2222
+
+#service SSH start
+#CMD [&quot;python&quot;, &quot;/code/manage.py&quot;, &quot;runserver&quot;, &quot;0.0.0.0:8000&quot;]
+ENTRYPOINT [&quot;init.sh&quot;]
+</code></pre></div><p>使用 <code>docker build</code> 命令建置 Docker 映像。</p> <p>bash</p> <div class="language- extra-class"><pre><code>docker build --tag mydockerimage .
+
+
+docker build --tag my-docker-image .
+</code></pre></div><p>測試組建運作的方式是執行 Docker 容器。 發出 <code>[docker run](https://docs.docker.com/engine/reference/commandline/run/)</code> 命令，並將映像的名稱和標記傳遞給它。 請務必使用 <code>-p</code> 引數來指定連接埠。</p> <p>bash</p> <div class="language- extra-class"><pre><code>docker run -p 8000:8000 mydockerimage
+
+
+docker run -p 8000:8000 my-docker-image
+</code></pre></div><p>驗證 web 應用程式和容器是否會正常運作，方法是瀏覽至 <code>http://localhost:8000</code>。</p> <p><img src="https://docs.microsoft.com/zh-tw/azure/app-service/containers/media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png" alt="在本機測試 Web 應用程式"></p> <h2 id="建立資源群組"><a href="#建立資源群組" class="header-anchor">#</a> 建立資源群組</h2> <p><a href="https://docs.microsoft.com/zh-tw/azure/azure-resource-manager/management/overview#terminology" target="_blank" rel="noopener noreferrer">資源群組<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>是一個邏輯容器，可在其中部署與管理 Azure 資源 (例如 Web 應用程式、資料庫和儲存體帳戶)。 例如，您可以選擇在稍候透過一個簡單的步驟刪除整個資源群組。</p> <p>在 Cloud Shell 中，使用 <code>[az group create](https://docs.microsoft.com/zh-tw/cli/azure/group?view=azure-cli-latest#az-group-create)</code> 命令來建立資源群組。 下列範例會在「美國西部」 位置建立名為 myResourceGroup 的資源群組。 若要查看<strong>基本</strong>層中 Linux 上之 App Service 的所有支援位置，請執行 <code>[az appservice list-locations --sku B1 --linux-workers-enabled](https://docs.microsoft.com/zh-tw/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations)</code> 命令。</p> <p>Azure CLI</p> <div class="language- extra-class"><pre><code>az group create --name myResourceGroup --location &quot;West US&quot;
+</code></pre></div><p>當命令完成時，JSON 輸出會顯示資源群組屬性。</p> <h2 id="建立-azure-container-registry"><a href="#建立-azure-container-registry" class="header-anchor">#</a> 建立 Azure Container Registry</h2> <p>在 Cloud Shell 中，使用 <code>[az acr create](https://docs.microsoft.com/zh-tw/cli/azure/acr?view=azure-cli-latest#az-acr-create)</code> 命令來建立 Azure Container Registry。
+Azure CLI</p> <div class="language- extra-class"><pre><code>az acr create --name &lt;azure-container-registry-name&gt; --resource-group myResourceGroup --sku Basic --admin-enabled true
+
+
+az acr create --name ccc99docker001 --resource-group myResourceGroup --sku Basic --admin-enabled true
+</code></pre></div><h2 id="登入-azure-container-registry"><a href="#登入-azure-container-registry" class="header-anchor">#</a> 登入 Azure Container Registry</h2> <p>若要將映像推送至登錄，您需要向私人登錄進行驗證。 在 Cloud Shell 中，使用 <code>[az acr show](https://docs.microsoft.com/zh-tw/cli/azure/acr?view=azure-cli-latest#az-acr-show)</code> 命令從您所建立的登錄中擷取認證。</p> <p>Azure CLI</p> <div class="language- extra-class"><pre><code>az acr credential show --name &lt;azure-container-registry-name&gt;
+</code></pre></div><p>輸出會顯示兩個密碼及使用者名稱。</p> <p>JSON</p> <div class="language- extra-class"><pre><code>{
+  &quot;passwords&quot;: [
+    {
+      &quot;name&quot;: &quot;password&quot;,
+      &quot;value&quot;: &quot;{password}&quot;
+    },
+    {
+      &quot;name&quot;: &quot;password2&quot;,
+      &quot;value&quot;: &quot;{password}&quot;
+    }
+  ],
+  &quot;username&quot;: &quot;&lt;registry-username&gt;&quot;
+}
+</code></pre></div><p>使用 <code>docker login</code> 命令從本機終端機視窗登入 Azure Container Registry，如下列範例所示。 將 <em><azure-container-registry-name></azure-container-registry-name></em> 和 <em><registry-username></registry-username></em> 取代為您的登錄值。 出現提示時，輸入上一個步驟中的其中一個密碼。</p> <p>bash</p> <div class="language- extra-class"><pre><code>docker login &lt;azure-container-registry-name&gt;.azurecr.io --username &lt;registry-username&gt;
+</code></pre></div><p>確認登入成功。</p> <div class="language- extra-class"><pre><code>$ az acr credential show --name ccc99docker001
+{
+  &quot;passwords&quot;: [
+    {
+      &quot;name&quot;: &quot;password&quot;,
+      &quot;value&quot;: &quot;gOMvbs5SoSOhALw=EkhbjME4cqShN/GY&quot;
+    },
+    {
+      &quot;name&quot;: &quot;password2&quot;,
+      &quot;value&quot;: &quot;Es+DrREIJ38WK2mgX3wV9pL4DTcIxqlZ&quot;
+    }
+  ],
+  &quot;username&quot;: &quot;ccc99docker001&quot;
+}
+
+$ docker login ccc99docker001.azurecr.io --username ccc99docker001
+</code></pre></div><h2 id="將映像推送至-azure-container-registry"><a href="#將映像推送至-azure-container-registry" class="header-anchor">#</a> 將映像推送至 Azure Container Registry</h2> <p>標記 Azure Container Registry 的本機映像。 例如：</p> <p>bash</p> <div class="language- extra-class"><pre><code>docker tag mydockerimage &lt;azure-container-registry-name&gt;.azurecr.io/mydockerimage:v1.0.0
+</code></pre></div><p>使用 <code>docker push</code> 命令來推送映像。 以登錄名稱再接著映像名稱和標籤來標記映像。</p> <p>bash</p> <div class="language- extra-class"><pre><code>docker push &lt;azure-container-registry-name&gt;.azurecr.io/mydockerimage:v1.0.0
+
+
+
+$ docker tag my-docker-image ccc99docker001.azurecr.io/my-docker-image:v1.0.0
+...
+$ docker push ccc99docker001.azurecr.io/my-docker-image:v1.0.0
+</code></pre></div><p>在 Cloud Shell 中，確認推送已成功。</p> <p>Azure CLI</p> <div class="language- extra-class"><pre><code>az acr repository list -n &lt;azure-container-registry-name&gt;
+</code></pre></div><p>您應該會取得下列輸出。</p> <p>JSON</p> <div class="language- extra-class"><pre><code>[
+  &quot;mydockerimage&quot;
+]
+
+
+
+$ az acr repository list -n ccc99docker001
+[
+  &quot;my-docker-image&quot;
+]
+</code></pre></div><h2 id="建立-app-service-方案"><a href="#建立-app-service-方案" class="header-anchor">#</a> 建立 App Service 方案</h2> <p>在 Cloud Shell 中，使用 <code>[az appservice plan create](https://docs.microsoft.com/zh-tw/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)</code> 命令在資源群組中建立 App Service 方案。</p> <p>下列範例會在<strong>免費</strong>定價層 (<code>--sku F1</code>) 和 Linux 容器 (<code>--is-linux</code>) 中，建立名為 <code>myAppServicePlan</code> 的 App Service 方案。</p> <p>Azure CLI</p> <div class="language- extra-class"><pre><code>az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
+</code></pre></div><p>建立 App Service 方案後，Azure CLI 會顯示類似下列範例的資訊：</p> <p>JSON</p> <div class="language- extra-class"><pre><code>{ 
+  &quot;adminSiteName&quot;: null,
+  &quot;appServicePlanName&quot;: &quot;myAppServicePlan&quot;,
+  &quot;geoRegion&quot;: &quot;West Europe&quot;,
+  &quot;hostingEnvironmentProfile&quot;: null,
+  &quot;id&quot;: &quot;/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan&quot;,
+  &quot;kind&quot;: &quot;linux&quot;,
+  &quot;location&quot;: &quot;West Europe&quot;,
+  &quot;maximumNumberOfWorkers&quot;: 1,
+  &quot;name&quot;: &quot;myAppServicePlan&quot;,
+  &lt; JSON data removed for brevity. &gt;
+  &quot;targetWorkerSizeId&quot;: 0,
+  &quot;type&quot;: &quot;Microsoft.Web/serverfarms&quot;,
+  &quot;workerTierName&quot;: null
+} 
+
+
+
+$ az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
+{- Finished ..
+  &quot;freeOfferExpirationTime&quot;: null,
+  &quot;geoRegion&quot;: &quot;West US&quot;,
+  &quot;hostingEnvironmentProfile&quot;: null,
+  &quot;hyperV&quot;: false,
+  &quot;id&quot;: &quot;/subscriptions/bdbe86f1-40d5-4305-99ce-bb6ea7c085c7/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan&quot;,
+  &quot;isSpot&quot;: false,
+  &quot;isXenon&quot;: false,
+  &quot;kind&quot;: &quot;linux&quot;,
+  &quot;location&quot;: &quot;West US&quot;,
+  &quot;maximumElasticWorkerCount&quot;: 1,
+  &quot;maximumNumberOfWorkers&quot;: 1,
+  &quot;name&quot;: &quot;myAppServicePlan&quot;,
+  &quot;numberOfSites&quot;: 0,
+  &quot;perSiteScaling&quot;: false,
+  &quot;provisioningState&quot;: &quot;Succeeded&quot;,
+  &quot;reserved&quot;: true,
+  &quot;resourceGroup&quot;: &quot;myResourceGroup&quot;,
+  &quot;sku&quot;: {
+    &quot;capabilities&quot;: null,
+    &quot;capacity&quot;: 1,
+    &quot;family&quot;: &quot;F&quot;,
+    &quot;locations&quot;: null,
+    &quot;name&quot;: &quot;F1&quot;,
+    &quot;size&quot;: &quot;F1&quot;,
+    &quot;skuCapacity&quot;: null,
+    &quot;tier&quot;: &quot;Free&quot;
+  },
+  &quot;spotExpirationTime&quot;: null,
+  &quot;status&quot;: &quot;Ready&quot;,
+  &quot;subscription&quot;: &quot;bdbe86f1-40d5-4305-99ce-bb6ea7c085c7&quot;,gOMvbs5SoSOhALw=EkhbjME4cqShN/GY
+  &quot;tags&quot;: null,
+  &quot;targetWorkerCount&quot;: 0,
+  &quot;targetWorkerSizeId&quot;: 0,
+  &quot;type&quot;: &quot;Microsoft.Web/serverfarms&quot;,
+  &quot;workerTierName&quot;: null
+}
+</code></pre></div><h2 id="建立-web-應用程式"><a href="#建立-web-應用程式" class="header-anchor">#</a> 建立 Web 應用程式</h2> <p>在 Cloud Shell 中，使用 <code>[az webapp create](https://docs.microsoft.com/zh-tw/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)</code> 命令，在 <code>myAppServicePlan</code> App Service 方案中建立 <a href="https://docs.microsoft.com/zh-tw/azure/app-service/containers/app-service-linux-intro" target="_blank" rel="noopener noreferrer">Web 應用程式<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。 將 <em><app-name></app-name></em> 取代為唯一的應用程式名稱，將 <em><azure-container-registry-name></azure-container-registry-name></em> 取代為您的登錄名稱。</p> <p>Azure CLI</p> <div class="language- extra-class"><pre><code>az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name &lt;app-name&gt; --deployment-container-image-name &lt;azure-container-registry-name&gt;.azurecr.io/mydockerimage:v1.0.0
+</code></pre></div><p>建立 Web 應用程式後，Azure CLI 會顯示類似下列範例的輸出：</p> <p>JSON</p> <div class="language- extra-class"><pre><code>{
+  &quot;availabilityState&quot;: &quot;Normal&quot;,
+  &quot;clientAffinityEnabled&quot;: true,
+  &quot;clientCertEnabled&quot;: false,
+  &quot;cloningInfo&quot;: null,
+  &quot;containerSize&quot;: 0,
+  &quot;dailyMemoryTimeQuota&quot;: 0,
+  &quot;defaultHostName&quot;: &quot;&lt;app-name&gt;.azurewebsites.net&quot;,
+  &quot;deploymentLocalGitUrl&quot;: &quot;https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git&quot;,
+  &quot;enabled&quot;: true,
+  &lt; JSON data removed for brevity. &gt;
+}
+
+
+
+$ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name ccc99docker001 --deployment-container-image-name ccc99docker001.azurecr.io/my-docker-image:v1.0.0
+No credential was provided to access Azure Container Registry. Trying to look up...
+{
+  &quot;availabilityState&quot;: &quot;Normal&quot;,
+  &quot;clientAffinityEnabled&quot;: true,
+  &quot;clientCertEnabled&quot;: false,
+  &quot;clientCertExclusionPaths&quot;: null,
+  &quot;cloningInfo&quot;: null,
+  &quot;containerSize&quot;: 0,
+  &quot;dailyMemoryTimeQuota&quot;: 0,
+  &quot;defaultHostName&quot;: &quot;ccc99docker001.azurewebsites.net&quot;,
+  &quot;enabled&quot;: true,
+  &quot;enabledHostNames&quot;: [
+    &quot;ccc99docker001.azurewebsites.net&quot;,
+    &quot;ccc99docker001.scm.azurewebsites.net&quot;
+  ],
+  &quot;ftpPublishingUrl&quot;: &quot;ftp://waws-prod-bay-139.ftp.azurewebsites.windows.net/site/wwwroot&quot;,
+  &quot;hostNameSslStates&quot;: [
+    {
+      &quot;hostType&quot;: &quot;Standard&quot;,
+      &quot;ipBasedSslResult&quot;: null,
+      &quot;ipBasedSslState&quot;: &quot;NotConfigured&quot;,
+      &quot;name&quot;: &quot;ccc99docker001.azurewebsites.net&quot;,
+      &quot;sslState&quot;: &quot;Disabled&quot;,
+      &quot;thumbprint&quot;: null,
+      &quot;toUpdate&quot;: null,
+      &quot;toUpdateIpBasedSsl&quot;: null,
+      &quot;virtualIp&quot;: null
+    },
+    {
+      &quot;hostType&quot;: &quot;Repository&quot;,
+      &quot;ipBasedSslResult&quot;: null,
+      &quot;ipBasedSslState&quot;: &quot;NotConfigured&quot;,
+      &quot;name&quot;: &quot;ccc99docker001.scm.azurewebsites.net&quot;,
+      &quot;sslState&quot;: &quot;Disabled&quot;,
+      &quot;thumbprint&quot;: null,
+      &quot;toUpdate&quot;: null,
+      &quot;toUpdateIpBasedSsl&quot;: null,
+      &quot;virtualIp&quot;: null
+    }
+  ],
+  &quot;hostNames&quot;: [
+    &quot;ccc99docker001.azurewebsites.net&quot;
+  ],
+  &quot;hostNamesDisabled&quot;: false,
+  &quot;hostingEnvironmentProfile&quot;: null,
+  &quot;httpsOnly&quot;: false,
+  &quot;hyperV&quot;: false,
+  &quot;id&quot;: &quot;/subscriptions/bdbe86f1-40d5-4305-99ce-bb6ea7c085c7/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/ccc99docker001&quot;,
+  &quot;identity&quot;: null,
+  &quot;inProgressOperationId&quot;: null,
+  &quot;isDefaultContainer&quot;: null,
+  &quot;isXenon&quot;: false,
+  &quot;kind&quot;: &quot;app,linux,container&quot;,
+  &quot;lastModifiedTimeUtc&quot;: &quot;2020-04-19T12:31:22.486666&quot;,
+  &quot;location&quot;: &quot;West US&quot;,
+  &quot;maxNumberOfWorkers&quot;: null,
+  &quot;name&quot;: &quot;ccc99docker001&quot;,
+  &quot;outboundIpAddresses&quot;: &quot;40.112.243.7,40.118.229.231,13.64.89.216,40.78.16.175,52.160.111.150&quot;,
+  &quot;possibleOutboundIpAddresses&quot;: &quot;40.112.243.7,40.118.229.231,13.64.89.216,40.78.16.175,52.160.111.150,13.64.91.216,13.64.94.144,13.91.124.136,13.91.125.204,40.118.239.192&quot;,
+  &quot;redundancyMode&quot;: &quot;None&quot;,
+  &quot;repositorySiteName&quot;: &quot;ccc99docker001&quot;,
+  &quot;reserved&quot;: true,
+  &quot;resourceGroup&quot;: &quot;myResourceGroup&quot;,
+  &quot;scmSiteAlsoStopped&quot;: false,
+  &quot;serverFarmId&quot;: &quot;/subscriptions/bdbe86f1-40d5-4305-99ce-bb6ea7c085c7/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan&quot;,
+  &quot;siteConfig&quot;: null,
+  &quot;slotSwapStatus&quot;: null,
+  &quot;state&quot;: &quot;Running&quot;,
+  &quot;suspendedTill&quot;: null,
+  &quot;tags&quot;: null,
+  &quot;targetSwapSlot&quot;: null,
+  &quot;trafficManagerHostNames&quot;: null,
+  &quot;type&quot;: &quot;Microsoft.Web/sites&quot;,
+  &quot;usageState&quot;: &quot;Normal&quot;
+}
+</code></pre></div><h2 id="在-web-應用程式中設定登錄認證"><a href="#在-web-應用程式中設定登錄認證" class="header-anchor">#</a> 在 Web 應用程式中設定登錄認證</h2> <p>若要使 App Service 提取私人映像，它需要有關您的登錄和映像的相關資訊。 在 Cloud Shell 中，為他們提供 <code>[az webapp config container set](https://docs.microsoft.com/zh-tw/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set)</code> 命令。 取代 <em><app-name></app-name></em> 、 <em><azure-container-registry-name></azure-container-registry-name></em> 、 <em><registry-username></registry-username></em> 及 <em><password></password></em> 。</p> <p>Azure CLI</p> <div class="language- extra-class"><pre><code>az webapp config container set --name &lt;app-name&gt; --resource-group myResourceGroup --docker-custom-image-name &lt;azure-container-registry-name&gt;.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://&lt;azure-container-registry-name&gt;.azurecr.io --docker-registry-server-user &lt;registry-username&gt; --docker-registry-server-password &lt;password&gt;
+</code></pre></div><p>注意
+使用 Docker Hub 以外的登錄時，<code>--docker-registry-server-url</code> 必須格式化為 <code>https://</code>，後面加上登錄的完整網域名</p> <div class="language- extra-class"><pre><code>$ az webapp config container set --name ccc99docker001 --resource-group myResourceGroup --docker-custom-image-name ccc99docker001.azurecr.io/my-docker-image:v1.0.0 --docker-registry-server-url https://ccc99docker001.azurecr.io --docker-registry-server-user ccc99docker001 --docker-registry-server-password gOMvbs5SoSOhALw=EkhbjME4cqShN/GY
+[
+  {
+    &quot;name&quot;: &quot;WEBSITES_ENABLE_APP_SERVICE_STORAGE&quot;,
+    &quot;slotSetting&quot;: false,
+    &quot;value&quot;: &quot;false&quot;
+  },
+  {
+    &quot;name&quot;: &quot;DOCKER_REGISTRY_SERVER_URL&quot;,
+    &quot;slotSetting&quot;: false,
+    &quot;value&quot;: &quot;https://ccc99docker001.azurecr.io&quot;
+  },
+  {
+    &quot;name&quot;: &quot;DOCKER_REGISTRY_SERVER_USERNAME&quot;,
+    &quot;slotSetting&quot;: false,
+    &quot;value&quot;: &quot;ccc99docker001&quot;
+  },
+  {
+    &quot;name&quot;: &quot;DOCKER_REGISTRY_SERVER_PASSWORD&quot;,
+    &quot;slotSetting&quot;: false,
+    &quot;value&quot;: null
+  },
+  {
+    &quot;name&quot;: &quot;DOCKER_CUSTOM_IMAGE_NAME&quot;,
+    &quot;value&quot;: &quot;DOCKER|ccc99docker001.azurecr.io/my-docker-image:v1.0.0&quot;
+  }
+]
+</code></pre></div><h2 id="設定環境變數"><a href="#設定環境變數" class="header-anchor">#</a> 設定環境變數</h2> <p>大部分的 Docker 映像會使用自訂環境變數，例如 80 以外的連接埠。 可告訴 App Service 您映像所使用的連接埠，方法是使用 <code>WEBSITES_PORT</code> 應用程式設定。 <a href="https://github.com/Azure-Samples/docker-django-webapp-linux" target="_blank" rel="noopener noreferrer">本教學課程中的 Python 範例<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> GitHub 頁面說明您必須將 <code>WEBSITES_PORT</code> 設定為 <em>8000</em>。</p> <p>若要設定應用程式的設定，請在 Cloud Shell 中使用 <code>[az webapp config appsettings set](https://docs.microsoft.com/zh-tw/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set)</code> 命令。 應用程式設定為區分大小寫和空格分隔。</p> <p>Azure CLI</p> <div class="language- extra-class"><pre><code>az webapp config appsettings set --resource-group myResourceGroup --name &lt;app-name&gt; --settings W
+
+
+$ az webapp config appsettings set --resource-group myResourceGroup --name ccc99docker001 --settings WEBSITES_PORT=8000
+[
+  {
+    &quot;name&quot;: &quot;WEBSITES_ENABLE_APP_SERVICE_STORAGE&quot;,
+    &quot;slotSetting&quot;: false,
+    &quot;value&quot;: &quot;false&quot;
+  },
+  {
+    &quot;name&quot;: &quot;DOCKER_REGISTRY_SERVER_URL&quot;,
+    &quot;slotSetting&quot;: false,
+    &quot;value&quot;: &quot;https://ccc99docker001.azurecr.io&quot;
+  },
+  {
+    &quot;name&quot;: &quot;DOCKER_REGISTRY_SERVER_USERNAME&quot;,
+    &quot;slotSetting&quot;: false,
+    &quot;value&quot;: &quot;ccc99docker001&quot;
+  },
+  {
+    &quot;name&quot;: &quot;DOCKER_REGISTRY_SERVER_PASSWORD&quot;,
+    &quot;slotSetting&quot;: false,
+    &quot;value&quot;: null
+  },
+  {
+    &quot;name&quot;: &quot;WEBSITES_PORT&quot;,
+    &quot;slotSetting&quot;: false,
+    &quot;value&quot;: &quot;8000&quot;
+  }
+]
+</code></pre></div><h2 id="測試-web-應用程式"><a href="#測試-web-應用程式" class="header-anchor">#</a> 測試 Web 應用程式</h2> <p>瀏覽至 Web 應用程式以確認它可運作 (https://<app-name>.azurewebsites.net)。</app-name></p> <div class="language- extra-class"><pre><code>https://ccc99docker001.azurewebsites.net/
+</code></pre></div><p>注意</p> <p>第一次存取應用程式時，可能需要一些時間，因為 App Service 必須提取整個映像。 如果瀏覽器逾時，只需重新整理頁面即可。</p> <p><img src="https://docs.microsoft.com/zh-tw/azure/app-service/containers/media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png" alt="測試 web 應用程式連接埠設定"></p> <h2 id="變更-web-應用程式並重新部署"><a href="#變更-web-應用程式並重新部署" class="header-anchor">#</a> 變更 Web 應用程式並重新部署</h2> <p>在您的本機 Git 存放庫中，開啟 app/templates/app/index.html。 找出第一個 HTML 元素，並將它加以變更。</p> <p>Python</p> <div class="language- extra-class"><pre><code>&lt;nav class=&quot;navbar navbar-inverse navbar-fixed-top&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div class=&quot;navbar-header&quot;&gt;
+        &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Azure App Service - Updated Here!&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+</code></pre></div><p>一旦您修改了 Python 檔案並加以儲存後，必須重建並推送新的 Docker 映像。 接著，重新啟動 Web 應用程式，變更才會生效。 使用您先前已在本教學課程中使用的相同命令。 您可以參考<a href="https://docs.microsoft.com/zh-tw/azure/app-service/containers/tutorial-custom-docker-image#build-the-image-from-the-docker-file" target="_blank" rel="noopener noreferrer">從 Docker 檔案建立映像<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>和<a href="https://docs.microsoft.com/zh-tw/azure/app-service/containers/tutorial-custom-docker-image#push-image-to-azure-container-registry" target="_blank" rel="noopener noreferrer">將映像推送至 Azure Container Registry<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。 遵循<a href="https://docs.microsoft.com/zh-tw/azure/app-service/containers/tutorial-custom-docker-image#test-the-web-app" target="_blank" rel="noopener noreferrer">測試 Web 應用程式<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>中的指示來測試 web 應用程式。</p> <div class="language- extra-class"><pre><code>docker build --tag my-docker-image .
+...
+docker ps
+...
+docker stop &lt;ContainerID&gt;
+...
+docker run -p 8000:8000 my-docker-image
+
+
+
+$ docker tag my-docker-image ccc99docker001.azurecr.io/my-docker-image:v1.1.0
+...
+$ docker push ccc99docker001.azurecr.io/my-docker-image:v1.1.0
+...
+$ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name ccc99docker001 --deployment-container-image-name ccc99docker001.azurecr.io/my-docker-image:v1.1.0
+</code></pre></div><h2 id="存取診斷記錄"><a href="#存取診斷記錄" class="header-anchor">#</a> 存取診斷記錄</h2> <p>您可以存取從容器產生的主控台記錄。 請先在 Cloud Shell 中執行下列命令來開啟容器記錄：</p> <p>Azure CLI</p> <div class="language- extra-class"><pre><code>az webapp log config --name &lt;app-name&gt; --resource-group myResourceGroup --docker-container-logging filesystem
+
+
+$ az webapp log config --name ccc99docker001 --resource-group myResourceGroup --docker-container-logging filesystem
+{
+  &quot;applicationLogs&quot;: {
+    &quot;azureBlobStorage&quot;: {
+      &quot;level&quot;: &quot;Off&quot;,
+      &quot;retentionInDays&quot;: null,
+      &quot;sasUrl&quot;: null
+    },
+    &quot;azureTableStorage&quot;: {
+      &quot;level&quot;: &quot;Off&quot;,
+      &quot;sasUrl&quot;: null
+    },
+    &quot;fileSystem&quot;: {
+      &quot;level&quot;: &quot;Off&quot;
+    }
+  },
+  &quot;detailedErrorMessages&quot;: {
+    &quot;enabled&quot;: false
+  },
+  &quot;failedRequestsTracing&quot;: {
+    &quot;enabled&quot;: false
+  },
+  &quot;httpLogs&quot;: {
+    &quot;azureBlobStorage&quot;: {
+      &quot;enabled&quot;: false,
+      &quot;retentionInDays&quot;: 3,
+      &quot;sasUrl&quot;: null
+    },
+    &quot;fileSystem&quot;: {
+      &quot;enabled&quot;: true,
+      &quot;retentionInDays&quot;: 3,
+      &quot;retentionInMb&quot;: 100
+    }
+  },
+  &quot;id&quot;: &quot;/subscriptions/bdbe86f1-40d5-4305-99ce-bb6ea7c085c7/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/ccc99docker001/config/logs&quot;,
+  &quot;kind&quot;: null,
+  &quot;location&quot;: &quot;West US&quot;,
+  &quot;name&quot;: &quot;logs&quot;,
+  &quot;resourceGroup&quot;: &quot;myResourceGroup&quot;,
+  &quot;type&quot;: &quot;Microsoft.Web/sites/config&quot;
+}
+</code></pre></div><p>開啟容器記錄後，請執行下列命令來查看記錄資料流：</p> <p>Azure CLI</p> <div class="language- extra-class"><pre><code>az webapp log tail --name &lt;app-name&gt; --resource-group myResourceGroup
+
+
+$ az webapp log tail --name ccc99docker001 --resource-group myResourceGroup
+</code></pre></div><p>如果您沒有立即看到主控台記錄，請在 30 秒後再查看。</p> <p>注意
+您也可以在瀏覽器中的 <code>https://&lt;app-name&gt;.scm.azurewebsites.net/api/logs/docker</code> 檢查記錄檔。</p> <p>https://ccc99docker001.scm.azurewebsites.net/api/logs/docker</p> <p>若要隨時停止記錄資料流，請輸入 <code>Ctrl</code>+<code>C</code>。</p> <h2 id="啟用-ssh-連線"><a href="#啟用-ssh-連線" class="header-anchor">#</a> 啟用 SSH 連線</h2> <p>SSH 可讓容器和用戶端之間進行安全通訊。 若要啟用與容器的 SSH 連線，則必須設定它的自訂映像。 讓我們看一下已經具有必要設定的範例存放庫。</p> <ul><li>在 <a href="https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile" target="_blank" rel="noopener noreferrer">Dockerfile<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 中，下列程式碼會安裝 SSH 伺服器，並也會設定登入認證。</li></ul> <p>Dockerfile</p> <div class="language- extra-class"><pre><code>ENV SSH_PASSWD &quot;root:Docker!&quot;
+RUN apt-get update \
+        &amp;&amp; apt-get install -y --no-install-recommends dialog \
+        &amp;&amp; apt-get update \
+  &amp;&amp; apt-get install -y --no-install-recommends openssh-server \
+  &amp;&amp; echo &quot;$SSH_PASSWD&quot; | chpasswd 
+
+
+
+注意
+此設定不允許容器的外部連線。 SSH 只能透過 Kudu/SCM 站台提供。 Kudu/SCM 站台會向 Azure 帳戶進行驗證。
+</code></pre></div><ul><li><p><a href="https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18" target="_blank" rel="noopener noreferrer">Dockerfile<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 會將存放庫中的 <a href="https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config" target="_blank" rel="noopener noreferrer">sshd_config<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 檔案複製到 /etc/ssh/ 目錄。</p> <p>Dockerfile
+COPY sshd_config /etc/ssh/</p></li> <li><p><a href="https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L22" target="_blank" rel="noopener noreferrer">Dockerfile<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 會公開容器中的連接埠 2222。 它是供內部使用的連接埠，只有私人虛擬網路之橋接網路內的容器可以存取。</p></li></ul> <p>Dockerfile</p> <div class="language- extra-class"><pre><code>EXPOSE 8000 2222
+</code></pre></div><ul><li><a href="https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/init.sh#L5" target="_blank" rel="noopener noreferrer">輸入指令碼<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>會啟動 SSH 伺服器。</li></ul> <p>bash</p> <div class="language- extra-class"><pre><code>#!/bin/bash
+service ssh start
+</code></pre></div><p><strong>開啟對容器的 SSH 連線</strong></p> <p>SSH 連線只能透過 Kudu 站台提供，可在 <code>https://&lt;app-name&gt;.scm.azurewebsites.net</code> 存取。
+若要連線，請瀏覽至 <code>https://&lt;app-name&gt;.scm.azurewebsites.net/webssh/host</code> 並以您的 Azure 帳戶登入。</p> <div class="language- extra-class"><pre><code>https://ccc99docker001.scm.azurewebsites.net/webssh/host
+</code></pre></div><p>然後，系統會將您重新導向至一個顯示互動式主控台的頁面。</p> <p><img src="https://paper-attachments.dropbox.com/s_9D8ADAD807EF4924D634CFA48524E7FFC4232471F219E6705E5EB4E7BBD5CC16_1587343158936_image.png" alt=""></p> <p>您需要確認特定應用程式正在容器中執行。 若要檢查容器並確認執行的流程，在提示字元提出 <code>top</code> 命令。</p> <p>bash</p> <div class="language- extra-class"><pre><code>top
+</code></pre></div><p><code>top</code> 命令會公開容器中所有執行中的程序。</p> <div class="language- extra-class"><pre><code>PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+ 1 root      20   0  945616  35372  15348 S  0.0  2.1   0:04.63 node
+20 root      20   0   55180   2776   2516 S  0.0  0.2   0:00.00 sshd
+42 root      20   0  944596  33340  15352 S  0.0  1.9   0:05.80 node /opt/s+
+56 root      20   0   59812   5244   4512 S  0.0  0.3   0:00.93 sshd
+58 root      20   0   20228   3128   2664 S  0.0  0.2   0:00.00 bash
+62 root      20   0   21916   2272   1944 S  0.0  0.1   0:03.15 top
+63 root      20   0   59812   5344   4612 S  0.0  0.3   0:00.03 sshd
+65 root      20   0   20228   3140   2672 S  0.0  0.2   0:00.00 bash
+71 root      20   0   59812   5380   4648 S  0.0  0.3   0:00.02 sshd
+73 root      20   0   20228   3160   2696 S  0.0  0.2   0:00.00 bash
+77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
+</code></pre></div><p>恭喜！ 您已在 App Service 中設定自訂的 Linux 容器。</p> <h2 id="清除部署"><a href="#清除部署" class="header-anchor">#</a> 清除部署</h2> <p>在執行過範例指令碼之後，您可以使用下列命令來移除資源群組和所有與其相關聯的資源。</p> <p>Azure CLI</p> <div class="language- extra-class"><pre><code>az group delete --name myResourceGroup
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" defer></script><script src="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" defer></script><script src="/ho-lok-ue-tools/assets/js/213.647e2ffe.js" defer></script>
+  </body>
+</html>

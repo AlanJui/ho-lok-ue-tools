@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>coc-nvim | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css" as="style"><link rel="preload" href="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/247.edc9641e.js" as="script"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/101.e14056d5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/102.5a78f801.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/103.e198a428.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/104.449b67e1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/105.825b86d6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/106.173be714.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/107.03f96c6c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/108.57957213.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/109.0a4b39eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/11.3e9ab894.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/111.802a4ef3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/112.8fb9f4c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/113.163f649e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/114.8da6ef94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/116.f901450e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/117.4898b362.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/118.80d06981.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/12.4a40a2fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/120.1955a557.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/121.1865eac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/122.1d79306c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/123.df62f490.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/124.4a9f1fcb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/125.d294aced.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/126.0558f46b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/127.71e4ae03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/128.cf355591.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/129.29c3a2f4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/13.c3911464.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/130.21e8b50e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/131.2a22915e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/132.23c7e418.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/133.b40de47b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/134.3b21be27.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/135.e33241e8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/136.e1fad00a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/137.4d051254.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/138.f95b7b98.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/139.2b8d3e50.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/14.c9886b34.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/140.1b8e8cd0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/141.ff03f551.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/142.8de335ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/144.6b438904.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/145.dd73b692.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/146.a5721fc9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/147.be2503d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/148.3012abdb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/149.5172325c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/15.0cce8ecb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/150.5304d46a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/152.6fb52d1e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/153.eaa379eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/154.e4a08e57.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/155.2a0dcb32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/157.ef0d4e6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/159.e58cd5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/16.fa6f05c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/160.b14498b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/161.6f58600a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/162.5088d732.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/163.cdfabcd3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/164.33af30e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/165.82251337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/166.729d4da0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/167.5021a127.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/168.82153370.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/169.0aad21a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/170.57bd13b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/171.23ff00be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/172.364d6e16.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/173.efa01f08.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/174.69d30215.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/175.265d6949.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/176.008e238b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/177.822a15ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/178.d1eee661.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/179.956fe469.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/180.bb68de5c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/181.6ca43cc3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/182.b784ea03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/183.cf75a717.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/184.a486267a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/185.35a0a735.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/186.67964623.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/187.13410beb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/188.962c6776.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/189.4786f58b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/19.ee358577.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/190.c4e5a3ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/191.ab08e553.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/193.95d606b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/194.2931aac2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/195.66817182.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/196.3841de25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/197.6d0aa566.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/198.f0525295.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/199.ae76c070.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/200.c57f2a39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/201.d63f8f6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/202.f9e03aa9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/203.95ffec51.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/204.3787443f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/205.27e200a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/206.45652af0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/208.3c2a60e9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/209.feeb4956.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/21.46ede3be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/210.6401ff88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/211.cfb8dc53.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/212.3ddf2b32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/213.647e2ffe.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/214.8e117d35.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/216.bc2d671c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/217.6371c831.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/218.ec43176a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/219.d69f53c2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/220.ca6bdcd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/221.e36810e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/222.715b43c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/223.808a43ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/224.e4df9237.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/225.6d08d9a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/226.4a72d290.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/227.93c9df65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/228.89cf25a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/229.27539a77.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/23.74ec33ae.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/232.c03f5450.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/233.a50b7053.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/234.e24679d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/236.03949180.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/237.077ec90b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/238.84598708.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/239.43007d0a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/24.dfaf327e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/240.2df91873.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/242.3066009f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/243.1ff09887.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/244.30430b7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/246.473b271a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/248.6f7f74e5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/249.24762885.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/25.50731498.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/250.cc52a908.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/251.87f791a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/252.1e285f58.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/253.d783bd23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/254.bbeda6d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/255.1601d594.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/256.644af9ee.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/257.369bfcaf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/258.95ae1b47.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/259.02650516.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/26.7308cd5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/260.49df9ac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/261.7018bbf8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/262.b7de7d79.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/264.b82abc65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/265.9f4300d1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/266.868fd3db.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/267.c47ce979.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/268.d0ab9778.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/269.3b3efc3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/27.79b71a65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/270.4f788569.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/271.4fe4a762.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/273.cb605436.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/274.0efe455c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/275.5bc2a05c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/277.4724df32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/278.7e88e133.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/279.d117afb1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/28.96c7e30c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/280.1747c540.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/281.1df8dad8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/282.fb3b056e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/283.7238e6a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/284.333828fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/285.b4db7f5d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/286.203a528e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/287.3c26123e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/288.7b1abc61.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/289.f27ef80f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/29.0be0ff39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/290.b888b1dc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/291.db0ad529.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/292.491ba209.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/293.6222a09d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/294.ac3715a7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/295.3717bceb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/296.88ac43bd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/297.b2519337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/298.4094ee4b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/299.f1b57bd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/3.d8645ed1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/30.6c3af224.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/300.05acfc97.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/301.8b308b88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/302.649b0f63.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/303.02024141.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/304.0e1196b1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/305.b1ea83fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/306.0a66cafd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/307.a06f603b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/308.c5ff11ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/309.884aca03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/31.841f3ded.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/310.06a43026.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/311.7705aadb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/312.16c67c7e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/313.3a6cccf5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/314.bddfc342.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/316.445c3681.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/317.6698324c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/318.83b94f00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/32.283b7a44.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/33.dd6bc432.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/34.88232fa7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/35.aecd5410.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/36.32967ae8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/37.7a64c1c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/38.4556399d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/39.5c25123c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/4.c0ad8e6f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/41.f689f7c8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/42.25c15d8a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/43.14f65079.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/44.4b91b24a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/45.576f776e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/46.6da1e5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/49.d4e60513.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/50.c8b22d33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/56.f2597707.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/57.51fbeade.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/62.1cf89df2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/63.0f78d5dd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/66.fd2de134.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/67.6a554fd7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/69.80992696.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/70.d3126764.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/71.a2e07128.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/72.b5189fa6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/73.367f0392.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/74.f315c04a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/75.1aa88d55.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/76.41b88fff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/77.c6d47945.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/78.f3084837.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/79.8c5a82d4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/80.975fdb87.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/81.efc8d138.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/82.fccf7493.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/83.2978c41b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/85.a3074c64.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/86.6813c6c5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/88.3506e2f0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/89.7a73b80d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/9.4a24de8d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/90.6d7286c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/91.65b2c391.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/93.aeac5506.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/94.4c8e5a25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/95.2972011e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/97.be960e26.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/98.39761100.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ho-lok-ue-tools/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>作業指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ho-lok-ue-tools/d100_URS/" class="sidebar-link">使用者需求</a></li><li><a href="/ho-lok-ue-tools/d200_SRS/" class="sidebar-link">系統需求</a></li><li><a href="/ho-lok-ue-tools/d300_SDD/" class="sidebar-link">系統設計</a></li><li><a href="/ho-lok-ue-tools/d400_DEV/" class="sidebar-link">開發與測試</a></li><li><a href="/ho-lok-ue-tools/d500_OP/" class="sidebar-link">系統維運</a></li><li><a href="/ho-lok-ue-tools/d900_REF/" class="sidebar-link">參考資料</a></li><li><a href="/ho-lok-ue-tools/guide/" class="sidebar-link">作業指引</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>電腦硬體</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>開發環境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>參考資料</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="coc-nvim"><a href="#coc-nvim" class="header-anchor">#</a> coc-nvim</h1> <p>https://github.com/neoclide/coc.nvim</p> <h1 id="安裝"><a href="#安裝" class="header-anchor">#</a> 安裝</h1> <ol><li><p>透過 vim-plug 進行安裝</p></li> <li><p>透過 vim command: CocInstall 安裝下列 coc extension</p> <ul><li>coc-json</li> <li>coc-lists</li> <li>coc-emmet</li> <li>coc-snippets</li> <li>兼容 VS Code Snippets 之 JEST Engine</li> <li>coc-ultisnips</li> <li>coc-html</li> <li>coc-css</li> <li>coc-tsserver</li> <li>coc-git</li> <li>coc-yank</li> <li>coc-highlight</li></ul> <p>$ npm i jest --save-dev</p></li></ol> <h1 id="設定"><a href="#設定" class="header-anchor">#</a> 設定</h1> <h2 id="nvim-設定"><a href="#nvim-設定" class="header-anchor">#</a> nvim 設定</h2> <p>配合用 python packages</p> <ul><li>pynvim</li> <li>pylint</li> <li>autopep8</li> <li>move2trash</li></ul> <h2 id="coc-nvim-設定檔"><a href="#coc-nvim-設定檔" class="header-anchor">#</a> coc-nvim 設定檔</h2> <div class="language- extra-class"><pre><code>~/.config/nvim/coc-settings.json
+</code></pre></div><ul><li>可用 :CocConfig 或 C ，編輯設定檔</li> <li>需先安裝 coc extensions (plugin)</li></ul> <p>~/.config/nvim/coc-settings.json</p> <div class="language- extra-class"><pre><code>{
+    &quot;suggest.noselect&quot;: false,
+    &quot;snippets.loadFromExtensions&quot;: true,
+    &quot;snippets.ultisnips.enable&quot;: true,
+    &quot;snippets.textmateSnippetsRoots&quot;: [&quot;~/.config/nvim/snippets&quot;],
+    &quot;snippets.userSnippetsDirectory&quot;: &quot;~/.config/coc/ultisnips&quot;,
+    &quot;snippets.snipmate.enable&quot;: false,
+    &quot;snippets.extends&quot;: {
+      &quot;javascript&quot;: [&quot;javascript&quot;],
+      &quot;html&quot;: [&quot;html&quot;],
+      &quot;htmldjango&quot;: [&quot;htmldjango&quot;, &quot;html&quot;]
+  }
+}
+</code></pre></div><h2 id="coc-snippets-安裝與使用"><a href="#coc-snippets-安裝與使用" class="header-anchor">#</a> coc-snippets 安裝與使用</h2> <p>在 coc-nvim 使用 snippets ，可透過 coc-nvim extension（擴充套件）： coc-snippets 達成。</p> <p>【參考文件】： https://github.com/neoclide/coc-snippets</p> <p><strong>安裝操作</strong></p> <p>安裝 coc-nvim extension：coc-snippets。</p> <div class="language- extra-class"><pre><code>:CocInstall coc-snippets
+</code></pre></div><p><strong>取得 Snippets 來源</strong></p> <p>為配合 coc-snippets 的使用， snippets 來源，可透過安裝如下之 vim plug 取得。</p> <div class="language- extra-class"><pre><code>Plug 'honza/vim-snippets'
+</code></pre></div><p>vim-snippets 的 snippets 檔案存放路徑：</p> <div class="language- extra-class"><pre><code>~/.local/share/nvim/plugged/vim-snippets/snippets/
+</code></pre></div><p><strong>使用 VSCode snippet</strong></p> <p>（1）欲使用 VSCode snippets，需要先安裝 coc-snippets。</p> <p>（2）接下來則需安裝 coc-nvim extension：vscode-jest-snippets</p> <div class="language- extra-class"><pre><code>:CocInstall https://github.com/andys8/vscode-jest-snippets
+</code></pre></div><p>【註】：若要改用 vim-plug 安裝 coc-nvim extension：</p> <div class="language- extra-class"><pre><code>Plug 'https://github.com/andys8/vscode-jest-snippets.git'
+</code></pre></div><p>（3）設定 VSCode Snippets 存放處。</p> <p>於 coc-settings.json 檔案，加入 snippets.textmateSnippetsRoots 設定：</p> <div class="language- extra-class"><pre><code>  &quot;snippets.textmateSnippetsRoots&quot;: [ 
+    &quot;~/Library/Application Support/Code/User/snippets&quot;,
+    &quot;~/.config/nvim/snippets/vs_code&quot;
+  ],
+</code></pre></div><p><strong>依據目前編輯檔案類型（filetype），查詢可用之 Snippets</strong></p> <div class="language- extra-class"><pre><code>:CocList snippets
+</code></pre></div><p><img src="https://paper-attachments.dropbox.com/s_EA74C7D56FABDAE19AF2C81175E8A1B9447B4E7814C4FA0314F67A2D7BA4BD93_1574651648943_image.png" alt=""></p> <p><strong>依據目前編輯檔案類型（filetype），打開相關可用之 Snippets 設定檔</strong></p> <div class="language- extra-class"><pre><code>:CocCommand snippets.openSnippetFiles
+choose snippet file::
+1. /Users/alanjui/.config/coc/ultisnips/html.snippets
+2. /Users/alanjui/.local/share/nvim/plugged/vim-snippets/UltiSnips/html.snippets
+3. /Users/alanjui/.local/share/nvim/plugged/vim-snippets/UltiSnips/html_minimal.snippets
+4. /Users/alanjui/.local/share/nvim/plugged/vim-snippets/UltiSnips/htmldjango.snippets
+5. /Users/alanjui/Library/Application Support/Code/User/snippets/html.json
+Type number and &lt;Enter&gt; or click with mouse (empty cancels):
+</code></pre></div><p><strong>個人客製化Snippets，檔案目錄路徑(UltiSnips)</strong></p> <div class="language- extra-class"><pre><code>~/.config/coc/ultisnips/
+</code></pre></div><ul><li>htmldjango.snippets</li> <li>html.snippets</li> <li>css.snippets</li> <li>javascript.snippets</li></ul> <p>在 nvim 查詢已安裝之 snippet 檔案，及其存放路徑處：</p> <div class="language- extra-class"><pre><code>:CocCommand snippets.openSnippetFiles
+choose snippet file::
+1. /Users/alanjui/.config/nvim/snippets/ultisnips/html_minimal.snippets
+2. /Users/alanjui/.config/nvim/snippets/ultisnips/html.snippets
+3. /Users/alanjui/.local/share/nvim/plugged/vim-snippets/UltiSnips/html.snippets
+4. /Users/alanjui/.local/share/nvim/plugged/vim-snippets/UltiSnips/html_minimal.snippets
+5. /Users/alanjui/.config/nvim/snippets/vs_code/html.json
+Type number and &lt;Enter&gt; or click with mouse (empty cancels):
+</code></pre></div><h1 id="常用指令"><a href="#常用指令" class="header-anchor">#</a> 常用指令</h1> <h2 id="設定檔-coc-settings-json"><a href="#設定檔-coc-settings-json" class="header-anchor">#</a> 設定檔（coc-settings.json)</h2> <div class="language- extra-class"><pre><code>:CocConfig
+</code></pre></div><h2 id="cocinfo"><a href="#cocinfo" class="header-anchor">#</a> CocInfo</h2> <div class="language- extra-class"><pre><code>:CocInfo
+</code></pre></div><h2 id="marketplace"><a href="#marketplace" class="header-anchor">#</a> Marketplace</h2> <div class="language- extra-class"><pre><code>:CocList marketplace
+
+
+:CocList marketplace python
+</code></pre></div><h2 id="snippets"><a href="#snippets" class="header-anchor">#</a> Snippets</h2> <p><strong>有那些 snippets 可用</strong></p> <div class="language- extra-class"><pre><code>:CocList snippets
+</code></pre></div><p><strong>進行設定檔編輯</strong></p> <div class="language- extra-class"><pre><code>:CocCommand snippets.editSnippets
+
+
+
+:CocCommand snippets.openSnippetFiles
+</code></pre></div><h1 id="擴充套件"><a href="#擴充套件" class="header-anchor">#</a> 擴充套件</h1> <p>https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions</p> <h2 id="install-extensions"><a href="#install-extensions" class="header-anchor">#</a> Install extensions</h2> <p>Using <code>:CocInstall</code>:</p> <div class="language- extra-class"><pre><code>:CocInstall coc-json coc-css
+</code></pre></div><h2 id="uninstall-coc-extension"><a href="#uninstall-coc-extension" class="header-anchor">#</a> Uninstall coc extension</h2> <div class="language- extra-class"><pre><code>:CocUninstall coc-css
+</code></pre></div><h2 id="manage-extensions-with-coclist"><a href="#manage-extensions-with-coclist" class="header-anchor">#</a> Manage extensions with CocList</h2> <p>Run command:</p> <div class="language- extra-class"><pre><code>CocList extensions
+</code></pre></div><p>to open CocList buffer, which looks like:</p> <p><img src="https://user-images.githubusercontent.com/251450/45303659-e475d380-b548-11e8-9671-8a3e8e116db4.png" alt="screen shot 2018-09-10 at 10 28 06 pm"></p> <ul><li><code>?</code> means invalid extension</li> <li><code>*</code> means extension is activated</li> <li><code>+</code> means extension is loaded</li> <li><code>-</code> means extension is disabled</li></ul> <p>Supported actions (hit tab to activate action menu):</p> <ul><li><code>toggle</code> default action. activate/deactivate selected extension(s).</li> <li><code>enable</code>: enable selected extension(s).</li> <li><code>disable</code>: disable selected extension(s).</li> <li><code>reload</code>: reload selected extension(s).</li> <li>uninstall`: remove selected extension(s).</li> <li><code>lock</code>: toggle lock of extension, locked extension won't be updated by <code>:CocUpdate</code></li></ul> <h1 id="vim設定"><a href="#vim設定" class="header-anchor">#</a> Vim設定</h1> <h2 id="設定-htmldjango"><a href="#設定-htmldjango" class="header-anchor">#</a> 設定 htmldjango</h2> <p>https://stackoverflow.com/questions/3853028/how-to-force-vim-to-syntax-highlight-a-file-as-html</p> <p><strong>在 Vim Command Line 進行即時設定：</strong></p> <div class="language- extra-class"><pre><code>:set syntax=html
+</code></pre></div><p><strong>在「Vim設定檔（~/.vimrc）」進行永久設定：</strong></p> <div class="language- extra-class"><pre><code>autocmd BufNewFile,BufRead *.html set filetype = htmldjango
+</code></pre></div><h2 id="強迫將某類檔案-以-html-語法處理"><a href="#強迫將某類檔案-以-html-語法處理" class="header-anchor">#</a> 強迫將某類檔案，以 html 語法處理</h2> <p>下例，將副檔名為：ezt 類型檔案，檔案內容中之「語法解析」，視作 html 檔案處理。</p> <div class="language- extra-class"><pre><code>au BufReadPost *.ezt set syntax=html
+</code></pre></div><h1 id="參考"><a href="#參考" class="header-anchor">#</a> 參考</h1> <h2 id="init-vim"><a href="#init-vim" class="header-anchor">#</a> init.vim</h2> <p><strong>~/.config/nvim/init.vim</strong></p> <hr> <div class="language- extra-class"><pre><code>&quot;&quot;&quot; Vim-Plug
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'scrooloose/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
+
+&quot;======================================================================
+&quot; 快速鍵設定
+
+&quot; 進入「貼上（Paste）」模式
+set pastetoggle=&lt;F2&gt;
+
+&quot; 設定 Leader 鍵
+let mapleader = &quot;,&quot;
+set timeout timeoutlen=1500
+
+&quot; 行號顯示
+nmap &lt;leader&gt;ns :set nu&lt;cr&gt;
+nmap &lt;leader&gt;nr :set relativenumber&lt;cr&gt;
+
+&quot; 設定檔變更與重啟
+nmap &lt;Leader&gt;i :tabnew ~/.config/nvim/init.vim&lt;CR&gt;
+nmap &lt;Leader&gt;I :source ~/.config/nvim/init.vim&lt;CR&gt;
+nmap &lt;Leader&gt;s :source %&lt;CR&gt;
+
+&quot; 儲存檔案
+nmap &lt;leader&gt;w :update&lt;CR&gt;
+
+&quot; 退出系統
+nmap &lt;leader&gt;q :quit&lt;CR&gt;
+nmap &lt;leader&gt;Q :qa!&lt;CR&gt;
+
+
+&quot; NERDTree
+nmap \ :NERDTreeToggle&lt;CR&gt;
+
+
+&quot;----------------------------------------------------------------------
+imap jj &lt;Esc&gt;
+
+imap &lt;leader&gt;&lt;leader&gt; &lt;Esc&gt;A,
+imap &lt;C-,&gt; &lt;Right&gt;,&lt;Left&gt;
+
+imap :: &lt;Esc&gt;A:
+imap &lt;C-:&gt; &lt;Right&gt;:&lt;Left&gt;
+
+imap ;; &lt;Esc&gt;A;
+
+imap &lt;leader&gt;O &lt;Esc&gt;O
+imap &lt;leader&gt;o &lt;Esc&gt;o
+
+&quot; 拆疊／展開開關
+nmap &lt;Space&gt; za
+
+&quot;----------------------------------------------------------------------
+&quot; 搬移文字
+
+nnoremap &lt;M-j&gt; :m .+1&lt;CR&gt;==
+nnoremap &lt;M-k&gt; :m .-2&lt;CR&gt;==
+inoremap &lt;M-j&gt; &lt;Esc&gt;:m .+1&lt;CR&gt;==gi
+inoremap &lt;M-k&gt; &lt;Esc&gt;:m .-2&lt;CR&gt;==gi
+vnoremap &lt;M-j&gt; :m '&gt;+1&lt;CR&gt;gv=gv
+vnoremap &lt;M-k&gt; :m '&lt;-2&lt;CR&gt;gv=gv
+
+
+&quot;----------------------------------------------------------------------
+&quot;&quot;&quot; Environment Configurations
+set mouse=a
+set ruler laststatus=2 showcmd showmode
+set list listchars=trail:»,tab:»-
+set fillchars+=vert:\ 
+set wrap breakindent
+set encoding=utf-8
+set number
+set relativenumber
+
+
+&quot;&quot;&quot; Python3 VirtualEnv
+&quot;let g:python3_host_prog = expand('~/.config/nvim/env/bin/python')
+&quot;let g:python3_host_prog = '/home/alanjui/.pyenv/versions/neovim3/bin/python'
+
+&quot;&quot;&quot; Coloring
+syntax on
+highlight Pmenu guibg=white guifg=black gui=bold
+highlight Comment gui=bold
+highlight Normal gui=none
+highlight NonText guibg=none
+
+&quot; Opaque Background (Comment out to use terminal's profile)
+set termguicolors
+
+&quot; Transparent Background (For i3 and compton)
+highlight Normal guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
+
+&quot;&quot;&quot; Other Configurations
+filetype plugin indent on
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab smarttab autoindent
+set incsearch ignorecase smartcase hlsearch
+set title
+
+
+&quot;&quot;&quot; Plugin Configurations
+
+
+&quot;NERDTree
+map \ :NERDTreeToggle&lt;CR&gt;
+
+
+&quot;=====================================================
+&quot;&quot;&quot; COC Setup
+
+
+&quot;if hidden is not set, TextEdit might fail.
+set hidden
+
+&quot; Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+&quot; Better display for messages
+set cmdheight=2
+
+&quot; You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+&quot; don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+&quot; always show signcolumns
+set signcolumn=yes
+
+&quot; Use command ':verbose imap &lt;tab&gt;' to make sure tab is not mapped by other plugin.
+&quot; use &lt;tab&gt; for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap &lt;silent&gt;&lt;expr&gt; &lt;Tab&gt;
+      \ pumvisible() ? &quot;\&lt;C-n&gt;&quot; :
+      \ &lt;SID&gt;check_back_space() ? &quot;\&lt;Tab&gt;&quot; :
+      \ coc#refresh()
+
+&quot; Use &lt;c-space&gt; to trigger completion.
+inoremap &lt;silent&gt;&lt;expr&gt; &lt;c-space&gt; coc#refresh()
+
+&quot; Use &lt;Tab&gt; and &lt;S-Tab&gt; to navigate the completion list:
+inoremap &lt;expr&gt; &lt;Tab&gt; pumvisible() ? &quot;\&lt;C-n&gt;&quot; : &quot;\&lt;Tab&gt;&quot;
+inoremap &lt;expr&gt; &lt;S-Tab&gt; pumvisible() ? &quot;\&lt;C-p&gt;&quot; : &quot;\&lt;S-Tab&gt;&quot;
+
+&quot; Use &lt;cr&gt; to confirm completion:
+&quot; `&lt;C-g&gt;u` means break undo chain at current position.
+&quot; Coc only does snippet and additional edit on confirm.
+inoremap &lt;expr&gt; &lt;cr&gt; pumvisible() ? &quot;\&lt;C-y&gt;&quot; : &quot;\&lt;C-g&gt;u\&lt;CR&gt;&quot;
+
+&quot; To make &lt;cr&gt; select the first completion item and confirm the completion when no item has been selected:
+inoremap &lt;silent&gt;&lt;expr&gt; &lt;cr&gt; pumvisible() ? coc#_select_confirm() : &quot;\&lt;C-g&gt;u\&lt;CR&gt;&quot;
+
+&quot; Close the preview window when completion is done.
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+
+&quot; Use `[c` and `]c` to navigate diagnostics
+nmap &lt;silent&gt; [c &lt;Plug&gt;(coc-diagnostic-prev)
+nmap &lt;silent&gt; ]c &lt;Plug&gt;(coc-diagnostic-next)
+
+&quot; Remap keys for gotos
+nmap &lt;silent&gt; gd &lt;Plug&gt;(coc-definition)
+nmap &lt;silent&gt; gy &lt;Plug&gt;(coc-type-definition)
+nmap &lt;silent&gt; gi &lt;Plug&gt;(coc-implementation)
+nmap &lt;silent&gt; gr &lt;Plug&gt;(coc-references)
+
+&quot; Use K to show documentation in preview window
+nnoremap &lt;silent&gt; K :call &lt;SID&gt;show_documentation()&lt;CR&gt;
+
+function! s:show_documentation()
+  if (index(['vim','help'], &amp;filetype) &gt;= 0)
+    execute 'h '.expand('&lt;cword&gt;')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+&quot; Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+&quot; Remap for rename current word
+nmap &lt;leader&gt;rn &lt;Plug&gt;(coc-rename)
+
+&quot; Remap for format selected region
+xmap &lt;leader&gt;f  &lt;Plug&gt;(coc-format-selected)
+nmap &lt;leader&gt;f  &lt;Plug&gt;(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  &quot; Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  &quot; Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+&quot; Remap for do codeAction of selected region, ex: `&lt;leader&gt;aap` for current paragraph
+xmap &lt;leader&gt;a  &lt;Plug&gt;(coc-codeaction-selected)
+nmap &lt;leader&gt;a  &lt;Plug&gt;(coc-codeaction-selected)
+
+&quot; Remap for do codeAction of current line
+nmap &lt;leader&gt;ac  &lt;Plug&gt;(coc-codeaction)
+&quot; Fix autofix problem of current line
+nmap &lt;leader&gt;qf  &lt;Plug&gt;(coc-fix-current)
+
+&quot; Use &lt;tab&gt; for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap &lt;silent&gt; &lt;TAB&gt; &lt;Plug&gt;(coc-range-select)
+xmap &lt;silent&gt; &lt;TAB&gt; &lt;Plug&gt;(coc-range-select)
+xmap &lt;silent&gt; &lt;S-TAB&gt; &lt;Plug&gt;(coc-range-select-backword)
+
+&quot; Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+&quot; Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', &lt;f-args&gt;)
+
+&quot; use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+&quot; Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+&quot; Using CocList
+&quot; Show all diagnostics
+nnoremap &lt;silent&gt; &lt;space&gt;a  :&lt;C-u&gt;CocList diagnostics&lt;cr&gt;
+&quot; Manage extensions
+nnoremap &lt;silent&gt; &lt;space&gt;e  :&lt;C-u&gt;CocList extensions&lt;cr&gt;
+&quot; Show commands
+nnoremap &lt;silent&gt; &lt;space&gt;c  :&lt;C-u&gt;CocList commands&lt;cr&gt;
+&quot; Find symbol of current document
+nnoremap &lt;silent&gt; &lt;space&gt;o  :&lt;C-u&gt;CocList outline&lt;cr&gt;
+&quot; Search workspace symbols
+nnoremap &lt;silent&gt; &lt;space&gt;s  :&lt;C-u&gt;CocList -I symbols&lt;cr&gt;
+&quot; Do default action for next item.
+nnoremap &lt;silent&gt; &lt;space&gt;j  :&lt;C-u&gt;CocNext&lt;CR&gt;
+&quot; Do default action for previous item.
+nnoremap &lt;silent&gt; &lt;space&gt;k  :&lt;C-u&gt;CocPrev&lt;CR&gt;
+&quot; Resume latest coc list
+nnoremap &lt;silent&gt; &lt;space&gt;p  :&lt;C-u&gt;CocListResume&lt;CR&gt;
+
+
+
+&quot;&quot;&quot; Using the configuration file
+function! SetupCommandAbbrs(from, to)
+  exec 'cnoreabbrev &lt;expr&gt; '.a:from
+        \ .' ((getcmdtype() ==# &quot;:&quot; &amp;&amp; getcmdline() ==# &quot;'.a:from.'&quot;)'
+        \ .'? (&quot;'.a:to.'&quot;) : (&quot;'.a:from.'&quot;))'
+endfunction
+
+&quot; Use C to open coc config
+call SetupCommandAbbrs('C', 'CocConfig')
+
+autocmd FileType json syntax match Comment +\/\/.\+$+
+</code></pre></div><h2 id="ncm2-in-nvim"><a href="#ncm2-in-nvim" class="header-anchor">#</a> ncm2 in nvim</h2> <div class="language- extra-class"><pre><code>&quot;--------------------------------------------------------------
+&quot; 語法檢查（Syntax Check）
+
+&quot; Check syntax (linting) and fix files asynchronously, with Language
+&quot; Server Protocol (LSP) integration in Vim
+Plug 'w0rp/ale'
+
+&quot;--------------------------------------------------------------
+&quot; 自動完成（Autocomplete）
+
+&quot; Automatic quote and bracket completion
+Plug 'jiangmiao/auto-pairs'
+
+&quot; &quot; A set of mappings for HTML, XML, PHP, ASP, eRuby, JSP, and more
+&quot; Plug 'tpope/vim-ragtag'
+
+&quot; NCM2 (nvim-completion-manager v2) is a fast, extensible, async completion 
+&quot; framework for neovim.
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+
+&quot; NOTE: you need to install completion sources to get completions. Check
+&quot; our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+
+&quot; Gerenal purpose
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+
+&quot; Syntax
+Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
+
+&quot; Web Development
+Plug 'ncm2/ncm2-html-subscope'
+Plug 'ncm2/ncm2-tagprefix'
+&quot; Plug 'ncm2/ncm2-markdown-subscope'
+
+&quot; Python completion for ncm2 via the great jedi library.
+Plug 'ncm2/ncm2-jedi'
+
+&quot; Neosnippet integration for ncm2.
+&quot;  - snippet completion source
+&quot;  - trigger dynamic snippet of completed item, e.g. parameter expansion.
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'ncm2/ncm2-neosnippet'
+
+&quot; Emmet for vim
+Plug 'mattn/emmet-vim'
+
+&quot; Snippets
+</code></pre></div><h2 id="nerdtree"><a href="#nerdtree" class="header-anchor">#</a> NERDTree</h2> <p>&quot;--------------------------------------------------------------
+&quot; 瀏覽目錄與檔案： NERDTree</p> <p>&quot;  - To open file navigation window:  [:NERDTree]
+&quot;  - To open a file in the file explorer to the right window:  <o>
+&quot;  - To switch between file window and nerdtree file navigation window:
+&quot;  &lt;Ctrl+w&gt;&lt;Ctrl+w&gt;; &lt;Ctrl+w&gt;<L>
+&quot;  - To exit or close file explorer window: <q>; [:NERDTreeClose]
+&quot; o: 在已有窗口中打開文件、目錄或書籤，並跳到該窗口
+&quot; go: 在已有窗口 中打開文件、目錄或書籤，但不跳到該窗口
+&quot; t: 在新 Tab 中打開選中文件/書籤，並跳到新 Tab
+&quot; T: 在新 Tab 中打開選中文件/書籤，但不跳到新 Tab
+&quot; i: split 一個新窗口打開選中文件，並跳到該窗口
+&quot; gi: split 一個新窗口打開選中文件，但不跳到該窗口
+&quot; s: vsplit 一個新窗口打開選中文件，並跳到該窗口
+&quot; gs: vsplit 一個新 窗口打開選中文件，但不跳到該窗口
+&quot; !: 執行當前文件
+&quot; O: 遞歸打開選中 結點下的所有目錄
+&quot; m: 文件操作：複製、刪除、移動等</q></L></o></p> <h2 id="airline-安裝前置準備"><a href="#airline-安裝前置準備" class="header-anchor">#</a> Airline 安裝前置準備</h2> <p>需要有 Powerline Font 與 Nerd Font</p> <p><strong>Powerline Fonts 安裝</strong></p> <p>The repository of “Powerline Fonts” contains pre-patched and adjusted fonts for usage with the <a href="https://github.com/powerline/powerline" target="_blank" rel="noopener noreferrer">Powerline<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> statusline plugin.</p> <div class="language- extra-class"><pre><code>sudo apt install fonts-powerline
+</code></pre></div><p>官網及安裝參考文件： https://github.com/powerline/fonts</p> <p><strong>Nerd Font 安裝</strong></p> <p><strong>Nerd Fonts</strong> is a project that patches developer targeted fonts with a high number of glyphs (icons). Specifically to add a high number of extra glyphs from popular 'iconic fonts' such as <a href="https://github.com/FortAwesome/Font-Awesome" target="_blank" rel="noopener noreferrer">Font Awesome ➶<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>, <a href="https://vorillaz.github.io/devicons/" target="_blank" rel="noopener noreferrer">Devicons ➶<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>, <a href="https://github.com/primer/octicons" target="_blank" rel="noopener noreferrer">Octicons ➶<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>, and <a href="https://github.com/ryanoasis/nerd-fonts#glyph-sets" target="_blank" rel="noopener noreferrer">others<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</p> <ol><li><p>適用於 Linux 作業系統，手動下載網址： https://github.com/ryanoasis/nerd-fonts/tags</p> <p>發行說明： https://github.com/ryanoasis/nerd-fonts/releases</p></li> <li><p>透過「安裝腳本檔案（install.sh）」
+https://github.com/ryanoasis/nerd-fonts/blob/master/install.sh</p> <p>git clone https://github.com/ryanoasis/nerd-fonts.git</p> <p>$ wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/install.sh</p></li></ol> <p><strong>All fonts:</strong></p> <ul><li>Installs all the patched Fonts (<em>Warning: This is a lot of Fonts adding up to a large size</em>)
+./install.sh</li></ul> <p><strong>Single font:</strong></p> <ul><li><p>Installs a single Font of your choice
+./install.sh <FontName></FontName></p> <p>$ ./install.sh Hack
+$ ./install.sh HeavyData</p></li></ul> <p>官網及安裝參考文件： https://github.com/ryanoasis/nerd-fonts</p> <h2 id="airline-theme-的圖示無法正常顯示"><a href="#airline-theme-的圖示無法正常顯示" class="header-anchor">#</a> Airline Theme 的圖示無法正常顯示</h2> <p>注意： 光是安裝 Powerline Font ，仍無法正常顯示所有的 Icon ；需安裝 Nerd Font 才行。</p> <div class="language- extra-class"><pre><code>1.) Download a Nerd Font （如： Meslo for Powerline）
+2.) Unzip and copy to ~/.fonts
+3.) Run the command fc-cache -fv to manually rebuild the font cache
+</code></pre></div><p>下載網址：  <a href="https://github.com/ryanoasis/nerd-fonts" target="_blank" rel="noopener noreferrer"><strong>nerd-fonts</strong><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>/<a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts" target="_blank" rel="noopener noreferrer">patched-fonts<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>/<a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo" target="_blank" rel="noopener noreferrer">Meslo<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>/<a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/L-DZ" target="_blank" rel="noopener noreferrer">L-DZ<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>/<a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/L-DZ/Regular" target="_blank" rel="noopener noreferrer">Regular<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>/<strong>complete</strong>/</p> <p>https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Meslo/L-DZ/Regular/complete/Meslo%20LG%20L%20DZ%20Regular%20Nerd%20Font%20Complete%20Mono.ttf</p> <p><strong>配合之 init.vim 檔設定：</strong></p> <div class="language- extra-class"><pre><code>&quot;--------------------------------------------------------------
+&quot; 狀態列： Airline &amp; AirlineTheme
+
+&quot; Automatically displays all buffers when there's only one tab open
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#tabline#formatter = 'default'
+ 
+let g:airline_powerline_fonts = 1
+set guifont=MesloLGM\ Nerd\ Font:h17
+
+let g:airline_theme='wombat'
+&quot; let g:airline_theme='lucius'
+&quot; let g:airline_theme='luna'
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+&quot; unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '
+</code></pre></div><p>'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.whitespace = 'Ξ'</p> <div class="language- extra-class"><pre><code>&quot; powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = '' 
+let g:airline_symbols.dirty= '⚡'
+</code></pre></div><h1 id="設定參考範本"><a href="#設定參考範本" class="header-anchor">#</a> 設定參考範本</h1> <p>https://github.com/liaoishere/dotfiles/tree/master/vim</p> <p>http://liaoph.com/modern-vim/</p> <p>https://github.com/PegasusWang/vim-config/tree/rafi</p> <p>https://juejin.im/entry/5d92f7eaf265da5b926bc022</p> <p>https://morioh.com/p/e472c4057aeb</p> <p>https://github.com/ctaylo21/jarvis</p> <p>https://github.com/0xff91/vide</p> <p>http://gopherhub.org/2019/06/28/thinkvim/</p> <div class="language- extra-class"><pre><code>brew install ripgrep
+...
+Bash completion has been installed to:
+  /usr/local/etc/bash_completion.d
+
+zsh completions have been installed to:
+  /usr/local/share/zsh/site-functions
+</code></pre></div><p>https://awesomeopensource.com/project/kutsan/dotfiles</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" defer></script><script src="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" defer></script><script src="/ho-lok-ue-tools/assets/js/247.edc9641e.js" defer></script>
+  </body>
+</html>

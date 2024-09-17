@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ubuntu QEMU/KVM/Libvirt | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css" as="style"><link rel="preload" href="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/115.6ccf8b33.js" as="script"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/101.e14056d5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/102.5a78f801.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/103.e198a428.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/104.449b67e1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/105.825b86d6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/106.173be714.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/107.03f96c6c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/108.57957213.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/109.0a4b39eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/11.3e9ab894.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/111.802a4ef3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/112.8fb9f4c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/113.163f649e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/114.8da6ef94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/116.f901450e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/117.4898b362.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/118.80d06981.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/12.4a40a2fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/120.1955a557.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/121.1865eac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/122.1d79306c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/123.df62f490.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/124.4a9f1fcb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/125.d294aced.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/126.0558f46b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/127.71e4ae03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/128.cf355591.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/129.29c3a2f4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/13.c3911464.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/130.21e8b50e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/131.2a22915e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/132.23c7e418.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/133.b40de47b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/134.3b21be27.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/135.e33241e8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/136.e1fad00a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/137.4d051254.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/138.f95b7b98.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/139.2b8d3e50.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/14.c9886b34.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/140.1b8e8cd0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/141.ff03f551.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/142.8de335ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/144.6b438904.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/145.dd73b692.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/146.a5721fc9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/147.be2503d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/148.3012abdb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/149.5172325c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/15.0cce8ecb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/150.5304d46a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/152.6fb52d1e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/153.eaa379eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/154.e4a08e57.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/155.2a0dcb32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/157.ef0d4e6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/159.e58cd5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/16.fa6f05c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/160.b14498b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/161.6f58600a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/162.5088d732.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/163.cdfabcd3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/164.33af30e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/165.82251337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/166.729d4da0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/167.5021a127.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/168.82153370.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/169.0aad21a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/170.57bd13b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/171.23ff00be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/172.364d6e16.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/173.efa01f08.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/174.69d30215.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/175.265d6949.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/176.008e238b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/177.822a15ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/178.d1eee661.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/179.956fe469.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/180.bb68de5c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/181.6ca43cc3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/182.b784ea03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/183.cf75a717.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/184.a486267a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/185.35a0a735.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/186.67964623.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/187.13410beb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/188.962c6776.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/189.4786f58b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/19.ee358577.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/190.c4e5a3ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/191.ab08e553.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/193.95d606b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/194.2931aac2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/195.66817182.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/196.3841de25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/197.6d0aa566.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/198.f0525295.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/199.ae76c070.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/200.c57f2a39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/201.d63f8f6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/202.f9e03aa9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/203.95ffec51.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/204.3787443f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/205.27e200a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/206.45652af0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/208.3c2a60e9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/209.feeb4956.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/21.46ede3be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/210.6401ff88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/211.cfb8dc53.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/212.3ddf2b32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/213.647e2ffe.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/214.8e117d35.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/216.bc2d671c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/217.6371c831.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/218.ec43176a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/219.d69f53c2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/220.ca6bdcd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/221.e36810e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/222.715b43c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/223.808a43ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/224.e4df9237.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/225.6d08d9a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/226.4a72d290.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/227.93c9df65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/228.89cf25a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/229.27539a77.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/23.74ec33ae.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/232.c03f5450.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/233.a50b7053.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/234.e24679d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/236.03949180.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/237.077ec90b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/238.84598708.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/239.43007d0a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/24.dfaf327e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/240.2df91873.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/242.3066009f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/243.1ff09887.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/244.30430b7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/246.473b271a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/247.edc9641e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/248.6f7f74e5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/249.24762885.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/25.50731498.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/250.cc52a908.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/251.87f791a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/252.1e285f58.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/253.d783bd23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/254.bbeda6d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/255.1601d594.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/256.644af9ee.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/257.369bfcaf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/258.95ae1b47.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/259.02650516.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/26.7308cd5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/260.49df9ac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/261.7018bbf8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/262.b7de7d79.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/264.b82abc65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/265.9f4300d1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/266.868fd3db.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/267.c47ce979.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/268.d0ab9778.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/269.3b3efc3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/27.79b71a65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/270.4f788569.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/271.4fe4a762.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/273.cb605436.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/274.0efe455c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/275.5bc2a05c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/277.4724df32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/278.7e88e133.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/279.d117afb1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/28.96c7e30c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/280.1747c540.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/281.1df8dad8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/282.fb3b056e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/283.7238e6a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/284.333828fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/285.b4db7f5d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/286.203a528e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/287.3c26123e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/288.7b1abc61.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/289.f27ef80f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/29.0be0ff39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/290.b888b1dc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/291.db0ad529.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/292.491ba209.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/293.6222a09d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/294.ac3715a7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/295.3717bceb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/296.88ac43bd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/297.b2519337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/298.4094ee4b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/299.f1b57bd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/3.d8645ed1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/30.6c3af224.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/300.05acfc97.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/301.8b308b88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/302.649b0f63.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/303.02024141.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/304.0e1196b1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/305.b1ea83fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/306.0a66cafd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/307.a06f603b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/308.c5ff11ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/309.884aca03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/31.841f3ded.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/310.06a43026.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/311.7705aadb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/312.16c67c7e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/313.3a6cccf5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/314.bddfc342.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/316.445c3681.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/317.6698324c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/318.83b94f00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/32.283b7a44.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/33.dd6bc432.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/34.88232fa7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/35.aecd5410.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/36.32967ae8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/37.7a64c1c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/38.4556399d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/39.5c25123c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/4.c0ad8e6f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/41.f689f7c8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/42.25c15d8a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/43.14f65079.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/44.4b91b24a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/45.576f776e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/46.6da1e5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/49.d4e60513.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/50.c8b22d33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/56.f2597707.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/57.51fbeade.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/62.1cf89df2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/63.0f78d5dd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/66.fd2de134.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/67.6a554fd7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/69.80992696.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/70.d3126764.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/71.a2e07128.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/72.b5189fa6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/73.367f0392.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/74.f315c04a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/75.1aa88d55.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/76.41b88fff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/77.c6d47945.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/78.f3084837.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/79.8c5a82d4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/80.975fdb87.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/81.efc8d138.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/82.fccf7493.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/83.2978c41b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/85.a3074c64.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/86.6813c6c5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/88.3506e2f0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/89.7a73b80d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/9.4a24de8d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/90.6d7286c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/91.65b2c391.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/93.aeac5506.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/94.4c8e5a25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/95.2972011e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/97.be960e26.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/98.39761100.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ho-lok-ue-tools/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>作業指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ho-lok-ue-tools/d100_URS/" class="sidebar-link">使用者需求</a></li><li><a href="/ho-lok-ue-tools/d200_SRS/" class="sidebar-link">系統需求</a></li><li><a href="/ho-lok-ue-tools/d300_SDD/" class="sidebar-link">系統設計</a></li><li><a href="/ho-lok-ue-tools/d400_DEV/" class="sidebar-link">開發與測試</a></li><li><a href="/ho-lok-ue-tools/d500_OP/" class="sidebar-link">系統維運</a></li><li><a href="/ho-lok-ue-tools/d900_REF/" class="sidebar-link">參考資料</a></li><li><a href="/ho-lok-ue-tools/guide/" class="sidebar-link">作業指引</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>電腦硬體</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>開發環境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>參考資料</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ubuntu-qemu-kvm-libvirt"><a href="#ubuntu-qemu-kvm-libvirt" class="header-anchor">#</a> Ubuntu QEMU/KVM/Libvirt</h1> <p>https://www.youtube.com/watch?v=2SdSiJTGKLM&amp;</p> <p><a href="https://youtu.be/2SdSiJTGKLM" target="_blank" rel="noopener noreferrer">https://youtu.be/2SdSiJTGKLM<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><img src="https://paper-attachments.dropbox.com/s_A95431A2A3965C3081D7C5E4A15B0A1AD7277E450233574D54E3FFB13242D8F0_1607783224168_image.png" alt=""></p> <h2 id="安裝-kvm"><a href="#安裝-kvm" class="header-anchor">#</a> 安裝 KVM</h2> <p>https://linuxhint.com/install_kvm_ubuntu-2/</p> <p>https://linuxize.com/post/how-to-install-kvm-on-ubuntu-20-04/</p> <hr> <p>完成 KVM 安裝作業後，須登出／重開機，使用以下指令確認，與 QEMU 相關的 Bridge, NIC 的網路設備是否都已存在於作業系統中。</p> <div class="language- extra-class"><pre><code>$ ip link show master virbr0
+5: virbr0-nic: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc fq_codel master virbr0 state DOWN mode DEFAULT group default qlen 1000
+    link/ether 52:54:00:1c:ea:b4 brd ff:ff:ff:ff:ff:ff
+
+
+
+$ bridge link show dev virbr0-nic
+5: virbr0-nic: &lt;BROADCAST,MULTICAST&gt; mtu 1500 master virbr0 state disabled priority 32 cost 100 
+
+
+
+$ ip a s virbr0
+4: virbr0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether 52:54:00:1c:ea:b4 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
+       valid_lft forever preferred_lft forever
+</code></pre></div><hr> <h2 id="【案例一】"><a href="#【案例一】" class="header-anchor">#</a> 【案例一】</h2> <div class="language- extra-class"><pre><code>cd /kvm/iso
+sudo wget https://releases.ubuntu.com/20.04/ubuntu-20.04.1-live-server-amd64.iso
+
+
+
+virt-install --name server-01 \
+--os-type linux \
+--os-variant ubuntu20.04 \
+--ram 1024 \
+--disk /kvm/disk/server-01.img,device=disk,bus=virtio,size=10,format=qcow2 \
+--graphics vnc,listen=0.0.0.0 \
+--noautoconsole \
+--hvm \
+--cdrom /kvm/iso/ubuntu-20.04.1-live-server-amd64.iso \
+--boot cdrom,hd
+</code></pre></div><h2 id="【案例二】configuring-guest-networking"><a href="#【案例二】configuring-guest-networking" class="header-anchor">#</a> 【案例二】Configuring Guest Networking</h2> <p>http://www.linux-kvm.org/page/Networking</p> <hr> <h2 id="使用指令建置-vm"><a href="#使用指令建置-vm" class="header-anchor">#</a> 使用指令建置 VM</h2> <p><strong>使用 qemu-img 建置虛擬硬碟</strong></p> <div class="language- extra-class"><pre><code>qemu-img create -f qcow2 vm12-debian-10.qcow2 40G
+</code></pre></div><p><strong>使用 virt-install 建置 VM</strong></p> <div class="language- extra-class"><pre><code>#!/bin/sh
+VM_NAME=&quot;ARCH-02&quot;
+echo &quot;VM_NAME=$VM_NAME&quot;
+virt-install \
+    --name &quot;$VM_NAME&quot; \
+    --os-variant=generic \
+    --hvm \
+    --cpu host \
+    --vcpus=6 \
+    --ram 2048 \
+    --graphics spice \
+    --network bridge=br0 \
+    --disk path=/var/lib/libvirt/images/$VM_NAME,size=60 \
+    --cdrom /kvm/iso/archlinux-2020.12.01-x86_64.iso \
+    --boot uefi
+
+
+$ ./s02-install-vm
+
+
+virt-install \
+  --name VM12-Debian-10 \
+  --os-type linux \
+  --os-variant generic \
+  --vcpus 6 \
+  --ram 2048 \
+  --birdge=br0 \
+  --cdrom ./debian-mac-10.6.0-i386-netinst.iso \
+  --disk ./vm12-debian-10.qcow2
+</code></pre></div><p><strong>使用 qemu-system-x86_64 建置 VM</strong></p> <div class="language- extra-class"><pre><code>qemu-system-x86_64 \
+  -machine q35,accel=hvf \
+  -cpu host \
+  -m 2048 \
+  -display default,show-cursor=on \
+  -vga virtio \
+  -usb \
+  -device usb-tablet \
+  -netdev bridge,br=br0,id=n1 \
+  -device virtio-net,netdev=n1 \
+  -vnc :5 \
+  -hda ./vdisk1.qcow2,if=virtio \
+  -cdrom $HOME/worksapce/qemu/ISO/debian-10.6.0-amd64-netinst.iso \
+  -boot d 
+
+
+
+qemu-system-x86_64 \
+-machine q35,accel=hvf \
+-cpu host \
+-m 2048 \
+-display default,show-cursor=on \
+-vga virtio \
+-usb \
+-device usb-tablet \
+-nic user,model=virtio,ipv6=off \
+-net bridge,name=bridge1 \
+-drive media=disk,format=qcow2,file=./vdisk1.qcow2 \
+-cdrom $HOME/workspace/qemu/ISO/ubunttu-20.10-desktop-amd64.iso \
+-boot d
+
+
+
+
+
+
+qemu-system-x86_64 \
+-machine q35,accel=hvf \
+-cpu host \
+-m 2048 \
+-display default,show-cursor=on \
+-vga virtio \
+-usb \
+-device usb-tablet \
+-nic tap,model=virtio,ipv6=off \
+-netdev tap,script=./qemu-ifup.sh,downscript=./qemu-ifdown.sh \
+-vnc :5 \
+-hda ./vdisk1.qcow2 \
+-cdrom $HOME/workspace/qemu/ISO/debian-10.6.0-amd64-netinst.iso \
+-boot d
+
+
+
+  -nic tap,model=virtio,ipv6=off \
+  -netdev tap,script=./qemu-ifup.sh,downscript=./qemu-ifdown.sh \ 
+
+
+
+  -nic tap,model=virtio,ipv6=off \
+  -netdev tap,id=nd0,ifname=tap0,br=br0 \
+
+
+
+
+qemu-system-x86_64 \
+  -hda vdisk1.qcow2
+  -cdrom $HOME/worksapce/qemu/ISO/debian-10.6.0-amd64-netinst.iso \
+  -m 2048 \
+  -accel hvf \
+  -vga virtio \
+  -usb \
+  -device usb-tablet \
+  -display default,show-ciursor=on \
+  -boot d
+</code></pre></div><hr> <h2 id="使用圖形介面工具建置虛擬橋接器"><a href="#使用圖形介面工具建置虛擬橋接器" class="header-anchor">#</a> 使用圖形介面工具建置虛擬橋接器</h2> <p>使用「<strong>圖形介面工具</strong>」： nm-connection-editor ，在「虛擬網路」建置「虛擬橋接器」。</p> <p><strong>（1）暫停 Network Manager 網路服務。</strong></p> <div class="language- extra-class"><pre><code>sudo systemctl stop NetworkManager
+</code></pre></div><p><strong>（2）Remove connection profile：刪除「有線網路設定檔」，以便原「有線網路卡」釋放出 IP 。</strong></p> <p><img src="https://paper-attachments.dropbox.com/s_A95431A2A3965C3081D7C5E4A15B0A1AD7277E450233574D54E3FFB13242D8F0_1607307972771_image.png" alt=""></p> <div class="language- extra-class"><pre><code>$ ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eno1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+3: wlxd0c0bf50e619: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether d0:c0:bf:50:e6:19 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.66.215/24 brd 192.168.66.255 scope global dynamic noprefixroute wlxd0c0bf50e619
+       valid_lft 603037sec preferred_lft 603037sec
+    inet6 fd00:30b7:d45e:4bf2:24c1:2b9a:4515:5ccc/64 scope global temporary dynamic 
+       valid_lft 535423sec preferred_lft 84529sec
+    inet6 fd00:30b7:d45e:4bf2:23d3:ea79:b82d:3ee9/64 scope global dynamic mngtmpaddr noprefixroute 
+       valid_lft 535423sec preferred_lft 401566sec
+    inet6 fe80::a062:787:9737:838/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+</code></pre></div><p><strong>（3）使用 nm-connectiion-editor 指令，建置虛擬網路所需使用的虛擬橋接器（bridge0）</strong></p> <div class="language- extra-class"><pre><code>$ sudo nm-connection-editor
+</code></pre></div><p><img src="https://paper-attachments.dropbox.com/s_A95431A2A3965C3081D7C5E4A15B0A1AD7277E450233574D54E3FFB13242D8F0_1607308205175_image.png" alt=""></p> <p><img src="https://paper-attachments.dropbox.com/s_A95431A2A3965C3081D7C5E4A15B0A1AD7277E450233574D54E3FFB13242D8F0_1607308313753_image.png" alt=""></p> <p><img src="https://paper-attachments.dropbox.com/s_A95431A2A3965C3081D7C5E4A15B0A1AD7277E450233574D54E3FFB13242D8F0_1607308358839_image.png" alt=""></p> <p><img src="https://paper-attachments.dropbox.com/s_A95431A2A3965C3081D7C5E4A15B0A1AD7277E450233574D54E3FFB13242D8F0_1607308407161_image.png" alt=""></p> <p><img src="https://paper-attachments.dropbox.com/s_A95431A2A3965C3081D7C5E4A15B0A1AD7277E450233574D54E3FFB13242D8F0_1607308448623_image.png" alt=""></p> <p><img src="https://paper-attachments.dropbox.com/s_A95431A2A3965C3081D7C5E4A15B0A1AD7277E450233574D54E3FFB13242D8F0_1607308495922_image.png" alt=""></p> <p><img src="https://paper-attachments.dropbox.com/s_A95431A2A3965C3081D7C5E4A15B0A1AD7277E450233574D54E3FFB13242D8F0_1607308521825_image.png" alt="將 Connection name 改成：bridge0"></p> <p><img src="https://paper-attachments.dropbox.com/s_A95431A2A3965C3081D7C5E4A15B0A1AD7277E450233574D54E3FFB13242D8F0_1607308573498_image.png" alt=""></p> <div class="language- extra-class"><pre><code>$ ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eno1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel master bridge0 state UP group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+3: wlxd0c0bf50e619: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether d0:c0:bf:50:e6:19 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.66.215/24 brd 192.168.66.255 scope global dynamic noprefixroute wlxd0c0bf50e619
+       valid_lft 603292sec preferred_lft 603292sec
+    inet6 fd00:30b7:d45e:4bf2:24c1:2b9a:4515:5ccc/64 scope global temporary dynamic 
+       valid_lft 535421sec preferred_lft 84783sec
+    inet6 fd00:30b7:d45e:4bf2:23d3:ea79:b82d:3ee9/64 scope global dynamic mngtmpaddr noprefixroute 
+       valid_lft 535421sec preferred_lft 401564sec
+    inet6 fe80::a062:787:9737:838/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+5: bridge0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+</code></pre></div><p><strong>（4）重新啟動作業系統的網路功能</strong></p> <div class="language- extra-class"><pre><code>sudo systemctl restart NetworkManager
+
+
+sudo systemctl restart networking
+</code></pre></div><p>習慣用 service 指令者，亦能以下列方式，重新啟動作業系統的網路：</p> <div class="language- extra-class"><pre><code>sudo service network-manager restart
+
+
+
+$ ip a                                
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eno1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel master bridge0 state UP group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+3: wlxd0c0bf50e619: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether d0:c0:bf:50:e6:19 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.66.215/24 brd 192.168.66.255 scope global dynamic noprefixroute wlxd0c0bf50e619
+       valid_lft 604793sec preferred_lft 604793sec
+    inet6 fd00:30b7:d45e:4bf2:24c1:2b9a:4515:5ccc/64 scope global temporary dynamic 
+       valid_lft 535425sec preferred_lft 86285sec
+    inet6 fd00:30b7:d45e:4bf2:23d3:ea79:b82d:3ee9/64 scope global dynamic mngtmpaddr noprefixroute 
+       valid_lft 535425sec preferred_lft 401568sec
+    inet6 fe80::a062:787:9737:838/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+6: bridge0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+    inet 192.168.66.217/24 brd 192.168.66.255 scope global dynamic noprefixroute bridge0
+       valid_lft 604789sec preferred_lft 604789sec
+    inet6 fd00:30b7:d45e:4bf2:d3e5:e9f6:99d:79c/64 scope global dynamic noprefixroute 
+       valid_lft 535425sec preferred_lft 401568sec
+    inet6 fe80::ea43:3bee:13c4:8e43/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+</code></pre></div><p><strong>（4）驗證 bridge 0 已能正常運作</strong></p> <div class="language- extra-class"><pre><code>$ ping google.com
+PING google.com (216.58.200.238) 56(84) bytes of data.
+64 bytes from tsa03s01-in-f238.1e100.net (216.58.200.238): icmp_seq=1 ttl=118 time=14.7 ms
+64 bytes from tsa03s01-in-f238.1e100.net (216.58.200.238): icmp_seq=2 ttl=118 time=8.85 ms
+64 bytes from tsa03s01-in-f238.1e100.net (216.58.200.238): icmp_seq=3 ttl=118 time=11.2 ms
+^C
+--- google.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+rtt min/avg/max/mdev = 8.854/11.588/14.738/2.420 ms
+</code></pre></div><hr> <h2 id="手動建置虛擬橋接器"><a href="#手動建置虛擬橋接器" class="header-anchor">#</a> 手動建置虛擬橋接器</h2> <p>使用實體的「有線網路卡」，建置可連接 VM 的「虛擬橋接器」。</p> <p><strong>（1）停用實體的有線網路卡（NIC）</strong></p> <div class="language- extra-class"><pre><code>$ ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: eno1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+    inet 192.168.66.10/24 brd 192.168.66.255 scope global dynamic noprefixroute eno1
+       valid_lft 574391sec preferred_lft 574391sec
+3: wlxd0c0bf50e619: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether d0:c0:bf:50:e6:19 brd ff:ff:ff:ff:ff:ff
+
+$ sudo ip link set eno1 down
+
+$ ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: eno1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+    inet 192.168.66.10/24 brd 192.168.66.255 scope global dynamic noprefixroute eno1
+       valid_lft 574391sec preferred_lft 574391sec
+3: wlxd0c0bf50e619: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether d0:c0:bf:50:e6:19 brd ff:ff:ff:ff:ff:ff
+</code></pre></div><p><strong>（2）去除「有線網路卡」原先已繫結的 IP 網址</strong></p> <div class="language- extra-class"><pre><code>$ sudo ip addr del 192.168.66.10/24 dev eno1
+
+$ ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen s1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: eno1: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+3: wlxd0c0bf50e619: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether d0:c0:bf:50:e6:19 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.103/24 brd 192.168.0.255 scope global dynamic noprefixroute wlxd0c0bf50e619
+       valid_lft 86371sec preferred_lft 86371sec
+</code></pre></div><p><strong>（3）停用 NetworkManager (network-manager) 服務</strong></p> <div class="language- extra-class"><pre><code>$ sudo systemctl status NetworkManager
+$ sudo systemctl stop NetworkManager
+$ sudo systemctl status NetworkManager
+</code></pre></div><p>註： NetworkManager 可用 network-manager 代。</p> <p><strong>（4）停用 systemd-networkd 服務</strong></p> <div class="language- extra-class"><pre><code>$ sudo systemctl status systemd-networkd
+● systemd-networkd.service - Network Service
+     Loaded: loaded (/lib/systemd/system/systemd-networkd.service; disabled; vendor preset: enabled)
+     Active: inactive (dead)
+       Docs: man:systemd-networkd.service(8)
+</code></pre></div><p><strong>（5）建立「虛擬橋接器」，並將之命名為： br0</strong></p> <div class="language- extra-class"><pre><code>$ sudo ip link add name br0 type bridge
+
+$ ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: eno1: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+3: wlxd0c0bf50e619: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether d0:c0:bf:50:e6:19 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.103/24 brd 192.168.0.255 scope global dynamic noprefixroute wlxd0c0bf50e619
+       valid_lft 85944sec preferred_lft 85944sec
+9: br0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether be:bd:64:83:d8:23 brd ff:ff:ff:ff:ff:ff
+</code></pre></div><p><strong>（6）將「虛擬橋接器（br0）」的網路連接介面，設定成：「有線網路卡（eno1）」</strong></p> <div class="language- extra-class"><pre><code>$ sudo ip link set eno1 master br0
+
+$ ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: eno1: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc fq_codel master br0 state DOWN group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+3: wlxd0c0bf50e619: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether d0:c0:bf:50:e6:19 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.0.103/24 brd 192.168.0.255 scope global dynamic noprefixroute wlxd0c0bf50e619
+       valid_lft 85805sec preferred_lft 85805sec
+9: br0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+</code></pre></div><p><strong>（7）設定「虛擬橋接器（br0）」 的 IP 網址</strong></p> <ul><li><strong>IP 網址： 192.168.4.7 ；</strong></li> <li><strong>廣播網址：192.168.255.255</strong>
+$ sudo ip addr add 192.168.4.7/16 dev br0 brd 192.168.255.255</li></ul> <p><strong>（8）啟動「虛擬橋接器（br0）」</strong></p> <div class="language- extra-class"><pre><code>$ sudo ip link set up eno1 &amp;&amp;\
+sudo ip link set up br0
+</code></pre></div><hr> <h2 id="管理-kvm-libvirtd-網路"><a href="#管理-kvm-libvirtd-網路" class="header-anchor">#</a> 管理 KVM/libvirtd 網路</h2> <p>使用 virsh 指令管理 KVM/libvirtd 網路。</p> <p>KVM/libvirtd 網路使用的「網路介面」：</p> <ul><li>虚擬橋接器：vibr0</li> <li>虚擬網路卡：vibr0-nic</li></ul> <p><strong>修復已毀損的 default 網路</strong></p> <div class="language- extra-class"><pre><code>$ sudo virsh net-start default
+ERROR    Requested operation is not valid: network 'default' is not active
+</code></pre></div><p>https://blog.programster.org/kvm-missing-default-network</p> <p><strong>啟動 default 網路</strong></p> <div class="language- extra-class"><pre><code>$ virsh net-start default
+Network default started
+
+$ virsh net-list
+ Name      State    Autostart   Persistent
+--------------------------------------------
+ default   active   yes         yes
+
+$ ip a                   
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: eno1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+    inet 192.168.66.10/24 brd 192.168.66.255 scope global dynamic noprefixroute eno1
+       valid_lft 604370sec preferred_lft 604370sec
+3: enx00e04c361a3c: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:e0:4c:36:1a:3c brd ff:ff:ff:ff:ff:ff
+6: wlxd0c0bf50e619: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether d0:c0:bf:50:e6:19 brd ff:ff:ff:ff:ff:ff
+9: vibr0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether 52:54:00:01:cd:21 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.122.1/24 brd 192.168.122.255 scope global vibr0
+       valid_lft forever preferred_lft forever
+10: vibr0-nic: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc fq_codel master vibr0 state DOWN group default qlen 1000
+    link/ether 52:54:00:01:cd:21 brd ff:ff:ff:ff:ff:ff
+</code></pre></div><p><strong>關閉 default 網路</strong></p> <div class="language- extra-class"><pre><code>$ virsh net-destroy default
+Network default destroyed
+
+$ virsh net-list           
+ Name   State   Autostart   Persistent
+----------------------------------------
+
+$ ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+2: eno1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+    inet 192.168.66.10/24 brd 192.168.66.255 scope global dynamic noprefixroute eno1
+       valid_lft 604425sec preferred_lft 604425sec
+3: enx00e04c361a3c: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:e0:4c:36:1a:3c brd ff:ff:ff:ff:ff:ff
+6: wlxd0c0bf50e619: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether d0:c0:bf:50:e6:19 brd ff:ff:ff:ff:ff:ff
+</code></pre></div><hr> <h2 id="透過虚擬橋接器建置虛擬機-vm"><a href="#透過虚擬橋接器建置虛擬機-vm" class="header-anchor">#</a> 透過虚擬橋接器建置虛擬機（VM）</h2> <p>使用 virt-install 指令，搭配「bridge」option，建置「虛擬機」。</p> <p><strong>（1）確認作業系統中有可用的「有線網路卡」</strong></p> <div class="language- extra-class"><pre><code>$ nmcli connection show --active
+NAME                 UUID                                  TYPE      DEVICE          
+有線連線 1            145fcaf0-9e92-3c5d-976a-763ff771a8b1  ethernet  eno1            
+CCC Dlink-6AD2-5GHz  2219a958-d49c-4b27-a936-77208aba2139  wifi      wlxd0c0bf50e619 
+virbr0               7d1cbd53-1411-44ee-bce6-c2c5d69bd36e  bridge    virbr0      
+</code></pre></div><p><strong>（2）建立虛擬橋接器（br0）</strong></p> <div class="language- extra-class"><pre><code>$ sudo nmcli con add ifname br0 type bridge con-name br0
+連線「br0」 (0cf1c559-1ddf-4ce6-be7c-92c74d458695) 已成功新增。
+
+$ sudo nmcli con add type bridge-slave ifname enp0s31f6 master br0
+連線「bridge-slave-enp0s31f6」 (faf70f17-371c-49bf-b68f-87b0b3d98571) 已成功新增。
+
+$ nmcli connection show
+NAME                    UUID                                  TYPE       DEVICE          
+br0                     0cf1c559-1ddf-4ce6-be7c-92c74d458695  bridge     br0             
+有線連線 1               145fcaf0-9e92-3c5d-976a-763ff771a8b1  ethernet   eno1            
+CCC Dlink-6AD2-5GHz     2219a958-d49c-4b27-a936-77208aba2139  wifi       wlxd0c0bf50e619 
+virbr0                  7d1cbd53-1411-44ee-bce6-c2c5d69bd36e  bridge     virbr0          
+bridge-slave-enp0s31f6  faf70f17-371c-49bf-b68f-87b0b3d98571  ethernet   --              
+CCC99-5G                fddcb72d-251a-42be-bd72-6f3e16ccdbdd  wifi       --              
+Hotspot                 65a39bb3-f67c-4a7b-bd95-62493218aa99  wifi       --              
+iPhone-CCC 網路         525bb90a-f228-4a36-a3e1-661db85890be  bluetooth  --   
+</code></pre></div><p><strong>（3）設定 IP V4 網路</strong></p> <div class="language- extra-class"><pre><code>$ sudo nmcli connection modify br0 ipv4.addresses '192.168.66.90/24'
+$ sudo nmcli connection modify br0 ipv4.gateway '192.168.66.1'
+$ sudo nmcli connection modify br0 ipv4.dns '192.168.66.1'
+$ sudo nmcli connection modify br0 ipv4.dns-search 'ccc99.tw'
+$ sudo nmcli connection modify br0 ipv4.method manual
+</code></pre></div><p><strong>（4）設定執行 virt-install 指令時，所需的「環境變數」</strong></p> <div class="language- extra-class"><pre><code>export ISO=&quot;/var/lib/libvirt/boot/CentOS-8.2.2004-x86_64-dvd1.iso&quot;
+export NET=&quot;br0&quot;
+export OS=&quot;centos8&quot;
+export VM_IMG=&quot;/var/lib/libvirt/images/centos8.qcow2&quot;
+</code></pre></div><p><strong>（5）使用 virt-install 指令，建置 VM</strong></p> <div class="language- extra-class"><pre><code>sudo virt-install \
+--virt-type=kvm \
+--name centos8 \
+--ram 2048 \
+--vcpus=2 \
+--os-variant=${OS} \
+--virt-type=kvm \
+--hvm \
+--cdrom=${ISO} \
+--network=bridge=${NET},model=virtio \
+--graphics vnc \
+--disk path=${VM_IMG},size=40,bus=virtio,format=qcow2
+
+
+
+sudo virt-install \
+--virt-type=kvm \
+--name centos8-3 \
+--ram 2048 \
+--vcpus=2 \
+--os-variant=&quot;centos8&quot; \
+--virt-type=kvm \
+--hvm \
+--cdrom=&quot;/var/lib/libvirt/boot/CentOS-8.2.2004-x86_64-dvd1.iso&quot; \
+--network=bridge=&quot;br0&quot;,model=virtio \
+--graphics vnc \
+--disk path=&quot;/var/lib/libvirt/images/centos8-3.qcow2&quot;,size=40,bus=virtio,format=qcow2
+</code></pre></div><p><strong>【參考資料】： LibVirt 目錄結構</strong></p> <div class="language- extra-class"><pre><code>$ ll /etc/libvirt 
+總計 132
+drwxr-xr-x   7 root root  4096 12月  4 11:04 ./
+drwxr-xr-x 152 root root 12288 12月  4 11:35 ../
+drwxr-xr-x   2 root root  4096 10月  8 13:36 hooks/
+-rw-r--r--   1 root root   450 10月  8 13:36 libvirt-admin.conf
+-rw-r--r--   1 root root   547 10月  8 13:36 libvirt.conf
+-rw-r--r--   1 root root 16715 10月  8 13:36 libvirtd.conf
+-rw-r--r--   1 root root  2268 10月  8 13:36 libxl.conf
+-rw-r--r--   1 root root  2169 10月  8 13:36 libxl-lockd.conf
+-rw-r--r--   1 root root  2465 10月  8 13:36 libxl-sanlock.conf
+-rw-r--r--   1 root root  1175 10月  8 13:36 lxc.conf
+drwxr-xr-x   2 root root  4096 12月  4 11:04 nwfilter/
+drwxr-xr-x   3 root root  4096 12月  4 18:44 qemu/
+-rw-------   1 root root 32342 10月  8 13:36 qemu.conf
+-rw-r--r--   1 root root  2169 10月  8 13:36 qemu-lockd.conf
+-rw-r--r--   1 root root  2465 10月  8 13:36 qemu-sanlock.conf
+drwx------   2 root root  4096 12月  1 10:49 secrets/
+drwxr-xr-x   3 root root  4096 12月  4 12:51 storage/
+-rw-r--r--   1 root root  3058 10月  8 13:36 virtlockd.conf
+-rw-r--r--   1 root root  3374 10月  8 13:36 virtlogd.conf
+-rw-r--r--   1 root root  1883 10月  8 13:36 virt-login-shell.conf
+
+
+
+$ll /etc/libvirt/qemu
+總計 44
+drwxr-xr-x 3 root root 4096 12月  4 18:44 ./
+drwxr-xr-x 7 root root 4096 12月  4 11:04 ../
+-rw------- 1 root root 5878 12月  4 18:44 centos8-2.xml
+-rw------- 1 root root 5326 12月  4 13:52 centos8.xml
+-rw------- 1 root root 5888 12月  1 21:57 debian10.xml
+drwxr-xr-x 3 root root 4096 12月  4 11:04 networks/
+-rw------- 1 root root 4385 12月  1 12:00 VM01-Ubuntu-2010.xml
+
+
+
+$ ll /etc/libvirt/qemu/networks 
+總計 16
+drwxr-xr-x 3 root root 4096 12月  4 11:04 ./
+drwxr-xr-x 3 root root 4096 12月  4 18:44 ../
+drwxr-xr-x 2 root root 4096 12月  4 11:04 autostart/
+-rw------- 1 root root  576 12月  4 11:04 default.xml
+
+
+
+$ ll /etc/libvirt/qemu/networks/autostart  
+總計 8
+drwxr-xr-x 2 root root 4096 12月  4 11:04 ./
+drwxr-xr-x 3 root root 4096 12月  4 11:04 ../
+lrwxrwxrwx 1 root root   38 12月  4 11:04 default.xml -&gt; /etc/libvirt/qemu/networks/default.xml
+
+
+
+$ ll /etc/libvirt/storage 
+總計 32
+drwxr-xr-x 3 root root 4096 12月  4 12:51 ./
+drwxr-xr-x 7 root root 4096 12月  4 11:04 ../
+drwxr-xr-x 2 root root 4096 12月  4 12:51 autostart/
+-rw------- 1 root root  530 12月  4 12:51 boot.xml
+-rw------- 1 root root  560 12月  1 21:55 debian-001.xml
+-rw------- 1 root root  538 12月  1 11:30 default.xml
+-rw------- 1 root root  524 12月  1 11:39 ISO.xml
+-rw------- 1 root root  540 12月  1 11:34 Ubuntu.xml
+</code></pre></div><hr> <h2 id="建置-tap-網路"><a href="#建置-tap-網路" class="header-anchor">#</a> 建置 tap 網路</h2> <p>【參考】： https://gist.github.com/extremecoders-re/e8fd8a67a515fee0c873dcafc81d811c</p> <p><strong>（1）安裝工具軟體</strong></p> <div class="language- extra-class"><pre><code>sudo apt install uml-utilities
+</code></pre></div><p><strong>（2）建立虛擬橋接器： br0</strong></p> <div class="language- extra-class"><pre><code>sudo brctl addbr br0
+</code></pre></div><p><strong>（3）清除主機網路卡的 IP 網址</strong></p> <div class="language- extra-class"><pre><code>sudo ip addr flush dev enx00e04c361a3c
+</code></pre></div><p><strong>（4）設定主機網路卡為虛擬橋接器的網路介面</strong></p> <div class="language- extra-class"><pre><code>sudo brctl addif br0 enx00e04c361a3c
+
+ip a
+...
+3: br0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+    link/ether 00:e0:4c:36:1a:3c brd ff:ff:ff:ff:ff:ff
+    inet 192.168.66.213/24 brd 192.168.66.255 scope global dynamic br0
+       valid_lft 581410sec preferred_lft 581410sec
+    inet6 fd00:30b7:d45e:4bf2:2e0:4cff:fe36:1a3c/64 scope global dynamic mngtmpaddr noprefixroute 
+       valid_lft 535428sec preferred_lft 401571sec
+    inet6 fe80::5c0f:1dff:fe73:dd9c/64 scope link 
+       valid_lft forever preferred_lft forever
+4: enx00e04c361a3c: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel master br0 state UP group default qlen 1000
+    link/ether 00:e0:4c:36:1a:3c brd ff:ff:ff:ff:ff:ff
+</code></pre></div><p><strong>（5）建立虛擬網路介面卡：tap0 ，並設定使用者為 login 時的使用者帳號</strong></p> <div class="language- extra-class"><pre><code>sudo tunctl -t tap0 -u `whoami`
+
+ip a
+...
+27: tap0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 1a:ba:c5:15:8c:24 brd ff:ff:ff:ff:ff:ff
+</code></pre></div><p><strong>（6）將虛擬網路介面卡（tap0）連上虛擬橋接器（br0）</strong></p> <div class="language- extra-class"><pre><code>sudo brctl addif br0 tap0
+
+ip a
+...
+27: tap0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop master br0 state DOWN group default qlen 1000
+    link/ether 1a:ba:c5:15:8c:24 brd ff:ff:ff:ff:ff:ff
+</code></pre></div><p><strong>（7）啟動 tap 網路需使用的所有裝置</strong></p> <div class="language- extra-class"><pre><code>sudo ifconfig enx00e04c361a3c up
+sudo ifconfig tap0 up
+sudo ifconfig br0 up
+</code></pre></div><p><strong>（8）驗證虛擬網路介面卡（tap0）確實已接上虛擬橋器（br0）</strong></p> <div class="language- extra-class"><pre><code>$ brctl show
+bridge name        bridge id                STP enabled       interfaces
+br0                8000.00e04c361a3c        no                enx00e04c361a3c
+                                                              tap0
+vibr0              8000.52540001cd21        yes               vibr0-nic
+</code></pre></div><p><strong>（9）設定虛擬橋接器在網路介面使用的 IP （由 DHCP 伺服器發配）</strong></p> <div class="language- extra-class"><pre><code>$ sudo dhclient -v br0
+Internet Systems Consortium DHCP Client 4.4.1
+Copyright 2004-2018 Internet Systems Consortium.
+All rights reserved.
+For info, please visit https://www.isc.org/software/dhcp/
+
+Listening on LPF/br0/00:e0:4c:36:1a:3c
+Sending on   LPF/br0/00:e0:4c:36:1a:3c
+Sending on   Socket/fallback
+DHCPDISCOVER on br0 to 255.255.255.255 port 67 interval 3 (xid=0xa806e24f)
+DHCPOFFER of 192.168.66.213 from 192.168.66.1
+DHCPREQUEST for 192.168.66.213 on br0 to 255.255.255.255 port 67 (xid=0x4fe206a8)
+DHCPACK of 192.168.66.213 from 192.168.66.1 (xid=0xa806e24f)
+RTNETLINK answers: File exists
+cmp: EOF on /tmp/tmp.mS1wZw0aVa which is empty
+bound to 192.168.66.213 -- renewal in 284457 seconds.
+</code></pre></div><p><strong>（10）安裝 VM ，用以驗證虚擬橋接器設定的正確性</strong></p> <div class="language- extra-class"><pre><code>$ sudo qemu-system-i386 \
+  -cdrom Core-current.iso \
+  -boot d \
+  -netdev tap,id=mynet0,ifname=tap0,script=no,downscript=no \
+  -device e1000,netdev=mynet0,mac=52:55:00:d1:55:01
+
+
+./s01-create-hd
+./s02-install-vm
+</code></pre></div><hr> <h2 id="network-管理指令"><a href="#network-管理指令" class="header-anchor">#</a> Network 管理指令</h2> <p><strong>使用 ip 列舉作業系統已有的網路裝置</strong></p> <div class="language- extra-class"><pre><code>$ ip link
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: eno1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel master bridge0 state UP mode DEFAULT group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+3: wlxd0c0bf50e619: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP mode DORMANT group default qlen 1000
+    link/ether d0:c0:bf:50:e6:19 brd ff:ff:ff:ff:ff:ff
+4: enxd2c5f35747bc: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
+    link/ether d2:c5:f3:57:47:bc brd ff:ff:ff:ff:ff:ff
+5: bridge0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+7: virbr0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default qlen 1000
+    link/ether 52:54:00:d5:1e:01 brd ff:ff:ff:ff:ff:ff
+8: virbr0-nic: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc fq_codel master virbr0 state DOWN mode DEFAULT group default qlen 1000
+    link/ether 52:54:00:d5:1e:01 brd ff:ff:ff:ff:ff:ff
+</code></pre></div><p><strong>使用 ip 查詢某網路裝置的狀庇</strong></p> <div class="language- extra-class"><pre><code>$ ip a show dev eno1
+2: eno1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel master bridge0 state UP group default qlen 1000
+    link/ether 90:2b:34:d1:a6:1b brd ff:ff:ff:ff:ff:ff
+</code></pre></div><p><strong>使用 network-manager 管理 Network Manager Service</strong></p> <div class="language- extra-class"><pre><code>$ sudo systemctl status network-manager
+● NetworkManager.service - Network Manager
+     Loaded: loaded (/lib/systemd/system/NetworkManager.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2020-12-07 12:32:45 CST; 7min ago
+       Docs: man:NetworkManager(8)
+   Main PID: 18102 (NetworkManager)
+      Tasks: 3 (limit: 19083)
+     Memory: 7.8M
+     CGroup: /system.slice/NetworkManager.service
+             └─18102 /usr/sbin/NetworkManager --no-daemon
+
+12月 07 12:32:50 SRV-2020 NetworkManager[18102]: &lt;info&gt;  [1607315570.1816] device (wlxd0c0bf50e619): state change: ip-config -&gt; ip-chec&gt;
+12月 07 12:32:50 SRV-2020 NetworkManager[18102]: &lt;info&gt;  [1607315570.1864] device (wlxd0c0bf50e619): state change: ip-check -&gt; secondar&gt;
+12月 07 12:32:50 SRV-2020 NetworkManager[18102]: &lt;info&gt;  [1607315570.1868] device (wlxd0c0bf50e619): state change: secondaries -&gt; activ&gt;
+12月 07 12:32:50 SRV-2020 NetworkManager[18102]: &lt;info&gt;  [1607315570.1903] device (wlxd0c0bf50e619): Activation: successful, device act&gt;
+12月 07 12:32:51 SRV-2020 NetworkManager[18102]: &lt;info&gt;  [1607315571.3478] manager: startup complete
+12月 07 12:32:54 SRV-2020 NetworkManager[18102]: &lt;info&gt;  [1607315574.4242] dhcp6 (wlxd0c0bf50e619): activation: beginning transaction (&gt;
+12月 07 12:33:32 SRV-2020 NetworkManager[18102]: &lt;warn&gt;  [1607315612.9881] dhcp6 (bridge0): request timed out
+12月 07 12:33:32 SRV-2020 NetworkManager[18102]: &lt;info&gt;  [1607315612.9882] dhcp6 (bridge0): state changed unknown -&gt; timeout
+12月 07 12:33:39 SRV-2020 NetworkManager[18102]: &lt;warn&gt;  [1607315619.9881] dhcp6 (wlxd0c0bf50e619): request timed out
+12月 07 12:33:39 SRV-2020 NetworkManager[18102]: &lt;info&gt;  [1607315619.9882] dhcp6 (wlxd0c0bf50e619): state changed unknown -&gt; timeout
+</code></pre></div><p><strong>使用 nmcli 指令觀察作業系統已安裝的網路裝置（dev: device)</strong></p> <div class="language- extra-class"><pre><code>$ nmcli dev
+DEVICE                   TYPE      STATE     CONNECTION   
+bridge0                  bridge    已連線    橋接的連線 1 
+wlxd0c0bf50e619          wifi      已連線    CCC99-5G     
+virbr0                   bridge    已連線    virbr0       
+eno1                     ethernet  已連線    eno1         
+78:6C:1C:CB:0F:61        bt        離線      --           
+p2p-dev-wlxd0c0bf50e619  wifi-p2p  離線      --           
+enxd2c5f35747bc          ethernet  無法使用  --           
+lo                       loopback  不受管理  --           
+virbr0-nic               tun       不受管理  --    
+</code></pre></div><p><strong>查詢連線狀態</strong></p> <div class="language- extra-class"><pre><code>$ nmcli general status
+STATE   CONNECTIVITY  WIFI-HW  WIFI    WWAN-HW  WWAN   
+已連線  已滿          已啟用   已啟用  已啟用   已啟用 
+</code></pre></div><p><strong>Device Status</strong></p> <div class="language- extra-class"><pre><code>$ nmcli dev status
+DEVICE                   TYPE      STATE     CONNECTION   
+bridge0                  bridge    已連線    橋接的連線 1 
+wlxd0c0bf50e619          wifi      已連線    CCC99-5G     
+virbr0                   bridge    已連線    virbr0       
+eno1                     ethernet  已連線    eno1         
+78:6C:1C:CB:0F:61        bt        離線      --           
+p2p-dev-wlxd0c0bf50e619  wifi-p2p  離線      --           
+enxd2c5f35747bc          ethernet  無法使用  --           
+lo                       loopback  不受管理  --           
+virbr0-nic               tun       不受管理  --           
+</code></pre></div><p><strong>Device Status Report</strong></p> <div class="language- extra-class"><pre><code>$ nmcli -p d status
+==============
+  裝置的狀態
+==============
+DEVICE                   TYPE      STATE     CONNECTION   
+-------------------------------------------------------------------------
+bridge0                  bridge    已連線    橋接的連線 1 
+wlxd0c0bf50e619          wifi      已連線    CCC99-5G     
+virbr0                   bridge    已連線    virbr0       
+eno1                     ethernet  已連線    eno1         
+78:6C:1C:CB:0F:61        bt        離線      --           
+p2p-dev-wlxd0c0bf50e619  wifi-p2p  離線      --           
+enxd2c5f35747bc          ethernet  無法使用  --           
+lo                       loopback  不受管理  --           
+virbr0-nic               tun       不受管理  --           
+</code></pre></div><p><strong>Connections of configured on the system</strong></p> <div class="language- extra-class"><pre><code>$ nmcli con show
+NAME                 UUID                                  TYPE       DEVICE          
+橋接的連線 1         c9171de1-ee5e-4667-9bd6-42c35b759ec8  bridge     bridge0         
+CCC99-5G             fddcb72d-251a-42be-bd72-6f3e16ccdbdd  wifi       wlxd0c0bf50e619 
+eno1                 eb312132-e6b2-46cd-9485-cc3fd5593a07  ethernet   eno1            
+virbr0               ab7a56f5-7685-4b67-9130-11b9a2ca95da  bridge     virbr0          
+bridge0 slave 1      1a1764cd-0dd2-4f7e-8f24-4236beeb3a5e  ethernet   --              
+CCC Dlink-6AD2-5GHz  2219a958-d49c-4b27-a936-77208aba2139  wifi       --              
+Hotspot              65a39bb3-f67c-4a7b-bd95-62493218aa99  wifi       --              
+iPhone-CCC 網路      8349ed64-e9c5-4fe6-ace1-e37bc41c726f  bluetooth  --              
+netplan-eno1         10838d80-caeb-349e-ba73-08ed16d4d666  ethernet   --           
+</code></pre></div><p><strong>Activated connections</strong></p> <div class="language- extra-class"><pre><code>$ nmcli con show -a
+NAME          UUID                                  TYPE      DEVICE          
+橋接的連線 1  c9171de1-ee5e-4667-9bd6-42c35b759ec8  bridge    bridge0         
+CCC99-5G      fddcb72d-251a-42be-bd72-6f3e16ccdbdd  wifi      wlxd0c0bf50e619 
+eno1          eb312132-e6b2-46cd-9485-cc3fd5593a07  ethernet  eno1            
+virbr0        ab7a56f5-7685-4b67-9130-11b9a2ca95da  bridge    virbr0          
+</code></pre></div><p><strong>WiFi devices</strong></p> <div class="language- extra-class"><pre><code>$ nmcli device wifi list
+IN-USE  BSSID              SSID                 MODE   CHAN  RATE        SIGNAL  BARS  SECURITY  
+        74:DA:DA:03:6A:D4  CCC Dlink-6AD2-5GHz  Infra  153   270 Mbit/s  69      ▂▄▆_  WPA1 WPA2 
+        74:DA:DA:03:6A:D2  CCC Dlink-6AD2       Infra  3     270 Mbit/s  67      ▂▄▆_  WPA1 WPA2 
+*       30:B7:D4:5E:4B:F8  CCC99-5G             Infra  6     195 Mbit/s  51      ▂▄__  WPA2      
+        80:30:DC:2E:B3:E5  FOXC_BD_AP_SSID      Infra  11    65 Mbit/s   37      ▂▄__  WPA1 WPA2 
+</code></pre></div><p><strong>Delete a device</strong></p> <div class="language- extra-class"><pre><code>$ nmcli d status                  
+DEVICE                   TYPE      STATE     CONNECTION   
+bridge0                  bridge    已連線    橋接的連線 1 
+wlxd0c0bf50e619          wifi      已連線    CCC99-5G     
+virbr0                   bridge    已連線    virbr0       
+eno1                     ethernet  已連線    eno1         
+78:6C:1C:CB:0F:61        bt        離線      --           
+p2p-dev-wlxd0c0bf50e619  wifi-p2p  離線      --           
+enxd2c5f35747bc          ethernet  無法使用  --           
+lo                       loopback  不受管理  --           
+virbr0-nic               tun       不受管理  --           
+
+$ sudo nmcli con delete virbr0    
+連線「virbr0」 (ab7a56f5-7685-4b67-9130-11b9a2ca95da) 已成功刪除。
+
+$ nmcli d status
+DEVICE                   TYPE      STATE     CONNECTION   
+bridge0                  bridge    已連線    橋接的連線 1 
+wlxd0c0bf50e619          wifi      已連線    CCC99-5G     
+eno1                     ethernet  已連線    eno1         
+virbr0                   bridge    離線      --           
+78:6C:1C:CB:0F:61        bt        離線      --           
+p2p-dev-wlxd0c0bf50e619  wifi-p2p  離線      --           
+enxd2c5f35747bc          ethernet  無法使用  --           
+lo                       loopback  不受管理  --           
+virbr0-nic               tun       不受管理  --         
+</code></pre></div><p><strong>nmcli delete a network device</strong></p> <div class="language- extra-class"><pre><code>$ nmcli d       
+DEVICE                   TYPE      STATE     CONNECTION   
+bridge0                  bridge    已連線    橋接的連線 1 
+wlxd0c0bf50e619          wifi      已連線    CCC99-5G     
+eno1                     ethernet  已連線    eno1         
+virbr0                   bridge    離線      --           
+78:6C:1C:CB:0F:61        bt        離線      --           
+p2p-dev-wlxd0c0bf50e619  wifi-p2p  離線      --           
+enxd2c5f35747bc          ethernet  無法使用  --           
+lo                       loopback  不受管理  --           
+virbr0-nic               tun       不受管理  --           
+
+
+
+$ nmcli d delete virbr0
+裝置「virbr0」已成功移除。
+
+
+
+$ nmcli d              
+DEVICE                   TYPE      STATE     CONNECTION   
+bridge0                  bridge    已連線    橋接的連線 1 
+wlxd0c0bf50e619          wifi      已連線    CCC99-5G     
+eno1                     ethernet  已連線    eno1         
+78:6C:1C:CB:0F:61        bt        離線      --           
+p2p-dev-wlxd0c0bf50e619  wifi-p2p  離線      --           
+enxd2c5f35747bc          ethernet  無法使用  --           
+lo                       loopback  不受管理  --           
+virbr0-nic               tun       不受管理  --           
+</code></pre></div><hr> <h2 id="硬碟管理"><a href="#硬碟管理" class="header-anchor">#</a> 硬碟管理</h2> <p><strong>增加硬碟空間</strong></p> <div class="language- extra-class"><pre><code>$ qemu-img info archlinux.qcow2 
+image: archlinux.qcow2
+file format: qcow2
+virtual size: 20 GiB (21474836480 bytes)
+disk size: 3.32 MiB
+cluster_size: 65536
+Format specific information:
+    compat: 1.1
+    lazy refcounts: true
+    refcount bits: 16
+    corrupt: false
+
+$ qemu-img resize archlinux.qcow2 +40G
+Image resized.
+
+$ qemu-img info archlinux.qcow2 
+image: archlinux.qcow2
+file format: qcow2
+virtual size: 60 GiB (64424509440 bytes)
+disk size: 3.32 MiB
+cluster_size: 65536
+Format specific information:
+    compat: 1.1
+    lazy refcounts: true
+    refcount bits: 16
+    corrupt: false
+</code></pre></div><hr> <h2 id="參考文件"><a href="#參考文件" class="header-anchor">#</a> 參考文件</h2> <p><strong>virt-install 指令指引</strong>
+https://linux.die.net/man/1/virt-install</p> <p><strong>qemu-system-x86_64 的 options 參考文件</strong>
+https://www.qemu.org/docs/master/system/index.html</p> <p><strong>libvirt Virtual Networking</strong>
+https://wiki.libvirt.org/page/VirtualNetworking</p> <p><strong>Ubuntu 20.04 Network Management</strong>
+https://www.answertopia.com/ubuntu/ubuntu-network-management/</p> <p><strong>Ubuntu 20.04 network Configuration</strong>
+https://linuxhint.com/ubuntu_20-04_network_configuration/</p> <p><strong>啟用 UEFI  支援</strong></p> <p>https://ostechnix.com/enable-uefi-support-for-kvm-virtual-machines-in-linux/</p> <p>https://www.systutorials.com/docs/linux/man/1-qemu-system-x86_64/</p> <p><strong>How to install KVM on Ubuntu 20.04</strong></p> <p>https://websiteforstudents.com/how-to-install-kvm-on-ubuntu-20-04-18-04/</p> <p><strong>How to install KVM on Ubuntu 20.04 LTS Headless Server</strong></p> <p>https://www.cyberciti.biz/faq/how-to-install-kvm-on-ubuntu-20-04-lts-headless-server/</p> <p><strong>Qemu/Virt-manager/KVM Bridge and NAT Networking</strong></p> <p>https://www.youtube.com/watch?v=amTJHm19ts0&amp;&amp;t=135s</p> <p><a href="https://youtu.be/amTJHm19ts0?t=135s" target="_blank" rel="noopener noreferrer">https://youtu.be/amTJHm19ts0?t=135s<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><strong>建置 QEMU/Libvirt 環境適用的 VM Network</strong></p> <p>https://octetz.com/docs/2020/2020-11-13-vm-networks/</p> <p><strong>Setting up Qemu with a Tap Interface</strong></p> <p>https://gist.github.com/extremecoders-re/e8fd8a67a515fee0c873dcafc81d811c</p> <p><a href="https://gist.github.com/extremecoders-re/e8fd8a67a515fee0c873dcafc81d811c" target="_blank" rel="noopener noreferrer">https://gist.github.com/extremecoders-re/e8fd8a67a515fee0c873dcafc81d811c<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" defer></script><script src="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" defer></script><script src="/ho-lok-ue-tools/assets/js/115.6ccf8b33.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PIPENV筆記本 | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css" as="style"><link rel="preload" href="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/155.2a0dcb32.js" as="script"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/101.e14056d5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/102.5a78f801.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/103.e198a428.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/104.449b67e1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/105.825b86d6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/106.173be714.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/107.03f96c6c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/108.57957213.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/109.0a4b39eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/11.3e9ab894.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/111.802a4ef3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/112.8fb9f4c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/113.163f649e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/114.8da6ef94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/116.f901450e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/117.4898b362.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/118.80d06981.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/12.4a40a2fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/120.1955a557.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/121.1865eac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/122.1d79306c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/123.df62f490.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/124.4a9f1fcb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/125.d294aced.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/126.0558f46b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/127.71e4ae03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/128.cf355591.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/129.29c3a2f4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/13.c3911464.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/130.21e8b50e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/131.2a22915e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/132.23c7e418.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/133.b40de47b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/134.3b21be27.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/135.e33241e8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/136.e1fad00a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/137.4d051254.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/138.f95b7b98.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/139.2b8d3e50.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/14.c9886b34.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/140.1b8e8cd0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/141.ff03f551.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/142.8de335ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/144.6b438904.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/145.dd73b692.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/146.a5721fc9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/147.be2503d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/148.3012abdb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/149.5172325c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/15.0cce8ecb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/150.5304d46a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/152.6fb52d1e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/153.eaa379eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/154.e4a08e57.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/157.ef0d4e6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/159.e58cd5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/16.fa6f05c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/160.b14498b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/161.6f58600a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/162.5088d732.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/163.cdfabcd3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/164.33af30e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/165.82251337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/166.729d4da0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/167.5021a127.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/168.82153370.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/169.0aad21a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/170.57bd13b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/171.23ff00be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/172.364d6e16.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/173.efa01f08.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/174.69d30215.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/175.265d6949.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/176.008e238b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/177.822a15ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/178.d1eee661.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/179.956fe469.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/180.bb68de5c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/181.6ca43cc3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/182.b784ea03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/183.cf75a717.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/184.a486267a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/185.35a0a735.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/186.67964623.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/187.13410beb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/188.962c6776.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/189.4786f58b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/19.ee358577.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/190.c4e5a3ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/191.ab08e553.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/193.95d606b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/194.2931aac2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/195.66817182.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/196.3841de25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/197.6d0aa566.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/198.f0525295.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/199.ae76c070.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/200.c57f2a39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/201.d63f8f6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/202.f9e03aa9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/203.95ffec51.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/204.3787443f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/205.27e200a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/206.45652af0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/208.3c2a60e9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/209.feeb4956.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/21.46ede3be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/210.6401ff88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/211.cfb8dc53.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/212.3ddf2b32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/213.647e2ffe.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/214.8e117d35.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/216.bc2d671c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/217.6371c831.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/218.ec43176a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/219.d69f53c2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/220.ca6bdcd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/221.e36810e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/222.715b43c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/223.808a43ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/224.e4df9237.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/225.6d08d9a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/226.4a72d290.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/227.93c9df65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/228.89cf25a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/229.27539a77.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/23.74ec33ae.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/232.c03f5450.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/233.a50b7053.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/234.e24679d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/236.03949180.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/237.077ec90b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/238.84598708.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/239.43007d0a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/24.dfaf327e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/240.2df91873.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/242.3066009f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/243.1ff09887.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/244.30430b7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/246.473b271a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/247.edc9641e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/248.6f7f74e5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/249.24762885.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/25.50731498.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/250.cc52a908.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/251.87f791a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/252.1e285f58.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/253.d783bd23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/254.bbeda6d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/255.1601d594.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/256.644af9ee.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/257.369bfcaf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/258.95ae1b47.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/259.02650516.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/26.7308cd5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/260.49df9ac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/261.7018bbf8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/262.b7de7d79.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/264.b82abc65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/265.9f4300d1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/266.868fd3db.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/267.c47ce979.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/268.d0ab9778.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/269.3b3efc3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/27.79b71a65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/270.4f788569.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/271.4fe4a762.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/273.cb605436.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/274.0efe455c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/275.5bc2a05c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/277.4724df32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/278.7e88e133.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/279.d117afb1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/28.96c7e30c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/280.1747c540.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/281.1df8dad8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/282.fb3b056e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/283.7238e6a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/284.333828fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/285.b4db7f5d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/286.203a528e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/287.3c26123e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/288.7b1abc61.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/289.f27ef80f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/29.0be0ff39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/290.b888b1dc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/291.db0ad529.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/292.491ba209.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/293.6222a09d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/294.ac3715a7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/295.3717bceb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/296.88ac43bd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/297.b2519337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/298.4094ee4b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/299.f1b57bd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/3.d8645ed1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/30.6c3af224.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/300.05acfc97.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/301.8b308b88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/302.649b0f63.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/303.02024141.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/304.0e1196b1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/305.b1ea83fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/306.0a66cafd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/307.a06f603b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/308.c5ff11ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/309.884aca03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/31.841f3ded.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/310.06a43026.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/311.7705aadb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/312.16c67c7e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/313.3a6cccf5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/314.bddfc342.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/316.445c3681.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/317.6698324c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/318.83b94f00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/32.283b7a44.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/33.dd6bc432.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/34.88232fa7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/35.aecd5410.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/36.32967ae8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/37.7a64c1c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/38.4556399d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/39.5c25123c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/4.c0ad8e6f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/41.f689f7c8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/42.25c15d8a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/43.14f65079.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/44.4b91b24a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/45.576f776e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/46.6da1e5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/49.d4e60513.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/50.c8b22d33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/56.f2597707.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/57.51fbeade.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/62.1cf89df2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/63.0f78d5dd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/66.fd2de134.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/67.6a554fd7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/69.80992696.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/70.d3126764.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/71.a2e07128.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/72.b5189fa6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/73.367f0392.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/74.f315c04a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/75.1aa88d55.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/76.41b88fff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/77.c6d47945.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/78.f3084837.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/79.8c5a82d4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/80.975fdb87.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/81.efc8d138.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/82.fccf7493.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/83.2978c41b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/85.a3074c64.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/86.6813c6c5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/88.3506e2f0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/89.7a73b80d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/9.4a24de8d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/90.6d7286c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/91.65b2c391.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/93.aeac5506.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/94.4c8e5a25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/95.2972011e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/97.be960e26.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/98.39761100.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ho-lok-ue-tools/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>作業指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ho-lok-ue-tools/d100_URS/" class="sidebar-link">使用者需求</a></li><li><a href="/ho-lok-ue-tools/d200_SRS/" class="sidebar-link">系統需求</a></li><li><a href="/ho-lok-ue-tools/d300_SDD/" class="sidebar-link">系統設計</a></li><li><a href="/ho-lok-ue-tools/d400_DEV/" class="sidebar-link">開發與測試</a></li><li><a href="/ho-lok-ue-tools/d500_OP/" class="sidebar-link">系統維運</a></li><li><a href="/ho-lok-ue-tools/d900_REF/" class="sidebar-link">參考資料</a></li><li><a href="/ho-lok-ue-tools/guide/" class="sidebar-link">作業指引</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>電腦硬體</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>開發環境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>參考資料</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="pipenv筆記本"><a href="#pipenv筆記本" class="header-anchor">#</a> PIPENV筆記本</h1> <h1 id="安裝-pipevn"><a href="#安裝-pipevn" class="header-anchor">#</a> 安裝 PIPEVN</h1> <h2 id="在-mac-安裝-pipenv"><a href="#在-mac-安裝-pipenv" class="header-anchor">#</a> 在 Mac 安裝 PIPENV</h2> <p>採用 brew 安裝 python3, pipenv</p> <p>以下作業，執行前需先完成工作：</p> <ul><li>已安裝 ZSH Shell &amp; Oh-my-zsh</li> <li>已安裝 brew</li></ul> <p><strong>安裝作業程序</strong>：</p> <ol><li><p>Install python3</p></li> <li><p>Install pipenv</p></li> <li><p>Install pyenv</p></li> <li><p><strong>Install python3</strong>
+brew install python3
+python3 --version</p></li> <li><p><strong>Install pipenv</strong>
+brew install pipenv
+pipenv --version</p> <p>brew install pipenv                                          1 ↵  23:57:12 
+Updating Homebrew...
+==&gt; Auto-updated Homebrew!
+Updated 1 tap (homebrew/cask).
+No changes to formulae.</p> <p>==&gt; Installing dependencies for pipenv: sqlite and python
+==&gt; Installing pipenv dependency: sqlite
+==&gt; Downloading https://homebrew.bintray.com/bottles/sqlite-3.27.2.mojave.bottle.tar.gz
+######################################################################## 100.0%
+==&gt; Pouring sqlite-3.27.2.mojave.bottle.tar.gz
+==&gt; Caveats
+sqlite is keg-only, which means it was not symlinked into /usr/local,
+because macOS provides an older sqlite3.</p> <p>If you need to have sqlite first in your PATH run:
+echo 'export PATH=&quot;/usr/local/opt/sqlite/bin:$PATH&quot;' &gt;&gt; ~/.zshrc</p> <p>For compilers to find sqlite you may need to set:
+export LDFLAGS=&quot;-L/usr/local/opt/sqlite/lib&quot;
+export CPPFLAGS=&quot;-I/usr/local/opt/sqlite/include&quot;</p> <p>For pkg-config to find sqlite you may need to set:
+export PKG_CONFIG_PATH=&quot;/usr/local/opt/sqlite/lib/pkgconfig&quot;</p> <p>==&gt; Summary
+🍺  /usr/local/Cellar/sqlite/3.27.2: 11 files, 3.7MB
+==&gt; Installing pipenv dependency: python
+==&gt; Downloading https://homebrew.bintray.com/bottles/python-3.7.3.mojave.bottle.tar.gz
+######################################################################## 100.0%
+==&gt; Pouring python-3.7.3.mojave.bottle.tar.gz
+==&gt; /usr/local/Cellar/python/3.7.3/bin/python3 -s setup.py --no-user-cfg install --force --verbose --install-scripts=/usr/local/Cellar/python/3.7.3/bi
+==&gt; /usr/local/Cellar/python/3.7.3/bin/python3 -s setup.py --no-user-cfg install --force --verbose --install-scripts=/usr/local/Cellar/python/3.7.3/bi
+==&gt; /usr/local/Cellar/python/3.7.3/bin/python3 -s setup.py --no-user-cfg install --force --verbose --install-scripts=/usr/local/Cellar/python/3.7.3/bi
+==&gt; Caveats
+Python has been installed as
+/usr/local/bin/python3</p> <p>Unversioned symlinks <code>python</code>, <code>python-config</code>, <code>pip</code> etc. pointing to
+<code>python3</code>, <code>python3-config</code>, <code>pip3</code> etc., respectively, have been installed into
+/usr/local/opt/python/libexec/bin</p> <p>If you need Homebrew's Python 2.7 run
+brew install python@2</p> <p>You can install Python packages with
+pip3 install <package>
+They will install into the site-package directory
+/usr/local/lib/python3.7/site-packages</package></p> <p>See: https://docs.brew.sh/Homebrew-and-Python
+==&gt; Summary
+🍺  /usr/local/Cellar/python/3.7.3: 3,863 files, 59.8MB
+==&gt; Installing pipenv
+==&gt; Downloading https://homebrew.bintray.com/bottles/pipenv-2018.11.26_2.mojave.bottle.tar.gz
+Already downloaded: /Users/alanjui/Library/Caches/Homebrew/downloads/df370082517abffe34a629c4d22d7d102edc1c7dd88dff9d6d092fa4657c5284--pipenv-2018.11.26_2.mojave.bottle.tar.gz
+==&gt; Pouring pipenv-2018.11.26_2.mojave.bottle.tar.gz
+==&gt; Caveats
+Bash completion has been installed to:
+/usr/local/etc/bash_completion.d</p> <p>zsh completions have been installed to:
+/usr/local/share/zsh/site-functions
+==&gt; Summary
+🍺  /usr/local/Cellar/pipenv/2018.11.26_2: 1,455 files, 19.7MB
+==&gt; Caveats
+==&gt; sqlite
+sqlite is keg-only, which means it was not symlinked into /usr/local,
+because macOS provides an older sqlite3.</p> <p>If you need to have sqlite first in your PATH run:
+echo 'export PATH=&quot;/usr/local/opt/sqlite/bin:$PATH&quot;' &gt;&gt; ~/.zshrc</p> <p>For compilers to find sqlite you may need to set:
+export LDFLAGS=&quot;-L/usr/local/opt/sqlite/lib&quot;
+export CPPFLAGS=&quot;-I/usr/local/opt/sqlite/include&quot;</p> <p>For pkg-config to find sqlite you may need to set:
+export PKG_CONFIG_PATH=&quot;/usr/local/opt/sqlite/lib/pkgconfig&quot;</p> <p>==&gt; python
+Python has been installed as
+/usr/local/bin/python3</p> <p>Unversioned symlinks <code>python</code>, <code>python-config</code>, <code>pip</code> etc. pointing to
+<code>python3</code>, <code>python3-config</code>, <code>pip3</code> etc., respectively, have been installed into
+/usr/local/opt/python/libexec/bin</p> <p>If you need Homebrew's Python 2.7 run
+brew install python@2</p> <p>You can install Python packages with
+pip3 install <package>
+They will install into the site-package directory
+/usr/local/lib/python3.7/site-packages</package></p> <p>See: https://docs.brew.sh/Homebrew-and-Python
+==&gt; pipenv
+Bash completion has been installed to:
+/usr/local/etc/bash_completion.d</p> <p>zsh completions have been installed to:
+/usr/local/share/zsh/site-functions</p> <p>pip install --user pipenv                                      ✔  23:27:49 
+Collecting pipenv
+Using cached https://files.pythonhosted.org/packages/13/b4/3ffa55f77161cff9a5220f162670f7c5eb00df52e00939e203f601b0f579/pipenv-2018.11.26-py3-none-any.whl
+Collecting virtualenv-clone&gt;=0.2.5 (from pipenv)
+Downloading https://files.pythonhosted.org/packages/37/2b/e34e411da0b960b2245f86ea83cdc20be62150a0966004f54fd2e00e5909/virtualenv_clone-0.5.2-py2.py3-none-any.whl
+Requirement already satisfied: setuptools&gt;=36.2.1 in /Users/alanjui/.pyenv/versions/3.6.8/lib/python3.6/site-packages (from pipenv) (40.6.2)
+Collecting certifi (from pipenv)
+Downloading https://files.pythonhosted.org/packages/60/75/f692a584e85b7eaba0e03827b3d51f45f571c2e793dd731e598828d380aa/certifi-2019.3.9-py2.py3-none-any.whl (158kB)
+100% |████████████████████████████████| 163kB 1.9MB/s
+Requirement already satisfied: pip&gt;=9.0.1 in /Users/alanjui/.pyenv/versions/3.6.8/lib/python3.6/site-packages (from pipenv) (18.1)
+Collecting virtualenv (from pipenv)
+Using cached https://files.pythonhosted.org/packages/33/5d/314c760d4204f64e4a968275182b7751bd5c3249094757b39ba987dcfb5a/virtualenv-16.4.3-py2.py3-none-any.whl
+Installing collected packages: virtualenv-clone, certifi, virtualenv, pipenv
+The script virtualenv-clone is installed in '/Users/alanjui/.local/bin' which is not on PATH.
+Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+The script virtualenv is installed in '/Users/alanjui/.local/bin' which is not on PATH.
+Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+The scripts pipenv and pipenv-resolver are installed in '/Users/alanjui/.local/bin' which is not on PATH.
+Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed certifi-2019.3.9 pipenv-2018.11.26 virtualenv-16.4.3 virtualenv-clone-0.5.2
+You are using pip version 18.1, however version 19.0.3 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.</p></li> <li><p>Install pyenv
+brew install pyenv
+echo 'eval &quot;$(pyenv init -)&quot;' &gt;&gt; ~/.bash_profile
+source ~/.bash_profile
+pyenv install -l | grep 3.6
+pyenv install 3.6.8</p> <p>pyenv versions
+pyenv local 3.6.8
+python --version
+pipenv --python ~/.pyenv/versions/3.6.8/bin/python<br>
+Creating a virtualenv for this project…
+Pipfile: /Users/alanjui/workspace/django/django2_helloworld/Pipfile
+Using /Users/alanjui/.pyenv/versions/3.6.8/bin/python (3.6.8) to create virtualenv…
+⠼ Creating virtual environment...Using base prefix '/Users/alanjui/.pyenv/versions/3.6.8'
+New python executable in /Users/alanjui/workspace/django/django2_helloworld/.venv/bin/python
+Installing setuptools, pip, wheel...
+done.
+Running virtualenv with interpreter /Users/alanjui/.pyenv/versions/3.6.8/bin/python</p> <p>✔ Successfully created virtual environment!
+Virtualenv location: /Users/alanjui/workspace/django/django2_helloworld/.venv</p> <p>pipenv shell
+pipenv install
+pipenv graph</p> <p>$ pipenv shell<br>
+Launching subshell in virtual environment…
+. /Users/alanjui/workspace/django/django2_helloworld/.venv/bin/activate
+$ . /Users/alanjui/workspace/django/django2_helloworld/.venv/bin/activate
+$ pipenv install                                       .venv   ✔  23:42:23 
+Installing dependencies from Pipfile.lock (dd71a2)…
+🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 13/13 — 00:00:25
+$ pipenv graph                                         .venv   ✔  23:42:57 
+django-crispy-forms==1.7.2
+django-heroku==0.3.1</p> <ul><li>dj-database-url [required: &gt;=0.5.0, installed: 0.5.0]</li> <li>django [required: Any, installed: 2.2]
+<ul><li>pytz [required: Any, installed: 2018.9]</li> <li>sqlparse [required: Any, installed: 0.3.0]</li></ul></li> <li>psycopg2 [required: Any, installed: 2.7.7]</li> <li>whitenoise [required: Any, installed: 4.1.2]
+djangorestframework==3.9.2
+gunicorn==19.9.0
+Pillow==6.0.0
+psycopg2-binary==2.7.7
+uWSGI==2.0.18</li></ul> <p>$ which pipenv                                         .venv   ✔  23:43:50 
+/usr/local/bin/pipenv</p></li></ol> <p>【註】： 參考 https://www.chrisjmendez.com/2017/08/03/installing-multiple-versions-of-python-on-your-mac-using-homebrew/</p> <hr> <h2 id="在-linux-作業系統安裝-pipenv"><a href="#在-linux-作業系統安裝-pipenv" class="header-anchor">#</a> 在 Linux 作業系統安裝 PIPENV</h2> <p>以下之安裝作業，在 Linux 作業系統須已先完成下列軟體之安裝：</p> <div class="language- extra-class"><pre><code>- 使用 ZSH Shell
+- 須先完成 conda 安裝
+</code></pre></div><h2 id="_1-install-pip3"><a href="#_1-install-pip3" class="header-anchor">#</a> （1）Install PIP3</h2> <div class="language- extra-class"><pre><code>$ sudo apt update
+$ sudo apt install python3-pip
+</code></pre></div><p>Confirm the installation:</p> <div class="language- extra-class"><pre><code>$ pip3 --version
+pip 9.0.1 from /usr/lib/python3/dist-packages (python 3.6)
+</code></pre></div><p>在Ubuntu 18.04遇有問題</p> <p>Retain your original system pip (in /usr/bin/ and dist-packages/) and remove the manually-installed pip (in ~.local/) to resolve the conflict:</p> <div class="language- extra-class"><pre><code>$ python3 -m pip uninstall pip
+</code></pre></div><h2 id="_2-install-pipenv"><a href="#_2-install-pipenv" class="header-anchor">#</a> （2）Install PIPENV</h2> <p>https://matthewbrown.io/2018/05/05/setting-up-my-python-workspace-2018/</p> <div class="language- extra-class"><pre><code># Install pip and pipenv
+sudo apt install python3-pip python3-dev
+pip3 install --user pipenv
+
+# Add pipenv (and other python scripts) to PATH
+echo &quot;PATH=$HOME/.local/bin:$PATH&quot; &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</code></pre></div><p>以下指令，完成安裝後，會導致 pip3 --version  指令都無法正常執行</p> <div class="language- extra-class"><pre><code>$ pip3 install pipenv
+</code></pre></div><p>須用以下指令解除狀況：</p> <div class="language- extra-class"><pre><code>$ python3 -m pip uninstall pip
+</code></pre></div><p>再以下列指令，驗證 pip3 已能正常執行：</p> <div class="language- extra-class"><pre><code>$ pip3 --version
+</code></pre></div><p>重新下安裝指令：</p> <div class="language- extra-class"><pre><code>$ pip3 install --user pipenv
+</code></pre></div><p>安裝完後，若直接執行以下指令，是無法正常運作：</p> <div class="language- extra-class"><pre><code>$ pipenv
+</code></pre></div><p>因為 pip3 所安裝的 python 套件軟體，存放於 ~/.local/bin/ 路徑之中。所以得先透過 .bashrc ，指定環境變數 PATH 的設定：</p> <div class="language- extra-class"><pre><code>export PATH=$HOME/.local/bin/:$PATH
+</code></pre></div><p>重啟 bash 環境設定：</p> <div class="language- extra-class"><pre><code>$ source ~/.bashrc
+
+
+$ pipenv --help
+</code></pre></div><hr> <h1 id="pipenv操作應用"><a href="#pipenv操作應用" class="header-anchor">#</a> PIPENV操作應用</h1> <ul><li><strong>虛擬環境存放路徑</strong></li> <li><strong>安裝 Django</strong></li> <li><strong>在專案中安裝套件</strong></li> <li><strong>透過 Pipfile 安裝專案使用的套件</strong></li> <li><strong>建置 Flask 開發環境</strong></li> <li><strong>建置 Flask-RESTful API 開發環境</strong></li> <li><strong>與 autoenv 整合，能自動設定環境變數</strong></li></ul> <h2 id="虛擬環境存放路徑"><a href="#虛擬環境存放路徑" class="header-anchor">#</a> <strong>虛擬環境存放路徑</strong></h2> <div class="language- extra-class"><pre><code>~/.local/share/virtualenvs/
+</code></pre></div><p>【範例】：</p> <div class="language- extra-class"><pre><code>$ll ~/.local/share/virtualenvs                                                    ✔  1400  10:09:57  
+total 0
+drwxr-xr-x  7 alanjui  staff   224B  1 25 17:19 DjangoWebApp_101-c4x1cDJG
+drwxr-xr-x  6 alanjui  staff   192B  1 25 17:08 MyDjango-101-djTZu23X
+drwxr-xr-x  7 alanjui  staff   224B  1 13 15:50 angular2-afX3Zzz3
+drwxr-xr-x  8 alanjui  staff   256B  1 11 23:48 app_001-7K8hnODN
+drwxr-xr-x  8 alanjui  staff   256B 12 26 07:50 app_001-m84IwZE1
+drwxr-xr-x  8 alanjui  staff   256B  1 13 14:44 backend-O5Pbf8cR
+drwxr-xr-x  7 alanjui  staff   224B  1 13 17:30 bin-F6Pw5mzD
+drwxr-xr-x  7 alanjui  staff   224B  1 17 19:44 bin-WEhQ9it0
+drwxr-xr-x  6 alanjui  staff   192B  1 25 17:17 django-101-VbBI7vTh
+drwxr-xr-x  8 alanjui  staff   256B 11 17 15:16 django-o75j7B4g
+drwxr-xr-x  8 alanjui  staff   256B  1 28 09:22 django_101-AFcN4355
+drwxr-xr-x  7 alanjui  staff   224B  1 21 11:17 excel-001-yPRCZGR3
+drwxr-xr-x  7 alanjui  staff   224B  1 13 17:31 frontend-PNqSI0W7
+drwxr-xr-x  8 alanjui  staff   256B  1 28 09:27 helloworld-Pmg0PGkG
+drwxr-xr-x  7 alanjui  staff   224B  1 13 17:30 heroes-vkdsnTjH
+drwxr-xr-x  7 alanjui  staff   224B  1 28 09:40 myApp_001-FqhkQf0h
+drwxr-xr-x  8 alanjui  staff   256B  1 11 23:26 myApp_001-c8ZvNN4-
+drwxr-xr-x  7 alanjui  staff   224B  1 28 17:13 myApp_102_Blog-pufZDWyi
+drwxr-xr-x  6 alanjui  staff   192B  1 29 10:12 myApp_103_News-F1eiUBIu
+drwxr-xr-x  8 alanjui  staff   256B  1 11 23:31 psql_app_001-7fynklTg
+drwxr-xr-x  6 alanjui  staff   192B  1 21 22:09 py-001-RK1Dxfn2
+drwxr-xr-x  8 alanjui  staff   256B 12 30 21:44 restful_api_01-SeNAOlWW
+drwxr-xr-x  8 alanjui  staff   256B  1  5 11:16 restful_api_02-R051RXPB
+drwxr-xr-x  8 alanjui  staff   256B  1 19 18:12 restful_api_03-6SORrA0h
+drwxr-xr-x  6 alanjui  staff   192B  1 21 11:10 untitled-56FYPc5o
+drwxr-xr-x  8 alanjui  staff   256B  1  8 15:14 webapp-9XAtsxLH
+</code></pre></div><h2 id="將虛擬環境路徑改在專案資料夾下"><a href="#將虛擬環境路徑改在專案資料夾下" class="header-anchor">#</a> <strong>將虛擬環境路徑改在專案資料夾下</strong></h2> <p><strong>設定指令：</strong></p> <div class="language- extra-class"><pre><code>export PIPENV_VENV_IN_PROJECT=&quot;enabled&quot;
+</code></pre></div><p><strong>範例：</strong></p> <p>使用者：juzhengzhong ，在路徑： ～/workspace/django/ 下，建置 django 專案： myapp_01</p> <div class="language- extra-class"><pre><code>$ cd ~/workspace/django
+$ mkdir myapp_01 &amp;&amp; cd $_
+juzhengzhong@SRV-01:~/workspace/django/myapp_01$ pipenv install django==2.1.7
+Creating a virtualenv for this project…
+Pipfile: /home/juzhengzhong/workspace/django/myapp_01/Pipfile
+Using /usr/bin/python3 (3.6.7) to create virtualenv…
+⠼ Creating virtual environment...Already using interpreter /usr/bin/python3
+Using base prefix '/usr'
+New python executable in /home/juzhengzhong/workspace/django/myapp_01/.venv/bin/python3
+Also creating executable in /home/juzhengzhong/workspace/django/myapp_01/.venv/bin/python
+Installing setuptools, pip, wheel...
+done.
+
+✔ Successfully created virtual environment!
+Virtualenv location: /home/juzhengzhong/workspace/django/myapp_01/.venv
+Creating a Pipfile for this project…
+Installing django==2.1.7…
+Adding django to Pipfile's [packages]…
+✔ Installation Succeeded
+Pipfile.lock not found, creating…
+Locking [dev-packages] dependencies…
+Locking [packages] dependencies…
+✔ Success!
+Updated Pipfile.lock (699753)!
+Installing dependencies from Pipfile.lock (699753)…
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 2/2 — 00:00:00
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+$ ll
+總計 20
+drwxrwxr-x 3 juzhengzhong juzhengzhong 4096  4月  1 12:14 ./
+drwxr-xr-x 4 juzhengzhong juzhengzhong 4096  4月  1 12:14 ../
+-rw-rw-r-- 1 juzhengzhong juzhengzhong  157  4月  1 12:14 Pipfile
+-rw-r--r-- 1 juzhengzhong juzhengzhong 1053  4月  1 12:14 Pipfile.lock
+drwxrwxr-x 6 juzhengzhong juzhengzhong 4096  4月  1 12:14 .venv/
+</code></pre></div><p><strong>解除設定指令：</strong></p> <div class="language- extra-class"><pre><code>unset PIPENV_VENV_IN_PROJECT
+</code></pre></div><p><strong>解除 Pipfile 的 Lock 狀態</strong></p> <div class="language- extra-class"><pre><code>pipenv clean
+</code></pre></div><p><strong>產生 requirements.txt 安裝檔</strong></p> <div class="language- extra-class"><pre><code>pipenv lock --requirements &gt; requirements.txt
+</code></pre></div><h2 id="移除已建立之虛擬環境"><a href="#移除已建立之虛擬環境" class="header-anchor">#</a> <strong>移除已建立之虛擬環境</strong></h2> <div class="language- extra-class"><pre><code>pipenv --rm
+</code></pre></div><h2 id="建立特定python版本之虛擬環境"><a href="#建立特定python版本之虛擬環境" class="header-anchor">#</a> <strong>建立特定Python版本之虛擬環境</strong></h2> <div class="language- extra-class"><pre><code>pipenv --python 3.7.2
+</code></pre></div><p>or</p> <div class="language- extra-class"><pre><code>pyenv versions
+ll ~/.pyenv/versions
+pipenv --python ~/.pyenv/versions/3.6.8/bin/python
+pipenv shell
+</code></pre></div><h2 id="條列虛擬環境已安裝之-python-套件"><a href="#條列虛擬環境已安裝之-python-套件" class="header-anchor">#</a> <strong>條列虛擬環境已安裝之 Python 套件</strong></h2> <div class="language- extra-class"><pre><code>pipenv shell
+pipenv graph
+</code></pre></div><h2 id="安裝-django"><a href="#安裝-django" class="header-anchor">#</a> <strong>安裝 Django</strong></h2> <p><strong>(1) Create Project Folder</strong></p> <div class="language- extra-class"><pre><code>cd ~/workspace/django
+mkdir myapp_001 &amp;&amp; cd $_
+</code></pre></div><p><strong>(2) Install Django</strong></p> <div class="language- extra-class"><pre><code>pipenv install django==2.1.7
+</code></pre></div><p><strong>(3) 啟動VirtualEnv</strong></p> <div class="language- extra-class"><pre><code>pipenv shell
+</code></pre></div><p><strong>(4) 建立 Django Project</strong></p> <div class="language- extra-class"><pre><code>django-admin startproject app_site .
+</code></pre></div><p><strong>(5) 試行 Django Project</strong></p> <div class="language- extra-class"><pre><code>./manage.py runserver
+</code></pre></div><p><strong>(6) 瀏覽器</strong>
+http://127.0.0.1:8000/</p> <p>(7) 建立 Django App</p> <div class="language- extra-class"><pre><code>./manage.py startapp pages
+</code></pre></div><h2 id="自動設定環境變數"><a href="#自動設定環境變數" class="header-anchor">#</a> 自動設定環境變數</h2> <p>可與 <a href="https://sanyuesha.com/2017/10/10/pipenv/" target="_blank" rel="noopener noreferrer">autoenv<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 整合，自動設定環境變數。</p> <p>（1）安裝 autoenv</p> <div class="language- extra-class"><pre><code>$ brew install autoenv
+$ echo &quot;source $(brew --prefix autoenv)/activate.sh&quot; &gt;&gt; ~/.bash_profile
+</code></pre></div><p>(2) 參考 ~/.bash_profile 的內容，複製到 .zshrc 檔案中</p> <div class="language- extra-class"><pre><code>source /usr/local/opt/autoenv/activate.sh
+
+
+SHELL=/usr/bin/zsh pipenv shell
+source /usr/local/opt/autoenv/activate.sh
+</code></pre></div><p>(3) 更新 ZSH Shell 的設定</p> <div class="language- extra-class"><pre><code>source ~/.zshrc
+</code></pre></div><p>(4) 在 Python 專案目錄中，建立 .env 檔案，及寫入環境設定，如：</p> <div class="language- extra-class"><pre><code>APP_SETTINGS=&quot;config.DevelopmentConfig&quot;
+DATABASE_URL=&quot;postgresql://localhost/wordcount_dev&quot;
+</code></pre></div><h2 id="在專案中安裝套件"><a href="#在專案中安裝套件" class="header-anchor">#</a> 在專案中安裝套件</h2> <p>使用 pipenv 安裝套件</p> <div class="language- extra-class"><pre><code>pipenv install &lt;Package_name&gt;
+</code></pre></div><h2 id="透過-pipfile-安裝專案使用的套件"><a href="#透過-pipfile-安裝專案使用的套件" class="header-anchor">#</a> 透過 Pipfile 安裝專案使用的套件</h2> <p>在已有 Pipfile 的專案，透過 Pipfile 內容的描述，為專案安裝所有使用到的套件。</p> <div class="language- extra-class"><pre><code>cd ~/workspace/django/django_gunicorn/
+cd ./app
+pipenv install
+</code></pre></div><h2 id="產生-requirements-txt"><a href="#產生-requirements-txt" class="header-anchor">#</a> 產生 requirements.txt</h2> <div class="language- extra-class"><pre><code>pipenv lock --requirements &gt; requirements.txt
+</code></pre></div><p>Ref: https://medium.com/@chihsuan/pipenv-%E6%9B%B4%E7%B0%A1%E5%96%AE-%E6%9B%B4%E5%BF%AB%E9%80%9F%E7%9A%84-python-%E5%A5%97%E4%BB%B6%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-135a47e504f4</p> <h2 id="依據-requirements-txt-安裝專案所需-python-套件"><a href="#依據-requirements-txt-安裝專案所需-python-套件" class="header-anchor">#</a> 依據 requirements.txt 安裝專案所需 Python 套件</h2> <div class="language- extra-class"><pre><code>$ pipenv install requirements.txt
+
+
+$ pipenv install requirements.txt
+Creating a virtualenv for this project…
+Pipfile: /home/juzhengzhong/workspace/django/django2_helloworld/Pipfile
+Using /usr/bin/python3 (3.6.7) to create virtualenv…
+⠸ Creating virtual environment...Already using interpreter /usr/bin/python3
+Using base prefix '/usr'
+New python executable in /home/juzhengzhong/workspace/django/django2_helloworld/.venv/bin/python3
+Also creating executable in /home/juzhengzhong/workspace/django/django2_helloworld/.venv/bin/python
+Installing setuptools, pip, wheel...
+done.
+
+✔ Successfully created virtual environment!
+Virtualenv location: /home/juzhengzhong/workspace/django/django2_helloworld/.venv
+Installing requirements.txt…
+Adding requirements.txt to Pipfile's [packages]…
+✔ Installation Succeeded
+Pipfile.lock (0e49e8) out of date, updating to (42d654)…
+Locking [dev-packages] dependencies…
+Locking [packages] dependencies…
+✘ Locking Failed!
+[pipenv.exceptions.ResolutionFailure]:   File &quot;/home/juzhengzhong/.local/lib/python3.6/site-packages/pipenv/resolver.py&quot;, line 69, in resolve
+[pipenv.exceptions.ResolutionFailure]:       req_dir=requirements_dir
+[pipenv.exceptions.ResolutionFailure]:   File &quot;/home/juzhengzhong/.local/lib/python3.6/site-packages/pipenv/utils.py&quot;, line 726, in resolve_deps
+[pipenv.exceptions.ResolutionFailure]:       req_dir=req_dir,
+[pipenv.exceptions.ResolutionFailure]:   File &quot;/home/juzhengzhong/.local/lib/python3.6/site-packages/pipenv/utils.py&quot;, line 480, in actually_resolve_deps
+[pipenv.exceptions.ResolutionFailure]:       resolved_tree = resolver.resolve()
+[pipenv.exceptions.ResolutionFailure]:   File &quot;/home/juzhengzhong/.local/lib/python3.6/site-packages/pipenv/utils.py&quot;, line 395, in resolve
+[pipenv.exceptions.ResolutionFailure]:       raise ResolutionFailure(message=str(e))
+[pipenv.exceptions.ResolutionFailure]:       pipenv.exceptions.ResolutionFailure: ERROR: ERROR: Could not find a version that matches requirements-txt
+[pipenv.exceptions.ResolutionFailure]:       No versions found
+[pipenv.exceptions.ResolutionFailure]: Warning: Your dependencies could not be resolved. You likely have a mismatch in your sub-dependencies.
+  First try clearing your dependency cache with $ pipenv lock --clear, then try the original command again.
+ Alternatively, you can use $ pipenv install --skip-lock to bypass this mechanism, then run $ pipenv graph to inspect the situation.
+  Hint: try $ pipenv lock --pre if it is a pre-release dependency.
+ERROR: ERROR: Could not find a version that matches requirements-txt
+No versions found
+Was https://pypi.org/simple reachable?
+[pipenv.exceptions.ResolutionFailure]:       req_dir=requirements_dir
+[pipenv.exceptions.ResolutionFailure]:   File &quot;/home/juzhengzhong/.local/lib/python3.6/site-packages/pipenv/utils.py&quot;, line 726, in resolve_deps
+[pipenv.exceptions.ResolutionFailure]:       req_dir=req_dir,
+[pipenv.exceptions.ResolutionFailure]:   File &quot;/home/juzhengzhong/.local/lib/python3.6/site-packages/pipenv/utils.py&quot;, line 480, in actually_resolve_deps
+[pipenv.exceptions.ResolutionFailure]:       resolved_tree = resolver.resolve()
+[pipenv.exceptions.ResolutionFailure]:   File &quot;/home/juzhengzhong/.local/lib/python3.6/site-packages/pipenv/utils.py&quot;, line 395, in resolve
+[pipenv.exceptions.ResolutionFailure]:       raise ResolutionFailure(message=str(e))
+[pipenv.exceptions.ResolutionFailure]:       pipenv.exceptions.ResolutionFailure: ERROR: ERROR: Could not find a version that matches requirements-txt
+[pipenv.exceptions.ResolutionFailure]:       No versions found
+[pipenv.exceptions.ResolutionFailure]: Warning: Your dependencies could not be resolved. You likely have a mismatch in your sub-dependencies.
+  First try clearing your dependency cache with $ pipenv lock --clear, then try the original command again.
+ Alternatively, you can use $ pipenv install --skip-lock to bypass this mechanism, then run $ pipenv graph to inspect the situation.
+  Hint: try $ pipenv lock --pre if it is a pre-release dependency.
+ERROR: ERROR: Could not find a version that matches requirements-txt
+No versions found
+Was https://pypi.org/simple reachable?
+$ pipenv graph
+django-crispy-forms==1.7.2
+django-heroku==0.3.1
+  - dj-database-url [required: &gt;=0.5.0, installed: 0.5.0]
+  - django [required: Any, installed: 2.0.3]
+    - pytz [required: Any, installed: 2018.3]
+  - psycopg2 [required: Any, installed: 2.7.7]
+  - whitenoise [required: Any, installed: 3.3.1]
+djangorestframework==3.7.7
+gunicorn==19.7.1
+Pillow==5.0.0
+psycopg2-binary==2.7.4
+uWSGI==2.0.18
+
+
+
+$ pipenv install --skip-lock django==2.1.7
+Installing django==2.1.7…
+Adding django to Pipfile's [packages]…
+✔ Installation Succeeded
+Installing dependencies from Pipfile…
+An error occurred while installing django-heroku==0.3.1! Will try again.
+An error occurred while installing requirements-txt! Will try again.
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 11/11 — 00:00:02
+Installing initially failed dependencies…
+  ☤  ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 2/2 — 00:00:01
+</code></pre></div><h2 id="建置-flask-restful-api-開發環境"><a href="#建置-flask-restful-api-開發環境" class="header-anchor">#</a> 建置 Flask RESTful API 開發環境</h2> <p><strong>作業程序：</strong></p> <ol><li>建立「專案根目錄」</li> <li>進入「專案根目錄」</li> <li>透過 pipenv 安裝 Flask-RESTful 套件</li> <li>執行 pipenv shell</li></ol> <p><strong>參考文件：</strong>
+https://pipenv.readthedocs.io/en/latest/basics/#example-pipenv-workflow</p> <p><strong>範例程式碼</strong>
+https://github.com/schoolofcode-me/rest-api-sections/tree/master/section4</p> <p><strong>安裝指令實例：</strong></p> <div class="language- extra-class"><pre><code>alanjui@MacBookPro-2018   ~/workspace/Flask/restful_api_02  pipenv install Flask-RESTful                                    ✔  666  11:13:38 
+Creating a virtualenv for this project…
+Pipfile: /Users/alanjui/workspace/Flask/restful_api_02/Pipfile
+Using /usr/local/opt/python/bin/python3.7 (3.7.1) to create virtualenv…
+✔ Complete
+Already using interpreter /usr/local/opt/python/bin/python3.7
+Using base prefix '/usr/local/Cellar/python/3.7.1/Frameworks/Python.framework/Versions/3.7'
+New python executable in /Users/alanjui/.local/share/virtualenvs/restful_api_02-R051RXPB/bin/python3.7
+Also creating executable in /Users/alanjui/.local/share/virtualenvs/restful_api_02-R051RXPB/bin/python
+Installing setuptools, pip, wheel...
+done.
+Virtualenv location: /Users/alanjui/.local/share/virtualenvs/restful_api_02-R051RXPB
+Creating a Pipfile for this project…
+Installing Flask-RESTful…
+Adding Flask-RESTful to Pipfile's [packages]…
+✔ Installation Succeeded
+Pipfile.lock not found, creating…
+Locking [dev-packages] dependencies…
+Locking [packages] dependencies…
+✔ Success!
+Updated Pipfile.lock (66653b)!
+Installing dependencies from Pipfile.lock (66653b)…
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 10/10 — 00:00:01
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+</code></pre></div><hr> <h1 id="pycharm開發環境設定"><a href="#pycharm開發環境設定" class="header-anchor">#</a> PyCharm開發環境設定</h1> <p>配合 PyCharm IDE操作使用，在 Preference 應有之設定：</p> <ul><li>Project</li> <li>Build, Execution, Deployment</li> <li>Configurations</li></ul> <p><strong>Project Setup/Project Intepreter</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546671914704_image.png" alt=""></p> <p><strong>Project Setup/Project Structure</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546671948525_image.png" alt=""></p> <p><strong>Build, Execution, Deployment/Console</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546672376342_image.png" alt=""></p> <p><strong>Build, Execution, Deployment/Flask</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546672520036_image.png" alt=""></p> <p><strong>Build, Execution, Deployment/Console/Python Console</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546672403575_image.png" alt=""></p> <p><strong>Configuration/Run &amp; Debug</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546671771423_image.png" alt=""></p> <hr> <h1 id="建置-flask-開發環境"><a href="#建置-flask-開發環境" class="header-anchor">#</a> 建置 Flask 開發環境</h1> <p><strong>使用套件：</strong></p> <ul><li>flask</li> <li>Flask-RESTful</li></ul> <p><strong>操作程序：</strong></p> <div class="language- extra-class"><pre><code>cd ~/workspace/Flask
+mkdir &lt;myproject&gt; &amp;&amp; cd $_
+pipenv install flask
+pipenv shell
+</code></pre></div><p><strong>實例參考：</strong></p> <div class="language- extra-class"><pre><code>pipenv install Flask                                        ✔  650  21:43:33  
+Warning: the environment variable LANG is not set!
+We recommend setting this in ~/.profile (or equivalent) for proper expected behavior.
+Creating a virtualenv for this project…
+Pipfile: /Users/alanjui/workspace/Flask/restful_api_01/Pipfile
+Using /usr/local/opt/python/bin/python3.7 (3.7.1) to create virtualenv…
+✔ Complete 
+Already using interpreter /usr/local/opt/python/bin/python3.7
+Using base prefix '/usr/local/Cellar/python/3.7.1/Frameworks/Python.framework/Versions/3.7'
+New python executable in /Users/alanjui/.local/share/virtualenvs/restful_api_01-SeNAOlWW/bin/python3.7
+Also creating executable in /Users/alanjui/.local/share/virtualenvs/restful_api_01-SeNAOlWW/bin/python
+Installing setuptools, pip, wheel...
+done.
+Virtualenv location: /Users/alanjui/.local/share/virtualenvs/restful_api_01-SeNAOlWW
+Creating a Pipfile for this project…
+Installing Flask…
+✔ Installation Succeeded 
+Pipfile.lock not found, creating…
+Locking [dev-packages] dependencies…
+Locking [packages] dependencies…
+✔ Success! 
+Updated Pipfile.lock (662286)!
+Installing dependencies from Pipfile.lock (662286)…
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 6/6 — 00:00:01
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+
+ alanjui@MacBookPro-2018   ~/workspace/Flask/restful_api_01  pipenv shell                                                ✔  652  21:46:50  
+Launching subshell in virtual environment…
+ . /Users/alanjui/.local/share/virtualenvs/restful_api_01-SeNAOlWW/bin/activate                                                                    
+MacBookPro-2018%  . /Users/alanjui/.local/share/virtualenvs/restful_api_01-SeNAOlWW/bin/activate
+(restful_api_01) MacBookPro-2018% 
+</code></pre></div><hr> <h1 id="pycharm整合開發環境"><a href="#pycharm整合開發環境" class="header-anchor">#</a> PyCharm整合開發環境</h1> <h2 id="設定-pycharm-環境"><a href="#設定-pycharm-環境" class="header-anchor">#</a> 設定 PyCharm 環境</h2> <p><strong>Build, Execution, Deployment</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546225145418_image.png" alt=""></p> <p><strong>Docker</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546225288608_image.png" alt=""></p> <p><strong>Docker / Registry</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546225351944_image.png" alt=""></p> <p><strong>Docker / Tools</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546225409089_image.png" alt=""></p> <h2 id="設定-terminal-環境"><a href="#設定-terminal-環境" class="header-anchor">#</a> 設定 Terminal 環境</h2> <ul><li>ZSH 設定：/usr/local/bin/zsh</li></ul> <p><strong>令 Shell 可利用 Command History</strong></p> <p>【執行重點】：在 PyCharm 植入設定 SHELL=/usr/local/bin/zsh pipenv shell ****</p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546224373140_image.png" alt=""></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546224411698_image.png" alt=""></p> <h2 id="設定「專案」環境"><a href="#設定「專案」環境" class="header-anchor">#</a> 設定「專案」環境</h2> <p><strong>Project Interpreter</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546224924986_image.png" alt=""></p> <p><strong>Project Structure</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546224972104_image.png" alt=""></p> <h2 id="設定執行環境"><a href="#設定執行環境" class="header-anchor">#</a> 設定執行環境</h2> <p><strong>設定 Flask 啟動</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_2F96C97CDFFC66A2F1B3D19770A595CE5C56A37135AAB483D83819CF5E8BE347_1546224495138_image.png" alt=""></p> <h1 id="參考資料"><a href="#參考資料" class="header-anchor">#</a> 參考資料</h1> <h1 id="basic-usage-of-pipenv¶"><a href="#basic-usage-of-pipenv¶" class="header-anchor">#</a> <a href="https://pipenv.readthedocs.io/en/latest/basics/#example-pipenv-workflow" target="_blank" rel="noopener noreferrer">Basic Usage of Pipenv¶<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h1> <p>https://medium.com/@chihsuan/pipenv-%E6%9B%B4%E7%B0%A1%E5%96%AE-%E6%9B%B4%E5%BF%AB%E9%80%9F%E7%9A%84-python-%E5%A5%97%E4%BB%B6%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-135a47e504f4</p> <p>https://www.chrisjmendez.com/2017/08/03/installing-multiple-versions-of-python-on-your-mac-using-homebrew/</p> <p>PyEnv 與 Pipenv
+https://blog.aweimeow.tw/use-pyenv-pipenv-to-archieve-clean-environment/</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" defer></script><script src="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" defer></script><script src="/ho-lok-ue-tools/assets/js/155.2a0dcb32.js" defer></script>
+  </body>
+</html>

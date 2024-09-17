@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>在 Ubuntu 建置 uWSGI 作業環境 | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css" as="style"><link rel="preload" href="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/100.c1f4de65.js" as="script"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/101.e14056d5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/102.5a78f801.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/103.e198a428.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/104.449b67e1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/105.825b86d6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/106.173be714.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/107.03f96c6c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/108.57957213.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/109.0a4b39eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/11.3e9ab894.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/111.802a4ef3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/112.8fb9f4c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/113.163f649e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/114.8da6ef94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/116.f901450e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/117.4898b362.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/118.80d06981.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/12.4a40a2fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/120.1955a557.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/121.1865eac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/122.1d79306c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/123.df62f490.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/124.4a9f1fcb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/125.d294aced.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/126.0558f46b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/127.71e4ae03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/128.cf355591.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/129.29c3a2f4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/13.c3911464.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/130.21e8b50e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/131.2a22915e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/132.23c7e418.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/133.b40de47b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/134.3b21be27.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/135.e33241e8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/136.e1fad00a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/137.4d051254.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/138.f95b7b98.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/139.2b8d3e50.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/14.c9886b34.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/140.1b8e8cd0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/141.ff03f551.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/142.8de335ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/144.6b438904.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/145.dd73b692.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/146.a5721fc9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/147.be2503d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/148.3012abdb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/149.5172325c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/15.0cce8ecb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/150.5304d46a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/152.6fb52d1e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/153.eaa379eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/154.e4a08e57.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/155.2a0dcb32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/157.ef0d4e6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/159.e58cd5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/16.fa6f05c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/160.b14498b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/161.6f58600a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/162.5088d732.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/163.cdfabcd3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/164.33af30e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/165.82251337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/166.729d4da0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/167.5021a127.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/168.82153370.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/169.0aad21a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/170.57bd13b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/171.23ff00be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/172.364d6e16.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/173.efa01f08.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/174.69d30215.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/175.265d6949.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/176.008e238b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/177.822a15ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/178.d1eee661.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/179.956fe469.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/180.bb68de5c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/181.6ca43cc3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/182.b784ea03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/183.cf75a717.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/184.a486267a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/185.35a0a735.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/186.67964623.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/187.13410beb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/188.962c6776.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/189.4786f58b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/19.ee358577.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/190.c4e5a3ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/191.ab08e553.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/193.95d606b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/194.2931aac2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/195.66817182.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/196.3841de25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/197.6d0aa566.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/198.f0525295.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/199.ae76c070.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/200.c57f2a39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/201.d63f8f6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/202.f9e03aa9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/203.95ffec51.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/204.3787443f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/205.27e200a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/206.45652af0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/208.3c2a60e9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/209.feeb4956.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/21.46ede3be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/210.6401ff88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/211.cfb8dc53.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/212.3ddf2b32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/213.647e2ffe.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/214.8e117d35.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/216.bc2d671c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/217.6371c831.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/218.ec43176a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/219.d69f53c2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/220.ca6bdcd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/221.e36810e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/222.715b43c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/223.808a43ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/224.e4df9237.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/225.6d08d9a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/226.4a72d290.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/227.93c9df65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/228.89cf25a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/229.27539a77.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/23.74ec33ae.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/232.c03f5450.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/233.a50b7053.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/234.e24679d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/236.03949180.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/237.077ec90b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/238.84598708.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/239.43007d0a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/24.dfaf327e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/240.2df91873.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/242.3066009f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/243.1ff09887.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/244.30430b7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/246.473b271a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/247.edc9641e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/248.6f7f74e5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/249.24762885.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/25.50731498.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/250.cc52a908.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/251.87f791a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/252.1e285f58.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/253.d783bd23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/254.bbeda6d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/255.1601d594.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/256.644af9ee.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/257.369bfcaf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/258.95ae1b47.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/259.02650516.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/26.7308cd5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/260.49df9ac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/261.7018bbf8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/262.b7de7d79.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/264.b82abc65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/265.9f4300d1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/266.868fd3db.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/267.c47ce979.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/268.d0ab9778.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/269.3b3efc3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/27.79b71a65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/270.4f788569.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/271.4fe4a762.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/273.cb605436.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/274.0efe455c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/275.5bc2a05c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/277.4724df32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/278.7e88e133.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/279.d117afb1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/28.96c7e30c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/280.1747c540.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/281.1df8dad8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/282.fb3b056e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/283.7238e6a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/284.333828fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/285.b4db7f5d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/286.203a528e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/287.3c26123e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/288.7b1abc61.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/289.f27ef80f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/29.0be0ff39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/290.b888b1dc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/291.db0ad529.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/292.491ba209.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/293.6222a09d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/294.ac3715a7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/295.3717bceb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/296.88ac43bd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/297.b2519337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/298.4094ee4b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/299.f1b57bd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/3.d8645ed1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/30.6c3af224.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/300.05acfc97.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/301.8b308b88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/302.649b0f63.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/303.02024141.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/304.0e1196b1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/305.b1ea83fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/306.0a66cafd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/307.a06f603b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/308.c5ff11ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/309.884aca03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/31.841f3ded.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/310.06a43026.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/311.7705aadb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/312.16c67c7e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/313.3a6cccf5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/314.bddfc342.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/316.445c3681.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/317.6698324c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/318.83b94f00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/32.283b7a44.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/33.dd6bc432.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/34.88232fa7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/35.aecd5410.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/36.32967ae8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/37.7a64c1c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/38.4556399d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/39.5c25123c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/4.c0ad8e6f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/41.f689f7c8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/42.25c15d8a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/43.14f65079.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/44.4b91b24a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/45.576f776e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/46.6da1e5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/49.d4e60513.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/50.c8b22d33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/56.f2597707.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/57.51fbeade.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/62.1cf89df2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/63.0f78d5dd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/66.fd2de134.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/67.6a554fd7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/69.80992696.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/70.d3126764.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/71.a2e07128.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/72.b5189fa6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/73.367f0392.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/74.f315c04a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/75.1aa88d55.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/76.41b88fff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/77.c6d47945.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/78.f3084837.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/79.8c5a82d4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/80.975fdb87.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/81.efc8d138.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/82.fccf7493.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/83.2978c41b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/85.a3074c64.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/86.6813c6c5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/88.3506e2f0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/89.7a73b80d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/9.4a24de8d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/90.6d7286c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/91.65b2c391.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/93.aeac5506.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/94.4c8e5a25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/95.2972011e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/97.be960e26.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/98.39761100.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ho-lok-ue-tools/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>在 Ubuntu 建置 uWSGI 作業環境</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#摘要" class="sidebar-link">摘要</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#安裝-uwsgi-服務" class="sidebar-link">安裝 uWSGI 服務</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#安裝作業" class="sidebar-link">安裝作業</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#驗證作業" class="sidebar-link">驗證作業</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#驗證-port-能串連-django-app" class="sidebar-link">驗證 Port 能串連 Django App</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#設定作業" class="sidebar-link">設定作業</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#驗證作業-2" class="sidebar-link">驗證作業</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#驗證-unix-socket-能串連-django-app" class="sidebar-link">驗證 Unix Socket 能串連 Django App</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#設定作業-2" class="sidebar-link">設定作業</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#驗證作業-3" class="sidebar-link">驗證作業</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#驗證-uwsgi-能與-django-app-整合運作" class="sidebar-link">驗證 uWSGI 能與 Django App 整合運作</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#設定-django-app-原始碼作業" class="sidebar-link">設定 Django App 原始碼作業</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#建置-uwsgi-服務設定檔" class="sidebar-link">建置 uWSGI 服務設定檔</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#驗證作業-4" class="sidebar-link">驗證作業</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#驗證作業系統預設-uwsgi-能串連-django-app" class="sidebar-link">驗證作業系統預設 uwsgi 能串連 Django App</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#驗證-emperor-mode-能串連-django-app" class="sidebar-link">驗證 Emperor Mode 能串連 Django App</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#建置作業" class="sidebar-link">建置作業</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#驗證作業-5" class="sidebar-link">驗證作業</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#啟用-uwsgi-服務" class="sidebar-link">啟用 uwsgi 服務</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#問題診斷與狀況排除" class="sidebar-link">問題診斷與狀況排除</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#瀏覽異常-log" class="sidebar-link">瀏覽異常 Log</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#常用參考" class="sidebar-link">常用參考</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#重啟-systemd-服務" class="sidebar-link">重啟 systemd 服務</a></li></ul></li><li><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#參考資料" class="sidebar-link">參考資料</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#官網指引" class="sidebar-link">官網指引</a></li><li class="sidebar-sub-header"><a href="/ho-lok-ue-tools/_my_dev_env/Debian/Ubuntu-uWSGI.html#建置-uwsgi-服務" class="sidebar-link">建置 uwsgi 服務</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="在-ubuntu-建置-uwsgi-作業環境"><a href="#在-ubuntu-建置-uwsgi-作業環境" class="header-anchor">#</a> 在 Ubuntu 建置 uWSGI 作業環境</h1> <h2 id="摘要"><a href="#摘要" class="header-anchor">#</a> 摘要</h2> <p>如何在 Ubuntu 作業系統，建置 uWSGI 服務，用以整合 Nginx（HTTP Server）與 Django App （Application Server）。</p> <ul><li>安裝 uWSGI 服務</li> <li>驗證 uwsgi 能用 port 串連 Django App</li> <li>驗證 uwsgi 能用 unix socket 串連 Django App</li> <li>驗證 uwsgi 能與 Django App 整合運作</li> <li>驗證 uWSGI 能依設定檔運作</li></ul> <h2 id="安裝-uwsgi-服務"><a href="#安裝-uwsgi-服務" class="header-anchor">#</a> 安裝 uWSGI 服務</h2> <p>安裝 uWSGI 服務作為 WSGI (Web Server Gateway Interface) 。</p> <p>📚 <a href="https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html" target="_blank" rel="noopener noreferrer">《Setting up Django and your web server with uWSGI and nginx》<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="安裝作業"><a href="#安裝作業" class="header-anchor">#</a> 安裝作業</h3> <ol><li>安裝 uWSGI 套件。</li></ol> <p>先將已啟用之「虛擬環境」停掉。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo -H pip3 install uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:~$ sudo -H pip3 install uwsgi
+Processing /root/.cache/pip/wheels/87/01/0f/2fc9c74a1ae010de7d8b17d90f6b39595cbb8ac5169345fcb8/uWSGI-2.0.19.1-cp38-cp38-linux_x86_64.whl
+Installing collected packages: uwsgi
+Successfully installed uwsgi-2.0.19.1
+alanjui@VB02-Ubuntu-2004:~$ which uwsgi
+/usr/local/bin/uwsgi
+alanjui@VB02-Ubuntu-2004:~$ ll /usr/local/bin/uwsgi
+-rwxr-xr-x 1 root root 1341888  3月 28 15:23 /usr/local/bin/uwsgi*
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h3 id="驗證作業"><a href="#驗證作業" class="header-anchor">#</a> 驗證作業</h3> <p>驗證 Web Client 傳來之 HTTP Request ，能被 uwsgi 服務接收，並轉傳至
+Django App 。</p> <p>通信路徑：
+Web Client ⬅➡ uWSGI ⬅➡ Django App</p> <ol><li>建置測試用 Django App</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd
+mkdir www &amp;&amp; cd $_
+pyenv virtualenv 3.9.1 venv-3.9.1
+pyenv local venv-3.9.1
+~/.pyenv/versions/3.9.1/envs/venv-3.9.1/bin/python3.9 -m pip install --upgrade pip
+
+pip install Django
+
+django-admin
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><ol start="2"><li>安裝 python 套件：uwsgi。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>pip install uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="3"><li>新增 test.py 測試檔，以為「測試用 Django App」。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim test.py
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>🔖</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># test.py
+def application(env, start_response):
+    start_response('200 OK', [('Content-Type','text/html')])
+    return [b&quot;Hello World&quot;]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><ol start="4"><li>使用 uwsgi 啟動「測試用 Django App」。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>uwsgi --http :8000 --wsgi-file test.py
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/www/mysite$ uwsgi --http :8000 --wsgi-file test.py
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Mar 26 21:00:15 2021] ***
+compiled with version: 9.3.0 on 26 March 2021 12:58:00
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /home/alanjui/www/mysite
+detected binary path: /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 15511
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on :8000 fd 4
+spawned uWSGI http 1 (pid: 72818)
+uwsgi socket 0 bound to TCP address 127.0.0.1:41827 (port auto-assigned) fd 3
+Python version: 3.9.1 (default, Mar 26 2021, 13:50:53)  [GCC 9.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x556dc9fcb0c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72920 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x556dc9fcb0c0 pid: 72776 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 72776, cores: 1)
+[pid: 72776|app: 0|req: 1/1] 192.168.66.21 () {38 vars in 720 bytes} [Fri Mar 26 21:00:24 2021] GET / =&gt; generated 11 bytes in 0 msecs (HTTP/1.1 200) 1 headers in 44 bytes (1 switches on core 0)
+[pid: 72776|app: 0|req: 2/2] 192.168.66.21 () {38 vars in 679 bytes} [Fri Mar 26 21:00:24 2021] GET /favicon.ico =&gt; generated 11 bytes in 0 msecs (HTTP/1.1 200) 1 headers in 44 bytes (1 switches on core 0)
+[pid: 72776|app: 0|req: 3/3] 192.168.66.21 () {38 vars in 722 bytes} [Fri Mar 26 21:00:37 2021] GET / =&gt; generated 11 bytes in 0 msecs (HTTP/1.1 200) 1 headers in 44 bytes (1 switches on core 0)
+[pid: 72776|app: 0|req: 4/4] 192.168.66.21 () {38 vars in 683 bytes} [Fri Mar 26 21:00:37 2021] GET /favicon.ico =&gt; generated 11 bytes in 0 msecs (HTTP/1.1 200) 1 headers in 44 bytes (1 switches on core 0)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><ol start="5"><li>驗證 Web 瀏覽器，能自「測試用 Django App」傳來文字： Hello World 。</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/ ，確認「網頁」能見到文字： Hello World 。</p> <h2 id="驗證-port-能串連-django-app"><a href="#驗證-port-能串連-django-app" class="header-anchor">#</a> 驗證 Port 能串連 Django App</h2> <p>驗證 Web Client 傳來之 HTTP Request ，Web Server（nginx 服務）能依
+「Request」判別：該由 nginx 取出「靜態檔」，供 Web Client 下載；亦
+或是透過 port 交由 uwsgi 將 HTTP Request 轉交 Django App 處理。</p> <p>通信路徑：
+Web Client ⬅➡ Web Server ⬅➡ Web Socket (Port) ⬅➡ uWSGI ⬅➡ Django App</p> <p>【處理規則】：</p> <p>(1) 若 HTTP Request 要「取用 static 靜態檔」，由 nginx 服務處理：
+static: .html / .css / .js / .png / .jpg</p> <p>(2) 若 HTTP Request 要「取用 media 靜態檔」，由 nginx 服務處理：
+media: image 檔案</p> <p>(3) 以上皆非之 HTTP Request，透過 Web Socket（Port）轉交 uWSGI ，傳遞予 Django App 處理。</p> <h3 id="設定作業"><a href="#設定作業" class="header-anchor">#</a> 設定作業</h3> <ol><li>建立 mysite.ccc.tw.local 虛擬網站設定檔。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd /home/alanjui/www/mysite
+vim mysite.ccc.tw.local.conf
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>🔖 mysite.ccc.tw.local.conf</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># the upstream component nginx needs to connect to
+upstream django {
+    # server unix:///path/to/your/mysite/mysite.sock; # for a file socket
+    server 127.0.0.1:8001;  # for a web port socket
+}
+
+server {
+    # the port mysite will be served on
+    # listen 8000;
+    # the domain name it will serve for
+    server_name mysite.ccc.tw.local; # substitute your machine's IP address or FQDN
+    charset utf-8;
+
+    # max upload size
+    client_max_body_size 75M; # adjust to taste
+
+    # Django media
+    location /media {
+        alias /home/alanjui/www/mysite/media;
+    }
+
+    location /static {
+        alias /home/alanjui/www/mysite/static_collected;
+    }
+
+    # Finally, send all non-media requests to the Djang server.
+    location / {
+        uwsgi_pass  django;
+        include     /etc/nginx/uwsgi_params;
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><ol start="2"><li>啟用 mysite.ccc.tw.local 虛擬網站。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd /etc/nginx/sites-enabled
+sudo ln -nfs /home/alanjui/www/mysite/mysite.ccc.tw.local.conf
+sudo nginx -t
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ol start="3"><li>設定「登入帳號」屬 www-data 群組。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo usermod -aG www-data $USER
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="驗證作業-2"><a href="#驗證作業-2" class="header-anchor">#</a> 驗證作業</h3> <p>驗證 Web Client 傳來之 HTTP Request ，Web Server（nginx 服務）能依
+「Request」判別：該由 nginx 取出「靜態檔」，供 Web Client 下載；亦
+或是透過 port 交由 uwsgi 將 HTTP Request 轉交 Django App 處理。</p> <p>通信路徑：
+Web Client ⬅➡ Web Server ⬅➡ Web Socket (Port) ⬅➡ uWSGI ⬅➡ Django App</p> <ol><li>設定 Django App 的「靜態檔佈署目錄」，用以彙總 Django App 所有的「靜態檔案」。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd ~/www/mysite/
+vim mysite/settngs.py
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>🔖 mysite/settngs.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>STATIC_ROOT = BASE_DIR / 'static_collected'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>佈署 Django App 的「靜態檔案（static files）」。</li></ol> <p>匯集所有靜態檔案至「靜態檔佈署目錄」：
+/home/alanjui/www/mysite/static_collected/</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>./manage.py collectstatic
+
+cp static_collected/admin/img/search.svg media/
+
+uwsgi --socket :8001 --wsgi-file test.py
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><ol start="3"><li>驗證能存取 static 靜態檔案</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/static/admin/img/search.svg
+，確認「網頁」能見到「放大鏡圖示」。</p> <ol start="4"><li>驗證能存取 media 靜態檔案</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/media/search.svg
+，確認「網頁」能見到「放大鏡圖示」。</p> <ol start="5"><li>驗證非存取 static 與 media 的 HTTP Request 會被送往 Django App</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/ ，確認「網頁」能見到
+文字： Hello World 。</p> <p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/www/mysite$ uwsgi --socket :8001 --wsgi-file test.py
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Mar 26 22:46:53 2021] ***
+compiled with version: 9.3.0 on 26 March 2021 12:58:00
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /home/alanjui/www/mysite
+detected binary path: /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 15511
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address :8001 fd 3
+Python version: 3.9.1 (default, Mar 26 2021, 13:50:53)  [GCC 9.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x564b57e0bac0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72920 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x564b57e0bac0 pid: 75124 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 75124, cores: 1)
+[pid: 75124|app: 0|req: 1/1] 192.168.66.21 () {42 vars in 787 bytes} [Fri Mar 26 22:47:21 2021] GET / =&gt; generated 11 bytes in 0 msecs (HTTP/1.1 200) 1 headers in 44 bytes (1 switches on core 0)
+[pid: 75124|app: 0|req: 2/2] 192.168.66.21 () {42 vars in 751 bytes} [Fri Mar 26 22:47:21 2021] GET /favicon.ico =&gt; generated 11 bytes in 0 msecs (HTTP/1.1 200) 1 headers in 44 bytes (1 switches on core 0)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><h2 id="驗證-unix-socket-能串連-django-app"><a href="#驗證-unix-socket-能串連-django-app" class="header-anchor">#</a> 驗證 Unix Socket 能串連 Django App</h2> <p>驗證 Web Client 傳來之 HTTP Request ，Web Server（nginx 服務）能依
+「Request」判別：該由 nginx 取出「靜態檔」，供 Web Client 下載；亦
+或是透過 Unix Socket (File Socket) 交由 uwsgi 將 HTTP Request 轉交 Django App 處理。</p> <p>通信路徑：
+Web Client ⬅➡ Web Server ⬅➡ Web Socket (Socket File) ⬅➡ uWSGI ⬅➡ Django App</p> <h3 id="設定作業-2"><a href="#設定作業-2" class="header-anchor">#</a> 設定作業</h3> <ol><li>變更 mysite 虛擬網站設定，將 socket 改用 unix socket (file socket)</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>upstream django {
+    # server unix:///path/to/your/mysite/mysite.sock; # for a file socket
+    # server 127.0.0.1:8001;  # for a web port socket
+    server unix:///run/uwsgi/mysite.sock;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><ol start="2"><li>設定 /run/uwsgi 目錄及權限。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo mkdir /run/uwsgi
+sudo chown $USER:www-data /run/uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="驗證作業-3"><a href="#驗證作業-3" class="header-anchor">#</a> 驗證作業</h3> <ol><li>重啟 nginx 服務。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo systemctl restart nginx
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>重啟 uWSGI 服務。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>uwsgi --socket mysite.sock --wsgi-file test.py --chmod-socket=666
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="3"><li>驗證 Web Client 能連線到 Django App ，取得「網頁」內容。</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/ ，確認「網頁」能見到
+文字： Hello World 。</p> <p>【註】： 以上測試若發生：502 Bad Gateway 錯誤，可查 Log 紀錄，是否同下所示範例。
+若是的話，則問題很可能是因權限不足所導致：
+connect() to unix:///path/to/your/mysite/mysite.sock failed (13: Permission
+denied) 。</p> <p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/www/mysite$ uwsgi --socket mysite.sock --wsgi-file test.py
+*** Starting uWSGI 2.0.19.1 (64bit) on [Fri Mar 26 23:32:56 2021] ***
+compiled with version: 9.3.0 on 26 March 2021 12:58:00
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /home/alanjui/www/mysite
+detected binary path: /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 15511
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address mysite.sock fd 3
+Python version: 3.9.1 (default, Mar 26 2021, 13:50:53)  [GCC 9.3.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x562a24fceac0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72920 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x562a24fceac0 pid: 75507 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 75507, cores: 1)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div><h2 id="驗證-uwsgi-能與-django-app-整合運作"><a href="#驗證-uwsgi-能與-django-app-整合運作" class="header-anchor">#</a> 驗證 uWSGI 能與 Django App 整合運作</h2> <p>將上述「測試用 Django App」改用實際之 Django App 復行測試。</p> <p>通信路徑：
+Web Client ⬅➡ Web Server ⬅➡ Web Socket (Socket File) ⬅➡ uWSGI ⬅➡ Django App</p> <h3 id="設定-django-app-原始碼作業"><a href="#設定-django-app-原始碼作業" class="header-anchor">#</a> 設定 Django App 原始碼作業</h3> <p>修訂原始碼使之與 uwsgi 整合</p> <ol><li>修訂 Django App 原始碼，使之能與 uwsgi 及 nginx 整合運作。</li></ol> <ul><li>編輯 Django App 的設定檔</li></ul> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd /home/alanjui/www/mysite
+vim mysite/settings.py
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ul><li>設定 ALLOWED_HOSTS ，接收來自 host: mysite.ccc.tw.local 的 HTTP Request</li></ul> <p>🔖 mysite/settings.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>ALLOWED_HOSTS = [
+    'mysite.ccc.tw.local',
+    'localhost',
+    '127.0.0.1',
+]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><ul><li>設定 STATIC_ROOT ，令「靜態檔」集中匯入：專案目錄下的子目錄：static_collected</li></ul> <p>🔖 mysite/settings.py</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>STATIC_ROOT = BASE_DIR / 'static_collected'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>【註】：目錄全路徑 /home/alanjui/www/mysite/static_collected/ 。</p> <ol start="2"><li>佈署 Django App 的「靜態檔案（static files）」。</li></ol> <p>匯集所有靜態檔案至「靜態檔佈署目錄」：
+/home/alanjui/www/mysite/static_collected/</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>./manage.py collectstatic
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="3"><li>佈署 Django App 的 Media 檔案</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>cp static_collected/admin/img/search.svg media/
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="建置-uwsgi-服務設定檔"><a href="#建置-uwsgi-服務設定檔" class="header-anchor">#</a> 建置 uWSGI 服務設定檔</h3> <ol><li>建置 uWSGI 服務設定檔： mysite_uwsgi.ini 。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd /home/alanjui/www/mysite
+vim mysite_uwsgi.ini
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>🔖 mysite_uwsgi.ini</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># mysite_uwsgi.ini file
+[uwsgi]
+project = mysite
+uid = alanjui
+base = /home/%(uid)
+
+# Django-related settings
+# the base directory (full path)
+#chdir           = /home/alanjui/www/mysite
+chdir           = %(base)/www/%(project)
+# Django's wsgi file
+module          = mysite.wsgi
+# the virtualenv (full path)
+#home            = /home/alanjui/.pyenv/versions/venv-3.9.1
+#home            = /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1
+home            = %(chdir)/.venv
+
+# process-related settings
+# master
+master          = true
+# maximum number of worker processes
+processes       = 10
+# the socket (use the full path to be safe
+# socket          = /home/alanjui/www/mysite/mysite.sock
+socket          = /run/uwsgi/%(project).sock
+# ... with appropriate permissions - may be needed
+#chmod-socket    = 664
+chmod-socket    = 666
+# clear environment on exit
+vacuum          = true
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><h3 id="驗證作業-4"><a href="#驗證作業-4" class="header-anchor">#</a> 驗證作業</h3> <ol><li>啟動 uwsgi 服務。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>uwsgi --ini mysite_uwsgi.ini
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>驗證能存取 static 靜態檔案</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/static/admin/img/search.svg
+，確認「網頁」能見到「放大鏡圖示」。</p> <ol start="3"><li>驗證能存取 media 靜態檔案</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/media/search.svg
+，確認「網頁」能見到「放大鏡圖示」。</p> <ol start="4"><li>驗證非存取 static 與 media 的 HTTP Request 會被送往 Django App</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/ ，確認「網頁」能見到
+如下圖之內容。</p> <p><img src="/assets/img/django/django-app-default-home.png" alt=""></p> <p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/www/mysite$ uwsgi --ini mysite_uwsgi.ini
+[uWSGI] getting INI configuration from mysite_uwsgi.ini
+*** Starting uWSGI 2.0.19.1 (64bit) on [Sat Mar 27 21:29:54 2021] ***
+compiled with version: 9.3.0 on 26 March 2021 12:58:00
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /home/alanjui/www/mysite
+detected binary path: /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/alanjui/www/mysite
+your processes number limit is 15511
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/alanjui/www/mysite/mysite.sock fd 3
+Python version: 3.9.1 (default, Mar 26 2021, 13:50:53)  [GCC 9.3.0]
+PEP 405 virtualenv detected: /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1
+Set PythonHome to /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55a335b993b0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55a335b993b0 pid: 85887 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 85887)
+spawned uWSGI worker 1 (pid: 85930, cores: 1)
+spawned uWSGI worker 2 (pid: 85931, cores: 1)
+spawned uWSGI worker 3 (pid: 85932, cores: 1)
+spawned uWSGI worker 4 (pid: 85933, cores: 1)
+spawned uWSGI worker 5 (pid: 85934, cores: 1)
+spawned uWSGI worker 6 (pid: 85935, cores: 1)
+spawned uWSGI worker 7 (pid: 85936, cores: 1)
+spawned uWSGI worker 8 (pid: 85937, cores: 1)
+spawned uWSGI worker 9 (pid: 85938, cores: 1)
+spawned uWSGI worker 10 (pid: 85939, cores: 1)
+[pid: 85932|app: 0|req: 1/1] 192.168.66.21 () {44 vars in 818 bytes} [Sat Mar 27 13:32:07 2021] GET / =&gt; generated 16351 bytes in 17 msecs (HTTP/1.1 200) 5 headers in 153 bytes (1 switches on core 0)
+^CSIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+worker 6 buried after 1 seconds
+worker 7 buried after 1 seconds
+worker 8 buried after 1 seconds
+worker 9 buried after 1 seconds
+worker 10 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/alanjui/www/mysite/mysite.sock removed.
+(venv-3.9.1) alanjui@VB02-Ubuntu-2004:~/www/mysite$
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br></div></div><h2 id="驗證作業系統預設-uwsgi-能串連-django-app"><a href="#驗證作業系統預設-uwsgi-能串連-django-app" class="header-anchor">#</a> 驗證作業系統預設 uwsgi 能串連 Django App</h2> <ol><li><p>停用 Python 虛擬環境</p></li> <li><p>切換目錄至「家目錄」。</p></li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="3"><li>使用作業系統預設 uwsgi 與 Django App 整合作業。</li></ol> <p>此處 uwsgi 安裝路徑： /usr/local/bin/uwsgi</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>uwsgi --ini [/Path/to/uwsgi_config.ini]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:~$ uwsgi --ini /home/alanjui/www/mysite/mysite_uwsgi.ini
+[uWSGI] getting INI configuration from /home/alanjui/www/mysite/mysite_uwsgi.ini
+*** Starting uWSGI 2.0.19.1 (64bit) on [Sun Mar 28 15:28:27 2021] ***
+compiled with version: 9.3.0 on 28 March 2021 03:49:51
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /home/alanjui
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/alanjui/www/mysite
+your processes number limit is 15511
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lok engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/alanjui/www/mysite/mysite.sock fd 3
+Python version: 3.8.5 (default, Jan 27 2021, 15:41:15)  [GCC 9.3.0]
+PEP 405 virtualenv detected: /home/alanjui/www/mysite/.venv
+Set PythonHome to /home/alanjui/www/mysite/.venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x561392070640
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x561392070640 pid: 101202 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 101202)
+spawned uWSGI worker 1 (pid: 101204, cores: 1)
+spawned uWSGI worker 2 (pid: 101205, cores: 1)
+spawned uWSGI worker 3 (pid: 101206, cores: 1)
+spawned uWSGI worker 4 (pid: 101207, cores: 1)
+spawned uWSGI worker 5 (pid: 101208, cores: 1)
+spawned uWSGI worker 6 (pid: 101209, cores: 1)
+spawned uWSGI worker 7 (pid: 101210, cores: 1)
+spawned uWSGI worker 8 (pid: 101211, cores: 1)
+spawned uWSGI worker 9 (pid: 101212, cores: 1)
+spawned uWSGI worker 10 (pid: 101213, cores: 1)
+[pid: 101204|app: 0|req: 1/1] 192.168.66.21 () {42 vars in 787 bytes} [Sun Mar 28 07:28:54 2021] GET / =&gt; generated 16351 bytes in 17 msecs (HTTP/1.1 200) 5 headers in 153 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 101205|app: 0|req: 1/2] 192.168.66.21 () {42 vars in 751 bytes} [Sun Mar 28 07:28:54 2021] GET /favicon.ico =&gt; generated 1982 bytes in 20 msecs (HTTP/1.1 404) 5 headers in 159 bytes (1 switches on core 0)
+^CSIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+worker 6 buried after 1 seconds
+worker 7 buried after 1 seconds
+worker 8 buried after 1 seconds
+worker 9 buried after 1 seconds
+worker 10 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/alanjui/www/mysite/mysite.sock removed.
+alanjui@VB02-Ubuntu-2004:~$
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br></div></div><h2 id="驗證-emperor-mode-能串連-django-app"><a href="#驗證-emperor-mode-能串連-django-app" class="header-anchor">#</a> 驗證 Emperor Mode 能串連 Django App</h2> <p>以 Emperor Mode ，執行 uwsgi 。測試此運作模式，能與 Django App 整合運作。</p> <h3 id="建置作業"><a href="#建置作業" class="header-anchor">#</a> 建置作業</h3> <ol><li>建置 vassals 目錄</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo mkdir -p /etc/uwsgi/vassals
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>建立 uwsgi 設定檔的連結，放至目錄路徑中： /etc/uwsgi/vassals/</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo ln -s /home/alanjui/www/mysite/mysite_uwsgi.ini /etc/uwsgi/vassals/
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>sudo mkdir -p /etc/uwsgi/u
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="3"><li>要求 uwsgi 服務以 emperor mode 作業</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>uwsgi --emperor /etc/uwsgi/vassals --uid www-data --gid www-data
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:~$ uwsgi --emperor /etc/uwsgi/vassals --uid www-data --gid www-data
+*** Starting uWSGI 2.0.19.1 (64bit) on [Sun Mar 28 20:44:21 2021] ***
+compiled with version: 9.3.0 on 28 March 2021 03:49:51
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /home/alanjui
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 15511
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+*** starting uWSGI Emperor ***
+*** has_emperor mode detected (fd: 6) ***
+[uWSGI] getting INI configuration from mysite_uwsgi.ini
+*** Starting uWSGI 2.0.19.1 (64bit) on [Sun Mar 28 20:44:21 2021] ***
+compiled with version: 9.3.0 on 28 March 2021 03:49:51
+os: Linux-5.8.0-48-generic #54~20.04.1-Ubuntu SMP Sat Mar 20 13:40:25 UTC 2021
+nodename: VB02-Ubuntu-2004
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /etc/uwsgi/vassals
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/alanjui/www/mysite
+your processes number limit is 15511
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/alanjui/www/mysite/mysite.sock fd 3
+Python version: 3.8.5 (default, Jan 27 2021, 15:41:15)  [GCC 9.3.0]
+PEP 405 virtualenv detected: /home/alanjui/www/mysite/.venv
+Set PythonHome to /home/alanjui/www/mysite/.venv
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55e54bc1a560
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55e54bc1a560 pid: 101572 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 101572)
+Sun Mar 28 20:44:21 2021 - [emperor] vassal mysite_uwsgi.ini has been spawned
+spawned uWSGI worker 1 (pid: 101575, cores: 1)
+spawned uWSGI worker 2 (pid: 101576, cores: 1)
+Sun Mar 28 20:44:21 2021 - [emperor] vassal mysite_uwsgi.ini is ready to accept requests
+spawned uWSGI worker 3 (pid: 101577, cores: 1)
+spawned uWSGI worker 4 (pid: 101578, cores: 1)
+spawned uWSGI worker 5 (pid: 101579, cores: 1)
+spawned uWSGI worker 6 (pid: 101580, cores: 1)
+spawned uWSGI worker 7 (pid: 101581, cores: 1)
+spawned uWSGI worker 8 (pid: 101582, cores: 1)
+spawned uWSGI worker 9 (pid: 101583, cores: 1)
+spawned uWSGI worker 10 (pid: 101584, cores: 1)
+[pid: 101582|app: 0|req: 1/1] 192.168.66.21 () {44 vars in 818 bytes} [Sun Mar 28 12:44:55 2021] GET / =&gt; generated 16351 bytes in 16 msecs (HTTP/1.1 200) 5 headers in 153 bytes (1 switches on core 0)
+announcing my loyalty to the Emperor...
+Sun Mar 28 20:44:55 2021 - [emperor] vassal mysite_uwsgi.ini is now loyal
+
+^C[emperor] *** RAGNAROK EVOKED ***
+Sun Mar 28 20:45:48 2021 - [emperor] stop the uwsgi instance mysite_uwsgi.ini
+SIGINT/SIGQUIT received...killing workers...
+Sun Mar 28 12:45:48 2021 - received message 0 from emperor
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+worker 6 buried after 1 seconds
+worker 7 buried after 1 seconds
+worker 8 buried after 1 seconds
+worker 9 buried after 1 seconds
+worker 10 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/alanjui/www/mysite/mysite.sock removed.
+Sun Mar 28 20:45:50 2021 - [emperor] removed uwsgi instance mysite_uwsgi.ini
+Sun Mar 28 20:45:51 2021 - The Emperor is buried.
+alanjui@VB02-Ubuntu-2004:~$
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br></div></div><h3 id="驗證作業-5"><a href="#驗證作業-5" class="header-anchor">#</a> 驗證作業</h3> <ol><li>驗證能存取 static 靜態檔案</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/static/admin/img/search.svg
+，確認「網頁」能見到「對放大鏡圖示」。</p> <ol start="2"><li>驗證能存取 media 靜態檔案</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/media/search.svg
+，確認「網頁」能見到「放大鏡圖示」。</p> <ol start="3"><li>驗證非存取 static 與 media 的 HTTP Request 會被送往 Django App</li></ol> <p>在 Web 瀏覽器，瀏覽網址： http://mysite.ccc.tw.local/ ，確認「網頁」能見到
+如下圖之內容。</p> <p><img src="/assets/img/django/django-app-default-home.png" alt=""></p> <h2 id="啟用-uwsgi-服務"><a href="#啟用-uwsgi-服務" class="header-anchor">#</a> 啟用 uwsgi 服務</h2> <p>設定 uwsgi 以「systemd 服務」模式運作，能於開機後自動啟動，以 Empermor Mode
+模式運作。</p> <ol><li>建立 systemd 服務設定檔。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo su
+vim /etc/systemd/system/uwsgi.service
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>🔖 uwsgi.service</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[Unit]
+Description=uWSGI Empermor Mode Service
+
+[Service]
+ExecStartPre=/bin/bash -c &quot;mkdir -p /run/uwsgi; chown alanjui:www-data /run/uwsgi&quot;
+ExecStart=/usr/local/bin/uwsgi --emperor /etc/uwsgi/apps-enabled --uid alanjui --gid www-data
+Restart=always
+Killsignal=SIGQUIT
+Type=notify
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><ol start="2"><li>檢查有無其它 uwsgi 服務啟用，若有，則先予停用。</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo systemctl status uwsgi
+
+sudo sytemctl stop uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ol start="3"><li>啟用服務</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo systemctl enable uwsgi
+
+sudo systemctl start uwsgi
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>alanjui@VB02-Ubuntu-2004:/etc/uwsgi/apps-enabled$ sudo systemctl enable uwsgi
+Synchronizing state of uwsgi.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable uwsgi
+Created symlink /etc/systemd/system/multi-user.target.wants/uwsgi.service → /etc/systemd/system/uwsgi.service.
+
+alanjui@VB02-Ubuntu-2004:~$ sudo systemctl start uwsgi
+
+alanjui@VB02-Ubuntu-2004:~$ sudo systemctl status uwsgi
+● uwsgi.service - uWSGI Empermor Mode Service
+     Loaded: loaded (/etc/systemd/system/uwsgi.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2021-03-30 11:36:42 CST; 10s ago
+    Process: 1674 ExecStartPre=/bin/bash -c mkdir -p /run/uwsgi; chown alanjui:www-data /run/uwsgi (code=exited, status=0/SUCCESS)
+   Main PID: 1677 (uwsgi)
+     Status: &quot;The Emperor is governing 1 vassals&quot;
+      Tasks: 12 (limit: 4653)
+     Memory: 47.3M
+     CGroup: /system.slice/uwsgi.service
+             ├─1677 /usr/local/bin/uwsgi --emperor /etc/uwsgi/apps-enabled --uid alanjui --gid www-data
+             ├─1678 /usr/local/bin/uwsgi --ini mysite_uwsgi.ini
+             ├─1680 /usr/local/bin/uwsgi --ini mysite_uwsgi.ini
+             ├─1681 /usr/local/bin/uwsgi --ini mysite_uwsgi.ini
+             ├─1682 /usr/local/bin/uwsgi --ini mysite_uwsgi.ini
+             ├─1683 /usr/local/bin/uwsgi --ini mysite_uwsgi.ini
+             ├─1684 /usr/local/bin/uwsgi --ini mysite_uwsgi.ini
+             ├─1685 /usr/local/bin/uwsgi --ini mysite_uwsgi.ini
+             ├─1686 /usr/local/bin/uwsgi --ini mysite_uwsgi.ini
+             ├─1687 /usr/local/bin/uwsgi --ini mysite_uwsgi.ini
+             ├─1688 /usr/local/bin/uwsgi --ini mysite_uwsgi.ini
+             └─1689 /usr/local/bin/uwsgi --ini mysite_uwsgi.ini
+
+ 3月 30 11:36:42 VB02-Ubuntu-2004 uwsgi[1678]: spawned uWSGI worker 2 (pid: 1681, cores: 1)
+ 3月 30 11:36:42 VB02-Ubuntu-2004 uwsgi[1678]: spawned uWSGI worker 3 (pid: 1682, cores: 1)
+ 3月 30 11:36:42 VB02-Ubuntu-2004 uwsgi[1678]: spawned uWSGI worker 4 (pid: 1683, cores: 1)
+ 3月 30 11:36:42 VB02-Ubuntu-2004 uwsgi[1678]: spawned uWSGI worker 5 (pid: 1684, cores: 1)
+ 3月 30 11:36:42 VB02-Ubuntu-2004 uwsgi[1678]: spawned uWSGI worker 6 (pid: 1685, cores: 1)
+ 3月 30 11:36:42 VB02-Ubuntu-2004 uwsgi[1678]: spawned uWSGI worker 7 (pid: 1686, cores: 1)
+ 3月 30 11:36:42 VB02-Ubuntu-2004 uwsgi[1678]: spawned uWSGI worker 8 (pid: 1687, cores: 1)
+ 3月 30 11:36:42 VB02-Ubuntu-2004 uwsgi[1677]: Tue Mar 30 11:36:42 2021 - [emperor] vassal mysite_uwsgi.ini is ready to accept requests
+ 3月 30 11:36:42 VB02-Ubuntu-2004 uwsgi[1678]: spawned uWSGI worker 9 (pid: 1688, cores: 1)
+ 3月 30 11:36:42 VB02-Ubuntu-2004 uwsgi[1678]: spawned uWSGI worker 10 (pid: 1689, cores: 1)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br></div></div><h2 id="問題診斷與狀況排除"><a href="#問題診斷與狀況排除" class="header-anchor">#</a> 問題診斷與狀況排除</h2> <h3 id="瀏覽異常-log"><a href="#瀏覽異常-log" class="header-anchor">#</a> 瀏覽異常 Log</h3> <p>使用 systemctl 指令，欲啟動 uwsgi 服務。若結果失敗，可用以下指令瀏覽 Log ，診斷
+問題可能導因。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>journalctl -xe
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>📺</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>root@VB02-Ubuntu-2004:/home/alanjui# systemctl start emperor.uwsgi.service
+Job for emperor.uwsgi.service failed because the control process exited with error code.
+See &quot;systemctl status emperor.uwsgi.service&quot; and &quot;journalctl -xe&quot; for details.
+
+root@VB02-Ubuntu-2004:/home/alanjui# journalctl -xe
+--
+-- An ExecStart= process belonging to unit emperor.uwsgi.service has exited.
+--
+-- The process' exit code is 'exited' and its exit status is 1.
+ 3月 29 22:12:27 VB02-Ubuntu-2004 systemd[1]: emperor.uwsgi.service: Failed with result 'exit-cod&gt;
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+--
+-- The unit emperor.uwsgi.service has entered the 'failed' state with result 'exit-code'.
+ 3月 29 22:12:27 VB02-Ubuntu-2004 systemd[1]: Failed to start uWSGI Emperor.
+-- Subject: 單位 emperor.uwsgi.service 已失敗
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+--
+-- 單位 emperor.uwsgi.service 已失敗。
+--
+-- 結果為 failed。
+ 3月 29 22:12:28 VB02-Ubuntu-2004 systemd[1]: emperor.uwsgi.service: Scheduled restart job, resta&gt;
+-- Subject: Automatic restarting of a unit has been scheduled
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+--
+-- Automatic restarting of the unit emperor.uwsgi.service has been scheduled, as the result for
+-- the configured Restart= setting for the unit.
+ 3月 29 22:12:28 VB02-Ubuntu-2004 systemd[1]: Stopped uWSGI Emperor.
+-- Subject: 單位 emperor.uwsgi.service 已關閉結束
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+--
+-- 單位 emperor.uwsgi.service 已關閉結束。
+ 3月 29 22:12:28 VB02-Ubuntu-2004 systemd[1]: emperor.uwsgi.service: Start request repeated too q&gt;
+ 3月 29 22:12:28 VB02-Ubuntu-2004 systemd[1]: emperor.uwsgi.service: Failed with result 'exit-cod&gt;
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+--
+-- The unit emperor.uwsgi.service has entered the 'failed' state with result 'exit-code'.
+ 3月 29 22:12:28 VB02-Ubuntu-2004 systemd[1]: Failed to start uWSGI Emperor.
+-- Subject: 單位 emperor.uwsgi.service 已失敗
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+--
+-- 單位 emperor.uwsgi.service 已失敗。
+--
+-- 結果為 failed。
+lines 2374-2419/2419 (END)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br></div></div><h2 id="常用參考"><a href="#常用參考" class="header-anchor">#</a> 常用參考</h2> <h3 id="重啟-systemd-服務"><a href="#重啟-systemd-服務" class="header-anchor">#</a> 重啟 systemd 服務</h3> <p>當 systemd 的「服務設定檔」完成變更後，欲重啟服務之前，需先執行 daemon-reload 指令。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>sudo systemctl daemon-reload
+sudo systemctl restart [Systemd_Service_Name]
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h2 id="參考資料"><a href="#參考資料" class="header-anchor">#</a> 參考資料</h2> <h3 id="官網指引"><a href="#官網指引" class="header-anchor">#</a> 官網指引</h3> <ul><li><a href="https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html" target="_blank" rel="noopener noreferrer">Setting up Django and your web server with uWSGI and nginx<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li> <li><a href="https://uwsgi-docs.readthedocs.io/en/latest/Systemd.html" target="_blank" rel="noopener noreferrer">systemd<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul> <h3 id="建置-uwsgi-服務"><a href="#建置-uwsgi-服務" class="header-anchor">#</a> 建置 uwsgi 服務</h3></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" defer></script><script src="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" defer></script><script src="/ho-lok-ue-tools/assets/js/100.c1f4de65.js" defer></script>
+  </body>
+</html>

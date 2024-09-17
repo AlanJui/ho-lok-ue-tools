@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Debian 10 設定 | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css" as="style"><link rel="preload" href="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/152.6fb52d1e.js" as="script"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/101.e14056d5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/102.5a78f801.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/103.e198a428.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/104.449b67e1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/105.825b86d6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/106.173be714.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/107.03f96c6c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/108.57957213.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/109.0a4b39eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/11.3e9ab894.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/111.802a4ef3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/112.8fb9f4c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/113.163f649e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/114.8da6ef94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/116.f901450e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/117.4898b362.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/118.80d06981.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/12.4a40a2fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/120.1955a557.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/121.1865eac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/122.1d79306c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/123.df62f490.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/124.4a9f1fcb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/125.d294aced.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/126.0558f46b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/127.71e4ae03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/128.cf355591.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/129.29c3a2f4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/13.c3911464.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/130.21e8b50e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/131.2a22915e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/132.23c7e418.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/133.b40de47b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/134.3b21be27.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/135.e33241e8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/136.e1fad00a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/137.4d051254.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/138.f95b7b98.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/139.2b8d3e50.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/14.c9886b34.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/140.1b8e8cd0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/141.ff03f551.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/142.8de335ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/144.6b438904.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/145.dd73b692.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/146.a5721fc9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/147.be2503d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/148.3012abdb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/149.5172325c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/15.0cce8ecb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/150.5304d46a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/153.eaa379eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/154.e4a08e57.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/155.2a0dcb32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/157.ef0d4e6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/159.e58cd5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/16.fa6f05c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/160.b14498b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/161.6f58600a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/162.5088d732.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/163.cdfabcd3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/164.33af30e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/165.82251337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/166.729d4da0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/167.5021a127.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/168.82153370.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/169.0aad21a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/170.57bd13b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/171.23ff00be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/172.364d6e16.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/173.efa01f08.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/174.69d30215.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/175.265d6949.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/176.008e238b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/177.822a15ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/178.d1eee661.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/179.956fe469.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/180.bb68de5c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/181.6ca43cc3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/182.b784ea03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/183.cf75a717.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/184.a486267a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/185.35a0a735.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/186.67964623.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/187.13410beb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/188.962c6776.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/189.4786f58b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/19.ee358577.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/190.c4e5a3ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/191.ab08e553.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/193.95d606b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/194.2931aac2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/195.66817182.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/196.3841de25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/197.6d0aa566.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/198.f0525295.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/199.ae76c070.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/200.c57f2a39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/201.d63f8f6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/202.f9e03aa9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/203.95ffec51.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/204.3787443f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/205.27e200a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/206.45652af0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/208.3c2a60e9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/209.feeb4956.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/21.46ede3be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/210.6401ff88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/211.cfb8dc53.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/212.3ddf2b32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/213.647e2ffe.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/214.8e117d35.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/216.bc2d671c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/217.6371c831.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/218.ec43176a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/219.d69f53c2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/220.ca6bdcd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/221.e36810e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/222.715b43c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/223.808a43ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/224.e4df9237.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/225.6d08d9a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/226.4a72d290.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/227.93c9df65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/228.89cf25a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/229.27539a77.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/23.74ec33ae.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/232.c03f5450.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/233.a50b7053.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/234.e24679d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/236.03949180.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/237.077ec90b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/238.84598708.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/239.43007d0a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/24.dfaf327e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/240.2df91873.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/242.3066009f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/243.1ff09887.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/244.30430b7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/246.473b271a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/247.edc9641e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/248.6f7f74e5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/249.24762885.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/25.50731498.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/250.cc52a908.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/251.87f791a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/252.1e285f58.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/253.d783bd23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/254.bbeda6d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/255.1601d594.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/256.644af9ee.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/257.369bfcaf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/258.95ae1b47.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/259.02650516.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/26.7308cd5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/260.49df9ac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/261.7018bbf8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/262.b7de7d79.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/264.b82abc65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/265.9f4300d1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/266.868fd3db.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/267.c47ce979.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/268.d0ab9778.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/269.3b3efc3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/27.79b71a65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/270.4f788569.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/271.4fe4a762.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/273.cb605436.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/274.0efe455c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/275.5bc2a05c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/277.4724df32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/278.7e88e133.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/279.d117afb1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/28.96c7e30c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/280.1747c540.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/281.1df8dad8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/282.fb3b056e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/283.7238e6a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/284.333828fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/285.b4db7f5d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/286.203a528e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/287.3c26123e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/288.7b1abc61.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/289.f27ef80f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/29.0be0ff39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/290.b888b1dc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/291.db0ad529.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/292.491ba209.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/293.6222a09d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/294.ac3715a7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/295.3717bceb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/296.88ac43bd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/297.b2519337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/298.4094ee4b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/299.f1b57bd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/3.d8645ed1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/30.6c3af224.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/300.05acfc97.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/301.8b308b88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/302.649b0f63.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/303.02024141.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/304.0e1196b1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/305.b1ea83fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/306.0a66cafd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/307.a06f603b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/308.c5ff11ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/309.884aca03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/31.841f3ded.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/310.06a43026.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/311.7705aadb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/312.16c67c7e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/313.3a6cccf5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/314.bddfc342.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/316.445c3681.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/317.6698324c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/318.83b94f00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/32.283b7a44.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/33.dd6bc432.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/34.88232fa7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/35.aecd5410.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/36.32967ae8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/37.7a64c1c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/38.4556399d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/39.5c25123c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/4.c0ad8e6f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/41.f689f7c8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/42.25c15d8a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/43.14f65079.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/44.4b91b24a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/45.576f776e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/46.6da1e5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/49.d4e60513.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/50.c8b22d33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/56.f2597707.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/57.51fbeade.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/62.1cf89df2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/63.0f78d5dd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/66.fd2de134.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/67.6a554fd7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/69.80992696.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/70.d3126764.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/71.a2e07128.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/72.b5189fa6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/73.367f0392.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/74.f315c04a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/75.1aa88d55.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/76.41b88fff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/77.c6d47945.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/78.f3084837.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/79.8c5a82d4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/80.975fdb87.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/81.efc8d138.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/82.fccf7493.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/83.2978c41b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/85.a3074c64.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/86.6813c6c5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/88.3506e2f0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/89.7a73b80d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/9.4a24de8d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/90.6d7286c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/91.65b2c391.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/93.aeac5506.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/94.4c8e5a25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/95.2972011e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/97.be960e26.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/98.39761100.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ho-lok-ue-tools/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>作業指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ho-lok-ue-tools/d100_URS/" class="sidebar-link">使用者需求</a></li><li><a href="/ho-lok-ue-tools/d200_SRS/" class="sidebar-link">系統需求</a></li><li><a href="/ho-lok-ue-tools/d300_SDD/" class="sidebar-link">系統設計</a></li><li><a href="/ho-lok-ue-tools/d400_DEV/" class="sidebar-link">開發與測試</a></li><li><a href="/ho-lok-ue-tools/d500_OP/" class="sidebar-link">系統維運</a></li><li><a href="/ho-lok-ue-tools/d900_REF/" class="sidebar-link">參考資料</a></li><li><a href="/ho-lok-ue-tools/guide/" class="sidebar-link">作業指引</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>電腦硬體</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>開發環境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>參考資料</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="debian-10-設定"><a href="#debian-10-設定" class="header-anchor">#</a> Debian 10 設定</h1> <p><a href="https://www.debian.org/mirror/list.zh-tw.html" target="_blank" rel="noopener noreferrer">Ubuntu / Debian 台灣最佳鏡像網站<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>
+國網中心 opensource.nchc.org.tw ==&gt;
+http://ftp.tw.debian.org/pmwiki/index.php?n=FSLab.MirrorLists</p> <p><strong>/etc/apt/sources.list</strong></p> <div class="language- extra-class"><pre><code>deb http://opensource.nchc.org.tw/debian/ jessie maindeb-src http://opensource.nchc.org.tw/debian/ jessie main
+deb http://security.debian.org/ jessie/updates main contribdeb-src http://security.debian.org/ jessie/updates main contrib
+# jessie-updates, previously known as 'volatile'deb http://opensource.nchc.org.tw/debian/ jessie-updates main contribdeb-src http://opensource.nchc.org.tw/debian/ jessie-updates main contrib
+
+
+
+sudo apt update
+</code></pre></div><hr> <h2 id="使用者設定"><a href="#使用者設定" class="header-anchor">#</a> 使用者設定</h2> <p>設定使用者 alanjui 可使用 sudo 指令</p> <p>Configuration</p> <div class="language- extra-class"><pre><code>su -
+usermod -a -G sudo alanjui
+</code></pre></div><p>Validation</p> <div class="language- extra-class"><pre><code>su - alanjui
+groups
+</code></pre></div><hr> <h2 id="安裝「系統安裝-設定用工具」"><a href="#安裝「系統安裝-設定用工具」" class="header-anchor">#</a> 安裝「系統安裝／設定用工具」</h2> <p><strong>安裝基礎工具</strong></p> <div class="language- extra-class"><pre><code>sudo apt update
+sudo apt install git 
+</code></pre></div><p>【註】：不要在此時安裝 vim 。</p> <p><strong>安裝 Nerd Fonts</strong></p> <div class="language- extra-class"><pre><code>mkdir tmp &amp;&amp; cd $_
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hermit.zip
+
+mkdir -p ~/.local/share/fonts
+
+unzip Hermit.zip
+cp Hurmit*.otf ~/.local/share/fonts/
+
+fc-cache -fv
+
+
+
+ls ~/.local/share/fonts/ | grep Hurmit
+
+fc-list
+</code></pre></div><p>【參考文件】： https://ostechnix.com/install-nerd-fonts-to-add-glyphs-in-your-code-on-linux/</p> <p>https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraMono/Regular/complete/Fira%20Mono%20Regular%20Nerd%20Font%20Complete.otf?raw=true</p> <hr> <h2 id="virtualbox-guest-additions"><a href="#virtualbox-guest-additions" class="header-anchor">#</a> VirtualBox Guest Additions</h2> <p>https://kifarunix.com/install-virtualbox-guest-additions-on-debian-10-buster/</p> <p>https://linuxize.com/post/how-to-install-virtualbox-guest-additions-on-debian-10/</p> <div class="language- extra-class"><pre><code>sudo apt update -y &amp;&amp; apt upgrade
+sudo apt install build-essential dkms linux-headers-$(uname -r)
+</code></pre></div><p>掛載 CD-ROM 方法</p> <p><img src="https://linuxize.com/post/how-to-install-virtualbox-guest-additions-on-debian-10/insert-guest-additions-cd-image_hu6613c524b7b09bc1b2462026613a9c75_59766_480x0_resize_q75_lanczos.jpg?ezimgfmt=rs:695x474/rscb65/ng:webp/ngcb65" alt="Insert Guest Additions CD Image"></p> <p>〔作法一〕：</p> <div class="language- extra-class"><pre><code>sudo sh /media/cdrom0/VBoxLinuxAdditions.run
+
+
+alanjui@VB01-Debian-10:~$ sudo sh /media/cdrom0/VBoxLinuxAdditions.run
+Verifying archive integrity... All good.
+Uncompressing VirtualBox 6.1.16 Guest Additions for Linux........
+VirtualBox Guest Additions installer
+Removing installed version 6.1.16 of VirtualBox Guest Additions...
+update-initramfs: Generating /boot/initrd.img-4.19.0-13-amd64
+Copying additional installer modules ...
+Installing additional modules ...
+VirtualBox Guest Additions: Starting.
+VirtualBox Guest Additions: Building the VirtualBox Guest Additions kernel 
+modules.  This may take a while.
+VirtualBox Guest Additions: To build modules for other installed kernels, run
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup &lt;version&gt;
+VirtualBox Guest Additions: or
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup all
+VirtualBox Guest Additions: Building the modules for kernel 4.19.0-13-amd64.
+update-initramfs: Generating /boot/initrd.img-4.19.0-13-amd64
+VirtualBox Guest Additions: Running kernel modules will not be replaced until 
+the system is restarted
+</code></pre></div><p>〔作法二〕：</p> <div class="language- extra-class"><pre><code>alanjui@VB05-Debian10-KDE:/media/cdrom$ sudo mkdir -p /mnt/cdrom
+
+alanjui@VB05-Debian10-KDE:/media/cdrom$ ll /dev/cdrom
+lrwxrwxrwx 1 root root 3  1月 11 22:50 /dev/cdrom -&gt; sr0
+
+alanjui@VB05-Debian10-KDE:/media/cdrom$ sudo mount /dev/cdrom /mnt/cdrom
+mount: /mnt/cdrom: WARNING: device write-protected, mounted read-only.
+
+
+
+alanjui@VB01-Debian-10:~$ lsblk -l
+NAME MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda    8:0    0   20G  0 disk 
+sda1   8:1    0    7G  0 part /
+sda2   8:2    0    1K  0 part 
+sda5   8:5    0  976M  0 part [SWAP]
+sda6   8:6    0 12.1G  0 part /home
+sr0   11:0    1 58.2M  0 rom  /media/cdrom0
+
+sudo mount /dev/sr0 /mnt/cdrom 
+
+
+
+cd /mnt/cdrom
+
+sudo sh ./VBoxLinuxAdditions.run --nox11
+Verifying archive integrity... All good.
+Uncompressing VirtualBox 6.1.16 Guest Additions for Linux........
+VirtualBox Guest Additions installer
+Copying additional installer modules ...
+Installing additional modules ...
+VirtualBox Guest Additions: Starting.
+VirtualBox Guest Additions: Building the VirtualBox Guest Additions kernel
+modules.  This may take a while.
+VirtualBox Guest Additions: To build modules for other installed kernels, run
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup &lt;version&gt;
+VirtualBox Guest Additions: or
+VirtualBox Guest Additions:   /sbin/rcvboxadd quicksetup all
+VirtualBox Guest Additions: Building the modules for kernel 4.19.0-13-amd64.
+update-initramfs: Generating /boot/initrd.img-4.19.0-13-amd64
+VirtualBox Guest Additions: Running kernel modules will not be replaced until
+the system is restarted
+
+sudo reboot
+</code></pre></div><p><strong>設定與 Host 的 Shared Folder（共享資料夾）</strong></p> <p><img src="https://paper-attachments.dropbox.com/s_49DCA08AF1AEDB4FED368883EFBFB0E412F24B870AADC46582585515FC33A142_1610803874954_image.png" alt=""></p> <p>（0）確認「共享資料夾」的「擁有權」，屬於 root:vboxsf</p> <div class="language- extra-class"><pre><code>alanjui@VB01-Debian-10:~$ ls -l
+總計 40
+drwxr-xr-x  7 alanjui alanjui 4096 12月 26 11:59 n
+drwxr-xr-t  2 alanjui alanjui 4096 12月 26 10:37 thinclient_drives
+drwxr-xr-x 11 alanjui alanjui 4096 12月 26 12:19 vim
+drwxrwx---  1 root    vboxsf   512  1月 16 21:03 下載
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 公共
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 圖片
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 影片
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 文件
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 桌面
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 模板
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 音樂
+</code></pre></div><p>（1）確認「作業系統」中，已建立名稱為：「vboxsf」之「群組」：</p> <div class="language- extra-class"><pre><code>vim /etc/group
+</code></pre></div><p><img src="https://paper-attachments.dropbox.com/s_49DCA08AF1AEDB4FED368883EFBFB0E412F24B870AADC46582585515FC33A142_1610802904940_image.png" alt=""></p> <p>（2）將可使用「共享資料夾」之使用者帳號，加入 vboxsf 群祖中：</p> <p>〔方法一〕：變更已建立帳號使用者所屬的群組</p> <div class="language- extra-class"><pre><code>sudo usermod -aG vboxsf alanjui
+</code></pre></div><p>〔方法二〕：將使用者帳號加入 vboxsf 群組</p> <div class="language- extra-class"><pre><code>sudo adduser $USER vboxsf
+</code></pre></div><p>【註】：usermod -aG 選項的「全名」</p> <div class="language- extra-class"><pre><code>sudo usermod --append --groups vboxsf $USER
+</code></pre></div><p>（3）驗證設定正確。</p> <div class="language- extra-class"><pre><code>    - 先登出，再登入；
+    - 輸入如下指令：
+alanjui@VB01-Debian-10:~$ groups alanjui
+alanjui : alanjui cdrom floppy sudo audio dip video plugdev netdev bluetooth scanner vboxsf
+
+
+alanjui@VB01-Debian-10:~$ grep 'vboxsf' /etc/group
+vboxsf:x:998:alanjui
+
+
+
+alanjui@VB01-Debian-10:~$ ll /media
+總計 11
+drwxr-xr-x  3 root root 4096  1月 16 21:04 .
+drwxr-xr-x 19 root root 4096  1月 10 20:09 ..
+lrwxrwxrwx  1 root root    6 12月 20 20:12 cdrom -&gt; cdrom0
+dr-xr-xr-x  5 root root 2408 10月 15 22:48 cdrom0
+
+
+
+alanjui@VB01-Debian-10:~$ sudo chown -R `whoami`:users /media
+
+alanjui@VB01-Debian-10:~$ ll /media
+總計 11
+drwxr-xr-x  3 alanjui users 4096  1月 16 21:04 .
+drwxr-xr-x 19 root    root  4096  1月 10 20:09 ..
+lrwxrwxrwx  1 alanjui users    6 12月 20 20:12 cdrom -&gt; cdrom0
+dr-xr-xr-x  5 root    root  2408 10月 15 22:48 cdrom0
+</code></pre></div><hr> <h2 id="virtualbox-shared-folders"><a href="#virtualbox-shared-folders" class="header-anchor">#</a> VirtualBox Shared Folders</h2> <p>（1）在 VirtualBox 設定「Shared Folders」</p> <p><img src="https://paper-attachments.dropbox.com/s_49DCA08AF1AEDB4FED368883EFBFB0E412F24B870AADC46582585515FC33A142_1610808407979_image.png" alt=""></p> <p>（2）在使用者登入 Debian 後，設定欲掛載之資料夾：host</p> <div class="language- extra-class"><pre><code>alanjui@VB01-Debian-10:~$ mkdir host
+
+alanjui@VB01-Debian-10:~$ sudo mount -t vboxsf vbox /home/alanjui/host
+</code></pre></div><p>【Shared名稱未正確設定時，將發生如下之錯誤】：</p> <div class="language- extra-class"><pre><code>alanjui@VB01-Debian-10:~$ sudo mount -t vboxsf vbox /home/alanjui/host
+/sbin/mount.vboxsf: shared folder 'vbox' was not found (check VM settings / spelling)
+</code></pre></div><p>（3）設定「作業系統自動掛載設定」： /etc/fstab</p> <div class="language- extra-class"><pre><code>sudo vim /etc/fstab
+
+
+....
+vbox    /home/alanjuihost    vboxsf  comment=systemd.automount     0       0
+</code></pre></div><p>（4）先登出，再登入。打開「終端機」，輸入如下指令，確認「共享資料夾」，被掛載在「/media」目錄之下：sf_<SharedFolder></SharedFolder></p> <div class="language- extra-class"><pre><code>alanjui@VB01-Debian-10:~$ ls -l /media
+總計 3
+lrwxrwxrwx 1 root root      6 12月 20 20:12 cdrom -&gt; cdrom0
+dr-xr-xr-x 5 root root   2408 10月 15 22:48 cdrom0
+drwxrwx--- 1 root vboxsf  384 10月  9 20:39 sf_vbox
+
+alanjui@VB01-Debian-10:~$ ll /media/sf_vbox
+總計 45908
+-rwxrwx--- 1 root vboxsf  3675917 11月 18  2007 '04_LOVE SONG.mp3'
+-rwxrwx--- 1 root vboxsf  4222189 11月 18  2007 &quot;04.SANS RE'PONSE.mp3&quot;
+-rwxrwx--- 1 root vboxsf  2950602 11月 18  2007 '04_The Skye Boat Song.mp3'
+-rwxrwx--- 1 root vboxsf  4520039 11月 18  2007  04_迎風而立.mp3
+-rwxrwx--- 1 root vboxsf  5564139  9月 19 11:41 'Asummer place Paul Mauriat.mp3'
+drwxrwx--- 1 root vboxsf      160  9月 13 22:27  Music
+-rwxrwx--- 1 root vboxsf 15514657  9月 26 22:07 'The wanderer - Karunesh.mp3'
+-rwxrwx--- 1 root vboxsf  9696790 10月  9 20:38 '但願人長久 - 蘇軾  詞、鄧麗君  唱.mp3'
+
+alanjui@VB01-Debian-10:~$ touch /media/sf_vbox/test
+
+alanjui@VB01-Debian-10:~$ ll /media/sf_vbox
+總計 45908
+-rwxrwx--- 1 root vboxsf  3675917 11月 18  2007 '04_LOVE SONG.mp3'
+-rwxrwx--- 1 root vboxsf  4222189 11月 18  2007 &quot;04.SANS RE'PONSE.mp3&quot;
+-rwxrwx--- 1 root vboxsf  2950602 11月 18  2007 '04_The Skye Boat Song.mp3'
+-rwxrwx--- 1 root vboxsf  4520039 11月 18  2007  04_迎風而立.mp3
+-rwxrwx--- 1 root vboxsf  5564139  9月 19 11:41 'Asummer place Paul Mauriat.mp3'
+drwxrwx--- 1 root vboxsf      160  9月 13 22:27  Music
+-rwxrwx--- 1 root vboxsf        0  1月 16 22:57  test
+-rwxrwx--- 1 root vboxsf 15514657  9月 26 22:07 'The wanderer - Karunesh.mp3'
+-rwxrwx--- 1 root vboxsf  9696790 10月  9 20:38 '但願人長久 - 蘇軾  詞、鄧麗君  唱.mp3'
+</code></pre></div><p><img src="https://paper-attachments.dropbox.com/s_49DCA08AF1AEDB4FED368883EFBFB0E412F24B870AADC46582585515FC33A142_1610808723954_image.png" alt=""></p> <div class="language- extra-class"><pre><code>lanjui@VB01-Debian-10:~$ ll
+ls: 無法存取 'host': 協定錯誤
+總計 40
+d?????????  ? ?       ?          ?             ? host
+drwxr-xr-x  7 alanjui alanjui 4096 12月 26 11:59 n
+drwxr-xr-t  2 alanjui alanjui 4096 12月 26 10:37 thinclient_drives
+drwxr-xr-x 11 alanjui alanjui 4096 12月 26 12:19 vim
+drwxrwx---  1 root    vboxsf   512  1月 16 22:46 下載
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 公共
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 圖片
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 影片
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 文件
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 桌面
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 模板
+drwxr-xr-x  2 alanjui alanjui 4096 12月 20 20:21 音樂
+</code></pre></div><hr> <h2 id="ibus"><a href="#ibus" class="header-anchor">#</a> iBus</h2> <div class="language- extra-class"><pre><code>sudo apt install -y ibus-rime
+
+
+im-config
+
+
+alanjui@VB01-Debian-10:~$ cat .xinputrc 
+# im-config(8) generated on Sat, 16 Jan 2021 22:08:39 +0800
+run_im ibus
+# im-config signature: 46bf2a71200109f2112af9cff14bb3fd  -
+</code></pre></div><hr> <h2 id="fcitx-4-中文輸入法"><a href="#fcitx-4-中文輸入法" class="header-anchor">#</a> Fcitx 4 中文輸入法</h2> <p>下列官網文件載明：Fcitx5 基本上要到 Bullseye (V11) 版本後，才有完整的軟件包；在 Buster（V10）及之前版本之用戶，請繼續使用 Fcitx 4。
+https://wiki.debian.org/zh_CN/I18n/Fcitx5#A.2BfkFPU04tZYd1KGI3-</p> <p><strong>安裝谷歌拚音輸入法</strong></p> <div class="language- extra-class"><pre><code>sudo apt install fcitx-googlepinyin
+</code></pre></div><p><strong>安裝倉頡五代輸入法</strong></p> <div class="language- extra-class"><pre><code>sudo apt install fcitx-table-cangjie5
+</code></pre></div><p><strong>安裝中文輸入法：中州韻（漢語拚音/倉頡）</strong></p> <div class="language- extra-class"><pre><code>sudo apt install fcitx-rime
+</code></pre></div><p><strong>設定 Fcitx 中文輸入法於開機時自動啟動</strong></p> <div class="language- extra-class"><pre><code>系統設定 》啟動與關閉 》自動啟動 》新增程式 》Fcitx
+</code></pre></div><p><img src="https://paper-attachments.dropbox.com/s_49DCA08AF1AEDB4FED368883EFBFB0E412F24B870AADC46582585515FC33A142_1610421780369_image.png" alt=""></p> <p><strong>登出後再登入</strong></p> <p><strong>設定中文輸入法採用「Fcitx」（使用者設定值）</strong></p> <div class="language- extra-class"><pre><code>im-config
+</code></pre></div><p>選擇「啟動小企鵝輸入法（fcitx）！」</p> <div class="language- extra-class"><pre><code>設定使用者設定值 /home/alanjui/.xinputrc 為 fcitx。
+手動設定選擇: fcitx
+Flexible Input Method Framework (fcitx)
+ * Required for all: fcitx
+ * Language specific input conversion support:
+   * Simplified Chinese: fcitx-libpinyin or fcitx-sunpinyin or fcitx-googlepinyin
+   * Traditional Chinese / generic Chinese: fcitx-rime
+   * Generic keyboard translation table: fcitx-table* packages
+ * Application platform support:
+   Installing fcitx-frontend-all will cover all GUI platforms.
+   * GNOME/GTK+: fcitx-frontend-gtk2 and fcitx-frontend-gtk3 (both)
+   * Qt4: fcitx-frontend-qt4
+   * KDE/Qt5: fcitx-frontend-qt5
+
+使用者設定值已經被 im-config 修改。
+
+請重新啟動 X 工作階段 (session) 來使用新的使用者設定值。
+如果先前設定的背景程式被 X 工作階段管理程式 (session manager) 重新啟動，您可能需要使用 kill(1) 來結束程式。
+請參考 im-config(8) 與 /usr/share/doc/im-config/README.Debian.gz。
+</code></pre></div><p><strong>加入中文輸入法</strong></p> <div class="language- extra-class"><pre><code>Fcitx 中文輸入法圖示 》設定目前輸入法
+</code></pre></div><p><img src="https://paper-attachments.dropbox.com/s_49DCA08AF1AEDB4FED368883EFBFB0E412F24B870AADC46582585515FC33A142_1610422290751_VirtualBox_VB05-Debian10.7-KDE_12_01_2021_11_30_38.png" alt=""></p> <hr> <h2 id="安裝-python-3"><a href="#安裝-python-3" class="header-anchor">#</a> 安裝 Python 3</h2> <p><strong>安裝「Build 作業」相關軟件</strong></p> <div class="language- extra-class"><pre><code>sudo apt -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev
+</code></pre></div><p><strong>安裝 pyenv 與 pyenv-virtualenv 軟體套件</strong></p> <div class="language- extra-class"><pre><code>cd
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+</code></pre></div><p><strong>設定作業環境（~/.bashrc）</strong></p> <div class="language- extra-class"><pre><code>....
+export PYENV_ROOT=$(~/.pyenv/bin/pyenv root)
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+
+if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then
+  eval &quot;$(pyenv init -)&quot;
+  eval &quot;$(pyenv virtualenv-init -)&quot;
+fi
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+</code></pre></div><p><strong>啟動 Python 作業環境</strong></p> <div class="language- extra-class"><pre><code>exec &quot;$SHELL&quot;
+</code></pre></div><p><strong>驗證作業</strong></p> <div class="language- extra-class"><pre><code>pyenv versions
+</code></pre></div><p><strong>安裝</strong> Python 2</p> <div class="language- extra-class"><pre><code>pyenv install 2.7.8
+</code></pre></div><p><strong>安裝 Python 3.8</strong></p> <div class="language- extra-class"><pre><code>pyenv install -l
+pyenv install 3.8.6
+pyenv versions
+</code></pre></div><p><strong>安裝 Python 3.9</strong></p> <div class="language- extra-class"><pre><code>pyenv install 3.9.1
+pyenv versions
+</code></pre></div><p><strong>設定作業系統預設使用 Python 3.9.1</strong></p> <div class="language- extra-class"><pre><code>pyenv global 3.9.1
+</code></pre></div><p>【驗證】：</p> <div class="language- extra-class"><pre><code>pyenv version
+python --version
+</code></pre></div><hr> <h2 id="安裝-node-js"><a href="#安裝-node-js" class="header-anchor">#</a> 安裝 Node.JS</h2> <p><strong>解除作業系統預設安裝的 Node.JS</strong></p> <div class="language- extra-class"><pre><code>sudo mv /bin/node /bin/node.bak
+</code></pre></div><p><strong>自 Git 原始碼儲存倉下載及執行安裝</strong> (Node.js Versions Manager)</p> <div class="language- extra-class"><pre><code>curl -L https://git.io/n-install | bash
+. ~/.bashrc
+</code></pre></div><hr> <h2 id="安裝-vim-8"><a href="#安裝-vim-8" class="header-anchor">#</a> 安裝 Vim 8</h2> <p><strong>解除系統已安裝之 vim</strong></p> <div class="language- extra-class"><pre><code>sudo apt remove vim
+</code></pre></div><p>【註】： 作業系統「預設」安裝： /bin/vim</p> <p><strong>自 Git 版本儲存倉下載 Vim 8.2 原始程式碼，完成組建（Build）與安裝</strong></p> <div class="language- extra-class"><pre><code>git clone https://github.com/vim/vim.git
+cd vim/src
+make
+sudo make install
+</code></pre></div><p>【註】：新建置之 Vim 儲存路徑：</p> <div class="language- extra-class"><pre><code>which vim
+/usr/local/bin/vim
+</code></pre></div><p><strong>自 Vim PPA Repo 安裝 V8.2 版本</strong></p> <div class="language- extra-class"><pre><code>sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim
+</code></pre></div><p><strong>【註】：Uninstall vim from PPA</strong></p> <div class="language- extra-class"><pre><code>sudo purge vim
+sudo add-apt-repository --remove ppa:jonathonf/vim
+</code></pre></div><p><strong>自 Git 下載設定檔</strong></p> <div class="language- extra-class"><pre><code>cd 
+git clone https://github.com/AlanJui/vim8.git .vim
+</code></pre></div><p><strong>安裝 Vim 8 適用之 Vim Plugins</strong></p> <div class="language- extra-class"><pre><code>vim
+:PlugInstall
+:PlugUpdate
+:q
+</code></pre></div><hr> <h2 id="tmux"><a href="#tmux" class="header-anchor">#</a> Tmux</h2> <p>Install</p> <div class="language- extra-class"><pre><code>sudo apt -y install tmux
+</code></pre></div><p>Extension: Oh My Tmux</p> <div class="language- extra-class"><pre><code>$ cd
+$ git clone https://github.com/gpakosz/.tmux.git
+$ ln -s -f .tmux/.tmux.conf
+$ cp .tmux/.tmux.conf.local .
+</code></pre></div><p>Configuration: ~/.tmux.conf.local</p> <div class="language- extra-class"><pre><code># clipboard
+tmux_conf_copy_to_os_clipboard=true
+
+set -g mouse on
+:
+# replace C-b by C-a
+</code></pre></div><p>Reload configuration</p> <div class="language- extra-class"><pre><code>tmux source-file ~/.tmux.conf
+</code></pre></div><hr> <h2 id="xrdp"><a href="#xrdp" class="header-anchor">#</a> XRDP</h2> <div class="language- extra-class"><pre><code>alanjui@VB05-Debian10-KDE:~$ sudo apt install xrdp
+[sudo] password for alanjui:
+正在讀取套件清單... 完成
+正在重建相依關係
+正在讀取狀態資料... 完成
+下列的額外套件將被安裝：
+  xorgxrdp
+建議套件：
+  guacamole xrdp-pulseaudio-installer
+下列【新】套件將會被安裝：
+  xorgxrdp xrdp
+升級 0 個，新安裝 2 個，移除 0 個，有 0 個未被升級。
+需要下載 607 kB 的套件檔。
+此操作完成之後，會多佔用 3,941 kB 的磁碟空間。
+是否繼續進行 [Y/n]？ [Y/n] y
+下載:1 http://ftp.tw.debian.org/debian buster/main amd64 xorgxrdp amd64 1:0.2.9-1 [172 kB]
+下載:2 http://ftp.tw.debian.org/debian buster/main amd64 xrdp amd64 0.9.9-1+deb10u1 [435 kB]
+取得 607 kB 用了 0s (2,819 kB/s)
+選取了原先未選的套件 xorgxrdp。
+（讀取資料庫 ... 目前共安裝了 197448 個檔案和目錄。）
+正在準備解包 .../xorgxrdp_1%3a0.2.9-1_amd64.deb……
+Unpacking xorgxrdp (1:0.2.9-1) ...
+選取了原先未選的套件 xrdp。
+正在準備解包 .../xrdp_0.9.9-1+deb10u1_amd64.deb……
+Unpacking xrdp (0.9.9-1+deb10u1) ...
+設定 xrdp (0.9.9-1+deb10u1) ...
+
+Generating 2048 bit rsa key...
+
+ssl_gen_key_xrdp1 ok
+
+saving to /etc/xrdp/rsakeys.ini
+
+Created symlink /etc/systemd/system/multi-user.target.wants/xrdp-sesman.service → /lib/systemd/system/xrdp-sesman.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/xrdp.service → /lib/systemd/system/xrdp.service.
+設定 xorgxrdp (1:0.2.9-1) ...
+執行 systemd (241-7~deb10u5) 的觸發程式……
+執行 man-db (2.8.5-2) 的觸發程式……
+執行 libc-bin (2.28-10) 的觸發程式……
+alanjui@VB05-Debian10-KDE:~$
+</code></pre></div><p><strong>安裝</strong></p> <div class="language- extra-class"><pre><code>su
+apt -y install xrdp
+systemctl enable xrdp
+systemctl start xrdp
+
+
+alanjui@VB05-Debian10-KDE:~$ systemctl status xrdp
+● xrdp.service - xrdp daemon
+   Loaded: loaded (/lib/systemd/system/xrdp.service; enabled; vendor preset: enabled)
+   Active: active (running) since Wed 2021-01-13 13:05:10 CST; 5min ago
+     Docs: man:xrdp(8)
+           man:xrdp.ini(5)
+ Main PID: 6223 (xrdp)
+    Tasks: 1 (limit: 2346)
+   Memory: 1.3M
+   CGroup: /system.slice/xrdp.service
+           └─6223 /usr/sbin/xrdp
+alanjui@VB05-Debian10-KDE:~$ systemctl status xrdp-sesman
+● xrdp-sesman.service - xrdp session manager
+   Loaded: loaded (/lib/systemd/system/xrdp-sesman.service; enabled; vendor preset: enabled)
+   Active: active (running) since Wed 2021-01-13 13:05:09 CST; 5min ago
+     Docs: man:xrdp-sesman(8)
+           man:sesman.ini(5)
+ Main PID: 6213 (xrdp-sesman)
+    Tasks: 1 (limit: 2346)
+   Memory: 944.0K
+   CGroup: /system.slice/xrdp-sesman.service
+           └─6213 /usr/sbin/xrdp-sesman
+</code></pre></div><p><strong>環境</strong></p> <div class="language- extra-class"><pre><code>$ id xrdp
+uid=118(xrdp) gid=125(xrdp) groups=125(xrdp)
+
+$ groups xrdp
+xrdp : xrdp
+
+$ id
+uid=1000(alanjui) gid=1000(alanjui) groups=1000(alanjui),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),109(netdev),112(bluetooth),116(scanner)
+
+
+alanjui@VB05-Debian10-KDE:~$ id xrdp
+uid=119(xrdp) gid=126(xrdp) groups=126(xrdp)
+
+alanjui@VB05-Debian10-KDE:~$ groups xrdp
+xrdp : xrdp
+
+alanjui@VB05-Debian10-KDE:~$ id
+uid=1000(alanjui) gid=1000(alanjui) groups=1000(alanjui),0(root),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),109(netdev),112(bluetooth),117(lpadmin),118(scanner),998(vboxsf)
+
+
+
+$ ll /run/xrdp/
+總計 8
+drwxrwsrwt 2 xrdp xrdp 140 12月 26 10:48 sockdir
+-rw------- 1 xrdp xrdp   4 12月 26 10:30 xrdp.pid
+-rw------- 1 xrdp xrdp   4 12月 26 10:30 xrdp-sesman.pid
+
+
+alanjui@VB05-Debian10-KDE:~$ ll /run/xrdp/
+總計 8
+drwxr-xr-x  3 xrdp xrdp 100  1月 13 13:05 .
+drwxr-xr-x 25 root root 720  1月 13 13:05 ..
+drwxrwsrwt  2 xrdp xrdp  40  1月 13 13:05 sockdir
+-rw-------  1 xrdp xrdp   4  1月 13 13:05 xrdp.pid
+-rw-------  1 xrdp xrdp   4  1月 13 13:05 xrdp-sesman.pid
+</code></pre></div><ul><li><p>/usr/lib/systemd/system/xrdp.service
+1   [Unit]
+1 Description=xrdp daemon
+2 Documentation=man:xrdp(8) man:xrdp.ini(5)
+3 Requires=xrdp-sesman.service
+4 After=network.target xrdp-sesman.service
+5
+6 [Service]
+7 Type=forking
+8 PIDFile=/var/run/xrdp/xrdp.pid
+9 RuntimeDirectory=xrdp
+10 EnvironmentFile=-/etc/sysconfig/xrdp
+11 EnvironmentFile=-/etc/default/xrdp
+12 User=xrdp
+13 Group=xrdp
+14 PermissionsStartOnly=true
+15 ExecStartPre=/bin/sh /usr/share/xrdp/socksetup
+16 ExecStart=/usr/sbin/xrdp $XRDP_OPTIONS
+17 ExecStop=/usr/sbin/xrdp $XRDP_OPTIONS --kill
+18
+19 [Install]
+20 WantedBy=multi-user.target:q</p></li> <li><p>/usr/lib/systemd/system/xrdp-sesman.service
+[Unit]
+Description=xrdp session manager
+Documentation=man:xrdp-sesman(8) man:sesman.ini(5)
+After=network.target
+StopWhenUnneeded=true
+BindsTo=xrdp.service</p> <p>[Service]
+Type=forking
+PIDFile=/var/run/xrdp/xrdp-sesman.pid
+RuntimeDirectory=xrdp
+EnvironmentFile=-/etc/sysconfig/xrdp
+EnvironmentFile=-/etc/default/xrdp
+ExecStart=/usr/sbin/xrdp-sesman $SESMAN_OPTIONS
+ExecStop=/usr/sbin/xrdp-sesman $SESMAN_OPTIONS --kill</p> <p>[Install]
+WantedBy=multi-user.target</p></li> <li><p>/etc/xrdp/xrdp.ini</p></li> <li><p>/etc/xrdp/sesman.ini</p></li> <li><p>/etc/xrdp/startvm.sh</p></li> <li><p>/etc/X11/xinit/xinitrc
+. /etc/X11/Xsession</p></li> <li><p>/etc/X11/Xwrapper.config
+allowed_users=console</p> <p>alanjui@VB01-Debian-10:~$ sudo systemctl status xrdp
+[sudo] password for alanjui:
+● xrdp.service - xrdp daemon
+Loaded: loaded (/lib/systemd/system/xrdp.service; enabled; vendor preset: enabled)
+Active: active (running) since Sat 2020-12-26 13:27:57 CST; 8min ago
+Docs: man:xrdp(8)
+man:xrdp.ini(5)
+Process: 529 ExecStartPre=/bin/sh /usr/share/xrdp/socksetup (code=exited, status=0/SUCCESS)
+Process: 542 ExecStart=/usr/sbin/xrdp $XRDP_OPTIONS (code=exited, status=0/SUCCESS)
+Main PID: 544 (xrdp)
+Tasks: 2 (limit: 2346)
+Memory: 21.9M
+CGroup: /system.slice/xrdp.service
+├─ 544 /usr/sbin/xrdp
+└─2366 /usr/sbin/xrdp</p> <p>12月 26 13:35:48 VB01-Debian-10 xrdp[2366]: (2366)(139863268157248)[DEBUG] xrdp_wm_log_msg: connecting to sesman ip
+12月 26 13:35:49 VB01-Debian-10 xrdp[2366]: (2366)(139863268157248)[INFO ] xrdp_wm_log_msg: sesman connect ok
+12月 26 13:35:49 VB01-Debian-10 xrdp[2366]: (2366)(139863268157248)[DEBUG] xrdp_wm_log_msg: sending login info to s
+12月 26 13:35:49 VB01-Debian-10 xrdp[2366]: (2366)(139863268157248)[DEBUG] return value from xrdp_mm_connect 0
+12月 26 13:35:49 VB01-Debian-10 xrdp[2366]: (2366)(139863268157248)[INFO ] xrdp_wm_log_msg: login successful for di
+12月 26 13:35:49 VB01-Debian-10 xrdp[2366]: (2366)(139863268157248)[DEBUG] xrdp_wm_log_msg: started connecting
+12月 26 13:35:50 VB01-Debian-10 xrdp[2366]: (2366)(139863268157248)[INFO ] lib_mod_log_peer: xrdp_pid=2366 connecte
+12月 26 13:35:50 VB01-Debian-10 xrdp[2366]: (2366)(139863268157248)[DEBUG] xrdp_wm_log_msg: connected ok
+12月 26 13:35:50 VB01-Debian-10 xrdp[2366]: (2366)(139863268157248)[DEBUG] xrdp_mm_connect_chansrv: chansrv connect
+12月 26 13:35:50 VB01-Debian-10 xrdp[2366]: (2366)(139863268157248)[DEBUG] Closed socket 16 (AF_INET6 ::1 port 4130
+lines 1-24/24 (END)</p> <p>alanjui@VB01-Debian-10:~$ sudo systemctl status xrdp-sesman
+● xrdp-sesman.service - xrdp session manager
+Loaded: loaded (/lib/systemd/system/xrdp-sesman.service; enabled; vendor preset: enabled)
+Active: active (running) since Sat 2020-12-26 13:27:56 CST; 9min ago
+Docs: man:xrdp-sesman(8)
+man:sesman.ini(5)
+Process: 517 ExecStart=/usr/sbin/xrdp-sesman $SESMAN_OPTIONS (code=exited, status=0/SUCCESS)
+Main PID: 528 (xrdp-sesman)
+Tasks: 1 (limit: 2346)
+Memory: 2.1M
+CGroup: /system.slice/xrdp-sesman.service
+└─528 /usr/sbin/xrdp-sesman</p> <p>12月 26 13:35:49 VB01-Debian-10 xrdp-sesman[528]: (528)(140155329705408)[INFO ] starting Xorg session...
+12月 26 13:35:49 VB01-Debian-10 xrdp-sesman[528]: (528)(140155329705408)[DEBUG] Closed socket 9 (AF_INET6 :: port 5
+12月 26 13:35:49 VB01-Debian-10 xrdp-sesman[528]: (528)(140155329705408)[DEBUG] Closed socket 9 (AF_INET6 :: port 6
+12月 26 13:35:49 VB01-Debian-10 xrdp-sesman[528]: (528)(140155329705408)[DEBUG] Closed socket 9 (AF_INET6 :: port 6
+12月 26 13:35:49 VB01-Debian-10 xrdp-sesman[528]: (528)(140155329705408)[DEBUG] Closed socket 8 (AF_INET6 ::1 port
+12月 26 13:35:49 VB01-Debian-10 xrdp-sesman[2367]: (2367)(140155329705408)[INFO ] calling auth_start_session from p
+12月 26 13:35:49 VB01-Debian-10 xrdp-sesman[2367]: pam_unix(xrdp-sesman:session): session opened for user alanjui b
+12月 26 13:35:49 VB01-Debian-10 xrdp-sesman[2367]: (2367)(140155329705408)[DEBUG] Closed socket 7 (AF_INET6 ::1 por
+12月 26 13:35:49 VB01-Debian-10 xrdp-sesman[2367]: (2367)(140155329705408)[DEBUG] Closed socket 8 (AF_INET6 ::1 por
+12月 26 13:35:49 VB01-Debian-10 xrdp-sesman[2367]: (2367)(140155329705408)[CORE ] waiting for window manager (pid 2
+lines 1-22/22 (END)</p></li></ul> <p><strong>問題排除</strong></p> <ul><li><p>無法登入（xrdp session manager (xrdp-sesman) 發出錯誤說明： login failed for display 0)
+<img src="https://paper-attachments.dropbox.com/s_49DCA08AF1AEDB4FED368883EFBFB0E412F24B870AADC46582585515FC33A142_1608950578200_image.png" alt=""></p> <p>登入之</p></li> <li><p>登入後，畫面一片黑。
+無法支援多人同時登入，已登入之人需先登出。</p></li> <li><p><a href="https://c-nergy.be/blog/?p=12073" target="_blank" rel="noopener noreferrer">登入後需輸入「管理員」密碼<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。</p> <ul><li>Authentication is required to create a color managed device</li> <li>Authentication is required to refresh the system repositories</li></ul></li></ul> <p><img src="https://paper-attachments.dropbox.com/s_49DCA08AF1AEDB4FED368883EFBFB0E412F24B870AADC46582585515FC33A142_1608951204701_image.png" alt=""></p> <p>因為 Remote Login 需要核對「使用者」之權限。依據的準則取自「Polkit Policy file」，故而發生以上兩起要求「Authentication」事件。</p> <p>【首等方案】：增加自動設定 Script ： /etc/polkit-1/localauthority.conf.d/02-allow-colord.conf</p> <div class="language- extra-class"><pre><code>polkit.addRule(function(action, subject) {
+    if ((action.id == &quot;org.freedesktop.color-manager.create-device&quot; ||
+        action.id == &quot;org.freedesktop.color-manager.create-profile&quot; ||
+        action.id == &quot;org.freedesktop.color-manager.delete-device&quot; ||
+        action.id == &quot;org.freedesktop.color-manager.delete-profile&quot; ||
+        action.id == &quot;org.freedesktop.color-manager.modify-device&quot; ||
+        action.id == &quot;org.freedesktop.color-manager.modify-profile&quot;) &amp;&amp;
+        subject.isInGroup(&quot;{users}&quot;)) {
+            return polkit.Result.YES;
+        }
+});
+</code></pre></div><p>【次等方案】：修改「設定檔」：/usr/share/polkit-1/actions/<strong>org.freedesktop.color.policy</strong></p> <div class="language- extra-class"><pre><code>....  
+&lt;defaults&gt; 
+      &lt;allow_any&gt;auth_adminyes&lt;/allow_any&gt;
+      &lt;allow_inactive&gt;noyes&lt;/allow_inactive&gt;
+      &lt;allow_active&gt;yes&lt;/allow_active&gt;
+&lt;/defaults&gt;
+....
+</code></pre></div><p>【需要認證 - PolicyKit 1 KDE 代理程式】
+Authentication is required to set the network proxy used for downloading software
+有一個應用程式試圖執行需要權限的動作。要執行此動作需要認證。</p> <p>【詳細資料】：</p> <ul><li>應用程式：不適用的</li> <li>動作： Set network proxy</li> <li>動作編號：org.freedesktop.packagekit.system-network-proxy-configure</li> <li>廠商：The Packagekit Project</li></ul> <p>polkit.subject-pid: 15243
+polkit.caller-pid: 15749</p> <p>【xmessage】</p> <ul><li>VBoxClient: Failed to request display change events, rc=VERR_INVALID_FUNCTION</li> <li>VBoxClient: Failed to register resizing support, rc=VERR_INVALID_FUNCTION</li> <li>VBoxClient: Failure waiting for event, rc=VERR_INVALID_FUNCTION</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" defer></script><script src="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" defer></script><script src="/ho-lok-ue-tools/assets/js/152.6fb52d1e.js" defer></script>
+  </body>
+</html>

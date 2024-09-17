@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Defx / Denite 設定參考 | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css" as="style"><link rel="preload" href="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/192.e1b26e5b.js" as="script"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/101.e14056d5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/102.5a78f801.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/103.e198a428.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/104.449b67e1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/105.825b86d6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/106.173be714.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/107.03f96c6c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/108.57957213.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/109.0a4b39eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/11.3e9ab894.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/111.802a4ef3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/112.8fb9f4c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/113.163f649e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/114.8da6ef94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/116.f901450e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/117.4898b362.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/118.80d06981.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/12.4a40a2fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/120.1955a557.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/121.1865eac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/122.1d79306c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/123.df62f490.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/124.4a9f1fcb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/125.d294aced.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/126.0558f46b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/127.71e4ae03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/128.cf355591.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/129.29c3a2f4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/13.c3911464.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/130.21e8b50e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/131.2a22915e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/132.23c7e418.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/133.b40de47b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/134.3b21be27.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/135.e33241e8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/136.e1fad00a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/137.4d051254.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/138.f95b7b98.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/139.2b8d3e50.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/14.c9886b34.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/140.1b8e8cd0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/141.ff03f551.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/142.8de335ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/144.6b438904.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/145.dd73b692.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/146.a5721fc9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/147.be2503d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/148.3012abdb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/149.5172325c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/15.0cce8ecb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/150.5304d46a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/152.6fb52d1e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/153.eaa379eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/154.e4a08e57.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/155.2a0dcb32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/157.ef0d4e6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/159.e58cd5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/16.fa6f05c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/160.b14498b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/161.6f58600a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/162.5088d732.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/163.cdfabcd3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/164.33af30e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/165.82251337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/166.729d4da0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/167.5021a127.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/168.82153370.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/169.0aad21a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/170.57bd13b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/171.23ff00be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/172.364d6e16.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/173.efa01f08.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/174.69d30215.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/175.265d6949.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/176.008e238b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/177.822a15ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/178.d1eee661.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/179.956fe469.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/180.bb68de5c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/181.6ca43cc3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/182.b784ea03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/183.cf75a717.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/184.a486267a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/185.35a0a735.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/186.67964623.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/187.13410beb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/188.962c6776.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/189.4786f58b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/19.ee358577.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/190.c4e5a3ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/191.ab08e553.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/193.95d606b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/194.2931aac2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/195.66817182.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/196.3841de25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/197.6d0aa566.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/198.f0525295.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/199.ae76c070.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/200.c57f2a39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/201.d63f8f6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/202.f9e03aa9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/203.95ffec51.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/204.3787443f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/205.27e200a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/206.45652af0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/208.3c2a60e9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/209.feeb4956.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/21.46ede3be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/210.6401ff88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/211.cfb8dc53.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/212.3ddf2b32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/213.647e2ffe.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/214.8e117d35.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/216.bc2d671c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/217.6371c831.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/218.ec43176a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/219.d69f53c2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/220.ca6bdcd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/221.e36810e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/222.715b43c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/223.808a43ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/224.e4df9237.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/225.6d08d9a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/226.4a72d290.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/227.93c9df65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/228.89cf25a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/229.27539a77.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/23.74ec33ae.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/232.c03f5450.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/233.a50b7053.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/234.e24679d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/236.03949180.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/237.077ec90b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/238.84598708.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/239.43007d0a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/24.dfaf327e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/240.2df91873.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/242.3066009f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/243.1ff09887.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/244.30430b7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/246.473b271a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/247.edc9641e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/248.6f7f74e5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/249.24762885.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/25.50731498.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/250.cc52a908.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/251.87f791a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/252.1e285f58.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/253.d783bd23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/254.bbeda6d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/255.1601d594.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/256.644af9ee.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/257.369bfcaf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/258.95ae1b47.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/259.02650516.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/26.7308cd5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/260.49df9ac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/261.7018bbf8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/262.b7de7d79.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/264.b82abc65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/265.9f4300d1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/266.868fd3db.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/267.c47ce979.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/268.d0ab9778.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/269.3b3efc3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/27.79b71a65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/270.4f788569.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/271.4fe4a762.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/273.cb605436.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/274.0efe455c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/275.5bc2a05c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/277.4724df32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/278.7e88e133.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/279.d117afb1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/28.96c7e30c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/280.1747c540.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/281.1df8dad8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/282.fb3b056e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/283.7238e6a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/284.333828fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/285.b4db7f5d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/286.203a528e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/287.3c26123e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/288.7b1abc61.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/289.f27ef80f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/29.0be0ff39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/290.b888b1dc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/291.db0ad529.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/292.491ba209.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/293.6222a09d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/294.ac3715a7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/295.3717bceb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/296.88ac43bd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/297.b2519337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/298.4094ee4b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/299.f1b57bd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/3.d8645ed1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/30.6c3af224.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/300.05acfc97.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/301.8b308b88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/302.649b0f63.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/303.02024141.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/304.0e1196b1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/305.b1ea83fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/306.0a66cafd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/307.a06f603b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/308.c5ff11ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/309.884aca03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/31.841f3ded.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/310.06a43026.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/311.7705aadb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/312.16c67c7e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/313.3a6cccf5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/314.bddfc342.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/316.445c3681.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/317.6698324c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/318.83b94f00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/32.283b7a44.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/33.dd6bc432.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/34.88232fa7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/35.aecd5410.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/36.32967ae8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/37.7a64c1c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/38.4556399d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/39.5c25123c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/4.c0ad8e6f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/41.f689f7c8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/42.25c15d8a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/43.14f65079.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/44.4b91b24a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/45.576f776e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/46.6da1e5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/49.d4e60513.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/50.c8b22d33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/56.f2597707.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/57.51fbeade.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/62.1cf89df2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/63.0f78d5dd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/66.fd2de134.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/67.6a554fd7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/69.80992696.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/70.d3126764.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/71.a2e07128.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/72.b5189fa6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/73.367f0392.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/74.f315c04a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/75.1aa88d55.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/76.41b88fff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/77.c6d47945.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/78.f3084837.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/79.8c5a82d4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/80.975fdb87.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/81.efc8d138.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/82.fccf7493.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/83.2978c41b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/85.a3074c64.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/86.6813c6c5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/88.3506e2f0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/89.7a73b80d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/9.4a24de8d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/90.6d7286c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/91.65b2c391.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/93.aeac5506.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/94.4c8e5a25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/95.2972011e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/97.be960e26.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/98.39761100.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ho-lok-ue-tools/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>作業指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ho-lok-ue-tools/d100_URS/" class="sidebar-link">使用者需求</a></li><li><a href="/ho-lok-ue-tools/d200_SRS/" class="sidebar-link">系統需求</a></li><li><a href="/ho-lok-ue-tools/d300_SDD/" class="sidebar-link">系統設計</a></li><li><a href="/ho-lok-ue-tools/d400_DEV/" class="sidebar-link">開發與測試</a></li><li><a href="/ho-lok-ue-tools/d500_OP/" class="sidebar-link">系統維運</a></li><li><a href="/ho-lok-ue-tools/d900_REF/" class="sidebar-link">參考資料</a></li><li><a href="/ho-lok-ue-tools/guide/" class="sidebar-link">作業指引</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>電腦硬體</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>開發環境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>參考資料</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="defx-denite-設定參考"><a href="#defx-denite-設定參考" class="header-anchor">#</a> Defx / Denite 設定參考</h1> <h1 id="defx"><a href="#defx" class="header-anchor">#</a> Defx</h1> <h2 id="配合用套件"><a href="#配合用套件" class="header-anchor">#</a> 配合用套件</h2> <p><strong>刪除檔案用</strong></p> <div class="language- extra-class"><pre><code>pip install Send2Trash
+</code></pre></div><h2 id="設定"><a href="#設定" class="header-anchor">#</a> 設定</h2> <div class="language- extra-class"><pre><code>autocmd FileType defx call s:defx_mappings()
+
+function! s:defx_mappings() abort
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; l     &lt;SID&gt;defx_toggle_tree()                    &quot; 打开或者关闭文件夹，文件
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; .     defx#do_action('toggle_ignored_files')     &quot; 显示隐藏文件
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;C-r&gt;  defx#do_action('redraw')
+endfunction
+
+
+
+function! s:QuitAllDefx(context) abort
+    let buffers = filter(range(1, bufnr('$')),
+                \ 'getbufvar(v:val, &quot;&amp;filetype&quot;) ==# &quot;defx&quot;')
+    let win_id = -1
+    for i in buffers
+        call defx#call_action('quit')
+        if win_id == -1
+            let win_id = win_getid()
+            wincmd p
+        endif
+    endfor
+    call win_gotoid(win_id)
+endfunction
+
+&quot; Filetype settings
+augroup ps_defx
+    au!
+    au FileType defx call s:defx_settings()
+    au FileType defx setlocal relativenumber
+augroup END
+
+
+function! s:defx_settings()
+    &quot; Exit with escape key and q, Q
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;ESC&gt; defx#do_action('quit')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; q defx#do_action('quit')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; Q defx#do_action('call', '&lt;SID&gt;QuitAllDefx')
+    &quot; Edit and open with external program
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;CR&gt;
+        \ defx#is_directory() ? defx#do_action('open') :
+        \ defx#do_action('multi', ['drop', 'quit'])
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; l
+        \ defx#is_directory() ? defx#do_action('open') :
+        \ defx#do_action('multi', ['drop', 'quit'])
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; o defx#do_action('execute_system')
+   &quot; Tree editing, opening and closing
+   nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; e
+        \ defx#is_directory() ? defx#do_action('open_tree') :
+        \ defx#do_action('multi', ['drop', 'quit'])
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; zo defx#do_action('open_tree')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; zc defx#do_action('close_tree')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; zr defx#do_action('open_tree_recursive',
+                \ [3])
+    &quot; Open files in splits
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; s
+        \ defx#do_action('multi', [['drop', 'split'], 'quit'])
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; v
+        \ defx#do_action('multi', [['drop', 'vsplit'], 'quit'])
+    &quot; Copy, move, paste and remove
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; c defx#do_action('copy')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; m defx#do_action('move')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; p defx#do_action('paste')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; d defx#do_action('remove_trash')
+    &quot; Yank and rename
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; y defx#do_action('yank_path')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; r defx#do_action('rename')
+    &quot; New file and directory
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; F defx#do_action('new_file')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; D defx#do_action('new_directory')
+    &quot; Move up a directory
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; u defx#do_action('cd', ['..'])
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; 2u defx#do_action('cd', ['../..'])
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; 3u defx#do_action('cd', ['../../..'])
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; 4u defx#do_action('cd', ['../../../..'])
+    &quot; Home directory
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; h defx#do_action('cd')
+    &quot; Mark a file
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;Space&gt;
+        \ defx#do_action('toggle_select') . 'j'
+    &quot; Toggle hidden files
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;Leader&gt;th
+        \ defx#do_action('toggle_ignored_files')
+    &quot; Redraw
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;C-r&gt; defx#do_action('redraw')
+    &quot; Toggle sorting from filename to time (with last modified first)
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; S defx#do_action('toggle_sort', 'Time')
+    &quot; Toggle columns to show time
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; T defx#do_action('toggle_columns',
+        \ 'icons:filename:time')
+    &quot; Open new defx buffer
+    nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;Leader&gt;sp :execute
+        \ 'Defx -new -split=horizontal -direction= ' . b:defx.paths[0]&lt;CR&gt;
+        \ :wincmd p&lt;CR&gt;:execute float2nr(&amp;lines /2) . 'wincmd _ '&lt;CR&gt;
+    &quot; change local window working dir to current dir
+    nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;Leader&gt;cd :execute 'lcd' . b:defx.paths[0]&lt;CR&gt;
+    &quot; History source
+    nnoremap &lt;silent&gt;&lt;buffer&gt; &lt;C-h&gt; :Denite defx/history&lt;CR&gt;
+    &quot; Bookmarks source
+    nnoremap &lt;silent&gt;&lt;buffer&gt; b :Denite defx/dirmark&lt;CR&gt;
+
+    &quot; Resize window
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;A-l&gt; defx#do_action('resize',
+        \ defx#get_context().winwidth + 5)
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;A-h&gt; defx#do_action('resize',
+        \ defx#get_context().winwidth - 5)
+
+    &quot; Custom actions
+    function! s:GetDefxBaseDir(candidate) abort
+        if line('.') == 1
+            let path_mod  = 'h'
+        else
+            let path_mod = isdirectory(a:candidate) ? 'h:h' : 'h'
+        endif
+        return fnamemodify(a:candidate, ':p:' . path_mod)
+    endfunction
+    function! s:denite_rec(context) abort
+        let narrow_dir = s:GetDefxBaseDir(a:context.targets[0])
+        execute 'Denite -default-action=defx ' .
+                    \ 'file/rec:' . narrow_dir
+    endfunction
+    function! s:denite_rec_no_ignore(context) abort
+        let narrow_dir = s:GetDefxBaseDir(a:context.targets[0])
+        execute 'Denite -default-action=defx ' .
+                    \ 'file/rec/noignore:' . narrow_dir
+    endfunction
+    function! s:denite_dir_rec(context) abort
+        let narrow_dir = s:GetDefxBaseDir(a:context.targets[0])
+        execute 'Denite -default-action=defx ' .
+                    \ 'directory_rec:' . narrow_dir
+    endfunction
+    function! s:denite_dir_rec_no_ignore(context) abort
+        let narrow_dir = s:GetDefxBaseDir(a:context.targets[0])
+        execute 'Denite -default-action=defx ' .
+                    \ 'directory_rec/noignore:' . narrow_dir
+    endfunction
+    function! s:denite_z(context) abort
+        execute 'Denite -default-action=defx z'
+    endfunction
+    function! s:denite_parents_dirs(context) abort
+        let narrow_dir = s:GetDefxBaseDir(a:context.targets[0])
+        execute 'Denite -default-action=defx ' .
+                    \ 'parent_dirs:' . narrow_dir
+    endfunction
+    function! s:defx_ranger(context) abort
+        let narrow_dir = s:GetDefxBaseDir(a:context.targets[0])
+        call s:TmuxSplitCmd('ranger', narrow_dir)
+    endfunction
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;C-t&gt;
+                \ defx#do_action('call', '&lt;SID&gt;denite_rec')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;A-t&gt;
+                \ defx#do_action('call', '&lt;SID&gt;denite_rec_no_ignore')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;A-c&gt;
+                \ defx#do_action('call', '&lt;SID&gt;denite_dir_rec')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;A-d&gt;
+                \ defx#do_action('call', '&lt;SID&gt;denite_dir_rec_no_ignore')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;A-z&gt;
+                \ defx#do_action('call', '&lt;SID&gt;denite_z')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;A-p&gt;
+                \ defx#do_action('call', '&lt;SID&gt;denite_parents_dirs')
+    nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; ge
+                \ defx#do_action('call', '&lt;SID&gt;defx_ranger')
+endfunction
+
+
+
+&quot; Avoid the white space highting issue
+&quot; autocmd FileType defx match ExtraWhitespace /^^/
+&quot; Keymap in defx
+autocmd FileType defx call s:defx_my_settings()
+function! s:defx_my_settings() abort
+  IndentLinesDisable
+  setl nospell
+  setl signcolumn=no
+  setl nonumber
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;CR&gt;
+  \ defx#is_directory() ?
+  \ defx#do_action('open_or_close_tree') :
+  \ defx#do_action('drop',)
+  nmap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;2-LeftMouse&gt;
+  \ defx#is_directory() ?
+  \ defx#do_action('open_or_close_tree') :
+  \ defx#do_action('drop',)
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; s defx#do_action('drop', 'split')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; v defx#do_action('drop', 'vsplit')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; t defx#do_action('drop', 'tabe')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; o defx#do_action('open_tree')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; O defx#do_action('open_tree_recursive')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; C defx#do_action('copy')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; P defx#do_action('paste')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; M defx#do_action('rename')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; D defx#do_action('remove_trash')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; A defx#do_action('new_multiple_files')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; U defx#do_action('cd', ['..'])
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; . defx#do_action('toggle_ignored_files')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;Space&gt; defx#do_action('toggle_select')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; R defx#do_action('redraw')
+endfunction
+
+
+&quot; &quot; 使用 ;e 切换显示文件浏览，使用 ;a 查找到当前文件位置
+&quot; let g:maplocalleader=';'
+&quot; nnoremap &lt;silent&gt; &lt;LocalLeader&gt;e
+&quot; \ :&lt;C-u&gt;Defx -resume -toggle -buffer-name=tab`tabpagenr()`&lt;CR&gt;
+&quot; nnoremap &lt;silent&gt; &lt;LocalLeader&gt;a
+&quot; \ :&lt;C-u&gt;Defx -resume -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`&lt;CR&gt;
+&quot;
+&quot; function! s:defx_mappings() abort
+&quot;     &quot; Defx window keyboard mappings
+&quot;     setlocal signcolumn=no
+&quot;     &quot; 使用回车打开文件
+&quot;     nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;CR&gt; defx#do_action('multi', ['drop'])
+&quot; endfunction
+
+
+
+&quot;--------------------------------------------------------------
+&quot; defx
+&quot; pip install pynvim
+&quot; pip install Send2Trash
+&quot; 
+
+let g:indentLine_fileTypeExclude = ['defx']
+let g:indentLine_fileTypeExclude = ['defx'] &quot; defx filetype is defx
+let g:indentLine_bufTypeExclude = ['nofile']  &quot; defx buftype is nofile
+let g:indentLine_bufNameExclude = [&quot;\[defx\]*&quot;]  &quot; my defx bufname is [defx] -0
+
+            &quot; \ 'root_marker': '≡ ',
+            &quot; \ 'root_marker': '📁 ',
+call defx#custom#option('_', {
+            \ 'root_marker': '[Root]: ',
+            \ 'toggle': 1,
+            \ 'winwidth': 66,
+            \ 'split': 'vertical',
+            \ 'direction': 'topleft',
+            \ 'columns': 'mark:indent:icons:git:filename:time:size',
+            \ 'show_ignored_files': 0,
+            \ 'ignored_files':
+            \     '.mypy_cache,.pytest_cache,.git,.hg,.svn,.stversions'
+            \   . ',__pycache__,.sass-cache,*.egg-info,.DS_Store,*.pyc,*.swp'
+            \   . ',.vscode,.idea,.vagrant',
+            \ })
+call defx#custom#column('mark', {
+            \ 'readonly_icon': '',
+            \ 'selected_icon': '',
+            \ })
+call defx#custom#column('indent', { 'indent': '  '})
+call defx#custom#column('icon', {
+            \ 'root_icon': '',
+            \ 'directory_icon': '',
+            \ 'opened_icon': '',
+            \ })
+call defx#custom#column('filename', {
+            \ 'min_width': 30,
+            \ 'max_width': 60,
+            \ })
+call defx#custom#column('time', {'format': '%y-%m-%d %H:%M'})
+
+&quot; Shown only current directory in root
+function! Root(path) abort
+    return fnamemodify(a:path, ':t') . '/'
+endfunction
+call defx#custom#source('file', {'root': 'Root'})
+
+&quot; Keymap
+map &lt;silent&gt; &lt;Leader&gt;e :Defx&lt;CR&gt;
+&quot; nnoremap &lt;silent&gt; &lt;Leader&gt;e :Defx&lt;CR&gt;
+nnoremap &lt;silent&gt; &lt;Leader&gt;f :Defx `expand('%:p:h')`
+            \ -search=`expand('%:p')`&lt;CR&gt;
+nnoremap &lt;silent&gt; &lt;Leader&gt;df :Defx `expand('%:p:h') ` -search=`expand('%:p')`&lt;CR&gt;
+            \ :execute 'Defx -new -split=horizontal -direction= '
+            \ . b:defx.paths[0]&lt;CR&gt;:wincmd p&lt;CR&gt;
+            \ :execute float2nr(&amp;lines /2) . 'wincmd _ '&lt;CR&gt;
+nnoremap &lt;silent&gt; &lt;Leader&gt;fb :Defx&lt;CR&gt;:Denite defx/dirmark&lt;CR&gt;
+nnoremap &lt;silent&gt; &lt;Leader&gt;fr :Defx -resume&lt;CR&gt;
+nnoremap &lt;silent&gt; &lt;Leader&gt;fm :call &lt;SID&gt;TmuxSplitCmd('ranger', '')&lt;CR&gt;
+</code></pre></div><h1 id="denite"><a href="#denite" class="header-anchor">#</a> Denite</h1> <div class="language- extra-class"><pre><code>&quot; Define mappings while in 'filter' mode
+&quot;   &lt;C-o&gt;         - Switch to normal mode inside of search results
+&quot;   &lt;Esc&gt;         - Exit denite window in any mode
+&quot;   &lt;CR&gt;          - Open currently selected file in any mode
+&quot;   &lt;C-t&gt;         - Open currently selected file in a new tab
+&quot;   &lt;C-v&gt;         - Open currently selected file a vertical split
+&quot;   &lt;C-h&gt;         - Open currently selected file in a horizontal split
+
+autocmd FileType denite-filter call s:denite_filter_my_settings()
+
+function! s:denite_filter_my_settings() abort
+ imap &lt;silent&gt;&lt;buffer&gt; &lt;C-o&gt;
+ \ &lt;Plug&gt;(denite_filter_quit)
+ inoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;Esc&gt;
+ \ denite#do_map('quit')
+ nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;Esc&gt;
+ \ denite#do_map('quit')
+ inoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;CR&gt;
+ \ denite#do_map('do_action')
+ inoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;C-t&gt;
+ \ denite#do_map('do_action', 'tabopen')
+ inoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;C-v&gt;
+ \ denite#do_map('do_action', 'vsplit')
+ inoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;C-h&gt;
+ \ denite#do_map('do_action', 'split')
+endfunction
+
+
+
+&quot; Define mappings while in denite window
+&quot;   &lt;CR&gt;        - Opens currently selected file
+&quot;   q or &lt;Esc&gt;  - Quit Denite window
+&quot;   d           - Delete currenly selected file
+&quot;   p           - Preview currently selected file
+&quot;   &lt;C-o&gt; or i  - Switch to insert mode inside of filter prompt
+&quot;   &lt;C-t&gt;       - Open currently selected file in a new tab
+&quot;   &lt;C-v&gt;       - Open currently selected file a vertical split
+&quot;   &lt;C-h&gt;       - Open currently selected file in a horizontal split
+
+autocmd FileType denite call s:denite_my_settings()
+
+function! s:denite_my_settings() abort
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;CR&gt;
+  \ denite#do_map('do_action')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; q
+  \ denite#do_map('quit')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;Esc&gt;
+  \ denite#do_map('quit')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; pdo
+  \ denite#do_map('do_action', 'preview')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;C-i&gt;
+  \ denite#do_map('open_filter_buffer')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;C-t&gt;
+  \ denite#do_map('do_action', 'tabopen')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;C-v&gt;
+  \ denite#do_map('do_action', 'vsplit')
+  nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;C-h&gt;
+  \ denite#do_map('do_action', 'split')
+endfunction
+
+
+
+&quot; Wrap in try/catch to avoid errors on initial install before plugin is available
+&quot; === Denite setup ===&quot;
+&quot; Use ripgrep for searching current directory for files
+&quot; By default, ripgrep will respect rules in .gitignore
+&quot;   --files: Print each file that would be searched (but don't search)
+&quot;   --glob:  Include or exclues files for searching that match the given glob
+&quot;            (aka ignore .git files)
+&quot;
+&quot;call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob',  '!*.pyc', '!.git'])
+call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob',  '!.git'])
+
+
+&quot; Use ripgrep in place of &quot;grep&quot;
+call denite#custom#var('grep', 'command', ['rg'])
+
+&quot; Custom options for ripgrep
+&quot;   --vimgrep:  Show results with every match on it's own line
+&quot;   --hidden:   Search hidden directories and files
+&quot;   --heading:  Show the file name above clusters of matches from each file
+&quot;   --S:        Search case insensitively if the pattern is all lowercase
+call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
+
+&quot; Recommended defaults for ripgrep via Denite docs
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+&quot; Remove date from buffer list
+call denite#custom#var('buffer', 'date_format', '')
+
+&quot; Custom options for Denite
+&quot;   auto_resize             - Auto resize the Denite window height automatically.
+&quot;   prompt                  - Customize denite prompt
+&quot;   direction               - Specify Denite window direction as directly below current pane
+&quot;   winminheight            - Specify min height for Denite window
+&quot;   highlight_mode_insert   - Specify h1-CursorLine in insert mode
+&quot;   prompt_highlight        - Specify color of prompt
+&quot;   highlight_matched_char  - Matched characters highlight
+&quot;   highlight_matched_range - matched range highlight
+let s:denite_options = {'default' : {
+  \ 'split': 'floating',
+  \ 'start_filter': 1,
+  \ 'auto_resize': 1,
+  \ 'source_names': 'short',
+  \ 'prompt': 'λ ',
+  \ 'statusline': 0,
+  \ 'highlight_matched_char': 'QuickFixLine',
+  \ 'highlight_matched_range': 'Visual',
+  \ 'highlight_window_background': 'Visual',
+  \ 'highlight_filter_background': 'DiffAdd',
+  \ 'winrow': 1,
+  \ 'vertical_preview': 1
+  \ }}
+
+&quot; Loop through denite options and enable them
+function! s:profile(opts) abort
+  for l:fname in keys(a:opts)
+    for l:dopt in keys(a:opts[l:fname])
+      call denite#custom#option(l:fname, l:dopt, a:opts\[l:fname\][l:dopt])
+    endfor
+  endfor
+endfunction
+
+call s:profile(s:denite_options)
+catch
+  echo 'Denite not installed. It should work after running :PlugInstall'
+endtry
+
+
+&quot; === keymap === &quot;
+&quot;   b  - Browser currently open buffers
+&quot;   f  - Browse list of files in current directory
+&quot;   sg - Search current directory for occurences of given term and close window if no results
+&quot;   sc - Search current directory for occurences of word under cursor
+nmap &lt;Leader&gt;b :Denite buffer&lt;CR&gt;
+nmap &lt;Leader&gt;f :DeniteProjectDir file/rec&lt;CR&gt;
+nmap &lt;Leader&gt;sg :&lt;C-u&gt;Denite grep:. -no-empty&lt;CR&gt;
+nmap &lt;Leader&gt;sc :&lt;C-u&gt;DeniteCursorWord grep:.&lt;CR&gt;
+&quot; nmap &lt;C-o&gt; :Denite buffer&lt;CR&gt;
+
+
+
+
+&quot; Setup default denite options
+call denite#custom#option('default', 'prompt', 'λ')
+&quot; call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+&quot; call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('file/rec', 'command', ['rg', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+      \ [ '.git/', '.ropeproject/', '__pycache__/*', '*.pyc', 'node_modules/',
+      \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/', '*.png'])
+
+nmap &lt;Leader&gt;p :Denite -start-filter file/rec&lt;CR&gt;
+nmap &lt;C-p&gt; :Denite -start-filter file/rec&lt;CR&gt;
+nmap &lt;Leader&gt;b :Denite buffer&lt;CR&gt;
+nnoremap \ :Denite grep&lt;CR&gt;
+
+nmap &lt;Leader&gt;f :DeniteProjectDir file/rec&lt;CR&gt;
+
+&quot; Setup key mappings in the denite buffer
+nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;CR&gt;
+      \ denite#do_map('do_action')
+nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; d
+      \ denite#do_map('do_action', 'delete')
+nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; p
+      \ denite#do_map('do_action', 'preview')
+nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;C-v&gt;
+      \ denite#do_map('do_action', 'vsplit')
+nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;C-x&gt;
+      \ denite#do_map('do_action', 'split')
+nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;Esc&gt;
+      \ denite#do_map('quit')
+nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; i
+      \ denite#do_map('open_filter_buffer')
+nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; &lt;Space&gt;
+      \ denite#do_map('toggle_select').'j'
+
+&quot; Setup the key mappings for the denite-filte buffer
+imap &lt;silent&gt;&lt;buffer&gt; &lt;Esc&gt; &lt;Plug&gt;(denite_filter_quit)
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" defer></script><script src="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" defer></script><script src="/ho-lok-ue-tools/assets/js/192.e1b26e5b.js" defer></script>
+  </body>
+</html>

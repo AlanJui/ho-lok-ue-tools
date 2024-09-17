@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ubuntu 18.04 安裝筆記 | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css" as="style"><link rel="preload" href="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/111.802a4ef3.js" as="script"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/101.e14056d5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/102.5a78f801.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/103.e198a428.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/104.449b67e1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/105.825b86d6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/106.173be714.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/107.03f96c6c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/108.57957213.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/109.0a4b39eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/11.3e9ab894.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/112.8fb9f4c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/113.163f649e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/114.8da6ef94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/116.f901450e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/117.4898b362.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/118.80d06981.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/12.4a40a2fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/120.1955a557.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/121.1865eac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/122.1d79306c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/123.df62f490.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/124.4a9f1fcb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/125.d294aced.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/126.0558f46b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/127.71e4ae03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/128.cf355591.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/129.29c3a2f4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/13.c3911464.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/130.21e8b50e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/131.2a22915e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/132.23c7e418.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/133.b40de47b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/134.3b21be27.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/135.e33241e8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/136.e1fad00a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/137.4d051254.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/138.f95b7b98.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/139.2b8d3e50.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/14.c9886b34.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/140.1b8e8cd0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/141.ff03f551.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/142.8de335ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/144.6b438904.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/145.dd73b692.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/146.a5721fc9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/147.be2503d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/148.3012abdb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/149.5172325c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/15.0cce8ecb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/150.5304d46a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/152.6fb52d1e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/153.eaa379eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/154.e4a08e57.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/155.2a0dcb32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/157.ef0d4e6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/159.e58cd5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/16.fa6f05c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/160.b14498b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/161.6f58600a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/162.5088d732.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/163.cdfabcd3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/164.33af30e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/165.82251337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/166.729d4da0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/167.5021a127.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/168.82153370.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/169.0aad21a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/170.57bd13b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/171.23ff00be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/172.364d6e16.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/173.efa01f08.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/174.69d30215.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/175.265d6949.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/176.008e238b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/177.822a15ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/178.d1eee661.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/179.956fe469.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/180.bb68de5c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/181.6ca43cc3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/182.b784ea03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/183.cf75a717.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/184.a486267a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/185.35a0a735.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/186.67964623.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/187.13410beb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/188.962c6776.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/189.4786f58b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/19.ee358577.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/190.c4e5a3ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/191.ab08e553.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/193.95d606b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/194.2931aac2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/195.66817182.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/196.3841de25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/197.6d0aa566.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/198.f0525295.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/199.ae76c070.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/200.c57f2a39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/201.d63f8f6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/202.f9e03aa9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/203.95ffec51.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/204.3787443f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/205.27e200a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/206.45652af0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/208.3c2a60e9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/209.feeb4956.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/21.46ede3be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/210.6401ff88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/211.cfb8dc53.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/212.3ddf2b32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/213.647e2ffe.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/214.8e117d35.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/216.bc2d671c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/217.6371c831.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/218.ec43176a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/219.d69f53c2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/220.ca6bdcd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/221.e36810e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/222.715b43c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/223.808a43ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/224.e4df9237.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/225.6d08d9a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/226.4a72d290.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/227.93c9df65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/228.89cf25a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/229.27539a77.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/23.74ec33ae.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/232.c03f5450.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/233.a50b7053.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/234.e24679d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/236.03949180.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/237.077ec90b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/238.84598708.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/239.43007d0a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/24.dfaf327e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/240.2df91873.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/242.3066009f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/243.1ff09887.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/244.30430b7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/246.473b271a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/247.edc9641e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/248.6f7f74e5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/249.24762885.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/25.50731498.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/250.cc52a908.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/251.87f791a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/252.1e285f58.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/253.d783bd23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/254.bbeda6d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/255.1601d594.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/256.644af9ee.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/257.369bfcaf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/258.95ae1b47.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/259.02650516.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/26.7308cd5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/260.49df9ac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/261.7018bbf8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/262.b7de7d79.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/264.b82abc65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/265.9f4300d1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/266.868fd3db.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/267.c47ce979.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/268.d0ab9778.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/269.3b3efc3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/27.79b71a65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/270.4f788569.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/271.4fe4a762.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/273.cb605436.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/274.0efe455c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/275.5bc2a05c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/277.4724df32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/278.7e88e133.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/279.d117afb1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/28.96c7e30c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/280.1747c540.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/281.1df8dad8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/282.fb3b056e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/283.7238e6a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/284.333828fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/285.b4db7f5d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/286.203a528e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/287.3c26123e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/288.7b1abc61.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/289.f27ef80f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/29.0be0ff39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/290.b888b1dc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/291.db0ad529.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/292.491ba209.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/293.6222a09d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/294.ac3715a7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/295.3717bceb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/296.88ac43bd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/297.b2519337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/298.4094ee4b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/299.f1b57bd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/3.d8645ed1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/30.6c3af224.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/300.05acfc97.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/301.8b308b88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/302.649b0f63.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/303.02024141.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/304.0e1196b1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/305.b1ea83fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/306.0a66cafd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/307.a06f603b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/308.c5ff11ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/309.884aca03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/31.841f3ded.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/310.06a43026.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/311.7705aadb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/312.16c67c7e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/313.3a6cccf5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/314.bddfc342.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/316.445c3681.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/317.6698324c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/318.83b94f00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/32.283b7a44.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/33.dd6bc432.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/34.88232fa7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/35.aecd5410.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/36.32967ae8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/37.7a64c1c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/38.4556399d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/39.5c25123c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/4.c0ad8e6f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/41.f689f7c8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/42.25c15d8a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/43.14f65079.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/44.4b91b24a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/45.576f776e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/46.6da1e5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/49.d4e60513.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/50.c8b22d33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/56.f2597707.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/57.51fbeade.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/62.1cf89df2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/63.0f78d5dd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/66.fd2de134.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/67.6a554fd7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/69.80992696.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/70.d3126764.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/71.a2e07128.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/72.b5189fa6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/73.367f0392.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/74.f315c04a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/75.1aa88d55.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/76.41b88fff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/77.c6d47945.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/78.f3084837.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/79.8c5a82d4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/80.975fdb87.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/81.efc8d138.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/82.fccf7493.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/83.2978c41b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/85.a3074c64.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/86.6813c6c5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/88.3506e2f0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/89.7a73b80d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/9.4a24de8d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/90.6d7286c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/91.65b2c391.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/93.aeac5506.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/94.4c8e5a25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/95.2972011e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/97.be960e26.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/98.39761100.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ho-lok-ue-tools/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>作業指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ho-lok-ue-tools/d100_URS/" class="sidebar-link">使用者需求</a></li><li><a href="/ho-lok-ue-tools/d200_SRS/" class="sidebar-link">系統需求</a></li><li><a href="/ho-lok-ue-tools/d300_SDD/" class="sidebar-link">系統設計</a></li><li><a href="/ho-lok-ue-tools/d400_DEV/" class="sidebar-link">開發與測試</a></li><li><a href="/ho-lok-ue-tools/d500_OP/" class="sidebar-link">系統維運</a></li><li><a href="/ho-lok-ue-tools/d900_REF/" class="sidebar-link">參考資料</a></li><li><a href="/ho-lok-ue-tools/guide/" class="sidebar-link">作業指引</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>電腦硬體</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>開發環境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>參考資料</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ubuntu-18-04-安裝筆記"><a href="#ubuntu-18-04-安裝筆記" class="header-anchor">#</a> Ubuntu 18.04 安裝筆記</h1> <h1 id="作業系統基礎"><a href="#作業系統基礎" class="header-anchor">#</a> 作業系統基礎</h1> <h2 id="硬碟規劃"><a href="#硬碟規劃" class="header-anchor">#</a> 硬碟規劃</h2> <ul><li>/dev/sda1
+<ul><li>分割區類型：Linux 置換區（SWAP）</li> <li>格式： Ext 4</li> <li>掛載點： （N/A）</li> <li>容量： 16 GB (16382 KB)</li></ul></li> <li>/dev/sda2
+<ul><li>分割區類型：Linux 檔案系統</li> <li>格式： Ext 4</li> <li>掛載點： /</li> <li>容量： 222 GB</li></ul></li> <li>/deb/sda3
+<ul><li>分割區類型：Linux 檔案系統</li> <li>格式： Ext 4</li> <li>掛載點： /home</li> <li>容量： 262 GB</li></ul></li></ul> <h2 id="網路設定"><a href="#網路設定" class="header-anchor">#</a> 網路設定</h2> <ul><li><p>IP: 192.168.66.10/24</p></li> <li><p>Gateway: 192.168.66.1</p></li> <li><p>DNS： 192.168.66.1</p> <p>sudo apt install net-tools nmap curl</p></li></ul> <h2 id="裝置設定"><a href="#裝置設定" class="header-anchor">#</a> 裝置設定</h2> <ul><li>音效卡</li> <li>USB Web Cam / 麥克風</li> <li>電源/節省電源/螢幕轉黑：永不</li></ul> <h2 id="中文輸入法"><a href="#中文輸入法" class="header-anchor">#</a> 中文輸入法</h2> <p><strong>（1）設定/地區和語言/語言支援/安裝</strong> <strong>（2）設定/地區和語言/鍵盤輸入法系統：IBus</strong> <strong>（3）重新開機（登出/登入不再生效）</strong> <strong>（4）設定/地區和語言/安裝或移除語言/中文（簡體字）</strong> <strong>（5）登出/登入</strong> <strong>（6）設定/地區和語言/加入輸入來源/漢語（中國）/漢語（Intelligent Pinyin）</strong> <strong>（6）設定/地區和語言/漢語（Intelligent Pinyin）/偏好設定</strong></p> <div class="language- extra-class"><pre><code>- 常規/初始狀態/中文/繁體
+- 常規/外觀/每頁顯示候選詞條目數量/10
+- 模糊音/啟用模糊音（一般）
+
+
+$ sudo apt install fcitx fcitx-googlepinyin fcitx-chewing fcitx-table-cangjie5
+</code></pre></div><h2 id="其它工具"><a href="#其它工具" class="header-anchor">#</a> 其它工具</h2> <p>使用「軟體」安裝以下套件：</p> <ul><li>Dconf 編輯器</li> <li>Synaptic Package Manager</li> <li>Sublime Text Editor</li></ul> <p>Sublime Text 3
+透過 Bash Script 安裝（此法會順帶解決 Ubuntu 版的 Sublime Text 3 無法輸入中文的問題）</p> <div class="language- extra-class"><pre><code>$ cd ~/Applications
+$ git clone https://github.com/lyfeyaj/sublime-text-imfix.git
+$ cd sublime-text-imfix
+$ ./sublime-imfix
+</code></pre></div><p>標準安裝法</p> <div class="language- extra-class"><pre><code>$ wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+$ echo &quot;deb https://download.sublimetext.com/ apt/stable/&quot; | sudo tee /etc/apt/sources.list.d/sublime-text.list
+$ sudo apt update
+$ sudo apt install sublime-text
+</code></pre></div><p>VS Code</p> <div class="language- extra-class"><pre><code>$ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; microsoft.gpg
+$ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+$ sudo sh -c 'echo &quot;deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main&quot; &gt; /etc/apt/sources.list.d/vscode.list'
+$ sudo apt update
+$ sudo apt install code
+</code></pre></div><hr> <h1 id="ssh安裝"><a href="#ssh安裝" class="header-anchor">#</a> SSH安裝</h1> <p>https://www.linuxbabe.com/linux-server/setup-passwordless-ssh-login</p> <h2 id="安裝套件"><a href="#安裝套件" class="header-anchor">#</a> 安裝套件</h2> <div class="language- extra-class"><pre><code>sudo apt install ssh
+</code></pre></div><h2 id="產生-rsa-公-私鑰"><a href="#產生-rsa-公-私鑰" class="header-anchor">#</a> 產生 RSA 公／私鑰</h2> <div class="language- extra-class"><pre><code>ssh-keygen -t rsa
+</code></pre></div><h2 id="將-rsa-公鑰複製到遠端機器"><a href="#將-rsa-公鑰複製到遠端機器" class="header-anchor">#</a> 將  RSA 公鑰複製到遠端機器</h2> <p>執行以下指令，可將 RSA 公鑰複製到遠端的機器。往後再透過 ssh <UserName>@<ServerIP> 連接遠端機器時，可省略「使用者密碼」之輸入。</ServerIP></UserName></p> <div class="language- extra-class"><pre><code># ssh-copy-id remote-user@server-ip
+$ ssh-copy-id alanjui@192.168.66.10
+</code></pre></div><h2 id="重新安裝-ssh-後-無法再連上先前已可連上線之-ssh-server"><a href="#重新安裝-ssh-後-無法再連上先前已可連上線之-ssh-server" class="header-anchor">#</a> 重新安裝 ssh 後，無法再連上先前已可連上線之 ssh server</h2> <p>曾透過 ssh 登入過這台伺服器的 Client 端，會有無法連線的問題發生：</p> <div class="language- extra-class"><pre><code>$ ssh alanjui@192.168.66.10
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:DOktDVrmw7MJgAlqhWOZExCIrqOT1j+usEYUeSxK6N4.
+Please contact your system administrator.
+Add correct host key in /Users/AlanJui/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /Users/AlanJui/.ssh/known_hosts:153
+ECDSA host key for 192.168.66.10 has changed and you have requested strict checking.
+Host key verification failed.
+</code></pre></div><p>以上的問題，主要係源自於曾連線過的 client 端，其「家目錄」所存放的「公開憑證」（或說： Public Key），因伺服器重安裝，以致原用之「公開憑證」已不復存在，故而當 client 要求連線時，會收到由伺服器傳來的新公開憑證時，當 client 端與已存檔的憑證比對時，會發生不符的問題，故而 client 端拒絕與伺服器連線。</p> <p>使用 Editor 剛掉檔案： ~/.ssh/known_hosts 中的  153 行</p> <p>或：</p> <div class="language- extra-class"><pre><code>ssh-keygen -f &quot;~/.ssh/known_hosts&quot; -R 192.168.66.10
+</code></pre></div><hr> <h1 id="xrdp"><a href="#xrdp" class="header-anchor">#</a> xrdp</h1> <p>安裝</p> <div class="language- extra-class"><pre><code>sudo -s
+sudo apt install xrdp xrdp-pulseaudio-installer
+</code></pre></div><p>驗證服務已被啟動</p> <div class="language- extra-class"><pre><code>systemctl status xrdp
+</code></pre></div><p>要求作業系統重開機</p> <div class="language- extra-class"><pre><code>sudo reboot
+</code></pre></div><p>驗證 Port: 3389 已被監聽</p> <div class="language- extra-class"><pre><code>netstat -tpnl
+</code></pre></div><p>自 Client 端驗證 XRDP Server 已能監聽 3389</p> <div class="language- extra-class"><pre><code>nmap -p 3389 192.168.66.10
+</code></pre></div><p>自 Client 端驗證 XRDP Server 已能透過 Port: 3389 進行連線</p> <div class="language- extra-class"><pre><code>$ telnet 192.168.66.10 3389
+Trying 192.168.66.10...
+Connected to SRV-01.
+Escape character is '^]'.
+</code></pre></div><p>自 client 端，透過 Windows 的「遠端桌面」連線到伺服器</p> <ul><li>通信協定：xorg</li> <li>使用者：  alanjui</li> <li>密碼：</li></ul> <p>異常狀況：</p> <p>要求核對：</p> <div class="language- extra-class"><pre><code>Authentication is required to create a color profile
+...... to create a color managed device
+
+
+sudo apt install gnome-tweak-tool
+</code></pre></div><p><strong>/etc/polkit-1/localauthority.conf.d</strong>/<strong>02-allow-colord.conf</strong></p> <div class="language- extra-class"><pre><code>polkit.addRule(function(action, subject) {
+    if ((action.id == &quot;org.freedesktop.color-manager.create-device&quot; ||
+         action.id == &quot;org.freedesktop.color-manager.modify-profile&quot; ||
+         action.id == &quot;org.freedesktop.color-manager.delete-device&quot; ||
+         action.id == &quot;org.freedesktop.color-manager.create-profile&quot; ||
+         action.id == &quot;org.freedesktop.color-manager.modify-profile&quot; ||
+         action.id == &quot;org.freedesktop.color-manager.delete-profile&quot;) &amp;&amp;
+        subject.isInGroup(&quot;{group}&quot;))
+    {
+        return polkit.Result.YES;
+    }
+});
+</code></pre></div><p>/etc/polkit-1/localauthority/50-local.d/45-allow.colord.pkla</p> <div class="language- extra-class"><pre><code>[Allow Colord all Users]
+Identity=unix-user:*
+Action=org.freedesktop.color-manager.create-device;org.freedesktop.color-manager.create-profile;org.freedesktop.color-manager.delete-device;org.freedesktop.color-manager.delete-profile;org.freedesktop.color-manager.modify-device;org.freedesktop.color-manager.modify-profile
+ResultAny=no
+ResultInactive=no
+ResultActive=yes
+</code></pre></div><p>確認沒使用 Xwarapper.config 這個設定檔： <s>/etc/X11/Xwrapper.config</s></p> <div class="language- extra-class"><pre><code>allowed_users=anybody
+</code></pre></div><p>更改 xrdp 服務設定（ /etc/xrdp/xrdp.ini）</p> <div class="language- extra-class"><pre><code>[console]
+...
+ip=0.0.0.0
+...
+</code></pre></div><p><strong>重新啟動 xrdp</strong></p> <div class="language- extra-class"><pre><code>sudo systemctl restart xrdp
+</code></pre></div><p>自 Client 端以「Windows 遠端桌面」連線到 XRDP Server (192.168.66.10)</p> <ul><li>Session： console</li> <li>password: <VNC Server="" connect="" password=""></VNC></li></ul> <hr> <h1 id="vnc-server-安裝"><a href="#vnc-server-安裝" class="header-anchor">#</a> VNC Server 安裝</h1> <p><strong>（1）先在 Ubuntu Desktop 電腦，透過，完成「螢幕分享」的設定工作。</strong></p> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_658302B4FACACF076DDCB0704829364CC3EE5F7037E5F4737FCB9B1DBABBDAE1_1524743791656_image.png" alt=""></p> <p><strong>（2）打開「終端機」，輸入以下指令，確認 vnc server （vino server）的服務已啟動。</strong></p> <div class="language- extra-class"><pre><code>netstat -tpnl
+</code></pre></div><p>在終端機的輸出畫面，於 Local Address 欄位，找尋 0.0.0.0:5900 ，若有看到，表示 vnc server 已正式啟動；若否，最好就「重開機」，令作業系統自動去啟動 vnc server 。</p> <p><strong>（3）打開「終端機」，輸入以下指令，要求 vnc server 對於畫面資料，無需進行加密處理。</strong></p> <div class="language- extra-class"><pre><code>$ gsettings set org.gnome.Vino require-encryption false
+</code></pre></div><p><strong>（4）在另一台電腦，以 vnc client軟體（如：realvnc viewer）連上 VNC Server。</strong></p> <hr> <h2 id="在-client-端用-vnc-viewer-連上另一台-ubuntu-desktop-電腦"><a href="#在-client-端用-vnc-viewer-連上另一台-ubuntu-desktop-電腦" class="header-anchor">#</a> 在 Client 端用 VNC Viewer 連上另一台 Ubuntu Desktop 電腦</h2> <div class="language- extra-class"><pre><code>$ vncviewer 192.168.66.10:0
+</code></pre></div><p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_B24A85039E505F12422DD7B29F6A13606C1039D1D30F815B98507EA8ACB3DEF4_1526523381209_2018-05-17+10-14-18+.png" alt=""></p> <hr> <h1 id="x11vnc-service"><a href="#x11vnc-service" class="header-anchor">#</a> X11VNC Service</h1> <p>安裝軟體套件。</p> <div class="language- extra-class"><pre><code>sudo apt install x11vnc
+</code></pre></div><p>建立 VNC Server 的密碼檔。</p> <div class="language- extra-class"><pre><code>sudo x11vnc -storepasswd /etc/x11vnc.passwd
+</code></pre></div><p>查詢 Xauthority 檔案的存放路徑。</p> <div class="language- extra-class"><pre><code>ps wwwaux | grep auth
+</code></pre></div><p>建立 x11vnc 的服務設定檔： /lib/systemd/system/x11vnc.service</p> <div class="language- extra-class"><pre><code>[Unit]
+Description=Start x11vnc at startup.
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/x11vnc -auth /run/user/1001/gdm/Xauthority -forever -loop -noxdamage -repeat -rfbauth /etc/x11vnc.pass -rfbport 5900 -shared
+
+[Install]
+WantedBy=multi-user.target
+</code></pre></div><p>啟用及啟動 x11vnc 服務。</p> <div class="language- extra-class"><pre><code>sudo systemctl enable x11vnc
+sudo systemctl daemon-reload
+sudo systemctl start x11vnc
+</code></pre></div><p>驗證 x11vnc 服務已正常啟動。</p> <div class="language- extra-class"><pre><code>systemctl status x11vnc
+</code></pre></div><p>使用 VNC Client 軟體連線，驗證已能正常運作。</p> <hr> <h1 id="安裝-chrome"><a href="#安裝-chrome" class="header-anchor">#</a> 安裝 Chrome</h1> <hr> <h1 id="安裝-smba-server"><a href="#安裝-smba-server" class="header-anchor">#</a> 安裝 Smba Server</h1> <p><strong>(1)</strong> <a href="https://paper.dropbox.com/doc/1mdbnlQwSCTnP92XpO1vv" target="_blank" rel="noopener noreferrer"><strong>掛載第二顆硬碟</strong><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><strong>(2)</strong> <a href="https://paper.dropbox.com/doc/Samba-Z1HipynH9jnqa5S697mwG" target="_blank" rel="noopener noreferrer"><strong>安裝與設定 Samba Server</strong><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <hr> <h1 id="調整-python-設定"><a href="#調整-python-設定" class="header-anchor">#</a> 調整 Python 設定</h1> <div class="language- extra-class"><pre><code>sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 2
+
+sudo update-alternatives --config python
+# 選（2）
+
+
+alanjui@SRV-01:~$ ls -larth `which python`*
+-rwxr-xr-x 1 root root  152 Nov 11  2017 /usr/bin/python3-pbr
+-rwxr-xr-x 1 root root 4.4M Apr  1 13:46 /usr/bin/python3.6m
+-rwxr-xr-x 1 root root 4.4M Apr  1 13:46 /usr/bin/python3.6
+-rwxr-xr-x 1 root root 3.5M Apr 16 05:51 /usr/bin/python2.7
+lrwxrwxrwx 1 root root    9 Apr 16 22:31 /usr/bin/python2 -&gt; python2.7
+lrwxrwxrwx 1 root root   10 May 15 07:26 /usr/bin/python3m -&gt; python3.6m
+lrwxrwxrwx 1 root root   24 May 17 20:49 /usr/bin/python -&gt; /etc/alternatives/python
+lrwxrwxrwx 1 root root   25 May 17 20:52 /usr/bin/python3 -&gt; /etc/alternatives/python3
+alanjui@SRV-01:~$ sudo update-alternatives --config python
+[sudo] password for alanjui: 
+替代項目 python（提供 /usr/bin/python）有 2 個選擇。
+
+  選項       路徑              優先權  狀態
+------------------------------------------------------------
+* 0            /usr/bin/python3.6   2         自動模式
+  1            /usr/bin/python2.7   1         手動模式
+  2            /usr/bin/python3.6   2         手動模式
+
+Press &lt;enter&gt; to keep the current choice[*], or type selection number: 0
+alanjui@SRV-01:~$ 
+</code></pre></div><hr> <h1 id="影音工具軟體安裝"><a href="#影音工具軟體安裝" class="header-anchor">#</a> 影音工具軟體安裝</h1> <p>使用 Synaptic 套件管理員，以批次方式安裝下列軟體：</p> <ul><li>桌面錄影： vokoscreen</li> <li>錄音： audacity</li> <li>影片剪輯：openshot, pitivi</li> <li>影音播放：vlc</li> <li>影像處理：gimp gimp-dcraw, darktable</li></ul> <hr> <h1 id="開發工具安裝"><a href="#開發工具安裝" class="header-anchor">#</a> 開發工具安裝</h1> <ul><li>git</li> <li>docker</li> <li>guake</li></ul> <h2 id="python"><a href="#python" class="header-anchor">#</a> Python</h2> <ul><li>aconda</li> <li>PyCharm</li></ul> <h2 id="nodejs"><a href="#nodejs" class="header-anchor">#</a> NodeJS</h2> <ul><li>n</li> <li>node &amp; npm</li> <li>WebStorm</li></ul> <h2 id="其它"><a href="#其它" class="header-anchor">#</a> 其它</h2> <ul><li>VS Code</li> <li>VirtualBox</li> <li>Heroku CLI</li> <li>PostgreSQL</li> <li>pgAdmin</li></ul> <h2 id="使用「ubuntu-軟體」安裝"><a href="#使用「ubuntu-軟體」安裝" class="header-anchor">#</a> 使用「Ubuntu 軟體」安裝</h2> <ul><li>PyCharm: PyCharm Pro</li> <li>WebStorm: WebStorm</li> <li>VS Code: vscode</li> <li>GUI Git: GitKraken</li> <li>Heroku CLI: heroku</li></ul> <hr> <h1 id="virtualbox"><a href="#virtualbox" class="header-anchor">#</a> VirtualBox</h1> <p>使用 Oracle VirtualBox PPA to Ubuntu system 套件庫安裝。</p> <p>取得官方套件庫的 Public Key</p> <div class="language- extra-class"><pre><code>$ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+$ wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+</code></pre></div><p>建立套件庫來源設定檔（ /etc/apt/source.list.d/virtualbox.list ）</p> <div class="language- extra-class"><pre><code>deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic edge
+</code></pre></div><p>簡略法：</p> <div class="language- extra-class"><pre><code>$ sudo add-apt-repository &quot;deb http://download.virtualbox.org/virtualbox/debian `lsb_release -cs` contrib&quot;
+</code></pre></div><p>安裝軟體</p> <div class="language- extra-class"><pre><code>sudo apt update
+sudo apt install virtualbox-5.2
+</code></pre></div><p>驗證作業</p> <div class="language- extra-class"><pre><code>virtualbox
+</code></pre></div><p>下載 VirtualBox Extension Pack</p> <div class="language- extra-class"><pre><code>https://www.virtualbox.org/kiki/Downloads
+</code></pre></div><p>點擊以下之連結，以便下載檔案。
+VirtualBox 5.2.12 Oracle VM VritualBox Extension Pack / All supported platforms</p> <p>自檔案總管雙擊已下載檔案，以便啟動安裝作業。</p> <hr> <h1 id="nodejs-2"><a href="#nodejs-2" class="header-anchor">#</a> NodeJS</h1> <p>安裝 NodeJS 套件管理工具：n</p> <div class="language- extra-class"><pre><code>curl -L https://git.io/n-install | bash
+</code></pre></div><p>驗證</p> <div class="language- extra-class"><pre><code>$ n
+node/10.2.0
+
+$ node -v
+v10.2.0
+
+$ npm -v
+5.6.0
+</code></pre></div><hr> <h1 id="git"><a href="#git" class="header-anchor">#</a> Git</h1> <h2 id="産生ssh用公-私鑰"><a href="#産生ssh用公-私鑰" class="header-anchor">#</a> 産生ssh用公／私鑰</h2> <div class="language- extra-class"><pre><code>ssh-keygen
+
+
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/alanjui/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/alanjui/.ssh/id_rsa.
+Your public key has been saved in /home/alanjui/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:U4TPrvgzuO/uG0ljRDdwxVR/yGqnx90tqQwQj8fa0UU alanjui@SRV-01
+The key's randomart image is:
++---[RSA 2048]----+
+|        oo=+o.E  |
+|       ..+ ..o o |
+|        oo.   + o|
+|       . *o. o  .|
+|        S.= + .  |
+|       o O.o + oo|
+|       o+.o . = +|
+|      o +. o o . |
+|      .BB+  o    |
++----[SHA256]-----+
+alanjui@SRV-01:~$ ll ~/.ssh
+總計 20
+drwx------  2 alanjui alanjui 4096  5月 24 21:15 ./
+drwxr-xr-x 27 alanjui alanjui 4096  5月 24 21:07 ../
+-rw-------  1 alanjui alanjui 1675  5月 24 21:15 id_rsa
+-rw-r--r--  1 alanjui alanjui  396  5月 24 21:15 id_rsa.pub
+-rw-r--r--  1 alanjui alanjui  884  5月 24 21:07 known_hosts
+</code></pre></div><h2 id="將-ssh-公鑰匯出並儲到各git-repo"><a href="#將-ssh-公鑰匯出並儲到各git-repo" class="header-anchor">#</a> 將 ssh 公鑰匯出並儲到各Git Repo</h2> <div class="language- extra-class"><pre><code>cat ~/.ssh/id_rsa.pub
+</code></pre></div><h2 id="git-軟體安裝"><a href="#git-軟體安裝" class="header-anchor">#</a> Git 軟體安裝</h2> <div class="language- extra-class"><pre><code>$ sudo apt update
+$ sudo apt install git 
+</code></pre></div><h2 id="git軟體設定"><a href="#git軟體設定" class="header-anchor">#</a> Git軟體設定</h2> <div class="language- extra-class"><pre><code>$ git config --global user.email &quot;alanjui.1960@gmail.com&quot;
+$ git config --global user.name &quot;Alan Jui&quot;
+</code></pre></div><h2 id="安裝git-prompt提示工具"><a href="#安裝git-prompt提示工具" class="header-anchor">#</a> 安裝Git Prompt提示工具</h2> <p><strong>(1) 安裝軟體</strong></p> <div class="language- extra-class"><pre><code>cd ~
+git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
+</code></pre></div><p><strong>(2) 設定軟體：在檔案</strong> <code>~/.bashrc</code> 內加入如下設定</p> <div class="language- extra-class"><pre><code>......
+GIT_PROMPT_ONLY_IN_REPO=1
+source ~/.bash-git-prompt/gitprompt.sh
+</code></pre></div><hr> <h1 id="docker"><a href="#docker" class="header-anchor">#</a> Docker</h1> <p>使用 Docker 官網提供的 Repo 進行軟體套件安裝作業。</p> <h2 id="基本安裝作業"><a href="#基本安裝作業" class="header-anchor">#</a> 基本安裝作業</h2> <p>刪除舊版軟體。</p> <div class="language- extra-class"><pre><code>$ sudo apt-get remove docker docker-engine docker.io
+</code></pre></div><p>更新作業系統套件庫。</p> <div class="language- extra-class"><pre><code>sudo apt update
+</code></pre></div><p>備妥安裝前置需求軟體。</p> <div class="language- extra-class"><pre><code>$ sudo apt install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+</code></pre></div><p>在作業系統加入 Docker 官方套件庫的 GPG Key。</p> <div class="language- extra-class"><pre><code>$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+</code></pre></div><p>建立套件庫來源設定檔： /etc/apt/source.list.d/docker.list</p> <div class="language- extra-class"><pre><code>deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+</code></pre></div><p>在 5/18 日，stable 版尚無法使用，需先改成 edge ；待 stable 版正式啟用後，再將 edge 改成 stable 。</p> <p>【註】：Ubuntu 18.04 作業系統的「版本代號」，可用以下指令查詢。</p> <div class="language- extra-class"><pre><code>$ lsb_release -cs
+</code></pre></div><p>安裝軟體。</p> <div class="language- extra-class"><pre><code>$ sudo apt update
+$ sudo apt install docker-ce
+</code></pre></div><p>設定檔：</p> <ul><li>/etc/init.d/docker</li> <li>/etc/init/docker.conf</li></ul> <p>SymLink /etc/systemd/system/multiuser.garget.wants/docker.service ==&gt; /lib/systemd/system/docker.service</p> <p>驗證作業。</p> <div class="language- extra-class"><pre><code>systemctl status docker
+sudo docker run hello-world
+sudo docker ps -a
+</code></pre></div><h2 id="可以非-root-帳號操作-docker-設定作業"><a href="#可以非-root-帳號操作-docker-設定作業" class="header-anchor">#</a> 可以非 root 帳號操作 docker 設定作業</h2> <p><s>建立 docker 群組。</s></p> <div class="language- extra-class"><pre><code>sudo groupadd docker
+</code></pre></div><p>將目前已登入使用者帳號，加入 docker 群組中。</p> <div class="language- extra-class"><pre><code>sudo usermod -aG docker $USER
+</code></pre></div><p>驗證使用者帳號已加入 docker 群組：
+註：可能是 Ubuntu 有ｂｕｇ，執行以下指令前，最好先重開機（只做到登出/登入層級，仍不夠）。</p> <p>驗證已有 docker 群組：</p> <div class="language- extra-class"><pre><code>$ groups
+alanjui adm cdrom sudo dip plugdev lpadmin sambashare docker
+
+
+$ cat /etc/group | grep docker
+</code></pre></div><p>驗證目前已登入的使用者帳號，被加入到 docker 群組中：</p> <div class="language- extra-class"><pre><code>$ id -Gn
+alanjui adm cdrom sudo dip plugdev lpadmin sambashare docker
+</code></pre></div><p>驗證作業</p> <div class="language- extra-class"><pre><code>docker run hello-world
+</code></pre></div><h2 id="docker-compose"><a href="#docker-compose" class="header-anchor">#</a> Docker-compose</h2> <div class="language- extra-class"><pre><code>sudo apt install docker-compose
+</code></pre></div><hr> <h1 id="python-2"><a href="#python-2" class="header-anchor">#</a> Python</h1> <div class="language- extra-class"><pre><code>sudo update
+sudo apt install python-minimal
+python -V
+pip -V
+
+
+
+sudo -H pip install virtualenv virtualenvwrapper
+sudo -H pip install --upgrade pip
+
+
+$ sudo apt install python2.7 python-pip
+正在讀取套件清單... 完成
+正在重建相依關係          
+正在讀取狀態資料... 完成
+以下套件為自動安裝，並且已經無用：
+  attr gimp-data ibverbs-providers libamd2 libbabl-0.1-0 libcamd2 libccolamd2 libcephfs2 libcholmod3 libgegl-0.3-0 libgimp2.0 libgsl23 libgslcblas0 libgtkspell0
+  libibverbs1 libimage-magick-perl libimage-magick-q16-perl libmetis5 libmng2 libnl-route-3-200 libpotrace0 librados2 libumfpack5 python3-scour samba-dsdb-modules
+  samba-vfs-modules scour tdb-tools
+以 sudo apt autoremove 將之移除。
+下列的額外套件將被安裝：
+  python python-all python-all-dev python-asn1crypto python-cffi-backend python-crypto python-cryptography python-dbus python-dev python-enum34 python-gi python-idna
+  python-ipaddress python-keyring python-keyrings.alt python-pkg-resources python-secretstorage python-setuptools python-six python-wheel python-xdg python2.7-dev
+建議套件：
+  python-doc python-tk python-crypto-doc python-cryptography-doc python-cryptography-vectors python-dbus-dbg python-dbus-doc python-enum34-doc python-gi-cairo
+  libkf5wallet-bin gir1.2-gnomekeyring-1.0 python-fs python-gdata python-keyczar python-secretstorage-doc python2.7-doc
+下列【新】套件將會被安裝：
+  python python-all python-all-dev python-asn1crypto python-cffi-backend python-crypto python-cryptography python-dbus python-dev python-enum34 python-gi python-idna
+  python-ipaddress python-keyring python-keyrings.alt python-pip python-pkg-resources python-secretstorage python-setuptools python-six python-wheel python-xdg python2.7
+  python2.7-dev
+升級 0 個，新安裝 24 個，移除 0 個，有 0 個未被升級。
+需要下載 2,248 kB/2,387 kB 的套件檔。
+此操作完成之後，會多佔用 9,986 kB 的磁碟空間。
+是否繼續進行 [Y/n]？ [Y/n] 
+
+
+
+$ sudo apt install python3-pip python-setuptools-doc
+$ python3 -V
+</code></pre></div><p><strong>Basic Usage</strong>
+The following lines will illustrate a basic usage and syntax of PIP command. To search packages index execute:</p> <div class="language- extra-class"><pre><code>pip search KEYWORD
+</code></pre></div><p>to search for packages. Once you obtain the package name use <code>pip</code> to install it:</p> <div class="language- extra-class"><pre><code>$ pip install PACKAGE_NAME
+</code></pre></div><p>Lastly, to remove package enter:</p> <div class="language- extra-class"><pre><code>$ pip uninstall PACKAGE_NAME
+</code></pre></div><hr> <h1 id="apps"><a href="#apps" class="header-anchor">#</a> Apps</h1> <div class="language- extra-class"><pre><code>sudo groupadd apps
+sudo usermod -aG apps root
+sudo usermod -aG apps alanjui
+
+
+sudo mkidr /apps
+sudo chown -R root:apps /apps
+sudo chmod -R 775 /apps
+</code></pre></div><hr> <h1 id="套件管理"><a href="#套件管理" class="header-anchor">#</a> 套件管理</h1> <h2 id="系統通知有套件可供升級時"><a href="#系統通知有套件可供升級時" class="header-anchor">#</a> 系統通知有套件可供升級時</h2> <div class="language- extra-class"><pre><code>apt list --upgradable
+</code></pre></div><p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_B24A85039E505F12422DD7B29F6A13606C1039D1D30F815B98507EA8ACB3DEF4_1526522752877_2018-05-17+10-02-46+.png" alt=""></p> <p><strong>安裝套件時特別指明版本</strong></p> <div class="language- extra-class"><pre><code>sudo apt install &lt;package&gt;=&lt;version&gt;
+</code></pre></div><p><strong>已安裝的套件要求重新安裝</strong></p> <div class="language- extra-class"><pre><code>sudo apt install --reinstall &lt;package&gt;
+</code></pre></div><p><strong>自套件原始程式碼編譯及組建</strong></p> <div class="language- extra-class"><pre><code>sudo apt install python-pip python-dev build-essential
+</code></pre></div><hr> <h1 id="安裝postgresql"><a href="#安裝postgresql" class="header-anchor">#</a> 安裝PostgreSQL</h1> <h2 id="安裝軟體"><a href="#安裝軟體" class="header-anchor">#</a> 安裝軟體</h2> <p>建立套件庫來源檔案： /etc/apt/sources.list.d/pgdg.list ，設定內容如下：</p> <div class="language- extra-class"><pre><code>$ deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main
+</code></pre></div><p>取得套件庫的 Public Key</p> <div class="language- extra-class"><pre><code>$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+</code></pre></div><p>安裝套件</p> <div class="language- extra-class"><pre><code>$ sudo apt update
+$ sudo apt install postgresql-10 locales-all postgresql-doc-10 libjson-perl isag gnuplot-doc rcs
+$ sudo apt install pgadmin4
+</code></pre></div><p>驗證服務已啟動</p> <div class="language- extra-class"><pre><code>$ systemctl status postgresql
+● postgresql.service - PostgreSQL RDBMS
+   Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled)
+   Active: active (exited) since Thu 2018-05-24 10:10:33 CST; 9min ago
+ Main PID: 21259 (code=exited, status=0/SUCCESS)
+    Tasks: 0 (limit: 4915)
+   CGroup: /system.slice/postgresql.service
+
+ 5月 24 10:10:33 SRV-01 systemd[1]: Starting PostgreSQL RDBMS...
+ 5月 24 10:10:33 SRV-01 systemd[1]: Started PostgreSQL RDBMS.
+</code></pre></div><p>【參考來源】： https://www.postgresql.org/download/linux/ubuntu/</p> <h1 id="設定服務管理員帳號的密碼"><a href="#設定服務管理員帳號的密碼" class="header-anchor">#</a> 設定服務管理員帳號的密碼</h1> <p>變更 PostgreSQL 預設之管理員（postgres）的密碼</p> <p><strong>（1）驗證作業系統已有 postgres 使用者帳號被建立。</strong></p> <div class="language- extra-class"><pre><code>$ id postgres
+uid=124(postgres) gid=131(postgres) \u7fa4\u7d44=131(postgres),112(ssl-cert)
+</code></pre></div><p><strong>(2) 變更「使用作業系統使用者」的密碼</strong></p> <div class="language- extra-class"><pre><code>$ sudo passwd postgres
+</code></pre></div><p><strong>(3) 變更「PostgreSQL資料庫系統使用者（postgres）」的密碼</strong></p> <div class="language- extra-class"><pre><code>$ sudo -u postgres psql -d template1 -c &quot;ALTER USER postgres WITH PASSWORD 'ChingHai99@';&quot;
+</code></pre></div><h2 id="設定可遙端存取"><a href="#設定可遙端存取" class="header-anchor">#</a> 設定可遙端存取</h2> <p><strong>(1) 設定 PostgreSQL 相關「設定檔」：</strong></p> <p>設定檔目錄路徑：/etc/postgresql/10/main/</p> <p>在檔案： <strong>pg_hba.conf ，加入下列設定：</strong></p> <div class="language- extra-class"><pre><code>host all all 192.168.66.0/24 md5
+</code></pre></div><p>在檔案： <strong>postgresql.conf，加入下列設定：</strong></p> <div class="language- extra-class"><pre><code>listen_addresses='*'
+</code></pre></div><p><strong>(2) 從新啟動 PostgreSQL Service</strong></p> <p>在Server端，將 PostgreSQL Service 重新啟動：</p> <div class="language- extra-class"><pre><code>sudo systemctl restart postgresql
+systemctl status postgresql
+</code></pre></div><p><strong>(3) 驗證可自遠端連入</strong></p> <p>在 Client 端，連入 PostgreSQL Server：</p> <div class="language- extra-class"><pre><code>$ psql -U postgres postgres -h 192.168.66.10
+ ...
+ \q 
+</code></pre></div><hr> <h1 id="系統管理"><a href="#系統管理" class="header-anchor">#</a> 系統管理</h1> <h2 id="套件管理-2"><a href="#套件管理-2" class="header-anchor">#</a> 套件管理</h2> <p>描述套件來源：</p> <ul><li>/etc/apt/sources.list</li> <li>/etc/apt/sources.list.d/<SourceName>.list</SourceName></li></ul> <h2 id="display-manager"><a href="#display-manager" class="header-anchor">#</a> Display Manager</h2> <p>在 17.10 的 Default Display Manager: Wayland ；但在 18.04 又改回： Xorg</p> <p><strong>查看作業系統預設的 Display Manger 為何者：</strong></p> <div class="language- extra-class"><pre><code>ps wwwaux | grep auth
+</code></pre></div><p><strong>變更「系統預設的 Display Manager」</strong></p> <div class="language- extra-class"><pre><code>sudo dpkg-reconfigure lightdm
+</code></pre></div><h2 id="systemd-service"><a href="#systemd-service" class="header-anchor">#</a> Systemd Service</h2> <p><strong>啟用</strong></p> <div class="language- extra-class"><pre><code>sudo systemctl enable &lt;ServiceName&gt;.service  # .service 可略去
+sudo systemctl daemon-reload
+sudo systemctl start &lt;ServiceName&gt;
+</code></pre></div><p>【註】： 原本位於 /lib/systemd/system/<ServiceName>.service 的檔案，將會被建立 ln 連結，置於路徑： /etc/systemd/system/multi-user.target.wants/<ServiceName>.service 之中。</ServiceName></ServiceName></p> <p><strong>變更設定</strong>
+每當某 Service 的設定有變更之時（ /lib/systemd/system/<ServiceName>.service ），須以下列操作重新啟動 Service ，以令變更生效：</ServiceName></p> <div class="language- extra-class"><pre><code>sudo systemctl daemon-reload
+sudo systemctl restart &lt;ServiceName&gt;
+</code></pre></div><h1 id="使用者帳號管理"><a href="#使用者帳號管理" class="header-anchor">#</a> 使用者帳號管理</h1> <h2 id="增添使用者"><a href="#增添使用者" class="header-anchor">#</a> 增添使用者</h2> <div class="language- extra-class"><pre><code>sudo useradd -m amos
+passwd amos
+
+sudo usermod -aG sudo amos
+</code></pre></div><h2 id="刪除使用者"><a href="#刪除使用者" class="header-anchor">#</a> 刪除使用者</h2> <div class="language- extra-class"><pre><code>sudo userdel amos
+sudo rm -r /home/amos
+</code></pre></div><h2 id="切換到-root-帳號"><a href="#切換到-root-帳號" class="header-anchor">#</a> 切換到 root 帳號</h2> <div class="language- extra-class"><pre><code>sudo -s
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" defer></script><script src="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" defer></script><script src="/ho-lok-ue-tools/assets/js/111.802a4ef3.js" defer></script>
+  </body>
+</html>

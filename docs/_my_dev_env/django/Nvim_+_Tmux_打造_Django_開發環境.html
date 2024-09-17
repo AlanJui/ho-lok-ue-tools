@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nvim + Tmux 打造 Django 開發環境 | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css" as="style"><link rel="preload" href="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/ho-lok-ue-tools/assets/js/154.e4a08e57.js" as="script"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/101.e14056d5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/102.5a78f801.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/103.e198a428.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/104.449b67e1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/105.825b86d6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/106.173be714.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/107.03f96c6c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/108.57957213.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/109.0a4b39eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/11.3e9ab894.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/111.802a4ef3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/112.8fb9f4c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/113.163f649e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/114.8da6ef94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/116.f901450e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/117.4898b362.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/118.80d06981.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/12.4a40a2fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/120.1955a557.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/121.1865eac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/122.1d79306c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/123.df62f490.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/124.4a9f1fcb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/125.d294aced.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/126.0558f46b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/127.71e4ae03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/128.cf355591.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/129.29c3a2f4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/13.c3911464.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/130.21e8b50e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/131.2a22915e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/132.23c7e418.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/133.b40de47b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/134.3b21be27.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/135.e33241e8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/136.e1fad00a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/137.4d051254.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/138.f95b7b98.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/139.2b8d3e50.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/14.c9886b34.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/140.1b8e8cd0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/141.ff03f551.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/142.8de335ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/144.6b438904.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/145.dd73b692.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/146.a5721fc9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/147.be2503d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/148.3012abdb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/149.5172325c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/15.0cce8ecb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/150.5304d46a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/152.6fb52d1e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/153.eaa379eb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/155.2a0dcb32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/157.ef0d4e6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/159.e58cd5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/16.fa6f05c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/160.b14498b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/161.6f58600a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/162.5088d732.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/163.cdfabcd3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/164.33af30e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/165.82251337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/166.729d4da0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/167.5021a127.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/168.82153370.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/169.0aad21a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/170.57bd13b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/171.23ff00be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/172.364d6e16.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/173.efa01f08.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/174.69d30215.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/175.265d6949.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/176.008e238b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/177.822a15ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/178.d1eee661.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/179.956fe469.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/180.bb68de5c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/181.6ca43cc3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/182.b784ea03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/183.cf75a717.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/184.a486267a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/185.35a0a735.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/186.67964623.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/187.13410beb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/188.962c6776.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/189.4786f58b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/19.ee358577.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/190.c4e5a3ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/191.ab08e553.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/193.95d606b4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/194.2931aac2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/195.66817182.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/196.3841de25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/197.6d0aa566.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/198.f0525295.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/199.ae76c070.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/200.c57f2a39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/201.d63f8f6a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/202.f9e03aa9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/203.95ffec51.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/204.3787443f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/205.27e200a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/206.45652af0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/208.3c2a60e9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/209.feeb4956.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/21.46ede3be.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/210.6401ff88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/211.cfb8dc53.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/212.3ddf2b32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/213.647e2ffe.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/214.8e117d35.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/216.bc2d671c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/217.6371c831.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/218.ec43176a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/219.d69f53c2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/220.ca6bdcd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/221.e36810e6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/222.715b43c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/223.808a43ec.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/224.e4df9237.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/225.6d08d9a9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/226.4a72d290.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/227.93c9df65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/228.89cf25a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/229.27539a77.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/23.74ec33ae.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/232.c03f5450.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/233.a50b7053.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/234.e24679d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/236.03949180.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/237.077ec90b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/238.84598708.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/239.43007d0a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/24.dfaf327e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/240.2df91873.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/242.3066009f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/243.1ff09887.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/244.30430b7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/246.473b271a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/247.edc9641e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/248.6f7f74e5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/249.24762885.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/25.50731498.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/250.cc52a908.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/251.87f791a2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/252.1e285f58.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/253.d783bd23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/254.bbeda6d8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/255.1601d594.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/256.644af9ee.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/257.369bfcaf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/258.95ae1b47.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/259.02650516.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/26.7308cd5b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/260.49df9ac8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/261.7018bbf8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/262.b7de7d79.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/264.b82abc65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/265.9f4300d1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/266.868fd3db.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/267.c47ce979.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/268.d0ab9778.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/269.3b3efc3e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/27.79b71a65.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/270.4f788569.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/271.4fe4a762.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/273.cb605436.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/274.0efe455c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/275.5bc2a05c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/277.4724df32.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/278.7e88e133.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/279.d117afb1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/28.96c7e30c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/280.1747c540.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/281.1df8dad8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/282.fb3b056e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/283.7238e6a3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/284.333828fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/285.b4db7f5d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/286.203a528e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/287.3c26123e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/288.7b1abc61.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/289.f27ef80f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/29.0be0ff39.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/290.b888b1dc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/291.db0ad529.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/292.491ba209.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/293.6222a09d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/294.ac3715a7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/295.3717bceb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/296.88ac43bd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/297.b2519337.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/298.4094ee4b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/299.f1b57bd4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/3.d8645ed1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/30.6c3af224.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/300.05acfc97.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/301.8b308b88.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/302.649b0f63.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/303.02024141.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/304.0e1196b1.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/305.b1ea83fa.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/306.0a66cafd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/307.a06f603b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/308.c5ff11ef.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/309.884aca03.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/31.841f3ded.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/310.06a43026.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/311.7705aadb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/312.16c67c7e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/313.3a6cccf5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/314.bddfc342.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/316.445c3681.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/317.6698324c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/318.83b94f00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/32.283b7a44.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/33.dd6bc432.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/34.88232fa7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/35.aecd5410.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/36.32967ae8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/37.7a64c1c3.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/38.4556399d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/39.5c25123c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/4.c0ad8e6f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/41.f689f7c8.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/42.25c15d8a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/43.14f65079.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/44.4b91b24a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/45.576f776e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/46.6da1e5cc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/49.d4e60513.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/50.c8b22d33.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/56.f2597707.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/57.51fbeade.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/62.1cf89df2.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/63.0f78d5dd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/66.fd2de134.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/67.6a554fd7.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/69.80992696.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/70.d3126764.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/71.a2e07128.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/72.b5189fa6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/73.367f0392.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/74.f315c04a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/75.1aa88d55.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/76.41b88fff.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/77.c6d47945.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/78.f3084837.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/79.8c5a82d4.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/80.975fdb87.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/81.efc8d138.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/82.fccf7493.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/83.2978c41b.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/85.a3074c64.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/86.6813c6c5.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/88.3506e2f0.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/89.7a73b80d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/9.4a24de8d.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/90.6d7286c6.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/91.65b2c391.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/93.aeac5506.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/94.4c8e5a25.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/95.2972011e.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/97.be960e26.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/98.39761100.js"><link rel="prefetch" href="/ho-lok-ue-tools/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/ho-lok-ue-tools/assets/css/0.styles.3fb4eb42.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/ho-lok-ue-tools/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/ho-lok-ue-tools/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/ho-lok-ue-tools/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>作業指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/ho-lok-ue-tools/d100_URS/" class="sidebar-link">使用者需求</a></li><li><a href="/ho-lok-ue-tools/d200_SRS/" class="sidebar-link">系統需求</a></li><li><a href="/ho-lok-ue-tools/d300_SDD/" class="sidebar-link">系統設計</a></li><li><a href="/ho-lok-ue-tools/d400_DEV/" class="sidebar-link">開發與測試</a></li><li><a href="/ho-lok-ue-tools/d500_OP/" class="sidebar-link">系統維運</a></li><li><a href="/ho-lok-ue-tools/d900_REF/" class="sidebar-link">參考資料</a></li><li><a href="/ho-lok-ue-tools/guide/" class="sidebar-link">作業指引</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>電腦硬體</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>開發環境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>參考資料</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="nvim-tmux-打造-django-開發環境"><a href="#nvim-tmux-打造-django-開發環境" class="header-anchor">#</a> Nvim + Tmux 打造 Django 開發環境</h1> <h1 id="軟體開發者打造環境的需求"><a href="#軟體開發者打造環境的需求" class="header-anchor">#</a> 軟體開發者打造環境的需求</h1> <p>從軟體開發者的工作流程，觀察作業應用的使用者需求；兼談 Tmux 與 Vim 工具能提供的功能特性。</p> <p>https://www.youtube.com/watch?v=sSOfr2MtRU8&amp;&amp;t=1s</p> <p><a href="https://youtu.be/sSOfr2MtRU8?t=1s" target="_blank" rel="noopener noreferrer">https://youtu.be/sSOfr2MtRU8<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h1 id="以-vs-code-為師-使用-vim-tmux-打造開發環境"><a href="#以-vs-code-為師-使用-vim-tmux-打造開發環境" class="header-anchor">#</a> 以 VS Code 為師，使用 Vim + Tmux 打造開發環境</h1> <p>對於用過 VS Code 的使用者，想要透過 Vim + Tmux 打造個人化開發環境時，該怎麼做、應滿足那些要求？！</p> <p>https://www.youtube.com/watch?v=gnupOrSEikQ&amp;&amp;t=1021s</p> <p><a href="https://youtu.be/gnupOrSEikQ?t=1021s" target="_blank" rel="noopener noreferrer">https://youtu.be/gnupOrSEikQ<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h1 id="跟著高手練功"><a href="#跟著高手練功" class="header-anchor">#</a> 跟著高手練功</h1> <p>參考高手已完成的實作案例，快速學習實務方面，在「設定」上的 How-to 。</p> <p><strong>A Complete Guide for Installing and Setting up Neovim for Python Development</strong>
+https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</p> <p>【註】： 以上文章，個人已完成實習，有興趣的朋友可參考我完成實作的 <strong>init.vim</strong> 設定檔。</p> <p><strong>Setup Neovim for Python</strong>
+https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</p> <p><strong>使用 neovim 打造一個現代化的編輯單</strong>
+http://liaoph.com/modern-vim/</p> <p><strong>VSCode-like envirnoment with vim + tmux</strong></p> <p>https://blog.inkdrop.info/vscode-like-environment-with-vim-tmux-4c2bfe17d31e</p> <h1 id="基礎打底"><a href="#基礎打底" class="header-anchor">#</a> 基礎打底</h1> <p>因為對 Vim 或 Tmux ，「有點熟但不是很熟 」的朋友，有些「專有名詞」、「操作概念」還無法全掌握者，可參考以下資料，練好基本功，為實力紮基礎。</p> <h2 id="python-開發者使用需求"><a href="#python-開發者使用需求" class="header-anchor">#</a> Python 開發者使用需求</h2> <p>https://www.youtube.com/watch?v=vlb3qUiS2ZY&amp;&amp;t=193s</p> <p><a href="https://youtu.be/vlb3qUiS2ZY?t=193s" target="_blank" rel="noopener noreferrer">https://youtu.be/vlb3qUiS2ZY?t=193s<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="何謂-syntax-highlighting"><a href="#何謂-syntax-highlighting" class="header-anchor">#</a> 何謂 Syntax Highlighting</h2> <p>https://www.youtube.com/watch?v=P5US8U8-KmA&amp;</p> <p><a href="https://youtu.be/P5US8U8-KmA" target="_blank" rel="noopener noreferrer">https://youtu.be/P5US8U8-KmA<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="copy-and-paste-for-tmux-vim-on-linux"><a href="#copy-and-paste-for-tmux-vim-on-linux" class="header-anchor">#</a> Copy and Paste for tmux &amp; vim on Linux</h2> <p>http://squidarth.com/programming/2018/12/14/tmux-linux.html</p> <h2 id="使用-linux-的-appimage-檔案在-ubuntu-18-04-安裝-nvim"><a href="#使用-linux-的-appimage-檔案在-ubuntu-18-04-安裝-nvim" class="header-anchor">#</a> 使用 Linux 的 AppImage 檔案在 Ubuntu 18.04 安裝 Nvim</h2> <p>https://github.com/neovim/neovim/releases/tag/v0.4.3</p> <h1 id="個人實作成品參考"><a href="#個人實作成品參考" class="header-anchor">#</a> 個人實作成品參考</h1> <p>以下之「設定檔」，於 Ubuntu 18.04 作業系統完成實作。</p> <h2 id="nvim-設定檔-config-nvim-init-vim"><a href="#nvim-設定檔-config-nvim-init-vim" class="header-anchor">#</a> Nvim 設定檔（～/.config/nvim/init.vim)</h2> <div class="language- extra-class"><pre><code>&quot;--------------------------------------------------------------
+&quot; 擴充套件（Plugins）
+&quot;--------------------------------------------------------------
+
+call plug#begin('~/.local/share/nvim/plugged')
+
+&quot; 停用擴充套件
+&quot; Plug 'davidhalter/jedi-vim', { 'on': []}
+
+&quot; 程式語言　auto-completion
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'davidhalter/jedi-vim'
+
+&quot; 狀態指示列
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+&quot; 自動配對
+Plug 'jiangmiao/auto-pairs'
+
+&quot; 註釋
+Plug 'scrooloose/nerdcommenter'
+
+&quot; 自動調整排版格式
+&quot; pip install yapf
+Plug 'sbdchd/neoformat'
+
+&quot; 自動顯示定義處(Code Jump)
+Plug 'davidhalter/jedi-vim'
+
+&quot; 檔案顯示管理
+Plug 'scrooloose/nerdtree'
+
+&quot; 程式碼檢核
+&quot; pipenv install pylint
+Plug 'neomake/neomake'
+
+&quot; 多游標編輯
+Plug 'terryma/vim-multiple-cursors'
+
+&quot; 高亮度標示被複製的文字
+Plug 'machakann/vim-highlightedyank'
+
+&quot; 折疊／開展程式碼
+Plug 'tmhedberg/SimpylFold'
+
+&quot; 佈景（Theme）
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'sheerun/vim-polyglot'
+
+call plug#end()
+
+
+&quot;--------------------------------------------------------------
+&quot; 系統設定
+&quot;--------------------------------------------------------------
+
+&quot; 設定 &lt;Leader&gt; 鍵
+let g:mapleader = &quot;,&quot;
+let mapleader = &quot;,&quot;
+set timeout timeoutlen=1500
+
+set clipboard=unnamedplus
+
+&quot; 可用滑鼠操作
+set mouse=a
+
+&quot; 顯示「行標」
+set cursorline
+
+&quot; 離開插入模式，回返一般模式
+imap jj &lt;Esc&gt;
+
+&quot; 設定〔行號〕顯示模式
+set number                  &quot; 顯示行號
+set relativenumber          &quot; 在遊標所在處顯示相對行號
+
+&quot; 變更行號顯示模式
+nmap &lt;leader&gt;nu :set number&lt;CR&gt;             &quot; :set nu
+nmap &lt;leader&gt;n! :set nonumber&lt;CR&gt;           &quot; :set nu!
+nmap &lt;leader&gt;NU :set relativenumber&lt;CR&gt;     &quot; :set rnu
+nmap &lt;leader&gt;N! :set norelativenumber&lt;CR&gt;   &quot; :set nornu
+
+
+&quot;--------------------------------------------------------------
+&quot; 檔案作業
+
+&quot; 停用 backup 與 swap 功能
+set nobackup
+set nowritebackup
+set noswapfile
+
+&quot; Automatically re-read file if a change was detected outside of vim
+set autoread
+
+
+&quot; 編輯設定檔
+nmap &lt;Leader&gt;i :tabnew ~/.config/nvim/init.vim&lt;CR&gt;
+
+&quot; 依據設定檔重啟設定
+nmap &lt;Leader&gt;I :source ~/.config/nvim/init.vim&lt;CR&gt;
+
+
+&quot; 儲存檔案
+nmap &lt;Leader&gt;w :w&lt;CR&gt;
+imap &lt;Leader&gt;w :w&lt;CR&gt;
+vmap &lt;Leader&gt;w :w&lt;CR&gt;
+nnoremap fs :w&lt;CR&gt;
+
+
+&quot; Allows you to save files you opened without write permissions via sudo
+cmap w!! w !sudo tee %
+
+
+&quot; 關閉目前正編輯的檔案
+map fc :bd&lt;CR&gt;      &quot; 已存檔
+map fC :bd!&lt;CR&gt;     &quot; 已編輯，不存檔，強迫關閉
+
+
+&quot; 退出 Vim
+noremap &lt;Leader&gt;e :quit&lt;CR&gt;  &quot; Exit current window
+noremap &lt;Leader&gt;E :qa!&lt;CR&gt;   &quot; Exit all windows
+nnoremap &lt;Leader&gt;Q  :qa!&lt;CR&gt;
+
+
+&quot;--------------------------------------------------------------
+&quot; Tabs and spaces handling
+set smarttab
+set cindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set shiftround
+set expandtab               &quot; always uses spaces instead of tab characters
+
+
+&quot; 文字搜尋：Serach configuration
+set ignorecase              &quot; 搜尋時怱略英文字母的大小寫
+set smartcase               &quot; turn on smartcase
+set incsearch
+set hlsearch                &quot; highlight search results
+
+
+
+&quot;--------------------------------------------------------------
+&quot; 系統設定
+&quot;--------------------------------------------------------------
+
+&quot; Enable deoplete plugin
+let g:python3_host_prog = &quot;/home/web_admin/.pyenv/shims/python&quot;
+
+&quot;
+&quot; 程式語言　auto-completion
+&quot;
+let g:deoplete#enable_at_startup = 1
+
+&quot; automatically close the method preview window
+autocmd InsertLeave, CompleteDone * if pumvisible() == 0 | pclose | endif
+
+&quot; Navigate through the auto-completion list with Tab key
+inoremap &lt;expr&gt;&lt;tab&gt; pumvisible() ? &quot;\&lt;c-n&gt;&quot; : &quot;\&lt;tab&gt;&quot;
+
+&quot;
+&quot; 狀態指示列
+&quot;
+let g:airline_theme='luna'
+
+
+&quot;
+&quot; 自動調整排版格式
+&quot;
+
+&quot; Vim Command
+&quot; :Neoformat! [python [yapf]]
+
+&quot; Enable alignment
+let g:neoformat_basic_format_align = 1
+
+&quot; Enable tab to spaces conversion
+let g:neoformat_basic_format_retab = 1
+
+&quot; Enable trimming of trailing whitespace
+let g:neoformat_basic_format_trim = 1
+
+&quot; Run a formatter on save
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
+
+&quot;
+&quot; 自動顯示定義處(Code Jump)
+&quot;
+
+&quot; Move the cursor to the class or method you want to check, then press the various supported shortcut provided by jedi-vim:
+&quot;
+&quot; - &lt;leader&gt;d: go to definition
+&quot; - K:         check documentation of class or method
+&quot; - &lt;leader&gt;n: show the usage of a name in current file
+&quot; - &lt;leader&gt;r: rename a name
+
+&quot; disable autocompletion, cause we use deoplete for completion
+let g:jedi#completions_enabled = 0
+
+&quot; open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = 'right'
+
+
+&quot;
+&quot; 檔案顯示管理
+&quot;
+
+&quot; Vim Command: NERDTree
+&quot; OP Ref: https://jdhao.github.io/2018/09/10/nerdtree_usage/
+&quot; - Open a file in the file explorer: &lt;o&gt;
+&quot; - Switch betwen file window and nerdtree file navigation window:
+&quot;     (a) &lt;C-w&gt;&lt;C-w&gt;
+&quot;     (b) &lt;C-w&gt;&lt;L&gt;
+&quot; - close file explorer window:
+&quot;     (a) &lt;q&gt; on file explorer window
+&quot;     (b) Vim Command: NERDTreeClose
+
+&quot; Open the NerdTree window when start up Nvim, but put the cursor in the file-editing window
+autocmd VimEnter * NERDTree | wincmd p
+
+&quot; Sublime Text like： Open side bar
+nnoremap &lt;silent&gt; &lt;C-k&gt;&lt;C-b&gt; :NERDTreeToggle&lt;CR&gt;
+
+
+&quot;
+&quot; 程式碼檢核
+&quot;
+&quot; Vim Command:
+&quot;  - Neomake: Manually start syntax checking
+&quot;  - lwindow / lopen: Navigate them using the buil-in methods
+&quot;  - lprev / lnext : Go back and forth
+&quot;
+&quot;  pylint --generate-rcfile &gt; ~/.pylintrc
+&quot;  Usage Ref: https://stackoverflow.com/questions/4341746/how-do-i-disable-a-pylint-warning/23542817#23542817
+
+let g:neomake_python_enabled_makers = ['pylint']
+
+&quot; Open the list automatically
+let g:neomake_open_list = 2
+
+&quot; enable automatical code check: normal mode (after 1s; no delay when writing)
+call neomake#configure#automake('nrwi', 500)
+
+
+&quot;
+&quot; 多游標編輯
+&quot;
+&quot; (1) move the cursor to a variable you want to rename
+&quot; (2) press &lt;C-n&gt; to enter multiple cursor ediiting mode and let variable to be highlighted
+&quot; (3) if a occurance want to skip, press &lt;C-x&gt;
+&quot; (4) press &lt;c&gt; (meands to change) and enter insert mode. Input a new name.
+&quot; (5) press &lt;ESC&gt; to exit multiple cursor editting mode
+
+
+&quot;
+&quot; 高亮度標示被複製的文字
+&quot;
+
+highlight HighlightedyankRegion cterm=reverse gui=reverse
+
+&quot; set highlight duration time to 1000 ms, i.e., 1 second
+let g:highlightedyank_highlight_duration = 1000
+
+
+&quot;
+&quot; 折疊／開展程式碼
+&quot;
+
+&quot; - zo： Open fold in current cursor postion
+&quot; - zO： Open fold and sub-fold in current cursor postion recursively
+&quot; - zc： Close the fold in current cursor position
+&quot; - zC： Close the fold and sub-fold in current cursor position recursively
+
+let g:SimpylFold_docstring_preview = 1
+let g:SimpylFold_fold_docstring = 0
+let g:SimpylFold_fold_import = 0
+
+
+&quot;
+&quot; 佈景（Theme）
+&quot;
+
+&quot; support true color
+set notermguicolors
+
+&quot; airline theme
+set laststatus=2
+if !has('gui_running')
+  set t_Co=256
+endif
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
+let g:airline_theme='tomorrow'
+
+&quot; gruvbox theme
+colorscheme gruvbox
+set background=dark
+&quot;set background=light
+
+&quot;&quot; onedark theme
+&quot;let g:onedark_hide_endofbuffer = 0
+&quot;let g:onedark_termcolors = 256
+
+&quot;&quot; onedark#extend_highlight
+&quot;if (has(&quot;autocmd&quot;))
+&quot;augroup colorextend
+&quot;autocmd!
+&quot;&quot; Make `Function`s bold in GUI mode
+&quot;autocmd ColorScheme * call onedark#extend_highlight(&quot;Function&quot;, { &quot;gui&quot;: &quot;bold&quot; })
+&quot;&quot; Override the `Statement` foreground color in 256-color mode
+&quot;autocmd ColorScheme * call onedark#extend_highlight(&quot;Statement&quot;, { &quot;fg&quot;: { &quot;cterm&quot;: 128 } })
+&quot;&quot; Override the `Identifier` background color in GUI mode
+&quot;autocmd ColorScheme * call onedark#extend_highlight(&quot;Identifier&quot;, { &quot;bg&quot;: { &quot;gui&quot;: &quot;#333333&quot; } })
+&quot;augroup END
+&quot;endif
+
+&quot;&quot; onedark#set_highlight
+&quot;&quot; onedark.vim override: Don't set a background color when running in a terminal;
+&quot;&quot; just use the terminal's background color
+&quot;&quot; `gui` is the hex color code used in GUI mode/nvim true-color mode
+&quot;&quot; `cterm` is the color code used in 256-color mode
+&quot;&quot; `cterm16` is the color code used in 16-color mode
+&quot;if (has(&quot;autocmd&quot;) &amp;&amp; !has(&quot;gui_running&quot;))
+&quot;augroup colorset
+&quot;autocmd!
+&quot;let s:white = { &quot;gui&quot;: &quot;#ABB2BF&quot;, &quot;cterm&quot;: &quot;145&quot;, &quot;cterm16&quot; : &quot;7&quot; }
+&quot;autocmd ColorScheme * call onedark#set_highlight(&quot;Normal&quot;, { &quot;fg&quot;: s:white }) &quot; `bg` will not be styled since there is no `bg` setting
+&quot;augroup END
+&quot;endif
+
+&quot;&quot;&quot; Global color overrides
+&quot;let g:onedark_color_overrides = {
+      &quot;\ &quot;black&quot;: {&quot;gui&quot;: &quot;#2F343F&quot;, &quot;cterm&quot;: &quot;235&quot;, &quot;cterm16&quot;: &quot;0&quot; },
+      &quot;\ &quot;purple&quot;: { &quot;gui&quot;: &quot;#C678DF&quot;, &quot;cterm&quot;: &quot;170&quot;, &quot;cterm16&quot;: &quot;5&quot; }
+&quot;\}
+
+&quot;syntax on
+&quot;colorscheme onedark
+
+
+&quot;
+&quot; Builtin terminal
+&quot;
+
+&quot; To open the terminal:
+&quot;  (A) :terminal
+&quot;  (B) :vnew term://bash
+&quot;  (C) :new term://bash
+&quot;
+&quot; Entering the terminal emulator: Press &lt;i&gt; to start typing terminal command
+&quot;
+&quot; To exit terminal commad: Press &lt;C-\&gt;&lt;C-n&gt;
+&quot;
+&quot; To exit terminal emulator: exit&lt;Enter&gt;
+</code></pre></div><h2 id="tmux-設定檔-tmux-conf"><a href="#tmux-設定檔-tmux-conf" class="header-anchor">#</a> Tmux 設定檔（～/.tmux.conf）</h2> <div class="language- extra-class"><pre><code># https://tmuxguide.readthedocs.io/en/latest/tmux/tmux.html#tmux-conf
+
+#========================================================
+# Tmux Plugins
+#========================================================
+
+# Tmux Plugin Manager
+if &quot;test ! -d ~/.tmux/plugins/tpm&quot; \
+     &quot;run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm &amp;&amp; ~/.tmux/plugins/tpm/bin/install_plugins'&quot;
+
+# List of plugins
+     set -g @plugin 'tmux-plugins/tpm'
+     set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Session save and restore
+#  - continuous saving of tmux environment
+#  - automatic tmux start when computer/server is turned on
+#  - automatic restore when tmux is started
+     set -g @plugin 'tmux-plugins/tmux-resurrect'
+     set -g @plugin 'tmux-plugins/tmux-continuum'
+
+     set -g @plugin 'tmux-plugins/tmux-yank'
+     set -g default-command &quot;reattach-to-user-namespace -l $SHELL&quot;
+
+     set -g @resurrect-strategy-vim 'session'
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'git@github.com/user/plugin'
+# set -g @plugin 'git@bitbucket.com/user/plugin'
+
+# Tmux Powerline theme
+     set -g @plugin 'jooize/tmux-powerline-theme'
+
+
+#========================================================
+# Tmux Configuration
+#========================================================
+
+# unbind default prefix and set it to ctrl-a
+     set -g prefix C-t
+     unbind C-b
+     bind C-t send-prefix
+
+# make delay shorter
+     set -sg escape-time 0
+
+# Automatic restore session
+     set -g @continuum-restore 'on'
+
+# history size
+     set -g history-limit 10000
+
+# enable mouse support for switching panes/windows
+     set -g mouse on
+
+### other optimization
+
+# display things in 256 colors
+# set -g default-terminal &quot;xterm-256color&quot;
+# set -ga terminal-overrides &quot;,xterm-256color:Tc&quot;
+
+# tell Tmux that outside terminal supports true color
+     set -g default-terminal &quot;screen-256color&quot;
+     set -ga terminal-overrides &quot;,xterm-256color*:Tc&quot;
+
+# stop auto renaming
+     setw -g automatic-rename off
+     set-option -g allow-rename off
+
+# renumber windows sequentially after closing
+     set -g renumber-windows on
+
+# window notifications; display activity on other window
+     setw -g monitor-activity on
+     set -g visual-activity on
+
+
+#
+# Status Line
+#
+
+# Status Line Format
+     set-window-option -g status-left &quot;&quot;
+     set-window-option -g status-right &quot;#[fg=white,bg=colour88] #S #[fg=colour231,bg=colour240] #H #[fg=black,bg=colour252,nobold] %b %d %a #[bold]%H:%M&quot;
+
+# default status bar colors
+     set -g status-fg colour240
+     set -g status-bg colour233
+
+# default window title colors
+     set-window-option -g window-status-style fg=colour220
+     set-window-option -g window-status-style bg=default
+
+#
+# Status bar window in background (not active)
+#
+# set-window-option -g window-status-format &quot;#I #W &quot;
+
+     set-window-option -g window-status-style dim
+     set-window-option -g window-status-style bg=colour240
+     set-window-option -g window-status-style fg=colour231
+
+#
+# Status bar window currently active
+#
+# set-window-option -g window-status-current-format &quot;#I #W &quot;
+
+# active window title colors
+     set-window-option -g window-status-current-style bright
+     set-window-option -g window-status-current-style bg=colour68
+     set-window-option -g window-status-current-style fg=colour220
+
+
+#========================================================
+# Key bindings
+#========================================================
+
+# reload config file
+     bind r source-file ~/.tmux.conf \; display-message &quot;Config reloaded...&quot;
+
+# quickly open a new window
+     bind N new-window
+
+# synchronize all panes in a window
+     bind y setw synchronize-panes
+
+# &quot;|&quot; splits the current window vertically, and &quot;-&quot; splits it horizontally
+     unbind %
+     bind | split-window -h
+     bind - split-window -v
+
+# Pane navigation (vim-like)
+     bind h select-pane -L
+     bind j select-pane -D
+     bind k select-pane -U
+     bind l select-pane -R
+
+# Pane resizing
+     bind -r Left  resize-pane -L 4
+     bind -r Down  resize-pane -D 4
+     bind -r Up    resize-pane -U 4
+     bind -r Right resize-pane -R 4
+
+# Move window
+     bind-key S-Left swap-window -t -1
+     bind-key S-Right swap-window -t +1
+
+# Cycle prev/next pane
+# bind -n S-Left  select-pane -t :.-
+# bind -n S-Right select-pane -t :.+
+# bind -n C-n     select-pane -t :.+
+
+# Open current directory
+     bind f run-shell &quot;open #{pane_current_path}&quot;
+
+#### copy mode : vim ####
+
+     bind P paste-buffer
+
+# set vi mode for copy mode
+     setw -g mode-keys vi
+
+# Setup 'v' to begin selection as in Vim
+     bind -T copy-mode-vi 'v' send-keys -X begin-selection
+
+# Copy to tmux buffer
+# For binding 'y' to copy and exiting selection mode
+     bind -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel &quot;xclip -sel clip -i&quot;
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+     run -b '~/.tmux/plugins/tpm/tpm'
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/ho-lok-ue-tools/assets/js/app.775b2e5a.js" defer></script><script src="/ho-lok-ue-tools/assets/js/2.e9bdfe5b.js" defer></script><script src="/ho-lok-ue-tools/assets/js/154.e4a08e57.js" defer></script>
+  </body>
+</html>
