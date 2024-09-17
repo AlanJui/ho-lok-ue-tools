@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Python 環境建置指引 | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/han_gi_chu_im/assets/css/0.styles.a12c963a.css" as="style"><link rel="preload" href="/han_gi_chu_im/assets/js/app.f2e2805b.js" as="script"><link rel="preload" href="/han_gi_chu_im/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/han_gi_chu_im/assets/js/35.516229c9.js" as="script"><link rel="prefetch" href="/han_gi_chu_im/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/101.e14056d5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/102.ef2e7694.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/103.5e524cf6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/104.449b67e1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/105.47db5476.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/106.173be714.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/107.64e61226.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/108.d41720e9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/109.5e3a678c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/11.84cf98b7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/111.2fe379ef.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/112.65fb8e56.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/113.e8199676.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/114.b76eb6f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/116.f901450e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/117.4898b362.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/118.80d06981.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/12.60a558ac.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/120.e66adabd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/121.d156a67b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/122.1d79306c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/123.e1941f1d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/124.0214e22f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/125.d294aced.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/126.0558f46b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/127.49d6672e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/128.cf355591.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/129.d495542f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/13.24f6efd0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/130.a6abc4e3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/131.469bba33.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/132.55c861f0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/133.8e571f38.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/134.04712779.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/135.8db4c9ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/136.28cffb72.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/137.938eab65.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/138.a57df1d2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/139.d9fc6309.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/14.a0a8a6dc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/140.5fccfcd6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/141.f0b1c886.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/142.8de335ef.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/144.05fa892e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/145.5ddbf44b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/146.8a7a3e16.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/147.296bb783.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/148.f1cb374f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/149.2a3806ea.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/15.03fefe25.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/150.5304d46a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/152.503ab6d1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/153.88ebbaf6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/154.d3f457e8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/155.33d01452.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/157.af848370.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/159.4dbdd890.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/16.21186ac1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/160.48d958e1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/161.e92c1d0b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/162.4a2836dd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/163.34672edb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/164.b3408f8d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/165.3b3ab477.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/166.33dc5f78.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/167.e392800e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/168.82153370.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/169.dcd62bfb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/170.a3d0a187.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/171.23ff00be.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/172.419179bc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/173.408750c0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/174.9d3448c2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/175.172eddbe.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/176.da75b470.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/177.2bcc49f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/178.ce76cf02.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/179.7b0cea4b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/180.6d511683.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/181.f18f383b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/182.4194ed40.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/183.de593066.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/184.d809d674.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/185.4741aacc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/186.e127fd4e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/187.01093181.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/188.be3dfceb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/189.c44554e5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/19.ee358577.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/190.7a89c427.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/191.ab08e553.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/193.72c5ff86.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/194.3b0608d5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/195.66817182.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/196.35c2fdb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/197.d4da390c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/198.f0525295.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/199.7aa6c935.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/200.d59e8a6a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/201.a3cad834.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/202.3d62278b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/203.cd0331b8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/204.3787443f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/205.27e200a2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/206.45652af0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/208.6de25ed2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/209.18b681f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/21.267f8c06.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/210.c22f1f45.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/211.a61a2195.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/212.3858824f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/213.0ac5db81.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/214.de0bbc7c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/216.7a7acb6b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/217.41bdaf52.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/218.f33b82e3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/219.597995c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/220.1530c4a2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/221.e36810e6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/222.596abb6d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/223.d3f55f99.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/224.c17ef7f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/225.972b8a95.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/226.17458472.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/227.598b61ec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/228.9c2b03f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/229.57204bbd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/23.71068419.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/232.9dd7c872.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/233.38d9ffc3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/234.e9d9bfab.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/236.bd16c64b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/237.077ec90b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/238.84598708.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/239.9bb68a5d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/24.a7cb7238.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/240.9d9a1a74.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/242.55ef7530.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/243.376498fe.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/244.5a8023d1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/246.076c0e56.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/247.96081bd7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/248.baee733f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/249.489259f3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/25.50731498.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/250.cc52a908.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/251.3b3d4281.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/252.6bcd563a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/253.6333d78c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/254.690b38af.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/255.1601d594.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/256.6f73bb5c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/257.a5a3366f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/258.89f98784.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/259.e24c0629.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/26.4aa29dff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/260.7a8d4e8e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/261.11a82914.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/262.bfb942fc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/264.c52a3206.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/265.61ea2fd0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/266.6bd5cefa.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/267.de2b661b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/268.acc85dac.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/269.3c1387e4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/27.02c70fe4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/270.6cdfc60d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/271.96b0a59b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/273.cf716f37.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/274.0efe455c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/275.cf2743f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/277.9cd97657.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/278.8a24a518.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/279.d117afb1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/28.8ee5b790.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/280.838b1c8c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/281.a18eae66.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/282.02a76248.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/283.09af7e2c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/284.77ab3f60.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/285.129e76df.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/286.d362fe87.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/287.bfacbf8b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/288.6c629410.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/289.bbe1f1b0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/29.4049a130.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/290.5b670cbc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/291.2a295df9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/292.491ba209.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/293.6222a09d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/294.da1b1bc8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/295.8e645779.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/296.322a7d66.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/297.81d85197.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/298.6c193148.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/299.97e6aaa2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/3.e19d0c82.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/30.a9e5068b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/300.3f422dec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/301.79b41302.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/302.501df600.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/303.2b1ed8bf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/304.1f0917b5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/305.c53a474c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/306.cd160b20.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/307.f5d095c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/308.d516c990.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/309.28060d09.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/31.57c6d1ed.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/310.06a43026.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/311.94f98dd7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/312.ac99c3c2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/313.dfeb0bb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/314.f7aff5f3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/316.17d84f4d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/317.fdbf74f7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/318.6137201c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/32.576d7346.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/33.2644dcc9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/34.392263e5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/36.32967ae8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/37.fbcfe203.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/38.4556399d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/39.5d0dd51c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/4.3390318d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/41.a27c7068.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/42.3122db26.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/43.bc00f6f1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/44.5a5e8d67.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/45.24ef54fa.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/46.2783633c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/49.d41a42ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/50.32f5fef6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/56.f2597707.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/57.51fbeade.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/62.dbcf4f5f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/63.a7334c7c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/66.9e5f2534.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/67.9253face.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/69.80992696.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/70.d3126764.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/71.3ea817b7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/72.36ff02f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/73.53cc8e64.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/74.bd2e921c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/75.1290517b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/76.41b88fff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/77.c6d47945.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/78.f3084837.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/79.bb751695.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/80.56b6f2db.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/81.6ce2f6b5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/82.fccf7493.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/83.2978c41b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/85.ae86ef9d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/86.fa76f964.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/88.ec319bec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/89.78dec0b0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/9.fac26b8a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/90.e83cc6ad.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/91.5c70caba.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/93.aeac5506.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/94.270811f7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/95.30da1a9a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/97.4866a931.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/98.28d380d4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/han_gi_chu_im/assets/css/0.styles.a12c963a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/han_gi_chu_im/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/han_gi_chu_im/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/han_gi_chu_im/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/han_gi_chu_im/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/han_gi_chu_im/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Python 環境建置指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/han_gi_chu_im/_ManjaroKDE/python.html#install-python-tools" class="sidebar-link">Install Python Tools</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/han_gi_chu_im/_ManjaroKDE/python.html#install-python-interpreter" class="sidebar-link">Install Python Interpreter</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/han_gi_chu_im/_ManjaroKDE/python.html#manage-python-virtualenvs" class="sidebar-link">Manage Python Virtualenvs</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/han_gi_chu_im/_ManjaroKDE/python.html#create-virtualenv" class="sidebar-link">Create Virtualenv</a></li></ul></li><li><a href="/han_gi_chu_im/_ManjaroKDE/python.html#configure-pip" class="sidebar-link">Configure pip</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/han_gi_chu_im/_ManjaroKDE/python.html#django-project" class="sidebar-link">Django Project</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="python-環境建置指引"><a href="#python-環境建置指引" class="header-anchor">#</a> Python 環境建置指引</h1> <h2 id="install-python-tools"><a href="#install-python-tools" class="header-anchor">#</a> Install Python Tools</h2> <ol><li>Install software</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>cd
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ol start="2"><li>Configure Shell</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>vim ~/.profile
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>~/.profile:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>....
+#--------------------------------------------------------------------
+# pyenv
+#--------------------------------------------------------------------
+
+export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+
+if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then
+  eval &quot;$(pyenv init -)&quot;
+  eval &quot;$(pyenv virtualenv-init -)&quot;   # pyenv-virtualenv: pyenv plugin
+fi
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+....
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><ol start="3"><li>Reset shell configuration</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>exec $SHELL
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h2 id="install-python-interpreter"><a href="#install-python-interpreter" class="header-anchor">#</a> Install Python Interpreter</h2> <ol><li>Install</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv install 3.8.5
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>$ pyenv versions
+* system (set by /Users/alanjui/.pyenv/version)
+
+$ pyenv install 3.8.5
+python-build: use openssl@1.1 from homebrew
+python-build: use readline from homebrew
+Downloading Python-3.8.5.tar.xz...
+-&gt; https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tar.xz
+Installing Python-3.8.5...
+python-build: use readline from homebrew
+python-build: use zlib from xcode sdk
+Installed Python-3.8.5 to /Users/alanjui/.pyenv/versions/3.8.5
+
+$ pyenv versions
+* system (set by /Users/alanjui/.pyenv/version)
+  3.8.5
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><ol start="2"><li>Configure default Python Interpreter</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv global &lt;VerNo&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>Ex: Without Python 2 specified</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ pyenv global 3.8.5
+
+$ pyenv versions
+  system
+* 3.8.5 (set by /Users/alanjui/.pyenv/version)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>Ex: With Python 2 and Python 3 specified</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$  pyenv versions
+  system
+  2.7.16
+* 3.8.5 (set by /Users/alanjui/.pyenv/version)
+  3.9.1
+
+$ pyenv global 2.7.16 3.9.1
+
+$ pyenv versions
+  system
+* 2.7.16 (set by /Users/alanjui/.pyenv/version)
+  3.8.5
+* 3.9.1 (set by /Users/alanjui/.pyenv/version)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>$ which python
+/usr/bin/python
+$ la /usr/bin/python
+lrwxr-xr-x  1 root  wheel    75B  1  1  2020 /usr/bin/python -&gt; ../../System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7
+$ /usr/bin/python
+
+WARNING: Python 2.7 is not recommended.
+This version is included in macOS for compatibility with legacy software.
+Future versions of macOS will not include Python 2.7.
+Instead, it is recommended that you transition to using 'python3' from within Terminal.
+
+Python 2.7.16 (default, Dec 21 2020, 23:00:36)
+[GCC Apple LLVM 12.0.0 (clang-1200.0.30.4) [+internal-os, ptrauth-isa=sign+stri on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; ^D
+
+$ which python2
+/usr/bin/python2
+$ la /usr/bin/python2
+lrwxr-xr-x  1 root  wheel    75B  1  1  2020 /usr/bin/python2 -&gt; ../../System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7
+
+$ which python3
+/usr/local/bin/python3
+$ la /usr/local/bin/python3
+lrwxr-xr-x  1 alanjui  admin    40B  2 13 12:23 /usr/local/bin/python3 -&gt; ../Cellar/python@3.9/3.9.1_8/bin/python3
+$ /usr/local/bin/python3
+Python 3.9.1 (default, Feb  3 2021, 07:38:02)
+[Clang 12.0.0 (clang-1200.0.32.29)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; ^D
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><p>Python installed locally:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ ls -l -d  ~/.pyenv/shims/python[0-9]
+-rwxr-xr-x  1 alanjui  staff  408  2 20 11:56 /Users/alanjui/.pyenv/shims/python2
+-rwxr-xr-x  1 alanjui  staff  408  2 20 11:27 /Users/alanjui/.pyenv/shims/python3
+
+$ ls -l -d ~/.pyenv/shims/python
+-rwxr-xr-x  1 alanjui  staff  408  2 20 11:27 /Users/alanjui/.pyenv/shims/python
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>$ ~/.pyenv/shims/python
+Python 2.7.16 (default, Feb 20 2021, 11:55:00)
+[GCC Apple LLVM 12.0.0 (clang-1200.0.32.28)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+
+$ ~/.pyenv/shims/python3
+Python 3.9.1 (default, Feb 20 2021, 11:45:58)
+[Clang 12.0.0 (clang-1200.0.32.28)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+
+$ exec $SHELL
+
+$ echo $PATH
+/usr/local/opt/openjdk/bin:/Users/alanjui/.pyenv/plugins/pyenv-virtualenv/shims:/Users/alanjui/.pyenv/shims:/Users/alanjui/.pyenv/bin:/usr/local/opt/sqlite/bin:/Users/alanjui/.yarn/bin:/Users/alanjui/.config/yarn/global/node_modules/.bin:/Users/alanjui/.gem/bin:/usr/local/opt/libiconv/bin:/usr/local/opt/openssl@1.1/bin:/usr/local/opt/ruby/bin:/Users/alanjui/bin:/Users/alanjui/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/usr/local/share/dotnet:/Users/alanjui/n/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/Users/alanjui/.fzf/bin
+
+$ which python
+/Users/alanjui/.pyenv/shims/python
+$ /Users/alanjui/.pyenv/shims/python
+Python 2.7.16 (default, Feb 20 2021, 11:55:00)
+[GCC Apple LLVM 12.0.0 (clang-1200.0.32.28)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+
+$ which python3
+/Users/alanjui/.pyenv/shims/python3
+$ /Users/alanjui/.pyenv/shims/python3
+Python 3.9.1 (default, Feb 20 2021, 11:45:58)
+[Clang 12.0.0 (clang-1200.0.32.28)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><h2 id="manage-python-virtualenvs"><a href="#manage-python-virtualenvs" class="header-anchor">#</a> Manage Python Virtualenvs</h2> <h3 id="create-virtualenv"><a href="#create-virtualenv" class="header-anchor">#</a> Create Virtualenv</h3> <ol><li>Create</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv virtualenv &lt;VerNo&gt; &lt;VirtualEnvName&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>Ex:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv virtualenv 3.9.1 venv-3.9.1
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><ol start="2"><li>Configure VirtualEnv for Project</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>pyenv local &lt;VirtualEnvName&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>$ cd ~/workspace/django/test-100
+
+$ pyenv virtualenv 3.9.1 venv-3.9.1
+Looking in links: /var/folders/36/6kwybs_92bj1_x96p67h7q8w0000gp/T/tmp67ulkd55
+Requirement already satisfied: setuptools in /Users/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1/lib/python3.9/site-packages (49.2.1)
+Requirement already satisfied: pip in /Users/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1/lib/python3.9/site-packages (20.2.3)
+
+$ pyenv local venv-3.9.1
+
+$pyenv versions
+  system
+  2.7.16
+  3.8.5
+  3.9.1
+  3.9.1/envs/venv-3.9.1
+* venv-3.9.1 (set by /Users/alanjui/workspace/django/test-100/.python-version)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h2 id="configure-pip"><a href="#configure-pip" class="header-anchor">#</a> Configure pip</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ cd
+$ pyenv version
+2.7.16 (set by /Users/alanjui/.pyenv/version)
+3.9.1 (set by /Users/alanjui/.pyenv/version)
+
+$ ~/.pyenv/versions/3.9.1/bin/python3.9 -m pip install --upgrade pip
+Collecting pip
+  Downloading pip-21.0.1-py3-none-any.whl (1.5 MB)
+     |████████████████████████████████| 1.5 MB 1.6 MB/s
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 20.2.3
+    Uninstalling pip-20.2.3:
+      Successfully uninstalled pip-20.2.3
+Successfully installed pip-21.0.1
+
+$ pip install pynvim
+Collecting pynvim
+  Using cached https://files.pythonhosted.org/packages/9c/76/d16f58648f4d3398ecd5b48ae7fb064f1701c51fe094e0b7b4e08586df0c/pynvim-0.4.2.tar.gz
+Collecting msgpack&gt;=0.5.0 (from pynvim)
+  Downloading https://files.pythonhosted.org/packages/59/04/87fc6708659c2ed3b0b6d4954f270b6e931def707b227c4554f99bd5401e/msgpack-1.0.2.tar.gz (123kB)
+    100% |████████████████████████████████| 133kB 1.7MB/s
+Collecting trollius (from pynvim)
+  Using cached https://files.pythonhosted.org/packages/0b/31/356ae13ad4df58f963e9954d55118f6cffdb3a903c1547973ad7bc347fb9/trollius-2.2.post1.tar.gz
+Collecting greenlet (from pynvim)
+  Downloading https://files.pythonhosted.org/packages/92/be/878cc5314fa5aadce33e68738c1a24debe317605196bdfc2049e66bc9c30/greenlet-1.0.0.tar.gz (84kB)
+    100% |████████████████████████████████| 92kB 8.7MB/s
+Collecting six (from trollius-&gt;pynvim)
+  Using cached https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Collecting futures (from trollius-&gt;pynvim)
+  Using cached https://files.pythonhosted.org/packages/d8/a6/f46ae3f1da0cd4361c344888f59ec2f5785e69c872e175a748ef6071cdb5/futures-3.3.0-py2-none-any.whl
+Installing collected packages: msgpack, six, futures, trollius, greenlet, pynvim
+  Running setup.py install for msgpack ... done
+  Running setup.py install for trollius ... done
+  Running setup.py install for greenlet ... done
+  Running setup.py install for pynvim ... done
+Successfully installed futures-3.3.0 greenlet-1.0.0 msgpack-1.0.2 pynvim-0.4.2 six-1.15.0 trollius-2.2.post1
+You are using pip version 18.1, however version 20.3.4 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+
+$ pip install --upgrade pip
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/27/79/8a850fe3496446ff0d584327ae44e7500daf6764ca1a382d2d02789accf7/pip-20.3.4-py2.py3-none-any.whl (1.5MB)
+    100% |████████████████████████████████| 1.5MB 5.3MB/s
+Installing collected packages: pip
+  Found existing installation: pip 18.1
+    Uninstalling pip-18.1:
+      Successfully uninstalled pip-18.1
+Successfully installed pip-20.3.4
+
+$ which pip
+/Users/alanjui/.pyenv/shims/pip
+
+$ pip install pynvim
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support pip 21.0 will remove support for this functionality.
+Requirement already satisfied: pynvim in ./.pyenv/versions/2.7.16/lib/python2.7/site-packages (0.4.2)
+Requirement already satisfied: msgpack&gt;=0.5.0 in ./.pyenv/versions/2.7.16/lib/python2.7/site-packages (from pynvim) (1.0.2)
+Requirement already satisfied: trollius in ./.pyenv/versions/2.7.16/lib/python2.7/site-packages (from pynvim) (2.2.post1)
+Requirement already satisfied: greenlet in ./.pyenv/versions/2.7.16/lib/python2.7/site-packages (from pynvim) (1.0.0)
+Requirement already satisfied: six in ./.pyenv/versions/2.7.16/lib/python2.7/site-packages (from trollius-&gt;pynvim) (1.15.0)
+Requirement already satisfied: futures in ./.pyenv/versions/2.7.16/lib/python2.7/site-packages (from trollius-&gt;pynvim) (3.3.0)
+
+$ pip3 install pynvim
+Collecting pynvim
+  Using cached pynvim-0.4.2.tar.gz (42 kB)
+Collecting msgpack&gt;=0.5.0
+  Using cached msgpack-1.0.2-cp39-cp39-macosx_10_14_x86_64.whl (74 kB)
+Collecting greenlet
+  Using cached greenlet-1.0.0-cp39-cp39-macosx_10_14_x86_64.whl (86 kB)
+Using legacy 'setup.py install' for pynvim, since package 'wheel' is not installed.
+Installing collected packages: msgpack, greenlet, pynvim
+    Running setup.py install for pynvim ... done
+Successfully installed greenlet-1.0.0 msgpack-1.0.2 pynvim-0.4.2
+
+$ la ~/.pyenv/versions/3.9.1/lib/python3.9/site-packages
+total 16
+-rw-r--r--   1 alanjui  staff   119B  2 20 11:46 README.txt
+drwxr-xr-x   3 alanjui  staff    96B  2 20 11:46 __pycache__
+-rw-r--r--   1 alanjui  staff   126B  2 20 11:46 easy_install.py
+drwxr-xr-x  10 alanjui  staff   320B  2 20 14:17 greenlet
+drwxr-xr-x  10 alanjui  staff   320B  2 20 14:17 greenlet-1.0.0.dist-info
+drwxr-xr-x   9 alanjui  staff   288B  2 20 14:17 msgpack
+drwxr-xr-x   8 alanjui  staff   256B  2 20 14:17 msgpack-1.0.2.dist-info
+drwxr-xr-x   5 alanjui  staff   160B  2 20 14:17 neovim
+drwxr-xr-x   7 alanjui  staff   224B  2 20 14:05 pip
+drwxr-xr-x  10 alanjui  staff   320B  2 20 14:05 pip-21.0.1.dist-info
+drwxr-xr-x   6 alanjui  staff   192B  2 20 11:46 pkg_resources
+drwxr-xr-x   9 alanjui  staff   288B  2 20 14:17 pynvim
+drwxr-xr-x   9 alanjui  staff   288B  2 20 14:17 pynvim-0.4.2-py3.9.egg-info
+drwxr-xr-x  45 alanjui  staff   1.4K  2 20 11:46 setuptools
+drwxr-xr-x  12 alanjui  staff   384B  2 20 11:46 setuptools-49.2.1.dist-info
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br></div></div><h2 id="django-project"><a href="#django-project" class="header-anchor">#</a> Django Project</h2> <ol><li>Install package for projects</li></ol> <div class="language- line-numbers-mode"><pre class="language-text"><code>pip install -r requirements.txt
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>$ cd ~/workspace/django/test-100
+
+$ pyenv version
+venv-3.9.1 (set by /Users/alanjui/workspace/django/test-100/.python-version)
+
+$ la ~/.pyenv/versions/3.9.1/envs/venv-3.9.1/lib/python3.9/site-packages
+total 8
+drwxr-xr-x   3 alanjui  staff    96B  2 20 21:12 __pycache__
+-rw-r--r--   1 alanjui  staff   126B  2 20 21:12 easy_install.py
+drwxr-xr-x   7 alanjui  staff   224B  2 20 21:12 pip
+drwxr-xr-x  10 alanjui  staff   320B  2 20 21:12 pip-20.2.3.dist-info
+drwxr-xr-x   6 alanjui  staff   192B  2 20 21:12 pkg_resources
+drwxr-xr-x  45 alanjui  staff   1.4K  2 20 21:12 setuptools
+drwxr-xr-x  12 alanjui  staff   384B  2 20 21:12 setuptools-49.2.1.dist-info
+
+$ pip install -r requirements.txt
+....
+
+$la ~/.pyenv/versions/3.9.1/envs/venv-3.9.1/lib/python3.9/site-packages
+total 616
+drwxr-xr-x  12 alanjui  staff   384B  2 20 21:53 Django-3.1.7.dist-info
+drwxr-xr-x   7 alanjui  staff   224B  2 20 21:53 __pycache__
+drwxr-xr-x  12 alanjui  staff   384B  2 20 21:53 asgiref
+drwxr-xr-x   9 alanjui  staff   288B  2 20 21:53 asgiref-3.3.1.dist-info
+drwxr-xr-x  30 alanjui  staff   960B  2 20 21:53 astroid
+drwxr-xr-x  10 alanjui  staff   320B  2 20 21:53 astroid-2.4.2.dist-info
+drwxr-xr-x  11 alanjui  staff   352B  2 20 21:53 autopep8-1.5.5.dist-info
+-rw-r--r--   1 alanjui  staff   148K  2 20 21:53 autopep8.py
+drwxr-xr-x  22 alanjui  staff   704B  2 20 21:53 django
+-rw-r--r--   1 alanjui  staff   126B  2 20 21:12 easy_install.py
+drwxr-xr-x  10 alanjui  staff   320B  2 20 21:53 greenlet
+drwxr-xr-x   9 alanjui  staff   288B  2 20 21:53 greenlet-1.0.0-py3.9.egg-info
+drwxr-xr-x  34 alanjui  staff   1.1K  2 20 21:53 isort
+drwxr-xr-x   9 alanjui  staff   288B  2 20 21:53 isort-5.7.0.dist-info
+drwxr-xr-x  10 alanjui  staff   320B  2 20 21:53 lazy_object_proxy
+drwxr-xr-x  10 alanjui  staff   320B  2 20 21:53 lazy_object_proxy-1.4.3.dist-info
+drwxr-xr-x  11 alanjui  staff   352B  2 20 21:53 mccabe-0.6.1.dist-info
+-rw-r--r--   1 alanjui  staff    10K  2 20 21:53 mccabe.py
+drwxr-xr-x   9 alanjui  staff   288B  2 20 21:53 msgpack
+drwxr-xr-x   7 alanjui  staff   224B  2 20 21:53 msgpack-1.0.2-py3.9.egg-info
+drwxr-xr-x   5 alanjui  staff   160B  2 20 21:53 neovim
+drwxr-xr-x  10 alanjui  staff   320B  2 20 21:53 neovim_remote-2.4.0.dist-info
+drwxr-xr-x   5 alanjui  staff   160B  2 20 21:53 nvr
+drwxr-xr-x   7 alanjui  staff   224B  2 20 21:54 pip
+drwxr-xr-x  10 alanjui  staff   320B  2 20 21:54 pip-21.0.1.dist-info
+drwxr-xr-x   6 alanjui  staff   192B  2 20 21:12 pkg_resources
+drwxr-xr-x  16 alanjui  staff   512B  2 20 21:53 psutil
+drwxr-xr-x   9 alanjui  staff   288B  2 20 21:53 psutil-5.8.0-py3.9.egg-info
+drwxr-xr-x  11 alanjui  staff   352B  2 20 21:53 pycodestyle-2.6.0.dist-info
+-rw-r--r--   1 alanjui  staff   101K  2 20 21:53 pycodestyle.py
+drwxr-xr-x  20 alanjui  staff   640B  2 20 21:53 pylint
+drwxr-xr-x  10 alanjui  staff   320B  2 20 21:53 pylint-2.6.2.dist-info
+drwxr-xr-x   9 alanjui  staff   288B  2 20 21:53 pynvim
+drwxr-xr-x   9 alanjui  staff   288B  2 20 21:53 pynvim-0.4.2-py3.9.egg-info
+drwxr-xr-x  10 alanjui  staff   320B  2 20 21:53 pytz
+drwxr-xr-x  12 alanjui  staff   384B  2 20 21:53 pytz-2021.1.dist-info
+drwxr-xr-x  45 alanjui  staff   1.4K  2 20 21:12 setuptools
+drwxr-xr-x  12 alanjui  staff   384B  2 20 21:12 setuptools-49.2.1.dist-info
+drwxr-xr-x   9 alanjui  staff   288B  2 20 21:53 six-1.15.0.dist-info
+-rw-r--r--   1 alanjui  staff    33K  2 20 21:53 six.py
+drwxr-xr-x  16 alanjui  staff   512B  2 20 21:53 sqlparse
+drwxr-xr-x  11 alanjui  staff   352B  2 20 21:53 sqlparse-0.4.1.dist-info
+drwxr-xr-x   8 alanjui  staff   256B  2 20 21:53 toml
+drwxr-xr-x   9 alanjui  staff   288B  2 20 21:53 toml-0.10.2.dist-info
+drwxr-xr-x   8 alanjui  staff   256B  2 20 21:53 wrapt
+drwxr-xr-x   7 alanjui  staff   224B  2 20 21:53 wrapt-1.12.1-py3.9.egg-info
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/han_gi_chu_im/assets/js/app.f2e2805b.js" defer></script><script src="/han_gi_chu_im/assets/js/2.e9bdfe5b.js" defer></script><script src="/han_gi_chu_im/assets/js/35.516229c9.js" defer></script>
+  </body>
+</html>

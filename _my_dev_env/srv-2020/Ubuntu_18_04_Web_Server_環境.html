@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ubuntu 18.04 Web Server 環境 | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/han_gi_chu_im/assets/css/0.styles.a12c963a.css" as="style"><link rel="preload" href="/han_gi_chu_im/assets/js/app.f2e2805b.js" as="script"><link rel="preload" href="/han_gi_chu_im/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/han_gi_chu_im/assets/js/259.e24c0629.js" as="script"><link rel="prefetch" href="/han_gi_chu_im/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/101.e14056d5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/102.ef2e7694.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/103.5e524cf6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/104.449b67e1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/105.47db5476.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/106.173be714.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/107.64e61226.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/108.d41720e9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/109.5e3a678c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/11.84cf98b7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/111.2fe379ef.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/112.65fb8e56.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/113.e8199676.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/114.b76eb6f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/116.f901450e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/117.4898b362.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/118.80d06981.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/12.60a558ac.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/120.e66adabd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/121.d156a67b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/122.1d79306c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/123.e1941f1d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/124.0214e22f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/125.d294aced.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/126.0558f46b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/127.49d6672e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/128.cf355591.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/129.d495542f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/13.24f6efd0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/130.a6abc4e3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/131.469bba33.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/132.55c861f0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/133.8e571f38.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/134.04712779.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/135.8db4c9ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/136.28cffb72.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/137.938eab65.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/138.a57df1d2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/139.d9fc6309.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/14.a0a8a6dc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/140.5fccfcd6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/141.f0b1c886.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/142.8de335ef.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/144.05fa892e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/145.5ddbf44b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/146.8a7a3e16.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/147.296bb783.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/148.f1cb374f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/149.2a3806ea.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/15.03fefe25.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/150.5304d46a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/152.503ab6d1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/153.88ebbaf6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/154.d3f457e8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/155.33d01452.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/157.af848370.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/159.4dbdd890.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/16.21186ac1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/160.48d958e1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/161.e92c1d0b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/162.4a2836dd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/163.34672edb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/164.b3408f8d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/165.3b3ab477.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/166.33dc5f78.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/167.e392800e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/168.82153370.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/169.dcd62bfb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/170.a3d0a187.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/171.23ff00be.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/172.419179bc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/173.408750c0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/174.9d3448c2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/175.172eddbe.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/176.da75b470.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/177.2bcc49f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/178.ce76cf02.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/179.7b0cea4b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/180.6d511683.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/181.f18f383b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/182.4194ed40.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/183.de593066.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/184.d809d674.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/185.4741aacc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/186.e127fd4e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/187.01093181.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/188.be3dfceb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/189.c44554e5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/19.ee358577.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/190.7a89c427.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/191.ab08e553.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/193.72c5ff86.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/194.3b0608d5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/195.66817182.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/196.35c2fdb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/197.d4da390c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/198.f0525295.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/199.7aa6c935.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/200.d59e8a6a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/201.a3cad834.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/202.3d62278b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/203.cd0331b8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/204.3787443f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/205.27e200a2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/206.45652af0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/208.6de25ed2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/209.18b681f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/21.267f8c06.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/210.c22f1f45.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/211.a61a2195.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/212.3858824f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/213.0ac5db81.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/214.de0bbc7c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/216.7a7acb6b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/217.41bdaf52.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/218.f33b82e3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/219.597995c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/220.1530c4a2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/221.e36810e6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/222.596abb6d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/223.d3f55f99.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/224.c17ef7f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/225.972b8a95.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/226.17458472.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/227.598b61ec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/228.9c2b03f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/229.57204bbd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/23.71068419.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/232.9dd7c872.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/233.38d9ffc3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/234.e9d9bfab.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/236.bd16c64b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/237.077ec90b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/238.84598708.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/239.9bb68a5d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/24.a7cb7238.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/240.9d9a1a74.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/242.55ef7530.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/243.376498fe.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/244.5a8023d1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/246.076c0e56.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/247.96081bd7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/248.baee733f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/249.489259f3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/25.50731498.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/250.cc52a908.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/251.3b3d4281.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/252.6bcd563a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/253.6333d78c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/254.690b38af.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/255.1601d594.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/256.6f73bb5c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/257.a5a3366f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/258.89f98784.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/26.4aa29dff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/260.7a8d4e8e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/261.11a82914.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/262.bfb942fc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/264.c52a3206.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/265.61ea2fd0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/266.6bd5cefa.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/267.de2b661b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/268.acc85dac.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/269.3c1387e4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/27.02c70fe4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/270.6cdfc60d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/271.96b0a59b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/273.cf716f37.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/274.0efe455c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/275.cf2743f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/277.9cd97657.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/278.8a24a518.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/279.d117afb1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/28.8ee5b790.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/280.838b1c8c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/281.a18eae66.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/282.02a76248.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/283.09af7e2c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/284.77ab3f60.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/285.129e76df.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/286.d362fe87.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/287.bfacbf8b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/288.6c629410.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/289.bbe1f1b0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/29.4049a130.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/290.5b670cbc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/291.2a295df9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/292.491ba209.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/293.6222a09d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/294.da1b1bc8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/295.8e645779.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/296.322a7d66.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/297.81d85197.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/298.6c193148.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/299.97e6aaa2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/3.e19d0c82.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/30.a9e5068b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/300.3f422dec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/301.79b41302.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/302.501df600.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/303.2b1ed8bf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/304.1f0917b5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/305.c53a474c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/306.cd160b20.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/307.f5d095c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/308.d516c990.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/309.28060d09.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/31.57c6d1ed.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/310.06a43026.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/311.94f98dd7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/312.ac99c3c2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/313.dfeb0bb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/314.f7aff5f3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/316.17d84f4d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/317.fdbf74f7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/318.6137201c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/32.576d7346.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/33.2644dcc9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/34.392263e5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/35.516229c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/36.32967ae8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/37.fbcfe203.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/38.4556399d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/39.5d0dd51c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/4.3390318d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/41.a27c7068.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/42.3122db26.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/43.bc00f6f1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/44.5a5e8d67.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/45.24ef54fa.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/46.2783633c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/49.d41a42ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/50.32f5fef6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/56.f2597707.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/57.51fbeade.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/62.dbcf4f5f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/63.a7334c7c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/66.9e5f2534.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/67.9253face.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/69.80992696.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/70.d3126764.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/71.3ea817b7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/72.36ff02f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/73.53cc8e64.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/74.bd2e921c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/75.1290517b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/76.41b88fff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/77.c6d47945.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/78.f3084837.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/79.bb751695.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/80.56b6f2db.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/81.6ce2f6b5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/82.fccf7493.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/83.2978c41b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/85.ae86ef9d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/86.fa76f964.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/88.ec319bec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/89.78dec0b0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/9.fac26b8a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/90.e83cc6ad.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/91.5c70caba.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/93.aeac5506.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/94.270811f7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/95.30da1a9a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/97.4866a931.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/98.28d380d4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/han_gi_chu_im/assets/css/0.styles.a12c963a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/han_gi_chu_im/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/han_gi_chu_im/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/han_gi_chu_im/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/han_gi_chu_im/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/han_gi_chu_im/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>作業指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/han_gi_chu_im/d100_URS/" class="sidebar-link">使用者需求</a></li><li><a href="/han_gi_chu_im/d200_SRS/" class="sidebar-link">系統需求</a></li><li><a href="/han_gi_chu_im/d300_SDD/" class="sidebar-link">系統設計</a></li><li><a href="/han_gi_chu_im/d400_DEV/" class="sidebar-link">開發與測試</a></li><li><a href="/han_gi_chu_im/d500_OP/" class="sidebar-link">系統維運</a></li><li><a href="/han_gi_chu_im/d900_REF/" class="sidebar-link">參考資料</a></li><li><a href="/han_gi_chu_im/guide/" class="sidebar-link">作業指引</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>電腦硬體</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>開發環境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>參考資料</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ubuntu-18-04-web-server-環境"><a href="#ubuntu-18-04-web-server-環境" class="header-anchor">#</a> Ubuntu 18.04 Web Server 環境</h1> <ul><li>使用者帳號與群組建立</li> <li>Python環境安裝與設定</li> <li>DB服務（Postgres）安裝與設定</li> <li>網站安裝與設定</li> <li>uWSGI服務安裝與設定</li> <li>nginx服務安裝與設定</li></ul> <h1 id="使用者帳號與群組建立"><a href="#使用者帳號與群組建立" class="header-anchor">#</a> 使用者帳號與群組建立</h1> <p>以下說明在作業系統環境，應建立之使用者帳號及群組。</p> <h2 id="設定使用者與群組"><a href="#設定使用者與群組" class="header-anchor">#</a> 設定使用者與群組</h2> <p><strong>加入使用者帳號</strong></p> <div class="language- extra-class"><pre><code>$ sudo adduser juzhengzhong
+$ usermod -aG sudo juzhengzhong
+</code></pre></div><p><strong>先登出再使用 juzhengzhong 使用者帳號登入</strong></p> <p><strong>將登入時使用的使用者帳號加入 www-data 群組</strong></p> <div class="language- extra-class"><pre><code>$ sudo usermod -aG www-data $USER
+</code></pre></div><p><strong>驗證設定成功：</strong></p> <p>先登出，再登入才能執行下列驗證指令。</p> <div class="language- extra-class"><pre><code>$ groups
+
+
+$ groups
+juzhengzhong root adm sudo www-data sambashare docker
+$ id
+uid=1003(juzhengzhong) gid=1004(juzhengzhong) 群組=1004(juzhengzhong),0(root),4(adm),27(sudo),33(www-data),126(sambashare),999(docker)
+</code></pre></div><hr> <h1 id="python環境安裝與設定"><a href="#python環境安裝與設定" class="header-anchor">#</a> Python環境安裝與設定</h1> <p><strong>更新作業系統套件庫。</strong></p> <div class="language- extra-class"><pre><code>sudo apt-get update
+sudo apt-get upgrade
+</code></pre></div><p><strong>檢查作業系統預先安裝之 python 3 是否存在，且能正常運作。</strong></p> <div class="language- extra-class"><pre><code># check if installed
+python3.6 --version
+==&gt; Python 3.6.5
+</code></pre></div><p><strong>在作業系統安裝 pip3 套件。</strong></p> <div class="language- extra-class"><pre><code>$ sudo apt install python3-pip
+# Check if installed successfully
+$ pip3 --version
+pip 9.0.1 from /usr/lib/python3/dist-packages (python 3.6)
+</code></pre></div><p><strong>安裝  python 3 之 virtualenv 套件。</strong></p> <div class="language- extra-class"><pre><code>$ sudo -H pip3 install virtualenv
+
+
+$ sudo -H pip3 install virtualenv
+Requirement already satisfied: virtualenv in /usr/local/lib/python3.6/dist-packages
+</code></pre></div><p><strong>安裝  python 3 之 pipenv 套件。</strong></p> <div class="language- extra-class"><pre><code>$ sudo -H pip3 install pipenv
+
+
+$ sudo -H pip3 install pipenv
+Collecting pipenv
+  Downloading https://files.pythonhosted.org/packages/13/b4/3ffa55f77161cff9a5220f162670f7c5eb00df52e00939e203f601b0f579/pipenv-2018.11.26-py3-none-any.whl (5.2MB)
+    100% |████████████████████████████████| 5.2MB 53kB/s
+Collecting virtualenv-clone&gt;=0.2.5 (from pipenv)
+  Downloading https://files.pythonhosted.org/packages/e3/d9/d9c56deb483c4d3289a00b12046e41428be64e8236fa210111a1f57cc42d/virtualenv_clone-0.5.1-py2.py3-none-any.whl
+Requirement already satisfied: setuptools&gt;=36.2.1 in /usr/lib/python3/dist-packages (from pipenv)
+Requirement already satisfied: certifi in /usr/lib/python3/dist-packages (from pipenv)
+Requirement already satisfied: pip&gt;=9.0.1 in /usr/lib/python3/dist-packages (from pipenv)
+Requirement already satisfied: virtualenv in /usr/local/lib/python3.6/dist-packages (from pipenv)
+Installing collected packages: virtualenv-clone, pipenv
+Successfully installed pipenv-2018.11.26 virtualenv-clone-0.5.1
+</code></pre></div><hr> <h1 id="db服務-postgres-安裝與設定"><a href="#db服務-postgres-安裝與設定" class="header-anchor">#</a> DB服務（Postgres）安裝與設定</h1> <h2 id="安裝-postgres-套件"><a href="#安裝-postgres-套件" class="header-anchor">#</a> 安裝 Postgres 套件</h2> <p><strong>安裝指令：</strong></p> <div class="language- extra-class"><pre><code>$ sudo apt install postgresql postgresql-contrib
+</code></pre></div><p><strong>摘要：</strong></p> <p>程式： /var/lib/postgresql/11/main/</p> <p>重新啟動 Postgres Database Server：  /usr/lib/postgresql/11/bin/pg_ctl -D /var/lib/postgresql/11/main -l logfile start</p> <p>Ver Cluster Port Status Owner    Data directory              Log file
+11  main    5432 down   postgres /var/lib/postgresql/11/main /var/log/postgresql/postgresql-11-main.log
+update-alternatives: using /usr/share/postgresql/11/man/man1/postmaster.1.gz to provide /usr/share/man/man1/postmaster.1.gz (postmaster.1.gz) in auto mode</p> <p><strong>驗證安裝</strong></p> <div class="language- extra-class"><pre><code>$ sudo -u postgres psql -c &quot;SELECT version();&quot;
+</code></pre></div><h2 id="操作-psql"><a href="#操作-psql" class="header-anchor">#</a> 操作 psql</h2> <p><strong>方法一：不切換使用者帳號操作法</strong></p> <div class="language- extra-class"><pre><code>juzhengzhong@SRV-01:~$ sudo -u postgres psql
+psql (11.2 (Ubuntu 11.2-1.pgdg18.04+1))
+Type &quot;help&quot; for help.
+
+postgres=# \q
+juzhengzhong@SRV-01:~$
+</code></pre></div><p><strong>方法二：先切換成 postgres 帳號操作法</strong></p> <div class="language- extra-class"><pre><code>juzhengzhong@SRV-01:~$ sudo su - postgres
+postgres@SRV-01:~$ psql
+psql (11.2 (Ubuntu 11.2-1.pgdg18.04+1))
+Type &quot;help&quot; for help.
+
+postgres=# \q
+postgres@SRV-01:~$ exit
+登出
+juzhengzhong@SRV-01:~$1
+</code></pre></div><h2 id="建立-role-與-database-授權"><a href="#建立-role-與-database-授權" class="header-anchor">#</a> 建立 Role 與 Database 授權</h2> <p><strong>建立資料庫系統之使用者帳號</strong></p> <div class="language- extra-class"><pre><code>$ sudo su - postgres -c &quot;createuser django2_helloworld&quot;
+</code></pre></div><p><strong>建立資料庫</strong></p> <div class="language- extra-class"><pre><code>$ sudo su - postgres -c &quot;createdb django2_helloworld_db&quot;
+</code></pre></div><p><strong>設定資料庫使用者與其操作權限</strong></p> <div class="language- extra-class"><pre><code>$ sudo -u postgres psql
+psql (11.2 (Ubuntu 11.2-1.pgdg18.04+1))
+Type &quot;help&quot; for help.
+
+postgres=# grant all privileges on database django2_helloworld_db to django2_helloworld;
+GRANT
+postgres=# alter role django2_helloworld with password 'Passw0rd';
+ALTER ROLE
+postgres=# \q
+$
+</code></pre></div><p><strong>刪除資料庫使用者</strong></p> <div class="language- extra-class"><pre><code>$ sudo su - postgres -c &quot;dropuser django2_helloworld&quot;
+</code></pre></div><hr> <h1 id="設定網站-web-sites"><a href="#設定網站-web-sites" class="header-anchor">#</a> 設定網站（Web Sites）</h1> <h2 id="安裝及設定-django-網站"><a href="#安裝及設定-django-網站" class="header-anchor">#</a> 安裝及設定 Django 網站</h2> <p><strong>安裝網站所需檔案</strong></p> <p>將 Django 網站所有檔案，放入如下路徑處：</p> <div class="language- extra-class"><pre><code>$ mkdir -p ~/workspace/django &amp;&amp; cd $_
+$ git clone &lt;RepoPath&gt;
+</code></pre></div><p><strong>設定檔案擁有者及其權限</strong></p> <div class="language- extra-class"><pre><code>$ sudo chown -R $USER:www-data django2_helloworld/
+$ sudo chmod -R 775 django2_helloworld/
+</code></pre></div><p><strong>安裝 Python 套件</strong></p> <div class="language- extra-class"><pre><code>$ cd django2_helloworld
+$ python3 --version
+$ pipenv --python 3.7.2
+$ pipenv install -r requirements.txt
+$ pipenv shell
+</code></pre></div><p><s><strong>設定 django 運作環境</strong></s></p> <div class="language- line-numbers-mode"><pre class="language-text"><code></code></pre> <div class="line-numbers-wrapper"></div></div><div class="language- extra-class"><pre><code>$ export django2_helloworld=&quot;staging&quot;
+</code></pre></div><p><strong>設定 django 資料庫</strong></p> <div class="language- extra-class"><pre><code>$ ./manage.py migrate
+$ ./manage.py createsuperuser    # juzhengzhong: juzhengzhong@gmail.com
+</code></pre></div><p>【註】： 建置開發環境使用的 SQLite 資料庫</p> <div class="language- extra-class"><pre><code> $ DJANGO_SETTINGS_MODULE=web_site.settings.dev ./manage.py migrate 
+ $ DJANGO_SETTINGS_MODULE=web_site.settings.dev ./manage.py createsuperuser 
+</code></pre></div><p><strong>設定 static 檔案</strong></p> <div class="language- extra-class"><pre><code>$ ./manage.py collectstatic
+</code></pre></div><hr> <h1 id="uwsgi-服務安裝與設定"><a href="#uwsgi-服務安裝與設定" class="header-anchor">#</a> uwsgi 服務安裝與設定</h1> <p>為使 uwsgi service 能正常運作，Django 2 App 的「多環境設定」務必應有如下之配合：</p> <p><strong>managy.py</strong></p> <div class="language- extra-class"><pre><code>#!/usr/bin/env python
+import os
+import sys
+
+if __name__ == &quot;__main__&quot;:
+    os.environ.setdefault(&quot;DJANGO_SETTINGS_MODULE&quot;, &quot;web_site.settings.prod&quot;)
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            &quot;Couldn't import Django. Are you sure it's installed and &quot;
+            &quot;available on your PYTHONPATH environment variable? Did you &quot;
+            &quot;forget to activate a virtual environment?&quot;
+        ) from exc
+    execute_from_command_line(sys.argv)
+</code></pre></div><p><strong>wsgi.py</strong></p> <div class="language- extra-class"><pre><code>&quot;&quot;&quot;
+WSGI config for web_site project.
+
+It exposes the WSGI callable as a module-level variable named ``application``.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/
+&quot;&quot;&quot;
+
+import os
+
+from django.core.wsgi import get_wsgi_application
+
+# os.environ.setdefault(&quot;DJANGO_SETTINGS_MODULE&quot;, &quot;web_site.settings&quot;)
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web_site.settings.prod')
+
+application = get_wsgi_application()
+</code></pre></div><p><strong>base.py</strong></p> <div class="language- extra-class"><pre><code>&quot;&quot;&quot;
+Django settings for web_site project.
+
+Generated by 'django-admin startproject' using Django 2.0.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/2.0/topics/settings/
+
+For the full list of settings and their values, see
+https://docs.djangoproject.com/en/2.0/ref/settings/
+&quot;&quot;&quot;
+
+import os
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = '7g@&amp;s!bkka+)w70=9=t2+%&amp;r7um_!dg!7^5^yso%on@w&amp;u&amp;7g6'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG= True
+
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+]
+
+# Application definition
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
+    'django.contrib.staticfiles',
+
+    # Libs
+    'crispy_forms',
+
+    # My Apps
+    'pages.apps.PagesConfig',
+    'posts.apps.PostsConfig',
+    'books.apps.BooksConfig',
+    'accounts.apps.AccountsConfig',
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # My MiddleWare
+]
+
+ROOT_URLCONF = 'web_site.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+WSGI_APPLICATION = 'web_site.wsgi.application'
+
+# Database
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+
+# Password validation
+# https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+
+# Internationalization
+# https://docs.djangoproject.com/en/2.0/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'UTC'
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.0/howto/static-files/
+
+STATIC_URL = '/static/'
+
+# location where you will store your static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, &quot;../static&quot;),
+]
+
+# The absolute path to the directory where collectstatic will collect static files for deployment.
+STATIC_ROOT = os.path.join(BASE_DIR, '../staticfiles')
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+# Document Ref: http://whitenoise.evans.io/en/stable/django.html
+STATICFILES_STORAGEGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Media Files
+MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
+MEDIA_URL = '/media/'
+
+# User Account Management
+LOGIN_REDIRECT_URL = 'pages:home'
+LOGOUT_REDIRECT_URL = 'pages:home'
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# Form formatting
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+</code></pre></div><p><strong>dev.py</strong></p> <div class="language- extra-class"><pre><code>from .base import *
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    '0.0.0.0',
+]
+
+# Database
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
+if 'DATABASE_HOST' in os.environ:
+    DATABASES\['default'\]['HOST'] = os.getenv('DATABASE_HOST')
+    DATABASES\['default'\]['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+    DATABASES\['default'\]['NAME'] = os.getenv('DATABASE_NAME')
+    DATABASES\['default'\]['USER'] = os.getenv('DATABASE_USER')
+    DATABASES\['default'\]['PASSWORD'] = os.getenv('DATABASE_PASSWORD')
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'django2_helloworld_db',
+            'USER': 'django2_helloworld',
+            'PASSWORD': 'Passw0rd',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+
+# Contact Us From
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# BASE_URL required for notification emails
+BASE_URL = 'http://localhost:8000'
+</code></pre></div><p><strong>prod.py</strong></p> <div class="language- extra-class"><pre><code># from web_site.settings.base import *
+from .base import *
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    '192.168.66.10',
+    'localhost',
+    'www.ccc99.tw',
+]
+
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'NAME': 'django2_helloworld_db',
+       'USER': 'django2_helloworld',
+       'PASSWORD': 'Passw0rd',
+       'HOST': 'localhost',
+       'PORT': '5432',
+   }
+}
+
+DATABASE_URL = 'postgres://django2_helloworld:Passw0rd@localhost:5432/django2_hellowrold_db'
+</code></pre></div><p><strong>heroku.py</strong></p> <div class="language- extra-class"><pre><code># from web_site.settings.base import *
+from .base import *
+import django_heroku
+import dj_database_url
+
+# Set environment variables (SECRET_KEY and others)
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
+# SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = 'CHANGE_ME!!!! (P.S. the SECRET_KEY environment variable will be used, if set, instead).'
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+
+# SECURITY WARNING: don't run with debug turned on in production!
+# DEBGUG = True
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+
+# # Quick-start development settings - unsuitable for production
+# # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    '.herokuapp.com',
+    'serene-crag-30137.herokuapp.com',
+]
+
+# Database
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
+# Heroku: Update database configuration from $DATABASE_URL
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+django_heroku.settings(locals())
+</code></pre></div><p><strong>urls.py</strong></p> <div class="language- extra-class"><pre><code>&quot;&quot;&quot;web_site URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/2.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+&quot;&quot;&quot;
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('books/', include('books.urls')),
+    path('posts/', include('posts.urls')),
+    path('', include('pages.urls')),
+]
+</code></pre></div><h2 id="安裝-uwsgi-套件"><a href="#安裝-uwsgi-套件" class="header-anchor">#</a> 安裝 uwsgi 套件</h2> <ol><li><p><strong>以 Global 方式安裝 uwsgi</strong></p> <p>$ sudo -H pip3 install uwsgi</p> <p>$ sudo -H pip3 install uwsgi
+Collecting uwsgi
+Downloading https://files.pythonhosted.org/packages/e7/1e/3dcca007f974fe4eb369bf1b8629d5e342bb3055e2001b2e5340aaefae7a/uwsgi-2.0.18.tar.gz (801kB)
+100% |████████████████████████████████| 808kB 1.8MB/s
+Building wheels for collected packages: uwsgi
+Running setup.py bdist_wheel for uwsgi ... done
+Stored in directory: /root/.cache/pip/wheels/2d/0c/b0/f3ba1bbce35c3766c9dac8c3d15d5431cac57e7a8c4111c268
+Successfully built uwsgi
+Installing collected packages: uwsgi
+Successfully installed uwsgi-2.0.18
+$ uwsgi --version
+2.0.18</p></li> <li><p><strong>驗證 uwsgi 已能正常運作</strong></p> <p>$ cd ~/workspace/django/django2_helloworld
+$ pipenv install -r requirements.txt  # 產生 .venv
+$ uwsgi --http 0.0.0.0:8000 --home ~/workspace/django/django2_helloworld/.venv/ --chdir ~/workspace/django/django2_helloworld  --wsgi-file ~/workspace/django/django2_helloworld/web_site/wsgi.py</p> <p>$ uwsgi --http 0.0.0.0:8000 --home ~/workspace/django/django2_helloworld/.venv/ --chdir ~/workspace/django/django2_helloworld  --wsgi-file ~/workspace/django/django2_helloworld/web_site/wsgi.py
+*** Starting uWSGI 2.0.18 (64bit) on [Mon Apr  1 21:07:21 2019] ***
+compiled with version: 7.3.0 on 01 April 2019 12:42:54
+os: Linux-4.15.0-46-generic #49-Ubuntu SMP Wed Feb 6 09:33:07 UTC 2019
+nodename: SRV-01
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /home/juzhengzhong/workspace/django/django2_helloworld
+detected binary path: /usr/local/bin/uwsgi
+chdir() to /home/juzhengzhong/workspace/django/django2_helloworld
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 63633
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 4
+spawned uWSGI http 1 (pid: 29795)
+uwsgi socket 0 bound to TCP address 127.0.0.1:34649 (port auto-assigned) fd 3
+Python version: 3.6.7 (default, Oct 22 2018, 11:32:17)  [GCC 8.2.0]
+Set PythonHome to /home/juzhengzhong/workspace/django/django2_helloworld/.venv/
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55987cc93030
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 72920 bytes (71 KB) for 1 cores
+*** Operational MODE: single process ***
+/home/juzhengzhong/workspace/django/django2_helloworld/.venv/lib/python3.6/site-packages/psycopg2/<strong>init</strong>.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use &quot;pip install psycopg2-binary&quot; instead. For details see: <a href="http://initd.org/psycopg/docs/install.html#binary-install-from-pypi" target="_blank" rel="noopener noreferrer">http://initd.org/psycopg/docs/install.html#binary-install-from-pypi<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.
+&quot;&quot;&quot;)
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x55987cc93030 pid: 29794 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 29794, cores: 1)
+[pid: 29794|app: 0|req: 1/1] 192.168.66.10 () {38 vars in 797 bytes} [Mon Apr  1 13:07:50 2019] GET / =&gt; generated 3450 bytes in 76 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 29794|app: 0|req: 2/2] 192.168.66.10 () {38 vars in 780 bytes} [Mon Apr  1 13:07:50 2019] GET /static/fontawesome/fontawesome-all.css =&gt; generated 112 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 29794|app: 0|req: 3/3] 192.168.66.10 () {38 vars in 742 bytes} [Mon Apr  1 13:07:50 2019] GET /static/css/base.css =&gt; generated 93 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 29794|app: 0|req: 4/4] 192.168.66.10 () {40 vars in 851 bytes} [Mon Apr  1 13:07:53 2019] GET /posts/ =&gt; generated 3799 bytes in 15 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 29794|app: 0|req: 5/5] 192.168.66.10 () {38 vars in 786 bytes} [Mon Apr  1 13:07:53 2019] GET /static/fontawesome/fontawesome-all.css =&gt; generated 112 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 101 bytes (1 switches on core 0)
+[pid: 29794|app: 0|req: 6/6] 192.168.66.10 () {38 vars in 748 bytes} [Mon Apr  1 13:07:53 2019] GET /static/css/base.css =&gt; generated 93 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)</p></li></ol> <h2 id="設定-uwsgi-執行環境"><a href="#設定-uwsgi-執行環境" class="header-anchor">#</a> 設定 uwsgi 執行環境</h2> <p>注意：以下之作業之前，需先以 juzhengzhong 使用者帳號登入。</p> <ol><li><p><strong>建立 uwsgi 目錄</strong></p> <p>$ mkdir -p ~/uwsgi/sites</p></li> <li><p><strong>建立 ini 執行設定檔</strong></p> <p>$ cd ~/uwsgi/sites
+$ nano django2_helloworld_uwsgi.ini</p></li></ol> <p>django2_helloworld_uwsgi.ini :</p> <div class="language- extra-class"><pre><code>[uwsgi]
+home = /home/juzhengzhong/workspace/django/django2_helloworld/.venv/
+chdir = /home/juzhengzhong/workspace/django/django2_helloworld
+wsgi-file = /home/juzhengzhong/workspace/django/django2_helloworld/web_site/wsgi.py
+http = 0.0.0.0:8000
+</code></pre></div><ol start="3"><li><p><strong>驗證 ini 檔已能正常執行</strong></p> <p>$ uwsgi --ini /home/juzhengzhong/uwsgi/sites/django2_helloworld_uwsgi.ini</p></li></ol> <h2 id="建立-uwsgi-service"><a href="#建立-uwsgi-service" class="header-anchor">#</a> 建立 uwsgi service</h2> <ol><li><p><strong>建立 uwsgi service</strong></p> <p>$ sudo nano /etc/systemd/system/uwsgi.service</p></li></ol> <p>uwsgi.service:</p> <div class="language- extra-class"><pre><code>[Unit]
+Description=uWSGI Emperor service
+[Service]
+ExecStartPre=/bin/bash -c 'mkdir -p /run/uwsgi; chown juzhengzhong:www-data /run/uwsgi'
+ExecStart=/usr/local/bin/uwsgi --emperor /home/juzhengzhong/uwsgi/sites
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+NotifyAccess=all
+[Install]
+WantedBy=multi-user.target
+</code></pre></div><p>【註】： uwsgi 與 nginx 之溝通，將透過 unix socket 檔案，該檔案名稱為：<strong>django_helloworld.sock</strong> ，置於目錄路徑： <strong>/home/juzhengzhong/uwsgi/</strong> 處。</p> <ol start="2"><li>啟用 uwsgi service
+$ sudo systemctl enable uwsgi</li></ol> <h2 id="設定-nginx-網站與-uwsgi-溝通之設定檔"><a href="#設定-nginx-網站與-uwsgi-溝通之設定檔" class="header-anchor">#</a> <strong>設定 nginx 網站與 uwsgi 溝通之設定檔</strong></h2> <p>建立設定檔</p> <div class="language- extra-class"><pre><code>$ sudo nano /home/juzhengzhong/uwsgi/sites/django2_helloworld_uwsgi.ini
+</code></pre></div><p>django2_helloworld_uwsgi.ini</p> <div class="language- extra-class"><pre><code>[uwsgi]
+
+# Initial
+#home = /home/juzhengzhong/workspace/django/django2_helloworld/.venv/
+#chdir = /home/juzhengzhong/workspace/django/django2_helloworld
+#wsgi-file = /home/juzhengzhong/workspace/django/django2_helloworld/web_site/wsgi.py
+#http = 0.0.0.0:8000
+
+# defines directives here
+uid             = juzhengzhong
+gid             = www-data
+user            = juzhengzhong
+user_path       = /home/%(user)
+base            = %(user_path)/workspace/django
+project         = django2_helloworld
+site            = web_site
+
+# =======================
+# Django-related settings
+# =======================
+
+# the project base directory (full path) : /app/django2_helloworld
+chdir           = %(base)/%(project)
+
+# Django's wsgi file : web_site.wsgi:application
+wsgi-file       = %(chdir)/%(site)/wsgi.py
+
+# Python Home
+home            = %(chdir)/.venv
+
+# ========================
+# process-related settings
+# ========================
+
+# master
+#master          = true
+# maximum number of worker processes
+#processes       = 4
+#threads         = 2
+
+# the socket (use the full path to be safe)
+socket          = %(user_path)/uwsgi/%(project).sock
+
+# ... with appropriate permissions - may be needed
+chown-socket    = %(uid):%(gid)
+
+chmod-socket    = 660
+
+# clear environment on exit
+vacuum          = true
+
+#disable-loggine  = false
+#log             = file
+#logto           = /var/log/uwsgi/%(project)
+</code></pre></div><p><strong>uwsgi service 正常啟動</strong></p> <div class="language- extra-class"><pre><code>$ sudo service uwsgi status
+● uwsgi.service - uWSGI Emperor service
+   Loaded: loaded (/etc/systemd/system/uwsgi.service; enabled; vendor preset: enabled)
+   Active: active (running) since Fri 2019-04-05 11:40:34 CST; 2s ago
+  Process: 24321 ExecStartPre=/bin/bash -c mkdir -p /run/uwsgi; chown juzhengzhong:www-data /run/uwsgi (code=exited, status=0/SUCCESS)
+ Main PID: 24329 (uwsgi)
+   Status: &quot;The Emperor is governing 1 vassals&quot;
+    Tasks: 3 (limit: 4915)
+   CGroup: /system.slice/uwsgi.service
+           ├─24329 /usr/local/bin/uwsgi --emperor /home/juzhengzhong/uwsgi/sites
+           ├─24336 /usr/local/bin/uwsgi --ini django2_helloworld_uwsgi.ini
+           └─24344 /usr/local/bin/uwsgi --ini django2_helloworld_uwsgi.ini
+
+ 4月 05 11:40:34 SRV-01 uwsgi[24329]: your server socket listen backlog is limited to 100 connections
+ 4月 05 11:40:34 SRV-01 uwsgi[24329]: your mercy for graceful operations on workers is 60 seconds
+ 4月 05 11:40:34 SRV-01 uwsgi[24329]: mapped 145840 bytes (142 KB) for 1 cores
+ 4月 05 11:40:34 SRV-01 uwsgi[24329]: *** Operational MODE: single process ***
+ 4月 05 11:40:36 SRV-01 uwsgi[24329]: WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x5590c6bea9d0 pid: 24336 (default app)
+ 4月 05 11:40:36 SRV-01 uwsgi[24329]: *** uWSGI is running in multiple interpreter mode ***
+ 4月 05 11:40:36 SRV-01 uwsgi[24329]: spawned uWSGI master process (pid: 24336)
+ 4月 05 11:40:36 SRV-01 uwsgi[24329]: Fri Apr  5 11:40:36 2019 - [emperor] vassal django2_helloworld_uwsgi.ini has been spawned
+ 4月 05 11:40:36 SRV-01 uwsgi[24329]: spawned uWSGI worker 1 (pid: 24344, cores: 1)
+ 4月 05 11:40:36 SRV-01 uwsgi[24329]: Fri Apr  5 11:40:36 2019 - [emperor] vassal django2_helloworld_uwsgi.ini is ready to accept requests
+</code></pre></div><p><strong>uwsgi service stop</strong></p> <div class="language- extra-class"><pre><code>$ sudo service uwsgi status
+● uwsgi.service - uWSGI Emperor service
+   Loaded: loaded (/etc/systemd/system/uwsgi.service; enabled; vendor preset: enabled)
+   Active: inactive (dead) since Fri 2019-04-05 11:48:27 CST; 2s ago
+  Process: 24642 ExecStart=/usr/local/bin/uwsgi --emperor /home/juzhengzhong/uwsgi/sites (code=exited, status=0/SUCCESS)
+  Process: 24632 ExecStartPre=/bin/bash -c mkdir -p /run/uwsgi; chown juzhengzhong:www-data /run/uwsgi (code=exited, status=0/SUCCESS)
+ Main PID: 24642 (code=exited, status=0/SUCCESS)
+   Status: &quot;The Emperor is buried.&quot;
+
+ 4月 05 11:48:24 SRV-01 uwsgi[24642]: Fri Apr  5 11:48:24 2019 - [emperor] stop the uwsgi instance django2_helloworld_uwsgi.ini
+ 4月 05 11:48:24 SRV-01 uwsgi[24642]: SIGINT/SIGQUIT received...killing workers...
+ 4月 05 11:48:24 SRV-01 uwsgi[24642]: Fri Apr  5 03:48:24 2019 - received message 0 from emperor
+ 4月 05 11:48:24 SRV-01 systemd[1]: Stopping uWSGI Emperor service...
+ 4月 05 11:48:25 SRV-01 uwsgi[24642]: worker 1 buried after 1 seconds
+ 4月 05 11:48:25 SRV-01 uwsgi[24642]: goodbye to uWSGI.
+ 4月 05 11:48:25 SRV-01 uwsgi[24642]: VACUUM: unix socket /home/juzhengzhong/uwsgi/django2_helloworld.sock removed.
+ 4月 05 11:48:26 SRV-01 uwsgi[24642]: Fri Apr  5 11:48:26 2019 - [emperor] removed uwsgi instance django2_helloworld_uwsgi.ini
+ 4月 05 11:48:27 SRV-01 uwsgi[24642]: Fri Apr  5 11:48:27 2019 - The Emperor is buried.
+ 4月 05 11:48:27 SRV-01 systemd[1]: Stopped uWSGI Emperor service.
+</code></pre></div><h1 id="nginx服務安裝與設定"><a href="#nginx服務安裝與設定" class="header-anchor">#</a> Nginx服務安裝與設定</h1> <p>參考文件： https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04</p> <h2 id="安裝-nginx-套件"><a href="#安裝-nginx-套件" class="header-anchor">#</a> <strong>安裝 nginx 套件</strong></h2> <p><strong>執行 nginx 安裝指令</strong></p> <div class="language- extra-class"><pre><code>$ sudo apt update
+$ sudo apt install nginx
+</code></pre></div><h2 id="設定-nginx-環境"><a href="#設定-nginx-環境" class="header-anchor">#</a> <strong>設定 nginx 環境</strong></h2> <p><strong>設定系統服務層級之 nginx 執行環境</strong></p> <ol><li><strong>變更設定檔。</strong>
+$ sudo nano /etc/nginx/nginx.conf</li></ol> <p>nginx.conf 設定結果：</p> <div class="language- extra-class"><pre><code>user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+        worker_connections 768;
+        # multi_accept on;
+}
+
+http {
+
+        ##
+        # Basic Settings
+        ##
+
+        sendfile on;
+        tcp_nopush on;
+        tcp_nodelay on;
+        keepalive_timeout 65;
+        types_hash_max_size 2048;
+        # server_tokens off;
+
+        server_names_hash_bucket_size 64;
+        # server_name_in_redirect off;
+
+        include /etc/nginx/mime.types;
+        default_type application/octet-stream;
+
+        ##
+        # SSL Settings
+        ##
+
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # Dropping SSLv3, ref: POODLE
+        ssl_prefer_server_ciphers on;
+
+        ##
+        # Logging Settings
+        ##
+
+        access_log /var/log/nginx/access.log;
+        error_log /var/log/nginx/error.log;
+
+        ##
+        # Gzip Settings
+        ##
+
+        gzip on;
+        gzip_disable &quot;msie6&quot;;
+
+        # gzip_vary on;
+        # gzip_proxied any;
+        # gzip_comp_level 6;
+        # gzip_buffers 16 8k;
+        # gzip_http_version 1.1;
+        # gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+        ##
+        # Virtual Host Configs
+        ##
+
+        include /etc/nginx/conf.d/*.conf;
+        include /etc/nginx/sites-enabled/*;
+}
+
+
+#mail {
+#        # See sample authentication script at:
+#        # http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript
+# 
+#        # auth_http localhost/auth.php;
+#        # pop3_capabilities &quot;TOP&quot; &quot;USER&quot;;
+#        # imap_capabilities &quot;IMAP4rev1&quot; &quot;UIDPLUS&quot;;
+# 
+#        server {
+#                listen     localhost:110;
+#                protocol   pop3;
+#                proxy      on;
+#        }
+# 
+#        server {
+#                listen     localhost:143;
+#                protocol   imap;
+#                proxy      on;
+#        }
+#}
+</code></pre></div><ol start="2"><li><p><strong>驗證設定檔內容無誤</strong></p> <p>sudo nginx -t</p> <p>$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful</p></li></ol> <p>【參考】：<strong>nginx Service 管理指令</strong></p> <div class="language- extra-class"><pre><code>sudo service nginx status
+sudo service nginx stop
+sudo service nginx start
+</code></pre></div><p><strong>設定網站層級之 nginx 設定</strong></p> <ol><li><p>變更<strong>網站 nginx 設定檔</strong></p> <p>$ sudo nano /etc/nginx/sites-available/django2_helloworld.conf</p></li></ol> <p>django2_helloworld.conf:</p> <div class="language- extra-class"><pre><code># configuration of the server
+server {
+    # the port your site will be served on
+    listen          80;
+    # the domain name it will serve for
+    #server_name     .example.com; # substitute your machine's Ip address or FQDN
+    #server_name     127.0.0.1;
+    #server_name     192.168.66.10;
+    server_name     www.ccc99.tw;
+    charset         utf8-8;
+
+    # max upload size
+    client_max_body_size 75M;  # adjust to taste
+
+     location = /favicon.ico {
+        access_log      off;
+        log_not_found   off;
+    }
+
+    # Django media
+    location /media {
+        alias   /home/juzhengzhong/workspace/django/django2_helloworld/media;  
+    }
+
+    # Django static
+    location /static {
+        alias   /home/juzhengzhong/workspace/django/django2_helloworld/staticfiles;
+    }
+
+    # Finally, send all non-media requests to the Django s2.erver
+    location / {
+        include         uwsgi_params; # should be located in /etc/nginx/
+        uwsgi_pass      unix:/home/juzhengzhong/uwsgi/django2_helloworld.sock;
+    }
+}
+</code></pre></div><ol start="2"><li><p><strong>啟用網站所需之 nginx 設定檔</strong>
+$ sudo ln -s /etc/nginx/sites-available/django2_helloworld.conf /etc/nginx/sites-enabled/
+$ sudo rm /etc/nginx/sites-enabled/default</p></li> <li><p><strong>重新啟動 nginx service</strong>
+$ sudo service uwsgi restart
+$ sudo service uwsgi status
+$ sudo service nginx restart
+$ sudo service nginx status</p></li></ol> <hr> <h1 id="https"><a href="#https" class="header-anchor">#</a> HTTPS</h1> <div class="language- extra-class"><pre><code>$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt update
+$ sudo apt upgrade
+$ sudo apt install python-certbot-nginx
+s sudo cerbot --nginx -d ccc99.tw -d www.ccc99.tw
+
+
+
+$ sudo cerbot --nginx -d ccc99.tw -d www.ccc99.tw
+sudo: cerbot: command not found
+juzhengzhong@SRV-01:~$ sudo certbot --nginx -d ccc99.tw -d www.ccc99.tw
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator nginx, Installer nginx
+Enter email address (used for urgent renewal and security notices) (Enter 'c' to
+cancel): alanjui.1960@gmail.com
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Please read the Terms of Service at
+https://letsencrypt.org/documents/LE-SA-v1.2-November-15-2017.pdf. You must
+agree in order to register with the ACME server at
+https://acme-v02.api.letsencrypt.org/directory
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(A)gree/(C)ancel: a
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Would you be willing to share your email address with the Electronic Frontier
+Foundation, a founding partner of the Let's Encrypt project and the non-profit
+organization that develops Certbot? We'd like to send you email about our work
+encrypting the web, EFF news, campaigns, and ways to support digital freedom.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(Y)es/(N)o: n
+Obtaining a new certificate
+Performing the following challenges:
+http-01 challenge for ccc99.tw
+http-01 challenge for www.ccc99.tw
+Waiting for verification...
+Cleaning up challenges
+Deploying Certificate to VirtualHost /etc/nginx/sites-enabled/django2_helloworld.conf
+Deploying Certificate to VirtualHost /etc/nginx/sites-enabled/django2_helloworld.conf
+
+Please choose whether or not to redirect HTTP traffic to HTTPS, removing HTTP access.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: No redirect - Make no further changes to the webserver configuration.
+2: Redirect - Make all requests redirect to secure HTTPS access. Choose this for
+new sites, or if you're confident your site works on HTTPS. You can undo this
+change by editing your web server's configuration.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+Redirecting all traffic on port 80 to ssl in /etc/nginx/sites-enabled/django2_helloworld.conf
+Redirecting all traffic on port 80 to ssl in /etc/nginx/sites-enabled/django2_helloworld.conf
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Congratulations! You have successfully enabled https://ccc99.tw and
+https://www.ccc99.tw
+
+You should test your configuration at:
+https://www.ssllabs.com/ssltest/analyze.html?d=ccc99.tw
+https://www.ssllabs.com/ssltest/analyze.html?d=www.ccc99.tw
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/ccc99.tw/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/ccc99.tw/privkey.pem
+   Your cert will expire on 2019-07-01. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot again
+   with the &quot;certonly&quot; option. To non-interactively renew *all* of
+   your certificates, run &quot;certbot renew&quot;
+ - Your account credentials have been saved in your Certbot
+   configuration directory at /etc/letsencrypt. You should make a
+   secure backup of this folder now. This configuration directory will
+   also contain certificates and private keys obtained by Certbot so
+   making regular backups of this folder is ideal.
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+
+
+
+
+# configuration of the server
+server {
+    # the port your site will be served on
+    # the domain name it will serve for
+    #server_name     .example.com; # substitute your machine's Ip address or FQDN
+    #server_name     192.168.66.10;
+    server_name     ccc99.tw www.ccc99.tw;
+    charset         utf8-8;
+
+    # max upload size
+    client_max_body_size 75M;  # adjust to taste
+
+    location = /favicon.ico {
+        access_log      off;
+        log_not_found   off;
+    }
+
+    # Django media
+    location /media {
+        #root    /home/juzhengzhong/workspace/django2_helloworld;
+        alias   /home/juzhengzhong/workspace/django2_helloworld/media;  # your Django project's media files - amend as required
+    }
+
+    location /static {
+        alias   /home/juzhengzhong/workspace/django2_helloworld/web_site/staticfiles;
+    }
+
+    # Finally, send all non-media requests to the Django server
+    location / {
+        include         uwsgi_params; # should be located in /etc/nginx/
+        uwsgi_pass      unix:/home/juzhengzhong/uwsgi/django2_helloworld.sock;
+    }
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/ccc99.tw/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/ccc99.tw/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+
+server {
+    if ($host = www.ccc99.tw) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = ccc99.tw) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen          80;
+    server_name     ccc99.tw www.ccc99.tw;
+    return 404; # managed by Certbot
+}
+</code></pre></div><p><strong>SSL Server Setting</strong>
+https://www.ssllabs.com/ssltest/index.html</p> <hr> <h1 id="疑難排解"><a href="#疑難排解" class="header-anchor">#</a> 疑難排解</h1> <p><strong>無法安裝 psycopg2 v2.8.x</strong></p> <div class="language- extra-class"><pre><code>sudo apt install python-psycopg2
+sudo apt install libpq-dev
+pipenv install psycopg2==2.8.1
+</code></pre></div><hr> <h1 id="參考文件"><a href="#參考文件" class="header-anchor">#</a> 參考文件</h1> <p><strong>Django Settings</strong>
+https://docs.djangoproject.com/en/2.1/topics/settings/</p> <p>https://medium.com/@panzelva/deploying-django-website-to-vps-with-uwsgi-and-nginx-on-ubuntu-18-04-db9b387ad19d</p> <p>How To Install Python 3 and Set Up a Programming Environment on Ubuntu 18.04 [Quickstart]
+https://www.digitalocean.com/community/tutorials/how-to-install-python-3-and-set-up-a-programming-environment-on-ubuntu-18-04-quickstart</p> <p><strong>多重環境</strong></p> <p>https://stackoverflow.com/questions/10664244/django-how-to-manage-development-and-production-settings</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/han_gi_chu_im/assets/js/app.f2e2805b.js" defer></script><script src="/han_gi_chu_im/assets/js/2.e9bdfe5b.js" defer></script><script src="/han_gi_chu_im/assets/js/259.e24c0629.js" defer></script>
+  </body>
+</html>

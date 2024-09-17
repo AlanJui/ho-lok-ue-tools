@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用 Docker Compose 建置 Django App | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/han_gi_chu_im/assets/css/0.styles.a12c963a.css" as="style"><link rel="preload" href="/han_gi_chu_im/assets/js/app.f2e2805b.js" as="script"><link rel="preload" href="/han_gi_chu_im/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/han_gi_chu_im/assets/js/161.e92c1d0b.js" as="script"><link rel="prefetch" href="/han_gi_chu_im/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/101.e14056d5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/102.ef2e7694.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/103.5e524cf6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/104.449b67e1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/105.47db5476.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/106.173be714.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/107.64e61226.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/108.d41720e9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/109.5e3a678c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/11.84cf98b7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/111.2fe379ef.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/112.65fb8e56.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/113.e8199676.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/114.b76eb6f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/116.f901450e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/117.4898b362.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/118.80d06981.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/12.60a558ac.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/120.e66adabd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/121.d156a67b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/122.1d79306c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/123.e1941f1d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/124.0214e22f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/125.d294aced.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/126.0558f46b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/127.49d6672e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/128.cf355591.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/129.d495542f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/13.24f6efd0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/130.a6abc4e3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/131.469bba33.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/132.55c861f0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/133.8e571f38.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/134.04712779.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/135.8db4c9ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/136.28cffb72.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/137.938eab65.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/138.a57df1d2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/139.d9fc6309.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/14.a0a8a6dc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/140.5fccfcd6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/141.f0b1c886.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/142.8de335ef.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/144.05fa892e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/145.5ddbf44b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/146.8a7a3e16.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/147.296bb783.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/148.f1cb374f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/149.2a3806ea.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/15.03fefe25.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/150.5304d46a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/152.503ab6d1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/153.88ebbaf6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/154.d3f457e8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/155.33d01452.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/157.af848370.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/159.4dbdd890.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/16.21186ac1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/160.48d958e1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/162.4a2836dd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/163.34672edb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/164.b3408f8d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/165.3b3ab477.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/166.33dc5f78.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/167.e392800e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/168.82153370.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/169.dcd62bfb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/170.a3d0a187.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/171.23ff00be.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/172.419179bc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/173.408750c0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/174.9d3448c2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/175.172eddbe.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/176.da75b470.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/177.2bcc49f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/178.ce76cf02.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/179.7b0cea4b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/180.6d511683.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/181.f18f383b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/182.4194ed40.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/183.de593066.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/184.d809d674.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/185.4741aacc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/186.e127fd4e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/187.01093181.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/188.be3dfceb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/189.c44554e5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/19.ee358577.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/190.7a89c427.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/191.ab08e553.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/193.72c5ff86.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/194.3b0608d5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/195.66817182.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/196.35c2fdb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/197.d4da390c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/198.f0525295.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/199.7aa6c935.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/200.d59e8a6a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/201.a3cad834.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/202.3d62278b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/203.cd0331b8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/204.3787443f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/205.27e200a2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/206.45652af0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/208.6de25ed2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/209.18b681f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/21.267f8c06.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/210.c22f1f45.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/211.a61a2195.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/212.3858824f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/213.0ac5db81.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/214.de0bbc7c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/216.7a7acb6b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/217.41bdaf52.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/218.f33b82e3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/219.597995c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/220.1530c4a2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/221.e36810e6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/222.596abb6d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/223.d3f55f99.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/224.c17ef7f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/225.972b8a95.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/226.17458472.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/227.598b61ec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/228.9c2b03f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/229.57204bbd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/23.71068419.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/232.9dd7c872.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/233.38d9ffc3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/234.e9d9bfab.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/236.bd16c64b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/237.077ec90b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/238.84598708.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/239.9bb68a5d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/24.a7cb7238.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/240.9d9a1a74.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/242.55ef7530.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/243.376498fe.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/244.5a8023d1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/246.076c0e56.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/247.96081bd7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/248.baee733f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/249.489259f3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/25.50731498.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/250.cc52a908.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/251.3b3d4281.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/252.6bcd563a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/253.6333d78c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/254.690b38af.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/255.1601d594.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/256.6f73bb5c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/257.a5a3366f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/258.89f98784.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/259.e24c0629.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/26.4aa29dff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/260.7a8d4e8e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/261.11a82914.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/262.bfb942fc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/264.c52a3206.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/265.61ea2fd0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/266.6bd5cefa.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/267.de2b661b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/268.acc85dac.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/269.3c1387e4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/27.02c70fe4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/270.6cdfc60d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/271.96b0a59b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/273.cf716f37.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/274.0efe455c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/275.cf2743f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/277.9cd97657.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/278.8a24a518.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/279.d117afb1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/28.8ee5b790.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/280.838b1c8c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/281.a18eae66.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/282.02a76248.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/283.09af7e2c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/284.77ab3f60.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/285.129e76df.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/286.d362fe87.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/287.bfacbf8b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/288.6c629410.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/289.bbe1f1b0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/29.4049a130.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/290.5b670cbc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/291.2a295df9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/292.491ba209.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/293.6222a09d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/294.da1b1bc8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/295.8e645779.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/296.322a7d66.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/297.81d85197.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/298.6c193148.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/299.97e6aaa2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/3.e19d0c82.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/30.a9e5068b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/300.3f422dec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/301.79b41302.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/302.501df600.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/303.2b1ed8bf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/304.1f0917b5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/305.c53a474c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/306.cd160b20.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/307.f5d095c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/308.d516c990.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/309.28060d09.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/31.57c6d1ed.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/310.06a43026.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/311.94f98dd7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/312.ac99c3c2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/313.dfeb0bb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/314.f7aff5f3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/316.17d84f4d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/317.fdbf74f7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/318.6137201c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/32.576d7346.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/33.2644dcc9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/34.392263e5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/35.516229c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/36.32967ae8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/37.fbcfe203.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/38.4556399d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/39.5d0dd51c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/4.3390318d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/41.a27c7068.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/42.3122db26.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/43.bc00f6f1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/44.5a5e8d67.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/45.24ef54fa.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/46.2783633c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/49.d41a42ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/50.32f5fef6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/56.f2597707.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/57.51fbeade.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/62.dbcf4f5f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/63.a7334c7c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/66.9e5f2534.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/67.9253face.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/69.80992696.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/70.d3126764.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/71.3ea817b7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/72.36ff02f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/73.53cc8e64.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/74.bd2e921c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/75.1290517b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/76.41b88fff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/77.c6d47945.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/78.f3084837.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/79.bb751695.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/80.56b6f2db.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/81.6ce2f6b5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/82.fccf7493.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/83.2978c41b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/85.ae86ef9d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/86.fa76f964.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/88.ec319bec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/89.78dec0b0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/9.fac26b8a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/90.e83cc6ad.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/91.5c70caba.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/93.aeac5506.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/94.270811f7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/95.30da1a9a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/97.4866a931.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/98.28d380d4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/han_gi_chu_im/assets/css/0.styles.a12c963a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/han_gi_chu_im/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/han_gi_chu_im/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/han_gi_chu_im/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/han_gi_chu_im/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/han_gi_chu_im/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>作業指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/han_gi_chu_im/d100_URS/" class="sidebar-link">使用者需求</a></li><li><a href="/han_gi_chu_im/d200_SRS/" class="sidebar-link">系統需求</a></li><li><a href="/han_gi_chu_im/d300_SDD/" class="sidebar-link">系統設計</a></li><li><a href="/han_gi_chu_im/d400_DEV/" class="sidebar-link">開發與測試</a></li><li><a href="/han_gi_chu_im/d500_OP/" class="sidebar-link">系統維運</a></li><li><a href="/han_gi_chu_im/d900_REF/" class="sidebar-link">參考資料</a></li><li><a href="/han_gi_chu_im/guide/" class="sidebar-link">作業指引</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>電腦硬體</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>開發環境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>參考資料</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="使用-docker-compose-建置-django-app"><a href="#使用-docker-compose-建置-django-app" class="header-anchor">#</a> 使用 Docker Compose 建置 Django App</h1> <p>【參考文件】：</p> <p>http://pawamoy.github.io/2018/02/01/docker-compose-django-postgres-nginx.html</p> <h1 id="系統架構"><a href="#系統架構" class="header-anchor">#</a> 系統架構</h1> <p>Django App 上線時之系統架構：</p> <p><img src="http://pawamoy.github.io/assets/docker1.png" alt="docker1"></p> <p>結合「網路層」之系統架構：</p> <p><img src="http://pawamoy.github.io/assets/docker3.png" alt="docker3"></p> <p>結合「Docker Compose」後之系統架構：</p> <p><img src="http://pawamoy.github.io/assets/docker4.png" alt="docker4"></p> <h1 id="將-django-app-置於-docker-容器"><a href="#將-django-app-置於-docker-容器" class="header-anchor">#</a> 將 Django App 置於 Docker 容器</h1> <div class="language- extra-class"><pre><code>code
+├── Pipfile
+├── Pipfile.lock
+├── log_msg
+├── manage.py
+├── requirements.txt
+├── static_collected
+└── web_app
+    ├── __init__.py
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py 
+
+
+
+code
+├── Pipfile
+├── Pipfile.lock
+├── log_msg
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── migrations
+│   │   ├── ⋯⋯
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── static
+│   │   └── hello
+│   │       └── site.css
+│   ├── templates
+│   │   └── log_msg
+│   │       ├── about.html
+│   │       ├── contact.html
+│   │       ├── hello_there.html
+│   │       ├── home.html
+│   │       ├── layout.html
+│   │       └── log_message.html
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── manage.py
+├── requirements.txt
+├── static_collected
+│   ├── admin
+│   │   ├── css
+│   │   │   ├── ⋯⋯
+│   │   │   └── ⋯⋯
+│   │   ├── fonts
+│   │   │   ├── ⋯⋯
+│   │   │   └── ⋯⋯
+│   │   ├── img
+│   │   │   ├── ⋯⋯
+│   │   │   └── ⋯⋯
+│   │   └── js
+│   │       ├── ⋯⋯
+│   │       └── ⋯⋯
+│   └── log_msg
+│       └── site.css
+└── web_app
+    ├── __init__.py
+    ├── settings.py
+    ├── urls.py
+    └── wsgi.py 
+</code></pre></div><h2 id="製作-dockerfile"><a href="#製作-dockerfile" class="header-anchor">#</a> 製作 Dockerfile</h2> <p>Dockerfile 容器設定：</p> <div class="language- extra-class"><pre><code>FROM      python:6.8.2
+ENV       PYTHONUNBUFFERED 1
+RUN       mkdir /app
+WORKDIR   /app
+COPY      requirements.txt /app/
+RUN       pip install -r requirements.txt
+COPY      ./code /app/
+
+
+
+# start from an official image
+FROM python:3.8
+
+# arbitrary location choice: you can change the directory
+RUN mkdir -p /opt/services/django_app/src
+WORKDIR /opt/services/django_app/src
+
+# install our two dependencies
+RUN pip install gunicorn django
+
+# copy our project code
+COPY . /opt/services/django_app/src
+
+# expose the port 8000
+EXPOSE 8000
+
+# define the default command to run when starting the container
+CMD [&quot;gunicorn&quot;, &quot;--chdir&quot;, &quot;code&quot;, &quot;--bind&quot;, &quot;:8000&quot;, &quot;web_project.wsgi:application&quot;]
+</code></pre></div><p>建置 Docker 容器執行檔</p> <div class="language- extra-class"><pre><code>cd code
+pipenv shell
+pipenv lock --requirements &gt; requirements.txt
+</code></pre></div><p>進入《專案根目錄》，透過指令建置 Django App 的 Docker 容器：</p> <div class="language- extra-class"><pre><code>docker build . -t my_django_img
+</code></pre></div><p>驗證 Django App 的 Docker 容器已能正常運作：</p> <p>（1）啟動 Docker 容器： my_app</p> <div class="language- extra-class"><pre><code>$ docker run --name my_app -p 8000:8000 -t my_django_img
+\[2020-04-30 02:59:49 +0000\] [1] [INFO] Starting gunicorn 20.0.4
+\[2020-04-30 02:59:49 +0000\] [1] [INFO] Listening at: http://0.0.0.0:8000 (1)
+\[2020-04-30 02:59:49 +0000\] [1] [INFO] Using worker: sync
+\[2020-04-30 02:59:49 +0000\] [7] [INFO] Booting worker with pid: 7
+</code></pre></div><p>（2）換另一個 Terminal（2）視窗，要求 Docker 容器： my_app 執行下列 django 指令</p> <div class="language- extra-class"><pre><code>$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+e6d79945d14e        my_django_img       &quot;gunicorn --chdir . …&quot;   36 seconds ago      Up 36 seconds       0.0.0.0:8000-&gt;8000/tcp   my_app
+
+$ docker exec -it my_app python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, hello, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying hello.0001_initial... OK
+  Applying sessions.0001_initial... OK
+
+$ docker exec -it my_app python manage.py createsuperuser
+Username (leave blank to use 'root'): admin
+Email address:
+Password:
+Password (again):
+Superuser created successfully.
+
+$ docker exec -it my_app python manage.py collectstatic
+
+You have requested to collect static files at the destination
+location as specified in your settings:
+
+    /opt/services/django_app/src/static_collected
+
+This will overwrite existing files!
+Are you sure you want to do this?
+
+Type 'yes' to continue, or 'no' to cancel: yes
+
+130 static files copied to '/opt/services/django_app/src/static_collected', 1 unmodified.
+</code></pre></div><p>（3）瀏覽 http://localhost:8000</p> <p>（4）回到 Terminal（2）視窗，終止 Docker 容器運作</p> <div class="language- extra-class"><pre><code>$ docker stop my_app
+my_app
+
+$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                       PORTS               NAMES
+e6d79945d14e        my_django_img       &quot;gunicorn --chdir . …&quot;   16 minutes ago      Exited (0) 32 seconds ago                        my_app
+
+$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+my_django_img       latest              bfeccafa4be7        20 minutes ago      985MB
+</code></pre></div><p>（5）重新啟動 Docker 容器（my_app）</p> <div class="language- extra-class"><pre><code>$ docker start my_app
+my_app
+
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+e6d79945d14e        my_django_img       &quot;gunicorn --chdir . …&quot;   22 minutes ago      Up 6 seconds        0.0.0.0:8000-&gt;8000/tcp   my_app
+</code></pre></div><p>（6）瀏覽 http://localhost:8000</p> <p>（7）再次終止 Docker 容器</p> <div class="language- extra-class"><pre><code>$ docker stop my_app
+</code></pre></div><h1 id="docker-compose"><a href="#docker-compose" class="header-anchor">#</a> docker-compose</h1> <div class="language- extra-class"><pre><code>$ docker-compose build
+
+$ docker-compose run --rm app /bin/bash
+root@44f2a65aa0fe:/opt/services/django_app/src# psql -h localhost -U postgres
+psql: error: could not connect to server: could not connect to server: Connection refused
+        Is the server running on host &quot;localhost&quot; (127.0.0.1) and accepting
+        TCP/IP connections on port 5432?
+could not connect to server: Cannot assign requested address
+        Is the server running on host &quot;localhost&quot; (::1) and accepting
+        TCP/IP connections on port 5432?
+root@8d35d83ebf04:/#
+
+
+
+
+
+$ docker-compose build
+
+$ docker-compose run --rm db1 /bin/bash
+root@8d35d83ebf04:/# which psql
+/usr/bin/psql
+root@8d35d83ebf04:/#
+
+
+
+
+
+
+
+$ docker-compose build
+
+$ docker-compose up
+
+$ docker-compose ps
+     Name                   Command               State     Ports
+-------------------------------------------------------------------
+test-101_app_1   gunicorn --chdir . --bind  ...   Up       8000/tcp
+test-101_db1_1   docker-entrypoint.sh postgres    Up       5432/tcp
+test-101_web_1   nginx -g daemon off;             Exit 1
+
+$ docker-compose run app bash
+Starting test-101_db1_1 ... done
+root@adcabbb9cb0f:/opt/services/django_app/src# python manage.py migrate
+
+
+
+
+alanjui@MBP-2018:~/workspace/vagrant/test-101 (master) 
+$ docker-compose run app python manage.py shell
+Starting test-101_db1_1 ... done
+Python 3.8.2 (default, Apr 23 2020, 14:22:33) 
+[GCC 8.3.0] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+(InteractiveConsole)
+&gt;&gt;&gt; 
+now exiting InteractiveConsole...
+
+alanjui@MBP-2018:~/workspace/vagrant/test-101 (master) 
+$ 
+
+
+
+
+docker-compose run --rm app python manage.py db1 upgrade
+
+
+
+alanjui@MBP-2018:~/workspace/vagrant/test-101 (master) 
+$ docker-compose run db1 psql -h localhost -U postgres
+psql: could not connect to server: Connection refused
+Is the server running on host &quot;localhost&quot; (127.0.0.1) and accepting
+TCP/IP connections on port 5432?
+could not connect to server: Cannot assign requested address
+Is the server running on host &quot;localhost&quot; (::1) and accepting
+TCP/IP connections on port 5432?
+</code></pre></div><h2 id="postgresql-service"><a href="#postgresql-service" class="header-anchor">#</a> PostgreSQL Service</h2> <div class="language- extra-class"><pre><code>$ docker run --name postgres-12 -e POSTGRES_PASSWORD=Passw0rd -d postgres
+
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+1349636c5389        postgres            &quot;docker-entrypoint.s…&quot;   4 seconds ago       Up 3 seconds        5432/tcp            postgres-12
+
+
+
+
+docker run --name postgres_bash --rm -i -t postgres bash
+docker exec -d postgres_bash touch /tmp/execWorks
+
+
+docker exec -it postgres_bash bash
+
+
+
+
+
+root@ed337d648dea:/# service postgresql start
+[warn] No PostgreSQL clusters exist; see &quot;man pg_createcluster&quot; ... (warning).
+
+
+
+root@ed337d648dea:/# /etc/init.d/postgresql start
+[warn] No PostgreSQL clusters exist; see &quot;man pg_createcluster&quot; ... (warning).
+
+
+
+
+$ service postgresql status
+</code></pre></div><h1 id="各種疑難雜症排解"><a href="#各種疑難雜症排解" class="header-anchor">#</a> 各種疑難雜症排解</h1> <p>檢視 docker volume 容器中存放的檔案</p> <div class="language- extra-class"><pre><code>docker run --rm -i -v=docker-compose-02_staticfiles_volume:/tmp/myvolume busybox find /tmp/myvolume
+/tmp/myvolume
+/tmp/myvolume/admin
+/tmp/myvolume/admin/fonts
+/tmp/myvolume/admin/fonts/LICENSE.txt
+/tmp/myvolume/admin/fonts/Roboto-Regular-webfont.woff
+/tmp/myvolume/admin/fonts/Roboto-Bold-webfont.woff
+/tmp/myvolume/admin/fonts/Roboto-Light-webfont.woff
+/tmp/myvolume/admin/fonts/README.txt
+/tmp/myvolume/admin/css
+/tmp/myvolume/admin/css/login.css
+/tmp/myvolume/admin/css/autocomplete.css
+/tmp/myvolume/admin/css/vendor
+/tmp/myvolume/admin/css/vendor/select2
+/tmp/myvolume/admin/css/vendor/select2/select2.min.css
+/tmp/myvolume/admin/css/vendor/select2/LICENSE-SELECT2.md
+/tmp/myvolume/admin/css/vendor/select2/select2.css
+/tmp/myvolume/admin/css/dashboard.css
+/tmp/myvolume/admin/css/rtl.css
+/tmp/myvolume/admin/css/changelists.css
+/tmp/myvolume/admin/css/responsive_rtl.css
+/tmp/myvolume/admin/css/responsive.css
+/tmp/myvolume/admin/css/base.css
+/tmp/myvolume/admin/css/fonts.css
+/tmp/myvolume/admin/css/forms.css
+/tmp/myvolume/admin/css/widgets.css
+/tmp/myvolume/admin/js
+/tmp/myvolume/admin/js/admin
+/tmp/myvolume/admin/js/admin/DateTimeShortcuts.js
+/tmp/myvolume/admin/js/admin/RelatedObjectLookups.js
+/tmp/myvolume/admin/js/actions.min.js
+/tmp/myvolume/admin/js/SelectBox.js
+/tmp/myvolume/admin/js/popup_response.js
+/tmp/myvolume/admin/js/prepopulate.min.js
+/tmp/myvolume/admin/js/prepopulate_init.js
+/tmp/myvolume/admin/js/inlines.min.js
+/tmp/myvolume/admin/js/SelectFilter2.js
+/tmp/myvolume/admin/js/vendor
+/tmp/myvolume/admin/js/vendor/jquery
+/tmp/myvolume/admin/js/vendor/jquery/jquery.js
+/tmp/myvolume/admin/js/vendor/jquery/LICENSE.txt
+/tmp/myvolume/admin/js/vendor/jquery/jquery.min.js
+/tmp/myvolume/admin/js/vendor/xregexp
+/tmp/myvolume/admin/js/vendor/xregexp/xregexp.js
+/tmp/myvolume/admin/js/vendor/xregexp/xregexp.min.js
+/tmp/myvolume/admin/js/vendor/xregexp/LICENSE.txt
+/tmp/myvolume/admin/js/vendor/select2
+/tmp/myvolume/admin/js/vendor/select2/i18n
+/tmp/myvolume/admin/js/vendor/select2/i18n/cs.js
+⋯⋯
+/tmp/myvolume/admin/js/vendor/select2/i18n/zh-TW.js
+⋯⋯
+/tmp/myvolume/admin/js/vendor/select2/select2.full.js
+/tmp/myvolume/admin/js/vendor/select2/select2.full.min.js
+/tmp/myvolume/admin/js/vendor/select2/LICENSE.md
+/tmp/myvolume/admin/js/prepopulate.js
+/tmp/myvolume/admin/js/calendar.js
+/tmp/myvolume/admin/js/urlify.js
+/tmp/myvolume/admin/js/autocomplete.js
+/tmp/myvolume/admin/js/inlines.js
+/tmp/myvolume/admin/js/collapse.js
+/tmp/myvolume/admin/js/actions.js
+/tmp/myvolume/admin/js/change_form.js
+/tmp/myvolume/admin/js/jquery.init.js
+/tmp/myvolume/admin/js/cancel.js
+/tmp/myvolume/admin/js/collapse.min.js
+/tmp/myvolume/admin/js/core.js
+/tmp/myvolume/admin/img
+/tmp/myvolume/admin/img/icon-deletelink.svg
+/tmp/myvolume/admin/img/icon-addlink.svg
+/tmp/myvolume/admin/img/icon-no.svg
+/tmp/myvolume/admin/img/icon-unknown-alt.svg
+/tmp/myvolume/admin/img/tooltag-arrowright.svg
+/tmp/myvolume/admin/img/gis
+/tmp/myvolume/admin/img/gis/move_vertex_off.svg
+/tmp/myvolume/admin/img/gis/move_vertex_on.svg
+/tmp/myvolume/admin/img/tooltag-add.svg
+/tmp/myvolume/admin/img/selector-icons.svg
+/tmp/myvolume/admin/img/icon-clock.svg
+/tmp/myvolume/admin/img/icon-changelink.svg
+/tmp/myvolume/admin/img/calendar-icons.svg
+/tmp/myvolume/admin/img/icon-unknown.svg
+/tmp/myvolume/admin/img/inline-delete.svg
+/tmp/myvolume/admin/img/LICENSE
+/tmp/myvolume/admin/img/icon-calendar.svg
+/tmp/myvolume/admin/img/icon-yes.svg
+/tmp/myvolume/admin/img/README.txt
+/tmp/myvolume/admin/img/icon-viewlink.svg
+/tmp/myvolume/admin/img/search.svg
+/tmp/myvolume/admin/img/sorting-icons.svg
+/tmp/myvolume/admin/img/icon-alert.svg
+/tmp/myvolume/log_msg
+/tmp/myvolume/log_msg/test.png
+/tmp/myvolume/log_msg/log_msg.css
+
+
+$ docker volume inspect docker-compose-02_staticfiles_volume
+[
+    {
+        &quot;CreatedAt&quot;: &quot;2020-05-04T02:15:36Z&quot;,
+        &quot;Driver&quot;: &quot;local&quot;,
+        &quot;Labels&quot;: {
+            &quot;com.docker.compose.project&quot;: &quot;docker-compose-02&quot;,
+            &quot;com.docker.compose.version&quot;: &quot;1.25.4&quot;,
+            &quot;com.docker.compose.volume&quot;: &quot;staticfiles_volume&quot;
+        },
+        &quot;Mountpoint&quot;: &quot;/var/lib/docker/volumes/docker-compose-02_staticfiles_volume/_data&quot;,
+        &quot;Name&quot;: &quot;docker-compose-02_staticfiles_volume&quot;,
+        &quot;Options&quot;: null,
+        &quot;Scope&quot;: &quot;local&quot;
+    }
+]
+</code></pre></div><h1 id="nginx"><a href="#nginx" class="header-anchor">#</a> nginx</h1> <h2 id="nginx-預設的-default-conf"><a href="#nginx-預設的-default-conf" class="header-anchor">#</a> nginx 預設的 default.conf</h2> <div class="language- extra-class"><pre><code>server {                                                                                                                                     
+    listen       80;
+    server_name  localhost;
+
+    #charset koi8-r;
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;                                                                                                 [14/1631]
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+
+    # deny access to .htaccess files, if Apache's document root
+    # concurs with nginx's one
+    #
+    #location ~ /\.ht {
+    #    deny  all;
+    #}
+}
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/han_gi_chu_im/assets/js/app.f2e2805b.js" defer></script><script src="/han_gi_chu_im/assets/js/2.e9bdfe5b.js" defer></script><script src="/han_gi_chu_im/assets/js/161.e92c1d0b.js" defer></script>
+  </body>
+</html>

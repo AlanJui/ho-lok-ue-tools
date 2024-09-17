@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ubuntu 18.04 安裝 Mail Server | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/han_gi_chu_im/assets/css/0.styles.a12c963a.css" as="style"><link rel="preload" href="/han_gi_chu_im/assets/js/app.f2e2805b.js" as="script"><link rel="preload" href="/han_gi_chu_im/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/han_gi_chu_im/assets/js/109.5e3a678c.js" as="script"><link rel="prefetch" href="/han_gi_chu_im/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/101.e14056d5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/102.ef2e7694.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/103.5e524cf6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/104.449b67e1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/105.47db5476.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/106.173be714.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/107.64e61226.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/108.d41720e9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/11.84cf98b7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/111.2fe379ef.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/112.65fb8e56.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/113.e8199676.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/114.b76eb6f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/116.f901450e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/117.4898b362.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/118.80d06981.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/12.60a558ac.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/120.e66adabd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/121.d156a67b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/122.1d79306c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/123.e1941f1d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/124.0214e22f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/125.d294aced.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/126.0558f46b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/127.49d6672e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/128.cf355591.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/129.d495542f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/13.24f6efd0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/130.a6abc4e3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/131.469bba33.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/132.55c861f0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/133.8e571f38.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/134.04712779.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/135.8db4c9ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/136.28cffb72.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/137.938eab65.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/138.a57df1d2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/139.d9fc6309.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/14.a0a8a6dc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/140.5fccfcd6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/141.f0b1c886.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/142.8de335ef.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/144.05fa892e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/145.5ddbf44b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/146.8a7a3e16.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/147.296bb783.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/148.f1cb374f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/149.2a3806ea.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/15.03fefe25.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/150.5304d46a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/152.503ab6d1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/153.88ebbaf6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/154.d3f457e8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/155.33d01452.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/157.af848370.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/159.4dbdd890.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/16.21186ac1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/160.48d958e1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/161.e92c1d0b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/162.4a2836dd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/163.34672edb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/164.b3408f8d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/165.3b3ab477.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/166.33dc5f78.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/167.e392800e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/168.82153370.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/169.dcd62bfb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/170.a3d0a187.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/171.23ff00be.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/172.419179bc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/173.408750c0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/174.9d3448c2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/175.172eddbe.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/176.da75b470.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/177.2bcc49f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/178.ce76cf02.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/179.7b0cea4b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/180.6d511683.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/181.f18f383b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/182.4194ed40.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/183.de593066.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/184.d809d674.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/185.4741aacc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/186.e127fd4e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/187.01093181.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/188.be3dfceb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/189.c44554e5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/19.ee358577.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/190.7a89c427.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/191.ab08e553.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/193.72c5ff86.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/194.3b0608d5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/195.66817182.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/196.35c2fdb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/197.d4da390c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/198.f0525295.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/199.7aa6c935.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/200.d59e8a6a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/201.a3cad834.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/202.3d62278b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/203.cd0331b8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/204.3787443f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/205.27e200a2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/206.45652af0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/208.6de25ed2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/209.18b681f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/21.267f8c06.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/210.c22f1f45.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/211.a61a2195.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/212.3858824f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/213.0ac5db81.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/214.de0bbc7c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/216.7a7acb6b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/217.41bdaf52.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/218.f33b82e3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/219.597995c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/220.1530c4a2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/221.e36810e6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/222.596abb6d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/223.d3f55f99.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/224.c17ef7f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/225.972b8a95.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/226.17458472.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/227.598b61ec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/228.9c2b03f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/229.57204bbd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/23.71068419.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/232.9dd7c872.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/233.38d9ffc3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/234.e9d9bfab.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/236.bd16c64b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/237.077ec90b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/238.84598708.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/239.9bb68a5d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/24.a7cb7238.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/240.9d9a1a74.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/242.55ef7530.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/243.376498fe.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/244.5a8023d1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/246.076c0e56.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/247.96081bd7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/248.baee733f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/249.489259f3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/25.50731498.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/250.cc52a908.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/251.3b3d4281.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/252.6bcd563a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/253.6333d78c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/254.690b38af.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/255.1601d594.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/256.6f73bb5c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/257.a5a3366f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/258.89f98784.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/259.e24c0629.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/26.4aa29dff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/260.7a8d4e8e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/261.11a82914.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/262.bfb942fc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/264.c52a3206.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/265.61ea2fd0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/266.6bd5cefa.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/267.de2b661b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/268.acc85dac.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/269.3c1387e4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/27.02c70fe4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/270.6cdfc60d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/271.96b0a59b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/273.cf716f37.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/274.0efe455c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/275.cf2743f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/277.9cd97657.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/278.8a24a518.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/279.d117afb1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/28.8ee5b790.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/280.838b1c8c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/281.a18eae66.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/282.02a76248.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/283.09af7e2c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/284.77ab3f60.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/285.129e76df.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/286.d362fe87.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/287.bfacbf8b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/288.6c629410.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/289.bbe1f1b0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/29.4049a130.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/290.5b670cbc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/291.2a295df9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/292.491ba209.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/293.6222a09d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/294.da1b1bc8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/295.8e645779.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/296.322a7d66.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/297.81d85197.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/298.6c193148.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/299.97e6aaa2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/3.e19d0c82.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/30.a9e5068b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/300.3f422dec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/301.79b41302.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/302.501df600.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/303.2b1ed8bf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/304.1f0917b5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/305.c53a474c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/306.cd160b20.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/307.f5d095c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/308.d516c990.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/309.28060d09.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/31.57c6d1ed.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/310.06a43026.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/311.94f98dd7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/312.ac99c3c2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/313.dfeb0bb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/314.f7aff5f3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/316.17d84f4d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/317.fdbf74f7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/318.6137201c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/32.576d7346.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/33.2644dcc9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/34.392263e5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/35.516229c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/36.32967ae8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/37.fbcfe203.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/38.4556399d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/39.5d0dd51c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/4.3390318d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/41.a27c7068.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/42.3122db26.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/43.bc00f6f1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/44.5a5e8d67.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/45.24ef54fa.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/46.2783633c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/49.d41a42ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/50.32f5fef6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/56.f2597707.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/57.51fbeade.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/62.dbcf4f5f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/63.a7334c7c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/66.9e5f2534.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/67.9253face.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/69.80992696.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/70.d3126764.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/71.3ea817b7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/72.36ff02f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/73.53cc8e64.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/74.bd2e921c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/75.1290517b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/76.41b88fff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/77.c6d47945.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/78.f3084837.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/79.bb751695.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/80.56b6f2db.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/81.6ce2f6b5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/82.fccf7493.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/83.2978c41b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/85.ae86ef9d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/86.fa76f964.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/88.ec319bec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/89.78dec0b0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/9.fac26b8a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/90.e83cc6ad.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/91.5c70caba.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/93.aeac5506.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/94.270811f7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/95.30da1a9a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/97.4866a931.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/98.28d380d4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/han_gi_chu_im/assets/css/0.styles.a12c963a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/han_gi_chu_im/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/han_gi_chu_im/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/han_gi_chu_im/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/han_gi_chu_im/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/han_gi_chu_im/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>作業指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/han_gi_chu_im/d100_URS/" class="sidebar-link">使用者需求</a></li><li><a href="/han_gi_chu_im/d200_SRS/" class="sidebar-link">系統需求</a></li><li><a href="/han_gi_chu_im/d300_SDD/" class="sidebar-link">系統設計</a></li><li><a href="/han_gi_chu_im/d400_DEV/" class="sidebar-link">開發與測試</a></li><li><a href="/han_gi_chu_im/d500_OP/" class="sidebar-link">系統維運</a></li><li><a href="/han_gi_chu_im/d900_REF/" class="sidebar-link">參考資料</a></li><li><a href="/han_gi_chu_im/guide/" class="sidebar-link">作業指引</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>電腦硬體</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>開發環境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>參考資料</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ubuntu-18-04-安裝-mail-server"><a href="#ubuntu-18-04-安裝-mail-server" class="header-anchor">#</a> Ubuntu 18.04 安裝 Mail Server</h1> <h1 id="事前準備"><a href="#事前準備" class="header-anchor">#</a> 事前準備</h1> <h2 id=""><a href="#" class="header-anchor">#</a></h2> <h2 id="dns-records-設定"><a href="#dns-records-設定" class="header-anchor">#</a> DNS Records 設定</h2> <p>在 DNS Server 應有的 DNS Records 。</p> <p><img src="https://paper-attachments.dropbox.com/s_29964F2DD0AAE3B4769BBC77CD42FD4AF112406072B19CA9F422FF7DFE219E92_1557541679034_image.png" alt=""></p> <div class="language- extra-class"><pre><code>; Domain: ccc99.tw
+; Exported (y-m-d hh:mm:ss): 2019-03-27 21:47:30
+;
+; This file is intended for use for informational and archival
+; purposes ONLY and MUST be edited before use on a production
+; DNS server.
+;
+; In particular, you must update the SOA record with the correct
+; authoritative name server and contact e-mail address information,
+; and add the correct NS records for the name servers which will
+; be authoritative for this domain.
+;
+; For further information, please consult the BIND documentation
+; located on the following website:
+;
+; http://www.isc.org/
+;
+; And RFC 1035:
+;
+; http://www.ietf.org/rfc/rfc1035.txt
+;
+; Please note that we do NOT offer technical support for any use
+; of this zone data, the BIND name server, or any other third-
+; party DNS software.
+;
+; Use at your own risk.
+
+
+; SOA Record
+ccc99.tw.        3600         IN         SOA        ns69.domaincontrol.com.        dns.jomax.net. (
+                                        2019032704
+                                        28800
+                                        7200
+                                        604800
+                                        3600
+                                        ) 
+
+; A Records
+@        600         IN         A        180.218.139.80
+
+; CNAME Records
+mail       3600         IN         CNAME        @
+www        3600         IN         CNAME        @
+_domainconnect        3600         IN         CNAME        _domainconnect.gd.domaincontrol.com.
+
+; MX Records
+@        3600         IN         MX        10        @
+
+; TXT Records
+
+; SRV Records
+
+; AAAA Records
+
+; CAA Records
+
+; NS Records
+@        3600         IN         NS        ns69.domaincontrol.com.
+@        3600         IN         NS        ns70.domaincontrol.com.
+</code></pre></div><h2 id="host-名稱"><a href="#host-名稱" class="header-anchor">#</a> Host 名稱</h2> <p>檔案：/etc/hosts ，無需設定。</p> <div class="language- extra-class"><pre><code>127.0.0.1       localhost
+192.168.66.10   SRV-01
+
+192.168.66.100  myapp.ccc99.tw
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+</code></pre></div><h1 id="安裝-postfix"><a href="#安裝-postfix" class="header-anchor">#</a> 安裝 Postfix</h1> <p>於 IP： 192.168.66.10 伺服器安裝 Postfix</p> <h2 id="伺服器安裝作業"><a href="#伺服器安裝作業" class="header-anchor">#</a> 伺服器安裝作業</h2> <p><strong>安裝前置工作</strong></p> <div class="language- extra-class"><pre><code>sudo apt update
+sudo apt upgrade
+</code></pre></div><p><strong>安裝 Postfix 軟體套件</strong></p> <div class="language- extra-class"><pre><code>sudo DEBIAN_PRIORITY=low apt install postfix
+</code></pre></div><p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_29964F2DD0AAE3B4769BBC77CD42FD4AF112406072B19CA9F422FF7DFE219E92_1553244457566_image.png" alt=""></p> <p>Postfix 安裝過程的「套件設定」:</p> <ul><li><strong>General type of mail configuration?</strong>: <strong>Internet Site</strong></li> <li><strong>System mail name</strong>: example.com (not mail.example.com): <strong>ccc99.tw</strong></li> <li><strong>Root and postmaster mail recipient</strong>: <strong>alanjui</strong></li> <li><strong>Other destinations to accept mail for</strong>: <strong>$myhostname, ccc99.tw, mail.ccc99.tw, SRV-01, localhost.localdomain, localhost</strong></li> <li><strong>Force synchronous updates on mail queue?</strong>: <strong>No</strong></li> <li><strong>Local networks</strong>: <strong>127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 192.168.66.0/24</strong></li> <li><strong>Mailbox size limit</strong>: <strong>0</strong></li> <li><strong>Local address extension character</strong>: <strong>+</strong></li> <li><strong>Internet protocols to use</strong>: <strong>all</strong></li></ul> <p><strong>/etc/postfix/main.cf ：</strong></p> <div class="language- extra-class"><pre><code># See /usr/share/postfix/main.cf.dist for a commented, more complete version
+
+# Debian specific:  Specifying a file name will cause the first
+# line of that file to be used as the name.  The Debian default
+# is /etc/mailname.
+myorigin = /etc/mailname
+
+smtpd_banner = $myhostname ESMTP $mail_name (Ubuntu)
+biff = no
+
+# appending .domain is the MUA's job.
+append_dot_mydomain = no
+
+# Uncomment the next line to generate &quot;delayed mail&quot; warnings
+#delay_warning_time = 4h
+
+readme_directory = no
+
+# See http://www.postfix.org/COMPATIBILITY_README.html -- default to 2 on
+# fresh installs.
+compatibility_level = 2
+
+# TLS parameters
+#smtpd_tls_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
+#smtpd_tls_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
+smtpd_use_tls = yes
+smtpd_tls_cert_file = /etc/letsencrypt/live/mail.ccc99.tw/fullchain.pem
+smtpd_tls_key_file = /etc/letsencrypt/live/mail.ccc99.tw/privkey.pem
+smtpd_tls_security_level = may
+smtpd_tls_protocols = !SSLv2, !SSLv3 !TLSv1
+#smtpd_tls_protocols = SSLv2, SSLv3 TLSv1
+smtpd_tls_loglevel = 1
+# to debug SASL Login authentication failed: UGFzc3dvcmQ6
+smtpd_tls_auth_only = yes
+smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
+
+smtp_use_tls = yes
+smtp_tls_security_level = may
+smtp_tls_loglevel = 1
+smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+
+# See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
+# information on enabling SSL in the smtp client.
+
+smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
+
+# ------------------------------------------------------------------------------------
+
+smtpd_sasl_auth_enable = yes
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+
+# ====================================================================================
+
+myhostname = mail.ccc99.tw
+mydestination = $myhostname, ccc99.tw, mail.ccc99.tw, SRV-01, localhost.localdomain, localhost
+relayhost =
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 192.168.66.0/24
+mailbox_size_limit = 0
+recipient_delimiter = +
+inet_interfaces = all
+inet_protocols = all
+
+home_mailbox = Maildir/
+mailbox_command =
+queue_directory = /var/spool/postfix
+
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+
+virtual_alias_maps = hash:/etc/postfix/virtual
+
+# Dovecot LMTP: https://blog.pighead.cc/whsyu/2011/05/23/dovecot-lmtp/
+mailbox_transport = lmtp:unix:private/dovecot-lmtp
+#mailbox_transport = lmtp:unix:/var/spool/postfix/private/dovecot-lmtp
+</code></pre></div><p><strong>產生 Virtual Map 檔案</strong></p> <p>Map mail address to Linux accounts.</p> <ol><li><p>設定 <strong>/etc/postfix/virtual :</strong></p> <p>root@ccc99.tw           admin
+contact@ccc99.tw        admin
+admin@ccc99.tw          admin
+service@ccc99.tw        admin</p></li> <li><p>產生 Map 檔</p> <p>sudo postmap /etc/postfix/virtual</p></li></ol> <p><strong>產生 Aliases Map 檔案</strong></p> <ol><li><p>設定 <strong>/etc/aliases ：</strong></p> <p>postmaster : root
+root : admin</p></li> <li><p>產生 Map 檔案</p> <p>sudo postalias /etc/aliases</p></li></ol> <p><strong>重新啟動 Postfix</strong></p> <div class="language- extra-class"><pre><code>sudo service postfix restart
+</code></pre></div><h2 id="用戶端佈署設定"><a href="#用戶端佈署設定" class="header-anchor">#</a> 用戶端佈署設定</h2> <p>進行 Shell 環境（如：bash） 設定，指明 Mail Server 所使用的 Mail Box 類別。</p> <ol><li></li></ol> <div class="language- extra-class"><pre><code>$ echo 'export MAIL=~/Maildir' | sudo tee -a /etc/bash.bashrc | sudo tee -a /etc/profile.d/mail.sh
+</code></pre></div><ol start="2"><li></li></ol> <div class="language- extra-class"><pre><code>$ source /etc/profile.d/mail.sh
+</code></pre></div><h2 id="驗證-smtp"><a href="#驗證-smtp" class="header-anchor">#</a> 驗證 SMTP</h2> <p>使用 mail 工具程式測試寄郵件功能是否已能正常運作</p> <h2 id="使用-mutt-工具測試"><a href="#使用-mutt-工具測試" class="header-anchor">#</a> 使用 mutt 工具測試</h2> <p><strong>（1）安裝測試用工具軟體</strong></p> <div class="language- extra-class"><pre><code>sudo apt install mutt
+</code></pre></div><p><strong>（2）設定組態</strong></p> <div class="language- extra-class"><pre><code>$ cd
+$ nano ~/.muttrc
+</code></pre></div><p>~/.muttrc</p> <div class="language- extra-class"><pre><code> 1 # About Me
+ 2 set from = &quot;alanjui@ccc99.tw&quot;
+ 3 set realname = &quot;Alan Jui&quot;
+ 4
+ 5 # My credentials
+ 6 set copy = yes
+ 7 set smtp_url = &quot;smtp://alanjui@mail.ccc99.tw:587/&quot;
+ 8 set smtp_pass = &quot;Alan5550@&quot;
+ 9 set imap_user = &quot;alanjui@mail.ccc99.tw&quot;
+10 set imap_pass = &quot;Alan5550@&quot;
+11
+12 # My mailboxes
+13 set folder = &quot;imaps://mail.ccc99.tw:993&quot;
+14 set spoolfile = &quot;+INBOX&quot;
+15 set record = +sent
+16 set postponed = +drafts
+17 #set spoolfile = &quot;imaps://mail.ccc99.tw/INBOX&quot;
+18 #set record = &quot;imaps://mail.ccc99.tw/Sent&quot;
+19 #set postponed=&quot;imaps://mail.ccc99.tw/Drafts&quot;
+20
+21 # Where to put the stuff
+22 set header_cache = &quot;~/.mutt/cache/headers&quot;
+23 set message_cachedir = &quot;~/.mutt/cache/bodies&quot;
+24 set certificate_file = &quot;~/.mutt/certificates&quot;
+25
+26 # Etc
+27 set mail_check = 30
+28 set move = no
+</code></pre></div><p><strong>執行測試指令</strong></p> <div class="language- extra-class"><pre><code>$ mutt
+</code></pre></div><h2 id="使用-mail-工具測試"><a href="#使用-mail-工具測試" class="header-anchor">#</a> 使用 mail 工具測試</h2> <p><strong>安裝 mail 測試用工具</strong></p> <div class="language- extra-class"><pre><code>sudo apt install mailutils
+</code></pre></div><p><strong>執行測試指令</strong></p> <div class="language- extra-class"><pre><code>alanjui@SRV-01:~$ echo &quot;This email confirms that Postfix is working&quot; | mail -s &quot;Testing Postfix&quot; alanjui.1960@gmail.com
+
+
+echo &quot;This email confirms that Postfix is working&quot; | mail -s &quot;Testing Postfix&quot; juzhengzhong@gmail.com
+</code></pre></div><hr> <h1 id="dovecot"><a href="#dovecot" class="header-anchor">#</a> Dovecot</h1> <p>https://www.linuxbabe.com/mail-server/secure-email-server-ubuntu-16-04-postfix-dovecot</p> <h2 id="保障通信安全"><a href="#保障通信安全" class="header-anchor">#</a> 保障通信安全</h2> <p><strong>安裝套件軟體</strong></p> <p>【參考文件】： https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx</p> <p>使用 TLS 通信協定，用以確保「郵件用戶端」與「郵件伺服器」，兩著間的通信資料，以加密方式傳送。</p> <div class="language- extra-class"><pre><code>$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository universe
+$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt update
+$ sudo apt install certbot  
+
+
+
+sudo apt install python-certbot-nginx
+</code></pre></div><p><strong>建置 Virtual Host 用以取得 TLS 憑證</strong></p> <div class="language- extra-class"><pre><code>sudo nano /etc/nginx/conf.d/mail.ccc99.tw.conf
+
+
+# mail.ccc99.tw.conf
+server {
+    server_name mail.ccc99.tw;
+
+    root /var/www/mail.ccc99.tw/;
+
+    location ~ /.well-known/acme-challenge {
+        allow all;
+    }
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/mail.ccc99.tw/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/mail.ccc99.tw/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
+    add_header Strict-Transport-Security &quot;max-age=31536000&quot; always; # managed by Certbot
+}
+server {
+    if ($host = mail.ccc99.tw) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    server_name mail.ccc99.tw;
+
+    root /var/www/mail.ccc99.tw/;
+
+    location ~ /.well-known/acme-challenge {
+        allow all;
+    }
+}
+
+
+
+
+sudo mkdir /var/www/mail.ccc99.tw
+sudo chown -R www-data:www-data /var/www/mail.ccc99.tw
+
+sudo service nginx reload
+</code></pre></div><p><strong>啟用 certbot 的 nginx plugin</strong></p> <div class="language- extra-class"><pre><code>$ sudo certbot --nginx
+
+
+
+$ sudo certbot --nginx --agree-tos --redirect --hsts --email alanjui.1960@gmail.com -d mail.ccc99.tw
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator nginx, Installer nginx
+Attempting to parse the version 0.33.1 renewal configuration file found at /etc/letsencrypt/renewal/mail.ccc99.tw.conf with version 0.31.0 of Certbot. This might not work.
+Cert not yet due for renewal
+
+You have an existing certificate that has exactly the same domains or certificate name you requested and isn't close to expiry.
+(ref: /etc/letsencrypt/renewal/mail.ccc99.tw.conf)
+
+What would you like to do?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: Attempt to reinstall this existing certificate
+2: Renew &amp; replace the cert (limit ~5 per 7 days)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 2
+Renewing an existing certificate
+Performing the following challenges:
+http-01 challenge for mail.ccc99.tw
+Waiting for verification...
+Cleaning up challenges
+Deploying Certificate to VirtualHost /etc/nginx/conf.d/mail.ccc99.tw.conf
+Enhancement Strict-Transport-Security was already set.
+Traffic on port 80 already redirecting to ssl in /etc/nginx/conf.d/mail.ccc99.tw.conf
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Your existing certificate has been successfully renewed, and the new certificate
+has been installed.
+
+The new certificate covers the following domains: https://mail.ccc99.tw
+
+You should test your configuration at:
+https://www.ssllabs.com/ssltest/analyze.html?d=mail.ccc99.tw
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/mail.ccc99.tw/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/mail.ccc99.tw/privkey.pem
+   Your cert will expire on 2019-08-12. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot again
+   with the &quot;certonly&quot; option. To non-interactively renew *all* of
+   your certificates, run &quot;certbot renew&quot;
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+</code></pre></div><p><strong>驗證憑證可用</strong></p> <div class="language- extra-class"><pre><code>https://www.ssllabs.com/ssltest/analyze.html?d=mail.ccc99.tw
+</code></pre></div><p><strong>更新憑證</strong></p> <div class="language- extra-class"><pre><code>$ sudo certbot renew --dry-run
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Processing /etc/letsencrypt/renewal/ccc99.tw.conf
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Cert not yet due for renewal
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Processing /etc/letsencrypt/renewal/mail.ccc99.tw.conf
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Cert not yet due for renewal
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+The following certs are not due for renewal yet:
+  /etc/letsencrypt/live/ccc99.tw/fullchain.pem expires on 2019-07-01 (skipped)
+  /etc/letsencrypt/live/mail.ccc99.tw/fullchain.pem expires on 2019-08-12 (skipped)
+No renewals were attempted.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</code></pre></div><h2 id="設定-postfix-在-submission-daemon-使用-tls"><a href="#設定-postfix-在-submission-daemon-使用-tls" class="header-anchor">#</a> 設定 postfix 在 submission daemon 使用 TLS</h2> <div class="language- extra-class"><pre><code>sudo nano /etc/postfix/master.cf
+
+
+
+submission     inet     n    -    y    -    -    smtpd
+  -o syslog_name=postfix/submission
+  -o smtpd_tls_security_level=encrypt
+  -o smtpd_tls_wrappermode=no
+  -o smtpd_sasl_auth_enable=yes
+  -o smtpd_relay_restrictions=permit_sasl_authenticated,reject
+  -o smtpd_recipient_restrictions=permit_mynetworks,permit_sasl_authenticated,reject
+  -o smtpd_sasl_type=dovecot
+  -o smtpd_sasl_path=private/auth
+</code></pre></div><p>The above configuration enables the submission daemon of Postfix and requires TLS encryption. So later on our desktop email client can connect to the submission daemon in TLS. The submission daemon listens on TCP port 587. STARTTLS is used to encrypt communications between email client and the submission daemon.</p> <h2 id="設定-postfix-tls-憑證與私鑰存放處"><a href="#設定-postfix-tls-憑證與私鑰存放處" class="header-anchor">#</a> 設定 postfix TLS 憑證與私鑰存放處</h2> <div class="language- extra-class"><pre><code>sudo nano /etc/postfix/main.cf
+</code></pre></div><h2 id="安裝-dovecot"><a href="#安裝-dovecot" class="header-anchor">#</a> 安裝 Dovecot</h2> <p><strong>安裝軟體套件</strong></p> <div class="language- extra-class"><pre><code>sudo apt install dovecot-core dovecot-imapd
+</code></pre></div><p><strong>驗證 Dovecot 已能正常運作</strong></p> <div class="language- extra-class"><pre><code>$ sudo dovecot --version
+2.2.33.2 (d6601f4ec)
+</code></pre></div><h2 id="設定-dovecot"><a href="#設定-dovecot" class="header-anchor">#</a> 設定 Dovecot</h2> <p><strong>啟用 IMAP</strong></p> <div class="language- extra-class"><pre><code>sudo nano /etc/dovecot/dovecot.conf
+
+
+# Enable installed protocols
+!include_try /usr/share/dovecot/protocols.d/*.protocol
+#protocols = pop3 imap
+</code></pre></div><p><strong>設定 Mailbox Location</strong></p> <div class="language- extra-class"><pre><code>$ sudo nano /etc/dovecot/conf.d/10-mail.conf
+
+
+mail_location = maildir:~/Maildir
+...
+mail_privileged_group = mail
+</code></pre></div><p><strong>令 dovecot 可讀每個 INBOX</strong></p> <div class="language- extra-class"><pre><code>sudo gpasswd -a dovecot mail
+</code></pre></div><p><strong>設定 Authentication 機制</strong></p> <div class="language- extra-class"><pre><code>sudo nano /etc/dovecot/conf.d/10-auth.conf
+
+
+disable_plaintext_auth = yes
+auth_username_format = %Ln
+auth_mechanisms = plain login
+</code></pre></div><p><strong>設定 SSL/TLS 加密機制</strong></p> <div class="language- extra-class"><pre><code>sudo nano /etc/dovecot/conf.d/10-ssl.conf
+
+
+ssl = required
+
+# PEM encoded X.509 SSL/TLS certificate and private key. They're opened before
+# dropping root privileges, so keep the key file unreadable by anyone but
+# root. Included doc/mkcert.sh can be used to easily generate self-signed
+# certificate, just make sure to update the domains in dovecot-openssl.cnf
+#ssl_cert = &lt;/etc/dovecot/private/dovecot.pem
+#ssl_key = &lt;/etc/dovecot/private/dovecot.key
+ssl_cert = &lt;/etc/letsencrypt/live/mail.ccc99.tw/fullchain.pem
+ssl_key = &lt;/etc/letsencrypt/live/mail.ccc99.tw/privkey.pem
+</code></pre></div><p><strong>設定 SASL 身份驗證</strong></p> <div class="language- extra-class"><pre><code>sudo nano /etc/dovecot/conf.d/10-master.conf
+
+
+service auth {
+  # auth_socket_path points to this userdb socket by default. It's typically
+  # used by dovecot-lda, doveadm, possibly imap process, etc. Users that have
+  # full permissions to this socket are able to get a list of all usernames and
+  # get the results of everyone's userdb lookups.
+  #
+  # The default 0666 mode allows anyone to connect to the socket, but the
+  # userdb lookups will succeed only if the userdb returns an &quot;uid&quot; field that
+  # matches the caller process's UID. Also if caller's uid or gid matches the
+  # socket's uid or gid the lookup succeeds. Anything else causes a failure.
+  #
+  # To give the caller full permissions to lookup all users, set the mode to
+  # something else than 0666 and Dovecot lets the kernel enforce the
+  # permissions (e.g. 0777 allows everyone full permissions).
+  unix_listener auth-userdb {
+    #mode = 0666
+    #user =
+    #group =
+  }
+
+  # Postfix smtp-auth
+  unix_listener /var/spool/postfix/private/auth {
+    mode = 0666
+    user = postfix
+    group = postfix
+  }
+
+  # Auth process is run as this user.
+  #user = $default_internal_user
+}
+</code></pre></div><p><strong>設定能自動建立 Send/Trash 資料夾</strong></p> <div class="language- extra-class"><pre><code>sudo nano /etc/dovecot/conf.d/15-mailboxes.conf
+
+
+namespace inbox {
+  # These mailboxes are widely used and could perhaps be created automatically:
+  mailbox Drafts {
+    auto = create
+    special_use = \Drafts
+  }
+  mailbox Junk {
+    auto = create
+    special_use = \Junk
+  }
+  mailbox Trash {
+    auto = create
+    special_use = \Trash
+  }
+
+  # For \Sent mailboxes there are two widely used names. We'll mark both of
+  # them as \Sent. User typically deletes one of them if duplicates are created.
+  mailbox Sent {
+    auto = create
+    special_use = \Sent
+  }
+  mailbox &quot;Sent Messages&quot; {
+    special_use = \Sent
+  }
+
+  # If you have a virtual &quot;All messages&quot; mailbox:
+  #mailbox virtual/All {
+  #  special_use = \All
+  #  comment = All my messages
+  #}
+
+  # If you have a virtual &quot;Flagged&quot; mailbox:
+  #mailbox virtual/Flagged {
+  #  special_use = \Flagged
+  #  comment = All my flagged messages
+  #}
+}
+</code></pre></div><p><strong>重新啟動郵件伺服器</strong></p> <div class="language- extra-class"><pre><code>sudo systemctl restart dovecot
+</code></pre></div><p>Dovecot will be listening on port 143 (IMAP) and 993 (IMAPS). If there’s a configuration error, dovecot will fail to restart. We also need to restart Postfix to allow the LOGIN authentication mechanism.</p> <div class="language- extra-class"><pre><code>sudo systemctl restart postfix
+</code></pre></div><p>在 Thunderbird 的設定</p> <p><img src="https://www.linuxbabe.com/wp-content/uploads/2016/10/postfix-dovecot-letsencrypt.png" alt="postfix dovecot letsencrypt"></p> <h2 id="安裝與設定-lmtp"><a href="#安裝與設定-lmtp" class="header-anchor">#</a> 安裝與設定 lmtp</h2> <p><strong>確定 lmtp Service 已安裝</strong></p> <div class="language- extra-class"><pre><code>$ ll /usr/share/dovecot/protocols.d/
+總計 20
+drwxr-xr-x 2 root root 4096  5月  8 16:57 ./
+drwxr-xr-x 5 root root 4096  5月  8 12:38 ../
+-rw-r--r-- 1 root root   28  5月  8 12:39 imapd.protocol
+-rw-r--r-- 1 root root   28  5月  8 16:57 lmtpd.protocol
+-rw-r--r-- 1 root root   28  5月  8 13:01 pop3d.protocol
+</code></pre></div><p><strong>設定 lmtp service</strong></p> <div class="language- extra-class"><pre><code>sudo nano /etc/dovecot/conf.d/10-master.conf
+
+
+service lmtp {
+  unix_listener /var/spool/postfix/private/dovecot-lmtp {
+    mode = 0666
+    group = postfix
+    user = postfix
+  }
+
+  # Create inet listener only if you can't use the above UNIX socket
+  #inet_listener lmtp {
+    # Avoid making LMTP visible for the entire internet
+    #address =
+    #port =
+  #}
+}
+</code></pre></div><p><strong>設定 postfix 應配合組態</strong></p> <div class="language- extra-class"><pre><code>sudo nano /etc/postfix/main.cf
+
+
+mailbox_transport = lmtp:unix:private/dovecot-lmtp
+smtputf8_enable = no
+</code></pre></div><hr> <h1 id="異常排解"><a href="#異常排解" class="header-anchor">#</a> 異常排解</h1> <h2 id="重新啟動-postfix-設定工具"><a href="#重新啟動-postfix-設定工具" class="header-anchor">#</a> 重新啟動 Postfix 設定工具</h2> <div class="language- extra-class"><pre><code>sudo dpkg-reconfigure -plow postfix 
+
+
+alanjui@SRV-01:~$ sudo dpkg-reconfigure -plow postfix
+[sudo] password for alanjui: 
+postconf: warning: /etc/postfix/main.cf, line 53: overriding earlier entry: myorigin=$mydomain
+postconf: warning: /etc/postfix/main.cf, line 53: overriding earlier entry: myorigin=$mydomain
+postconf: warning: /etc/postfix/main.cf, line 53: overriding earlier entry: myorigin=$mydomain
+setting synchronous mail queue updates: false
+setting myorigin
+postconf: warning: /etc/postfix/main.cf: multiple entries for &quot;myorigin&quot;
+setting destinations: mail.ccc99.tw ccc99.tw localhost.ccc99.tw localhost
+setting relayhost: 
+setting mynetworks: 192.168.66.0/24 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+setting mailbox_size_limit: 0
+setting recipient_delimiter: +
+setting inet_interfaces: all
+setting inet_protocols: all
+
+Postfix (main.cf) is now set up with the changes above.  If you need to make 
+changes, edit /etc/postfix/main.cf (and others) as needed.  To view Postfix 
+configuration values, see postconf(1).
+
+After modifying main.cf, be sure to run 'service postfix reload'.
+
+Running newaliases
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+alanjui@SRV-01:~$ 
+</code></pre></div><h2 id="觀察-service-log"><a href="#觀察-service-log" class="header-anchor">#</a> 觀察 Service Log</h2> <p>觀察由 Service 所產生的  Log 檔，其中所回報的異常、錯誤紀錄。</p> <div class="language- extra-class"><pre><code>sudo less /var/log/mail.log
+
+
+journalctl
+</code></pre></div><h2 id="檢查郵件服務"><a href="#檢查郵件服務" class="header-anchor">#</a> 檢查郵件服務</h2> <p><strong>了解 Postfix Service 執行狀態</strong></p> <div class="language- extra-class"><pre><code>sudo service postfix status
+
+
+alanjui@SRV-01:~$ sudo systemctl status postfix
+● postfix.service - Postfix Mail Transport Agent
+   Loaded: loaded (/lib/systemd/system/postfix.service; enabled; vendor preset: enabled)
+   Active: active (exited) since Fri 2019-03-22 16:50:48 CST; 26s ago
+ Main PID: 12270 (code=exited, status=0/SUCCESS)
+    Tasks: 0 (limit: 4915)
+   CGroup: /system.slice/postfix.service
+
+ 3月 22 16:50:48 SRV-01 systemd[1]: Starting Postfix Mail Transport Agent...
+ 3月 22 16:50:48 SRV-01 systemd[1]: Started Postfix Mail Transport Agent.
+</code></pre></div><p><strong>同 service 指令之另種用法 systemctl：</strong></p> <div class="language- extra-class"><pre><code>sudo systemctl status postfix
+</code></pre></div><p><strong>重新啟動郵件服務</strong></p> <div class="language- extra-class"><pre><code>$ sudo service postfix restart
+</code></pre></div><p><strong>在 Remote 端使用 telnet 測試郵件服務是否已能正常運作</strong></p> <div class="language- extra-class"><pre><code>$ telnet 192.168.66.10 25
+Trying 192.168.66.10...
+Connected to 192.168.66.10.
+Escape character is '^]'.
+220 mail.ccc99.tw ESMTP Postfix (Ubuntu)
+ehlo service@ccc99.tw
+250-mail.ccc99.tw
+250-PIPELINING
+250-SIZE 10240000
+250-VRFY
+250-ETRN
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250-DSN
+250 SMTPUTF8
+mail from: &lt;service@ccc99.tw&gt;
+250 2.1.0 Ok
+rcpt to: &lt;alanjui.1960@gmail.com&gt;
+250 2.1.5 Ok
+data
+354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;
+From: &quot;Service&quot; &lt;service@ccc99.tw&gt;
+To: &quot;Alan Jui&quot; &lt;alanjui.1960@gmail.com&gt;
+Subject: Test message sent from manual telnet session
+
+Hi Alan,
+
+I send this mail from a localhost mail server.
+
+Best grads,
+Ju Zheng-Zhong
+.
+250 2.0.0 Ok: queued as 7B1FC400860
+quit
+221 2.0.0 Bye
+Connection closed by foreign host.
+</code></pre></div><h2 id="觀察-service-logs-用法"><a href="#觀察-service-logs-用法" class="header-anchor">#</a> 觀察 Service Logs 用法</h2> <p><strong>Log 檔案位置：</strong></p> <div class="language- extra-class"><pre><code>/var/log/mail.log
+</code></pre></div><p><strong>瀏覽最新的 Log</strong></p> <div class="language- extra-class"><pre><code>sudo tail -f /var/log/mail.log | grep postfix
+</code></pre></div><p>psostmap  :  <strong>warning: database /etc/aliases.db is older than source file /etc/aliases</strong></p> <div class="language- extra-class"><pre><code>sudo postmap /etc/aliases
+
+
+sudo postalias /etc/aliases
+</code></pre></div><p><strong>查看信箱是否有收到信</strong></p> <div class="language- extra-class"><pre><code>sudo tail -f /var/mail/juzhengzhong
+</code></pre></div><p><strong>是否郵件仍在  Mail Queue 中</strong></p> <div class="language- extra-class"><pre><code>mailq
+</code></pre></div><h2 id="certbot-renew-總是失敗"><a href="#certbot-renew-總是失敗" class="header-anchor">#</a> Certbot renew 總是失敗</h2> <p><strong>況狀：</strong></p> <div class="language- extra-class"><pre><code>Date: Fri, 17 May 2019 12:00:32 +0800 (CST)
+From: Cron Daemon &lt;root@ccc99.tw&gt;
+To: root@ccc99.tw
+Subject: Cron &lt;root@SRV-01&gt; /opt/certbot-auto renew --quiet --no-self-upgrade --force-renewal
+
+Attempting to renew cert (mail.ccc99.tw) from /etc/letsencrypt/renewal/mail.ccc99.tw.conf produced an unexpected error: The nginx plugin is not
++working; there may be problems with your existing configuration.
+The error was: NoInstallationError(&quot;Could not find a usable 'nginx' binary. Ensure nginx exists, the binary is executable, and your PATH is set
++correctly.&quot;,). Skipping.
+All renewal attempts failed. The following certs could not be renewed:
+  /etc/letsencrypt/live/mail.ccc99.tw/fullchain.pem (failure)
+1 renew failure(s), 0 parse failure(s)
+</code></pre></div><p><strong>分析</strong></p> <p>如「錯誤訊息：NoInstallationError」之解釋，問題出在 certbot 無法得知 nginx 執行檔之所在路徑。</p> <p><strong>解法</strong></p> <ol><li><p>使用 root 帳號</p> <p>$ sudo su -</p></li> <li><p>查看 cron 設定</p> <p>$ sudo -i
+$ sudo crontab -e</p> <p>$ sudo nano /etc/cron.d/certbot</p> <h1 id="etc-cron-d-certbot-crontab-entries-for-the-certbot-package"><a href="#etc-cron-d-certbot-crontab-entries-for-the-certbot-package" class="header-anchor">#</a> /etc/cron.d/certbot: crontab entries for the certbot package</h1> <h1 id="-2"><a href="#-2" class="header-anchor">#</a></h1> <h1 id="upstream-recommends-attempting-renewal-twice-a-day"><a href="#upstream-recommends-attempting-renewal-twice-a-day" class="header-anchor">#</a> Upstream recommends attempting renewal twice a day</h1> <h1 id="-3"><a href="#-3" class="header-anchor">#</a></h1> <h1 id="eventually-this-will-be-an-opportunity-to-validate-certificates"><a href="#eventually-this-will-be-an-opportunity-to-validate-certificates" class="header-anchor">#</a> Eventually, this will be an opportunity to validate certificates</h1> <h1 id="haven-t-been-revoked-etc-renewal-will-only-occur-if-expiration"><a href="#haven-t-been-revoked-etc-renewal-will-only-occur-if-expiration" class="header-anchor">#</a> haven't been revoked, etc.  Renewal will only occur if expiration</h1> <h1 id="is-within-30-days"><a href="#is-within-30-days" class="header-anchor">#</a> is within 30 days.</h1> <h1 id="-4"><a href="#-4" class="header-anchor">#</a></h1> <h1 id="important-note-this-cronjob-will-not-be-executed-if-you-are"><a href="#important-note-this-cronjob-will-not-be-executed-if-you-are" class="header-anchor">#</a> Important Note!  This cronjob will NOT be executed if you are</h1> <h1 id="running-systemd-as-your-init-system-if-you-are-running-systemd"><a href="#running-systemd-as-your-init-system-if-you-are-running-systemd" class="header-anchor">#</a> running systemd as your init system.  If you are running systemd,</h1> <h1 id="the-cronjob-timer-function-takes-precedence-over-this-cronjob-for"><a href="#the-cronjob-timer-function-takes-precedence-over-this-cronjob-for" class="header-anchor">#</a> the cronjob.timer function takes precedence over this cronjob.  For</h1> <h1 id="more-details-see-the-systemd-timer-manpage-or-use-systemctl-show"><a href="#more-details-see-the-systemd-timer-manpage-or-use-systemctl-show" class="header-anchor">#</a> more details, see the systemd.timer manpage, or use systemctl show</h1> <h1 id="certbot-timer"><a href="#certbot-timer" class="header-anchor">#</a> certbot.timer.</h1> <p>#SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</p> <p>0 */12 * * * root test -x /usr/bin/certbot -a ! -d /run/systemd/system &amp;&amp; perl -e 'sleep int(rand(43200))' &amp;&amp; certbot -q renew --nginx-ctl /usr/sbin/nginx --nginx-server-root /etc/nginx</p> <p>sudo systemctl list-timers</p></li></ol> <p>【參考】： https://community.letsencrypt.org/t/certbot-cron-job-nginx-plugin-noinstallationerror/67572/2</p> <hr> <h1 id="參考文件"><a href="#參考文件" class="header-anchor">#</a> 參考文件</h1> <p>https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-on-ubuntu-18-04#step-1-%E2%80%94-install-postfix</p> <p>https://www.linuxbabe.com/mail-server/secure-email-server-ubuntu-16-04-postfix-dovecot</p> <p>https://linoxide.com/mail/install-configure-postfix-ubuntu/</p> <p><a href="https://hostadvice.com/how-to/how-to-setup-postfix-as-send-only-mail-server-on-an-ubuntu-18-04-dedicated-server-or-vps/" target="_blank" rel="noopener noreferrer"><strong>How to Setup pOSTFIX S SEND-ONLY MAIL SERVER ON AN UBUNTU 18.04 DEDICATED SERVER OR VPS</strong><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><strong>How to use command line tool: mail to send email:</strong>
+https://www.binarytides.com/linux-mail-command-examples/</p> <p><strong>Postfix Standard Configuration Examples</strong>
+http://www.postfix.org/STANDARD_CONFIGURATION_README.html#null_client</p> <p><strong>“You have mail” - How to read mail in Ubuntu</strong>
+https://devanswers.co/you-have-mail-how-to-read-mail-in-ubuntu/</p> <p><strong>Web Mail</strong></p> <p>https://modoboa.org/en/</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/han_gi_chu_im/assets/js/app.f2e2805b.js" defer></script><script src="/han_gi_chu_im/assets/js/2.e9bdfe5b.js" defer></script><script src="/han_gi_chu_im/assets/js/109.5e3a678c.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Arch Linux: 開發環境安裝指引 | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/han_gi_chu_im/assets/css/0.styles.a12c963a.css" as="style"><link rel="preload" href="/han_gi_chu_im/assets/js/app.f2e2805b.js" as="script"><link rel="preload" href="/han_gi_chu_im/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/han_gi_chu_im/assets/js/55.cdb5d728.js" as="script"><link rel="prefetch" href="/han_gi_chu_im/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/101.e14056d5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/102.ef2e7694.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/103.5e524cf6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/104.449b67e1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/105.47db5476.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/106.173be714.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/107.64e61226.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/108.d41720e9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/109.5e3a678c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/11.84cf98b7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/111.2fe379ef.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/112.65fb8e56.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/113.e8199676.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/114.b76eb6f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/116.f901450e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/117.4898b362.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/118.80d06981.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/12.60a558ac.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/120.e66adabd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/121.d156a67b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/122.1d79306c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/123.e1941f1d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/124.0214e22f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/125.d294aced.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/126.0558f46b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/127.49d6672e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/128.cf355591.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/129.d495542f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/13.24f6efd0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/130.a6abc4e3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/131.469bba33.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/132.55c861f0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/133.8e571f38.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/134.04712779.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/135.8db4c9ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/136.28cffb72.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/137.938eab65.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/138.a57df1d2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/139.d9fc6309.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/14.a0a8a6dc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/140.5fccfcd6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/141.f0b1c886.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/142.8de335ef.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/144.05fa892e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/145.5ddbf44b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/146.8a7a3e16.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/147.296bb783.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/148.f1cb374f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/149.2a3806ea.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/15.03fefe25.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/150.5304d46a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/152.503ab6d1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/153.88ebbaf6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/154.d3f457e8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/155.33d01452.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/157.af848370.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/159.4dbdd890.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/16.21186ac1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/160.48d958e1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/161.e92c1d0b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/162.4a2836dd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/163.34672edb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/164.b3408f8d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/165.3b3ab477.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/166.33dc5f78.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/167.e392800e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/168.82153370.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/169.dcd62bfb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/170.a3d0a187.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/171.23ff00be.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/172.419179bc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/173.408750c0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/174.9d3448c2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/175.172eddbe.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/176.da75b470.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/177.2bcc49f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/178.ce76cf02.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/179.7b0cea4b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/180.6d511683.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/181.f18f383b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/182.4194ed40.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/183.de593066.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/184.d809d674.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/185.4741aacc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/186.e127fd4e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/187.01093181.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/188.be3dfceb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/189.c44554e5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/19.ee358577.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/190.7a89c427.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/191.ab08e553.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/193.72c5ff86.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/194.3b0608d5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/195.66817182.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/196.35c2fdb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/197.d4da390c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/198.f0525295.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/199.7aa6c935.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/200.d59e8a6a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/201.a3cad834.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/202.3d62278b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/203.cd0331b8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/204.3787443f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/205.27e200a2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/206.45652af0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/208.6de25ed2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/209.18b681f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/21.267f8c06.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/210.c22f1f45.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/211.a61a2195.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/212.3858824f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/213.0ac5db81.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/214.de0bbc7c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/216.7a7acb6b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/217.41bdaf52.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/218.f33b82e3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/219.597995c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/220.1530c4a2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/221.e36810e6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/222.596abb6d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/223.d3f55f99.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/224.c17ef7f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/225.972b8a95.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/226.17458472.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/227.598b61ec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/228.9c2b03f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/229.57204bbd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/23.71068419.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/232.9dd7c872.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/233.38d9ffc3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/234.e9d9bfab.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/236.bd16c64b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/237.077ec90b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/238.84598708.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/239.9bb68a5d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/24.a7cb7238.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/240.9d9a1a74.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/242.55ef7530.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/243.376498fe.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/244.5a8023d1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/246.076c0e56.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/247.96081bd7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/248.baee733f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/249.489259f3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/25.50731498.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/250.cc52a908.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/251.3b3d4281.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/252.6bcd563a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/253.6333d78c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/254.690b38af.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/255.1601d594.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/256.6f73bb5c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/257.a5a3366f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/258.89f98784.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/259.e24c0629.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/26.4aa29dff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/260.7a8d4e8e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/261.11a82914.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/262.bfb942fc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/264.c52a3206.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/265.61ea2fd0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/266.6bd5cefa.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/267.de2b661b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/268.acc85dac.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/269.3c1387e4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/27.02c70fe4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/270.6cdfc60d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/271.96b0a59b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/273.cf716f37.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/274.0efe455c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/275.cf2743f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/277.9cd97657.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/278.8a24a518.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/279.d117afb1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/28.8ee5b790.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/280.838b1c8c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/281.a18eae66.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/282.02a76248.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/283.09af7e2c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/284.77ab3f60.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/285.129e76df.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/286.d362fe87.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/287.bfacbf8b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/288.6c629410.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/289.bbe1f1b0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/29.4049a130.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/290.5b670cbc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/291.2a295df9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/292.491ba209.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/293.6222a09d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/294.da1b1bc8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/295.8e645779.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/296.322a7d66.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/297.81d85197.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/298.6c193148.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/299.97e6aaa2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/3.e19d0c82.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/30.a9e5068b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/300.3f422dec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/301.79b41302.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/302.501df600.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/303.2b1ed8bf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/304.1f0917b5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/305.c53a474c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/306.cd160b20.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/307.f5d095c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/308.d516c990.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/309.28060d09.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/31.57c6d1ed.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/310.06a43026.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/311.94f98dd7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/312.ac99c3c2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/313.dfeb0bb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/314.f7aff5f3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/316.17d84f4d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/317.fdbf74f7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/318.6137201c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/32.576d7346.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/33.2644dcc9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/34.392263e5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/35.516229c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/36.32967ae8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/37.fbcfe203.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/38.4556399d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/39.5d0dd51c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/4.3390318d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/41.a27c7068.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/42.3122db26.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/43.bc00f6f1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/44.5a5e8d67.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/45.24ef54fa.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/46.2783633c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/49.d41a42ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/50.32f5fef6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/56.f2597707.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/57.51fbeade.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/62.dbcf4f5f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/63.a7334c7c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/66.9e5f2534.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/67.9253face.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/69.80992696.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/70.d3126764.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/71.3ea817b7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/72.36ff02f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/73.53cc8e64.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/74.bd2e921c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/75.1290517b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/76.41b88fff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/77.c6d47945.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/78.f3084837.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/79.bb751695.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/80.56b6f2db.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/81.6ce2f6b5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/82.fccf7493.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/83.2978c41b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/85.ae86ef9d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/86.fa76f964.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/88.ec319bec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/89.78dec0b0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/9.fac26b8a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/90.e83cc6ad.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/91.5c70caba.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/93.aeac5506.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/94.270811f7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/95.30da1a9a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/97.4866a931.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/98.28d380d4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/han_gi_chu_im/assets/css/0.styles.a12c963a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/han_gi_chu_im/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/han_gi_chu_im/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/han_gi_chu_im/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/han_gi_chu_im/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/han_gi_chu_im/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Arch Linux: 開發環境安裝指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/han_gi_chu_im/_my_dev_env/ArchLinux/ArchLinux_%E9%96%8B%E7%99%BC%E4%BD%9C%E6%A5%AD%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E6%8C%87%E5%BC%95.html#python-3" class="sidebar-link">Python 3</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/han_gi_chu_im/_my_dev_env/ArchLinux/ArchLinux_%E9%96%8B%E7%99%BC%E4%BD%9C%E6%A5%AD%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E6%8C%87%E5%BC%95.html#nvcode" class="sidebar-link">NVCode</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/han_gi_chu_im/_my_dev_env/ArchLinux/ArchLinux_%E9%96%8B%E7%99%BC%E4%BD%9C%E6%A5%AD%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E6%8C%87%E5%BC%95.html#nvcode-2" class="sidebar-link">NVCode</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/han_gi_chu_im/_my_dev_env/ArchLinux/ArchLinux_%E9%96%8B%E7%99%BC%E4%BD%9C%E6%A5%AD%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E6%8C%87%E5%BC%95.html#vscodium" class="sidebar-link">VSCodium</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/han_gi_chu_im/_my_dev_env/ArchLinux/ArchLinux_%E9%96%8B%E7%99%BC%E4%BD%9C%E6%A5%AD%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E6%8C%87%E5%BC%95.html#neovim" class="sidebar-link">Neovim</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/han_gi_chu_im/_my_dev_env/ArchLinux/ArchLinux_%E9%96%8B%E7%99%BC%E4%BD%9C%E6%A5%AD%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E6%8C%87%E5%BC%95.html#nvcode-3" class="sidebar-link">NVCode</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/han_gi_chu_im/_my_dev_env/ArchLinux/ArchLinux_%E9%96%8B%E7%99%BC%E4%BD%9C%E6%A5%AD%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E6%8C%87%E5%BC%95.html#visual-studio-code" class="sidebar-link">Visual Studio Code</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/han_gi_chu_im/_my_dev_env/ArchLinux/ArchLinux_%E9%96%8B%E7%99%BC%E4%BD%9C%E6%A5%AD%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E6%8C%87%E5%BC%95.html#neovim-vs-code-neovim" class="sidebar-link">NeoVim（VS Code Neovim）</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="arch-linux-開發環境安裝指引"><a href="#arch-linux-開發環境安裝指引" class="header-anchor">#</a> Arch Linux: 開發環境安裝指引</h1> <h2 id="python-3"><a href="#python-3" class="header-anchor">#</a> <strong>Python 3</strong></h2> <p>（1） 安裝軟體</p> <div class="language- extra-class"><pre><code>git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+</code></pre></div><p>（2）設定執行環境</p> <div class="language- extra-class"><pre><code>vim ~/.bashrc
+</code></pre></div><p>加入「綠底色」標示行：</p> <div class="language- extra-class"><pre><code>export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then
+  eval &quot;$(pyenv init -)&quot;
+  eval &quot;$(pyenv virtualenv-init -)&quot;
+fi
+</code></pre></div><p>（3）啓用設定</p> <div class="language- extra-class"><pre><code>exec &quot;$SHELL&quot;
+</code></pre></div><p>（4）驗證 pyenv</p> <div class="language- extra-class"><pre><code>pyenv versions
+</code></pre></div><p>（5）安裝 Python 3.8</p> <div class="language- extra-class"><pre><code>pyenv install 3.8.6
+pyenv versions
+</code></pre></div><p>（6）安裝 Python 3.9 並設定成預設 Python 3 使用版本</p> <div class="language- extra-class"><pre><code>pyenv install 3.9.1
+pyenv versions
+pyenv global 3.9.1
+</code></pre></div><p>驗證設定結果：</p> <div class="language- extra-class"><pre><code>pyenv version
+python --version
+</code></pre></div><p>（7）驗證 virtualenv 安裝結果</p> <div class="language- extra-class"><pre><code>pyenv virtualenv 3.9.1 venv-3.9.1
+
+
+
+[alanjui@VB02-ArchLinux ~]$ pyenv virtualenv 3.9.1 venv-3.9.1
+Looking in links: /tmp/tmppncsrj5g
+Requirement already satisfied: setuptools in /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1/lib/python3.9/site-packages (49.2.1)
+Requirement already satisfied: pip in /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1/lib/python3.9/site-packages (20.2.3)
+
+[alanjui@VB02-ArchLinux ~]$ ls -al ~/.pyenv/versions
+總用量 16
+drwxr-xr-x  4 alanjui alanjui 4096  1月 15 11:11 .
+drwxr-xr-x 14 alanjui alanjui 4096  1月 15 11:11 ..
+drwxr-xr-x  6 alanjui alanjui 4096  1月 15 11:06 3.8.6
+drwxr-xr-x  7 alanjui alanjui 4096  1月 15 11:11 3.9.1
+lrwxrwxrwx  1 alanjui alanjui   51  1月 15 11:11 venv-3.9.1 -&gt; /home/alanjui/.pyenv/versions/3.9.1/envs/venv-3.9.1
+
+[alanjui@VB03-ArchLinux-KDE ~]$ pyenv virtualenvs
+  3.9.1/envs/venv-3.9.1 (created from /home/alanjui/.pyenv/versions/3.9.1)
+  venv-3.9.1 (created from /home/alanjui/.pyenv/versions/3.9.1)
+</code></pre></div><p>【參考】：</p> <p>Python 虛擬環境的啟用／關閉</p> <div class="language- extra-class"><pre><code>pyenv activate &lt;name&gt;
+pyenv deactivate
+</code></pre></div><p>Python 虛擬環境移除</p> <div class="language- extra-class"><pre><code>pyenv uninstall &lt;my-virtual-env&gt;
+</code></pre></div><ul><li>~/.pyenv/versions/<my-virtual-env></my-virtual-env></li> <li>~/.pyenv/versions/{Python_version}/envs/<my-virtual-env></my-virtual-env></li></ul> <hr> <p><strong>NodeJS</strong></p> <p>https://github.com/tj/n</p> <p>（0）解除系統預設安裝</p> <div class="language- extra-class"><pre><code>sudo mv /usr/bin/node /usr/bin/node.old
+</code></pre></div><p>（1）安裝 Node.JS 版本管理套件：n (Node.js Versions Manager)</p> <div class="language- extra-class"><pre><code>cd
+curl -L https://git.io/n-install | bash
+. ~/.bashrc
+</code></pre></div><p>（2）以 Node.JS 版本管理套件，安裝 LTS 版本</p> <div class="language- extra-class"><pre><code>n lts
+
+
+[alanjui@VB02-ArchLinux ~]$ n lts
+   installed : v14.15.4 (with npm 6.14.10)
+</code></pre></div><p>（3）驗證</p> <div class="language- extra-class"><pre><code>node -v
+npm -v
+
+
+[alanjui@VB03-ArchLinux-KDE ~]$ node -v
+v14.15.4
+[alanjui@VB03-ArchLinux-KDE ~]$ npm -v
+6.14.10
+</code></pre></div><hr> <p>安裝 yarn</p> <p>（1）安裝軟體套件</p> <div class="language- extra-class"><pre><code>sudo pacman -S yarn
+</code></pre></div><p>（2）驗證</p> <div class="language- extra-class"><pre><code>[alanjui@VB03-ArchLinux-KDE ~]$ sudo pacman -S yarn
+正在解決依賴關係…
+正在檢查衝突的軟體包…
+
+軟體包 (3) libuv-1.40.0-1  nodejs-15.5.1-1  yarn-1.22.10-1
+
+總計下載大小：   9.61 MiB
+總計安裝大小：  35.08 MiB
+
+:: 進行安裝嗎？ [Y/n] y
+:: 正在接收軟體包…
+ libuv-1.40.0-1-x86_64                               224.8 KiB  1561 KiB/s 00:00 [##############################################] 100%
+ nodejs-15.5.1-1-x86_64                                8.5 MiB  10.8 MiB/s 00:01 [##############################################] 100%
+ yarn-1.22.10-1-any                                  953.5 KiB  10.3 MiB/s 00:00 [##############################################] 100%
+(3/3) 正在檢查鑰匙圈中的鑰匙                                                     [##############################################] 100%
+(3/3) 正在檢查軟體包完整性                                                       [##############################################] 100%
+(3/3) 正在載入軟體包檔案                                                         [##############################################] 100%
+(3/3) 正在檢查檔案衝突                                                           [##############################################] 100%
+(3/3) 正在檢查可用磁碟空間                                                       [##############################################] 100%
+:: 正在處理軟體包變更…
+(1/3) 正在安裝 libuv                                                             [##############################################] 100%
+(2/3) 正在安裝 nodejs                                                            [##############################################] 100%
+nodejs 的可選依賴
+    npm: nodejs package manager
+(3/3) 正在安裝 yarn                                                              [##############################################] 100%
+:: 正在執行後置作業掛鉤…
+(1/1) Arming ConditionNeedsUpdate...
+</code></pre></div><p>驗證 yarn 軟件的安裝過後，不會影響 node 的版本：</p> <div class="language- extra-class"><pre><code>[alanjui@VB03-ArchLinux-KDE ~]$ which yarn
+/usr/bin/yarn
+
+[alanjui@VB03-ArchLinux-KDE ~]$ yarn --version
+1.22.10
+
+[alanjui@VB03-ArchLinux-KDE ~]$ node -v
+v14.15.4
+
+[alanjui@VB03-ArchLinux-KDE ~]$ npm -v
+6.14.10
+</code></pre></div><hr> <p><strong>Vim 8.2</strong></p> <p>Install Vim 8.2 from PPA Repo</p> <div class="language- extra-class"><pre><code>yay -Ss vim
+yay -S vim
+</code></pre></div><p>download configuration from GitHub Repo</p> <div class="language- extra-class"><pre><code>cd
+git clone https://github.com/AlanJui/vim8.git .vim
+</code></pre></div><p>Install all plugins for vim 8</p> <div class="language- extra-class"><pre><code>vim
+:PlugInstall
+:PlugUpdate
+:UpdateRemotePlugins
+:q
+
+
+
+vim
+</code></pre></div><h2 id="nvcode"><a href="#nvcode" class="header-anchor">#</a> NVCode</h2> <p><strong>Install Neovim</strong></p> <div class="language- extra-class"><pre><code>yay -S neovim-git
+</code></pre></div><p>Validate</p> <div class="language- extra-class"><pre><code>which nvim
+nvim
+</code></pre></div><p><strong>Clone configuration fr Neovim</strong></p> <div class="language- extra-class"><pre><code>git clone https://github.com/ChristianChiarulli/nvim.git ~/.config/nvim
+</code></pre></div><p><strong>Install Python &amp; Node support</strong></p> <div class="language- extra-class"><pre><code>pip install --upgrade pip
+pip install pynvim
+
+
+$ which node
+/usr/bin/node
+
+$ sudo mv /usr/bin/node /usr/bin/node.bak
+
+$ whcih node
+/home/alanjui/n/bin/node
+
+$ npm i -g neovim
+
+
+
+vim ~/.config/nvim/init.vim
+
+
+....
+let g:python3_host_prog = expand(&quot;$HOME/.pyenv/versions/3.9.1/bin/python3&quot;)
+let g:node_host_prog = expand(&quot;$HOME/n/bin/node&quot;)
+</code></pre></div><p><strong>Install Neovim remote</strong></p> <div class="language- extra-class"><pre><code>pip install neovim-remote
+
+
+[alanjui@VB2101-Manjaro-KDE-202 ~]$ pip install neovim-remote
+Collecting neovim-remote
+ Using cached neovim_remote-2.4.0-py3-none-any.whl (12 kB)
+Requirement already satisfied: psutil in ./.pyenv/versions/3.9.1/lib/python3.9/site-packages (from neovim-remote) (5.8.0)
+Requirement already satisfied: pynvim in ./.pyenv/versions/3.9.1/lib/python3.9/site-packages (from neovim-remote) (0.4.2)
+Requirement already satisfied: setuptools in ./.pyenv/versions/3.9.1/lib/python3.9/site-packages (from neovim-remote) (49.2.1)
+Requirement already satisfied: msgpack&gt;=0.5.0 in ./.pyenv/versions/3.9.1/lib/python3.9/site-packages (from pynvim-&gt;neovim-remote) (1.
+0.2)
+Requirement already satisfied: greenlet in ./.pyenv/versions/3.9.1/lib/python3.9/site-packages (from pynvim-&gt;neovim-remote) (1.0.0)
+Installing collected packages: neovim-remote
+Successfully installed neovim-remote-2.4.0
+
+[alanjui@VB2101-Manjaro-KDE-202 ~]$ ll .pyenv/shims/nvr
+-rwxr-xr-x 1 alanjui alanjui 406  1月 17 12:05 .pyenv/shims/nvr
+</code></pre></div><p><strong>Install clipboard support</strong></p> <div class="language- extra-class"><pre><code>sudo pacman -S xsel
+</code></pre></div><p><strong>Install programs which support nvim plugins</strong></p> <div class="language- extra-class"><pre><code>sudo pacman -S ranger ueberzug ripgrep the_silver_searcher fd universal-ctags
+yay -S lazygit lazydocker
+</code></pre></div><p><strong>Install “Language Serv ers”</strong></p> <div class="language- extra-class"><pre><code>npm i -g bash-language-server
+vim ~/.config/nvim/coc-settings.json
+
+
+....
+  &quot;languageserver&quot;: {
+    &quot;lua&quot;: {
+      ....
+    },
+    &quot;bash&quot;: {
+      &quot;command&quot;: &quot;bash-language-server&quot;,
+      &quot;args&quot;: [&quot;start&quot;],
+      &quot;filetypes&quot;: [&quot;sh&quot;],
+      &quot;ignoredRootPaths&quot;: [&quot;~&quot;]
+    }
+  },
+ ....
+</code></pre></div><p><strong>Update for FAR to work</strong></p> <div class="language- extra-class"><pre><code>:UpdateRemotePlugins
+</code></pre></div><p><strong>Enable Vim Gists</strong></p> <div class="language- extra-class"><pre><code>git config --global github.user &quot;Alan Jui&quot;
+</code></pre></div><hr> <h2 id="nvcode-2"><a href="#nvcode-2" class="header-anchor">#</a> NVCode</h2> <p><strong>Install VisualStudio Code</strong></p> <div class="language- extra-class"><pre><code>yay -S visual-studio-code-bin
+
+
+yay -s vscodium-bin
+
+
+codium
+</code></pre></div><p><strong>Install VS Code Extensions (Plugins)</strong></p> <ul><li>Vim (vscodevim.vim)</li> <li>Neo Vim (asvetliakov.vscode-neovim / vscode-neovim)</li> <li>Python (ms-python.python)</li> <li>Docker (ms-azuretools.vscode-docker)</li></ul> <hr> <h2 id="vscodium"><a href="#vscodium" class="header-anchor">#</a> VSCodium</h2> <p><strong>安裝軟件</strong></p> <div class="language- extra-class"><pre><code>yay -Ss vscodium
+yay -S vscodium-bin
+
+
+[alanjui@VB02-ArchLinux ~]$ yay -Ss vscodium
+aur/vscodium-bin-marketplace 1.51.1-1 (+0 0.00)
+    Enable vscode marketplace in vscodium-bin
+aur/vscodium-git 1.52.1-2 (+3 0.73)
+    Binary releases of VS Code without MS branding/telemetry/licensing (git build).
+aur/vscodium-bin 1.52.1-2 (+32 7.83)
+    Binary releases of VS Code without MS branding/telemetry/licensing.
+</code></pre></div><p><strong>啟動軟件</strong></p> <div class="language- extra-class"><pre><code>vscodium
+</code></pre></div><p><strong>變更 Plugins 可用來源 open-vsx.org</strong></p> <div class="language- extra-class"><pre><code>sudo vim /usr/share/vscodium-bin/resources/app/product.json
+
+
+....
+&quot;extensionsGallery&quot;: {
+    &quot;serviceUrl&quot;: &quot;https://marketplace.visualstudio.com/_apis/public/gallery&quot;,
+    &quot;itemUrl&quot;: &quot;https://marketplace.visualstudio.com/items&quot;
+}
+....
+</code></pre></div><hr> <h2 id="neovim"><a href="#neovim" class="header-anchor">#</a> Neovim</h2> <p>https://www.chrisatmachine.com/Neovim/01-vim-plug/</p> <p><strong>安裝軟件</strong></p> <div class="language- extra-class"><pre><code>sudo pacman -S neovim
+</code></pre></div><p><img src="https://paper-attachments.dropbox.com/s_884ACC3F903C20183D095E3A6ABED35AD045655815A8292752602F404CA371B6_1610684834196_image.png" alt=""></p> <div class="language- extra-class"><pre><code>[alanjui@VB02-ArchLinux ~]$ sudo pacman -S neovim
+正在解決依賴關係…
+正在檢查衝突的軟體包…
+
+軟體包 (6) libluv-1.36.0-1  libtermkey-0.22-2  libvterm-0.1.3.git1.65dbda-1  msgpack-c-3.3.0-2  unibilium-2.1.0-2
+           neovim-0.4.4-1
+
+總計下載大小：   5.62 MiB
+總計安裝大小：  26.17 MiB
+
+:: 進行安裝嗎？ [Y/n]
+:: 正在接收軟體包…
+ unibilium-2.1.0-2-x86_64                         116.4 KiB  3.16 MiB/s 00:00 [############################################] 100%
+ libtermkey-0.22-2-x86_64                          47.1 KiB  0.00   B/s 00:00 [############################################] 100%
+ msgpack-c-3.3.0-2-x86_64                         276.7 KiB  6.76 MiB/s 00:00 [############################################] 100%
+ libvterm-0.1.3.git1.65dbda-1-x86_64               44.6 KiB  14.5 MiB/s 00:00 [############################################] 100%
+ libluv-1.36.0-1-x86_64                            49.3 KiB  12.0 MiB/s 00:00 [############################################] 100%
+ neovim-0.4.4-1-x86_64                              5.1 MiB  10.7 MiB/s 00:00 [############################################] 100%
+(6/6) 正在檢查鑰匙圈中的鑰匙                                                  [############################################] 100%
+(6/6) 正在檢查軟體包完整性                                                    [############################################] 100%
+(6/6) 正在載入軟體包檔案                                                      [############################################] 100%
+(6/6) 正在檢查檔案衝突                                                        [############################################] 100%
+(6/6) 正在檢查可用磁碟空間                                                    [############################################] 100%
+:: 正在處理軟體包變更…
+(1/6) 正在安裝 unibilium                                                      [############################################] 100%
+(2/6) 正在安裝 libtermkey                                                     [############################################] 100%
+(3/6) 正在安裝 msgpack-c                                                      [############################################] 100%
+(4/6) 正在安裝 libvterm                                                       [############################################] 100%
+(5/6) 正在安裝 libluv                                                         [############################################] 100%
+(6/6) 正在安裝 neovim                                                         [############################################] 100%
+neovim 的可選依賴
+    python-neovim: for Python 3 plugin support (see :help python)
+    xclip: for clipboard support on X11 (or xsel) (see :help clipboard)
+    xsel: for clipboard support on X11 (or xclip) (see :help clipboard)
+    wl-clipboard: for clipboard support on wayland (see :help clipboard)
+:: 正在執行後置作業掛鉤…
+(1/2) Arming ConditionNeedsUpdate...
+(2/2) Updating the desktop file MIME type cache...
+
+
+
+sudo pacman -S python-neovim
+</code></pre></div><p><img src="https://paper-attachments.dropbox.com/s_884ACC3F903C20183D095E3A6ABED35AD045655815A8292752602F404CA371B6_1610685011778_image.png" alt=""></p> <div class="language- extra-class"><pre><code>sudo pacman -S xclip
+</code></pre></div><p><img src="https://paper-attachments.dropbox.com/s_884ACC3F903C20183D095E3A6ABED35AD045655815A8292752602F404CA371B6_1610685086895_image.png" alt=""></p> <div class="language- extra-class"><pre><code>nvim
+</code></pre></div><p><img src="https://paper-attachments.dropbox.com/s_884ACC3F903C20183D095E3A6ABED35AD045655815A8292752602F404CA371B6_1610685133076_image.png" alt=""></p> <p><strong>建置「環境設定檔」</strong></p> <div class="language- extra-class"><pre><code>mkdir ~/.config/nvim
+touch ~/.config/nvim/init.vim
+</code></pre></div><p><strong>安裝 vim-plug</strong></p> <div class="language- extra-class"><pre><code>curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+</code></pre></div><p><strong>建置 nvim 的 plugins 設定檔</strong></p> <div class="language- extra-class"><pre><code>[alanjui@VB02-ArchLinux ~]$ mkdir ~/.config/nvim/vim-plug
+[alanjui@VB02-ArchLinux ~]$ touch ~/.config/nvim/vim-plug/plugins.vim
+</code></pre></div><p>~/.confibg/nvim/vim-plug/plugins.vim</p> <div class="language- extra-class"><pre><code>&quot; auto-install vim-plug
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  &quot;autocmd VimEnter * PlugInstall
+  &quot;autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
+call plug#begin('~/.config/nvim/autoload/plugged')
+
+    &quot; Better Syntax Support
+    Plug 'sheerun/vim-polyglot'
+    &quot; File Explorer
+    Plug 'scrooloose/NERDTree'
+    &quot; Auto pairs for '(' '[' '{'
+    Plug 'jiangmiao/auto-pairs'
+
+call plug#end()
+</code></pre></div><hr> <h2 id="nvcode-3"><a href="#nvcode-3" class="header-anchor">#</a> NVCode</h2> <p>https://github.com/ChristianChiarulli/nvim</p> <div class="language- extra-class"><pre><code>mv ~/.config/nvim ~/.config/nvim.old
+
+bash &lt;(curl -s https://raw.githubusercontent.com/ChristianChiarulli/nvim/master/utils/install.sh)
+
+
+
+yay -S neovim-git
+
+
+
+neovim-git 的可選依賴
+    python2-neovim: for Python 2 plugin support (see :help provider-python)
+    python-neovim: for Python 3 plugin support (see :help provider-python) [已安裝]
+    ruby-neovim: for Ruby plugin support (see :help provider-ruby)
+    xclip: for clipboard support (or xsel) (see :help provider-clipboard) [已安裝]
+    xsel: for clipboard support (or xclip) (see :help provider-clipboard)
+    wl-clipboard: for clipboard support on wayland (see :help clipboard)su
+
+
+
+sudo pacman -S python-neovim xsel
+</code></pre></div><p><strong>Install Python &amp; Node support</strong></p> <div class="language- extra-class"><pre><code>pip install --upgrade pip
+pip install pynvim
+
+npm i -g neovim
+</code></pre></div><p><strong>Install Neovim remote</strong></p> <div class="language- extra-class"><pre><code>pip install neovim-remote
+</code></pre></div><p>List of programs should be installed</p> <ul><li><p>ranger</p></li> <li><p>ubeerzug</p></li> <li><p>ripgrep</p></li> <li><p>the_silver_searcher</p> <p>yay -S lazygit
+yay -S lazydocker</p></li></ul> <p><strong>~/.config/nvim/coc-settings.json</strong></p> <hr> <h2 id="visual-studio-code"><a href="#visual-studio-code" class="header-anchor">#</a> Visual Studio Code</h2> <p>https://wiki.archlinux.org/index.php/Visual_Studio_Code</p> <p><strong>Install</strong></p> <div class="language- extra-class"><pre><code>yay -S visual-studio-code-bin
+
+
+sudo pacman -S code
+</code></pre></div><p><strong>Execute</strong></p> <div class="language- extra-class"><pre><code>code
+</code></pre></div><p><strong>Configuration</strong></p> <div class="language- extra-class"><pre><code>~/.config/Code/User/settings.json
+
+
+{
+    &quot;terminal.integrated.shell.linux&quot;: &quot;/usr/bin/bash&quot;,
+    &quot;vscode-neovim.neovimExecutablePaths.linux&quot;: &quot;/usr/bin/nvim&quot;,
+    &quot;vscode-neovim.neovimInitVimPaths.linux&quot;: &quot;~/.config/nvim/init.vim&quot;,
+    &quot;terminal.integrated.fontFamily&quot;: &quot;FiraMono Nerd Font&quot;
+}
+</code></pre></div><p>套件：</p> <ul><li>visual-studio-code-bin (AUR) ==&gt; <strong>~/.config/Code/User/settings.json</strong></li> <li>Code ==&gt; <strong>~/.config/Code - OSS/User/settings.json</strong>
+cd ~/.config
+ln -s 'Code - OSS' Code</li></ul> <hr> <h2 id="neovim-vs-code-neovim"><a href="#neovim-vs-code-neovim" class="header-anchor">#</a> NeoVim（VS Code Neovim）</h2> <p>https://marketplace.visualstudio.com/items?itemName=asvetliakov.vscode-neovim&amp;fbclid=IwAR3UH-vJhQ4rAriMsH3PQPSGQ6BLVGwxiVhFDNJ-dNt8XWk6N4mqcuNzwy4</p> <p><strong>（1）Install Nvim V0.5</strong></p> <div class="language- extra-class"><pre><code>yay -S neovim-git
+</code></pre></div><p><strong>（2）Install vscode-neovim extension</strong>
+在 VS Code 中，安裝 VSCode-NeoVim Extension：</p> <div class="language- extra-class"><pre><code>    - Which Key (vspacecode.whichkey)
+    - Pylance (ms-python.vscode-pylance)
+</code></pre></div><p><strong>（3）設定 VS Code 作業環境（$HOME/.config/Code/User/**<strong>settings.json*</strong>*）</strong></p> <div class="language- extra-class"><pre><code>    - 設定 Nvim 執行檔路徑所在：
+&quot;vscode-neovim.neovimExecutablePaths.linux&quot;: &quot;/usr/bin/nvim&quot;,
+&quot;vscode-neovim.neovimInitVimPaths.linux&quot;: &quot;~/.config/nvim/init.vim&quot;,
+&quot;vscode-neovim.mouseSelectionStartVisualMode&quot;: true,
+    - 適當地切分設定檔（$HOME/.config/nvim/init.vim）
+if exists('g:vscode')
+  &quot; 置放 VS Code extension 適用之 Extensions
+  source ...
+  source ...
+else
+  &quot; 置放只有 Nvim 適用的 Vim Plugins
+  source ...
+  source ...
+endif
+</code></pre></div><p><strong>（4）設定 VSCode-NeoVim 專用的設定檔（$HOME/.config/Code/User/**<strong>keybindings.json*</strong>*）</strong></p> <div class="language- extra-class"><pre><code>File 》Preferences 》Keyboard Shortcuts
+
+
+[
+  {
+    &quot;command&quot;: &quot;vscode-neovim.compositeEscape1&quot;,
+    &quot;key&quot;: &quot;j&quot;,
+    &quot;when&quot;: &quot;neovim.mode == insert &amp;&amp; editorTextFocus&quot;,
+    &quot;args&quot;: &quot;j&quot;
+  },
+  {
+    ....
+  }
+]
+</code></pre></div><p>（4）若是 VS Code 出現如下之錯誤警示時，使用者當試著 Uninstall 某些 VSCode Extensions：</p> <div class="language- extra-class"><pre><code>Unable to init vscode-neovim: command 'type' already exists
+</code></pre></div><p>（5）whichkey.show failed</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/han_gi_chu_im/assets/js/app.f2e2805b.js" defer></script><script src="/han_gi_chu_im/assets/js/2.e9bdfe5b.js" defer></script><script src="/han_gi_chu_im/assets/js/55.cdb5d728.js" defer></script>
+  </body>
+</html>

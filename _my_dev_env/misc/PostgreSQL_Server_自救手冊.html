@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PostgreSQL Server 自救手冊 | 《專案文件舘》</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="彙集專案相關文件">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/han_gi_chu_im/assets/css/0.styles.a12c963a.css" as="style"><link rel="preload" href="/han_gi_chu_im/assets/js/app.f2e2805b.js" as="script"><link rel="preload" href="/han_gi_chu_im/assets/js/2.e9bdfe5b.js" as="script"><link rel="preload" href="/han_gi_chu_im/assets/js/205.27e200a2.js" as="script"><link rel="prefetch" href="/han_gi_chu_im/assets/js/10.f716d3ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/100.c1f4de65.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/101.e14056d5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/102.ef2e7694.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/103.5e524cf6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/104.449b67e1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/105.47db5476.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/106.173be714.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/107.64e61226.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/108.d41720e9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/109.5e3a678c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/11.84cf98b7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/110.28b6eddf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/111.2fe379ef.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/112.65fb8e56.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/113.e8199676.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/114.b76eb6f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/115.6ccf8b33.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/116.f901450e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/117.4898b362.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/118.80d06981.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/119.d7c7dead.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/12.60a558ac.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/120.e66adabd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/121.d156a67b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/122.1d79306c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/123.e1941f1d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/124.0214e22f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/125.d294aced.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/126.0558f46b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/127.49d6672e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/128.cf355591.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/129.d495542f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/13.24f6efd0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/130.a6abc4e3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/131.469bba33.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/132.55c861f0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/133.8e571f38.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/134.04712779.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/135.8db4c9ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/136.28cffb72.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/137.938eab65.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/138.a57df1d2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/139.d9fc6309.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/14.a0a8a6dc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/140.5fccfcd6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/141.f0b1c886.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/142.8de335ef.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/143.21c1dfd2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/144.05fa892e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/145.5ddbf44b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/146.8a7a3e16.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/147.296bb783.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/148.f1cb374f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/149.2a3806ea.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/15.03fefe25.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/150.5304d46a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/151.7e699c3e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/152.503ab6d1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/153.88ebbaf6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/154.d3f457e8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/155.33d01452.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/156.e3e555c3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/157.af848370.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/158.0f2b45b2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/159.4dbdd890.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/16.21186ac1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/160.48d958e1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/161.e92c1d0b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/162.4a2836dd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/163.34672edb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/164.b3408f8d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/165.3b3ab477.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/166.33dc5f78.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/167.e392800e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/168.82153370.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/169.dcd62bfb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/17.6e726f1c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/170.a3d0a187.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/171.23ff00be.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/172.419179bc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/173.408750c0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/174.9d3448c2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/175.172eddbe.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/176.da75b470.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/177.2bcc49f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/178.ce76cf02.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/179.7b0cea4b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/18.ef4acaed.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/180.6d511683.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/181.f18f383b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/182.4194ed40.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/183.de593066.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/184.d809d674.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/185.4741aacc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/186.e127fd4e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/187.01093181.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/188.be3dfceb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/189.c44554e5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/19.ee358577.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/190.7a89c427.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/191.ab08e553.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/192.e1b26e5b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/193.72c5ff86.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/194.3b0608d5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/195.66817182.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/196.35c2fdb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/197.d4da390c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/198.f0525295.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/199.7aa6c935.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/20.bc7c4e1d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/200.d59e8a6a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/201.a3cad834.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/202.3d62278b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/203.cd0331b8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/204.3787443f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/206.45652af0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/207.6fcd649c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/208.6de25ed2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/209.18b681f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/21.267f8c06.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/210.c22f1f45.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/211.a61a2195.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/212.3858824f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/213.0ac5db81.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/214.de0bbc7c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/215.d0b0e2bc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/216.7a7acb6b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/217.41bdaf52.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/218.f33b82e3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/219.597995c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/22.ef8c5802.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/220.1530c4a2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/221.e36810e6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/222.596abb6d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/223.d3f55f99.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/224.c17ef7f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/225.972b8a95.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/226.17458472.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/227.598b61ec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/228.9c2b03f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/229.57204bbd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/23.71068419.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/230.7c6e9ab3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/231.384f9a9c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/232.9dd7c872.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/233.38d9ffc3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/234.e9d9bfab.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/235.15fc49c0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/236.bd16c64b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/237.077ec90b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/238.84598708.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/239.9bb68a5d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/24.a7cb7238.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/240.9d9a1a74.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/241.8c70ef29.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/242.55ef7530.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/243.376498fe.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/244.5a8023d1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/245.8a9f17c6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/246.076c0e56.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/247.96081bd7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/248.baee733f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/249.489259f3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/25.50731498.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/250.cc52a908.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/251.3b3d4281.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/252.6bcd563a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/253.6333d78c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/254.690b38af.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/255.1601d594.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/256.6f73bb5c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/257.a5a3366f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/258.89f98784.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/259.e24c0629.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/26.4aa29dff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/260.7a8d4e8e.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/261.11a82914.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/262.bfb942fc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/263.67fff2d7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/264.c52a3206.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/265.61ea2fd0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/266.6bd5cefa.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/267.de2b661b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/268.acc85dac.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/269.3c1387e4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/27.02c70fe4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/270.6cdfc60d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/271.96b0a59b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/272.dbf51e85.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/273.cf716f37.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/274.0efe455c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/275.cf2743f9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/276.7762b2b9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/277.9cd97657.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/278.8a24a518.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/279.d117afb1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/28.8ee5b790.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/280.838b1c8c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/281.a18eae66.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/282.02a76248.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/283.09af7e2c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/284.77ab3f60.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/285.129e76df.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/286.d362fe87.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/287.bfacbf8b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/288.6c629410.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/289.bbe1f1b0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/29.4049a130.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/290.5b670cbc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/291.2a295df9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/292.491ba209.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/293.6222a09d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/294.da1b1bc8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/295.8e645779.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/296.322a7d66.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/297.81d85197.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/298.6c193148.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/299.97e6aaa2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/3.e19d0c82.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/30.a9e5068b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/300.3f422dec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/301.79b41302.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/302.501df600.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/303.2b1ed8bf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/304.1f0917b5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/305.c53a474c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/306.cd160b20.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/307.f5d095c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/308.d516c990.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/309.28060d09.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/31.57c6d1ed.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/310.06a43026.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/311.94f98dd7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/312.ac99c3c2.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/313.dfeb0bb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/314.f7aff5f3.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/315.6070a0d9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/316.17d84f4d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/317.fdbf74f7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/318.6137201c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/319.7fb86a94.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/32.576d7346.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/33.2644dcc9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/34.392263e5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/35.516229c9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/36.32967ae8.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/37.fbcfe203.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/38.4556399d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/39.5d0dd51c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/4.3390318d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/40.ded4cc23.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/41.a27c7068.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/42.3122db26.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/43.bc00f6f1.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/44.5a5e8d67.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/45.24ef54fa.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/46.2783633c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/47.26ec5e48.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/48.57ab0a20.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/49.d41a42ff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/5.1d4824ad.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/50.32f5fef6.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/51.7e722fbd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/52.a1d9c3ca.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/53.1307bc0b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/54.b5a24f6d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/55.cdb5d728.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/56.f2597707.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/57.51fbeade.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/58.1d44d18d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/59.1e7f06e4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/6.66e67cb9.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/60.6e5f31d7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/61.3deb5ffc.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/62.dbcf4f5f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/63.a7334c7c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/64.cd3cc6fd.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/65.dfba7b5a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/66.9e5f2534.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/67.9253face.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/68.b8b1404c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/69.80992696.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/7.51ae61fb.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/70.d3126764.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/71.3ea817b7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/72.36ff02f5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/73.53cc8e64.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/74.bd2e921c.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/75.1290517b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/76.41b88fff.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/77.c6d47945.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/78.f3084837.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/79.bb751695.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/8.cca18fcf.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/80.56b6f2db.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/81.6ce2f6b5.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/82.fccf7493.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/83.2978c41b.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/84.81ab4e00.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/85.ae86ef9d.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/86.fa76f964.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/87.2693fb7f.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/88.ec319bec.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/89.78dec0b0.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/9.fac26b8a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/90.e83cc6ad.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/91.5c70caba.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/92.097a6e9a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/93.aeac5506.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/94.270811f7.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/95.30da1a9a.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/96.2fdaa548.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/97.4866a931.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/98.28d380d4.js"><link rel="prefetch" href="/han_gi_chu_im/assets/js/99.a045c282.js">
+    <link rel="stylesheet" href="/han_gi_chu_im/assets/css/0.styles.a12c963a.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/han_gi_chu_im/" class="home-link router-link-active"><!----> <span class="site-name">《專案文件舘》</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/han_gi_chu_im/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/han_gi_chu_im/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/han_gi_chu_im/guide/" class="nav-link">
+  Guide
+</a></div><div class="nav-item"><a href="/han_gi_chu_im/config/" class="nav-link">
+  Config
+</a></div><div class="nav-item"><a href="https://v1.vuepress.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>作業指引</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/han_gi_chu_im/d100_URS/" class="sidebar-link">使用者需求</a></li><li><a href="/han_gi_chu_im/d200_SRS/" class="sidebar-link">系統需求</a></li><li><a href="/han_gi_chu_im/d300_SDD/" class="sidebar-link">系統設計</a></li><li><a href="/han_gi_chu_im/d400_DEV/" class="sidebar-link">開發與測試</a></li><li><a href="/han_gi_chu_im/d500_OP/" class="sidebar-link">系統維運</a></li><li><a href="/han_gi_chu_im/d900_REF/" class="sidebar-link">參考資料</a></li><li><a href="/han_gi_chu_im/guide/" class="sidebar-link">作業指引</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>電腦硬體</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>開發環境</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>常用工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>參考資料</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="postgresql-server-自救手冊"><a href="#postgresql-server-自救手冊" class="header-anchor">#</a> PostgreSQL Server 自救手冊</h1> <hr> <h1 id="完成安裝後"><a href="#完成安裝後" class="header-anchor">#</a> 完成安裝後</h1> <h2 id="變更預設管理員帳號-postgres-的密碼"><a href="#變更預設管理員帳號-postgres-的密碼" class="header-anchor">#</a> 變更預設管理員帳號 postgres 的密碼</h2> <div class="language- extra-class"><pre><code>psql postgres
+\du
+\password postgres
+</code></pre></div><h2 id="建立app用資料庫"><a href="#建立app用資料庫" class="header-anchor">#</a> 建立App用資料庫</h2> <p>查詢使用者帳號：查詢 Postgres Server 所擁有的使用者帳號</p> <div class="language- extra-class"><pre><code>\du
+</code></pre></div><p>建立使用者帳號（db_user)</p> <div class="language- extra-class"><pre><code>create role db_user with login password 'Passw0rd';
+</code></pre></div><p>允許 db_user 帳號，具建立DB權限</p> <div class="language- extra-class"><pre><code>alter role db_user createdb;
+</code></pre></div><p>透過「查詢使用者帳號指令」，確認使用者帳號已建立。</p> <div class="language- extra-class"><pre><code>\du
+\q
+</code></pre></div><p>以 db_user 帳號，進入 psql</p> <div class="language- extra-class"><pre><code>psql postgres -U db_user\
+</code></pre></div><p>建立資料庫</p> <div class="language- extra-class"><pre><code>create database my_test_db;
+</code></pre></div><p>確認資料庫已建立</p> <div class="language- extra-class"><pre><code>\l
+</code></pre></div><p>設定 db_user 在 my_test_db 資料庫擁有所有權限</p> <div class="language- extra-class"><pre><code>grant all privileges on database my_test_db to db_user;
+</code></pre></div><p>確認 db_user 已能連上 my_test_db 資料庫</p> <div class="language- extra-class"><pre><code>\connect my_test_db;
+</code></pre></div><p>查詢資料已建立之 Tables</p> <div class="language- extra-class"><pre><code>\dt
+</code></pre></div><p>離開 psql</p> <div class="language- extra-class"><pre><code>\q
+</code></pre></div><hr> <h1 id="在-docker-container-環境運作"><a href="#在-docker-container-環境運作" class="header-anchor">#</a> 在 Docker Container 環境運作</h1> <p>https://hub.docker.com/_/postgres/</p> <h1 id="下載postgresql"><a href="#下載postgresql" class="header-anchor">#</a> 下載PostgreSQL</h1> <div class="language- extra-class"><pre><code>docker pull postgres
+</code></pre></div><h1 id="啟動-postgresql-instance"><a href="#啟動-postgresql-instance" class="header-anchor">#</a> 啟動 PostgreSQL Instance</h1> <h2 id="start-a-postgres-instance"><a href="#start-a-postgres-instance" class="header-anchor">#</a> start a postgres instance</h2> <div class="language- extra-class"><pre><code>docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+
+
+
+docker run --name psql-db -e POSTGRES_PASSWORD=Passw0rd -d postgres
+
+
+docker run --name psql-db -e POSTGRES_PASSWORD=Passw0rd -p 5432:5432 postgres:10
+</code></pre></div><h2 id="connect-to-it-from-an-application"><a href="#connect-to-it-from-an-application" class="header-anchor">#</a> connect to it from an application</h2> <div class="language- extra-class"><pre><code>$ docker run --name some-app --link some-postgres:postgres -d application-that-uses-postgres
+
+
+docker run --name psql-db --link db:postgres -d psql -h postgres -U postgres
+
+
+docker run --link db:postgres -d --name psql-db -e POSTGRES_PASSWORD=Passw0rd -p 5432:5432 postgres:10
+</code></pre></div><p>驗證 Container 已能正常運作</p> <div class="language- extra-class"><pre><code>docker ps
+
+
+AlanJui at MacBook-Pro.local in [~/workspace/django]
+21:59:30 $ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED                  STATUS              PORTS                    NAMES
+5c5bf208b44a        postgres:10         &quot;docker-entrypoint.s…&quot;   Less than a second ago   Up 3 seconds        0.0.0.0:5432-&gt;5432/tcp   psql-db
+</code></pre></div><p>執行 PSQL</p> <div class="language- extra-class"><pre><code>docker run -it --rm --link some-postgres:postgres postgres psql -h postgres -U postgres
+
+
+AlanJui at MacBook-Pro.local in [~/workspace/django]
+22:04:42 $ docker exec -it psql-db bash
+root@5c5bf208b44a:/# psql -h localhost -U postgres
+psql (10.4 (Debian 10.4-2.pgdg90+1))
+Type &quot;help&quot; for help.
+
+postgres=# \q
+root@5c5bf208b44a:/# exit
+exit
+
+AlanJui at MacBook-Pro.local in [~/workspace/django]
+22:16:04 $
+</code></pre></div><hr> <div class="language- extra-class"><pre><code>docker stack deploy -c stack.yml postgres
+
+
+docker-compose -f stack.yml up
+
+
+http://&lt;swarm-ip&gt;:8080
+
+
+http://localhost:8080
+
+
+http://&lt;host-ip&gt;:8080
+</code></pre></div><p>stack.yml</p> <div class="language- extra-class"><pre><code># Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Passw0rd
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+</code></pre></div><hr> <h1 id="在-ubuntu-16-04-環境運作"><a href="#在-ubuntu-16-04-環境運作" class="header-anchor">#</a> 在 Ubuntu 16.04 環境運作</h1> <p>安裝指令。</p> <div class="language- extra-class"><pre><code>sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+
+
+Creating new cluster 9.5/main ...
+  config /etc/postgresql/9.5/main
+  data   /var/lib/postgresql/9.5/main
+  locale en_US.UTF-8
+  socket /var/run/postgresql
+  port   5432
+</code></pre></div><p>系統安裝路徑：</p> <div class="language- extra-class"><pre><code>/usr/share/postgresql/9.5/
+/usr/share/postgresql-common/
+</code></pre></div><p>設定檔存放路徑：</p> <div class="language- extra-class"><pre><code>/etc/postgresql/9.5/main/postgresql.conf
+</code></pre></div><p>資料庫存放路徑：</p> <div class="language- extra-class"><pre><code>/var/lib/postgresql/9.5/main
+</code></pre></div><p>Service 管理常用指令：</p> <div class="language- extra-class"><pre><code>sudo service postgresql status (systemctl status postgresql)
+sudo service postgresql stop (sudo systemctl stop postgresql)
+sudo service postgresql start (sudo systemctl start postgresql) 
+sudo service postgresql restart (sudo systemctl restart postgresql) 
+</code></pre></div><hr> <h2 id="變更-port-號作業"><a href="#變更-port-號作業" class="header-anchor">#</a> 變更 Port 號作業</h2> <p>設定檔： /etc/postgresql/<Ver>/main/postgresql.conf</Ver></p> <div class="language- extra-class"><pre><code>...
+port = 5433
+</code></pre></div><hr> <h2 id="變更預設管理員帳號密碼作業"><a href="#變更預設管理員帳號密碼作業" class="header-anchor">#</a> 變更預設管理員帳號密碼作業</h2> <p>將 PostgreSQL 資料庫系統，預設的管理員帳號：postgres，設定密碼。</p> <p><strong>驗證作業系統已有 postgres 使用者帳號被建立。</strong></p> <div class="language- extra-class"><pre><code>$ id postgres
+uid=124(postgres) gid=131(postgres) \u7fa4\u7d44=131(postgres),112(ssl-cert)
+</code></pre></div><p>變更「使用作業系統使用者」的密碼</p> <div class="language- extra-class"><pre><code>$ sudo passwd postgres
+</code></pre></div><p>變更「PostgreSQL資料庫系統使用者（postgres）」的密碼</p> <div class="language- extra-class"><pre><code>$ sudo -u postgres psql -d template1 -c &quot;ALTER USER postgres WITH PASSWORD 'ChingHai99@';&quot;
+</code></pre></div><hr> <h2 id="設定可遠端存取作業"><a href="#設定可遠端存取作業" class="header-anchor">#</a> 設定可遠端存取作業</h2> <p><strong>(1)　設定 PostgreSQL 相關「設定檔」：</strong></p> <p>設定檔目錄路徑：/etc/postgresql/9.5/main/</p> <p>在檔案： <strong>pg_hba.conf ，加入下列設定：</strong></p> <div class="language- extra-class"><pre><code>host all all 192.168.66.0/24 md5
+</code></pre></div><p>在檔案： <strong>postgresql.conf，加入下列設定：</strong></p> <div class="language- extra-class"><pre><code>listen_addresses='*'
+</code></pre></div><p><strong>(2) 開通防火牆</strong></p> <p>要求「防火牆」開放 PORT: 5432
+檢查防火牆的 Port：5432 是否已開通： <a href="http://www.yougetsignal.com/tools/open-ports/" target="_blank" rel="noopener noreferrer">http://www.yougetsignal.com/tools/open-ports/<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>執行下列指令，要求防火牆將 Port: 5432 開通（意即在 <code>iptables</code> 新增 rule）</p> <div class="language- extra-class"><pre><code>iptables -A INPUT -s 0/0 -p tcp --dport 5432 -j ACCEPT
+</code></pre></div><p><strong>(3) 從新啟動 PostgreSQL Service</strong></p> <p>在Server端，將 PostgreSQL Service 重新啟動：</p> <div class="language- extra-class"><pre><code>sudo service postgresql restart
+sudo service postgresql status
+</code></pre></div><p><strong>(4) 驗證可自遠端連入</strong></p> <p>在 Client 端，連入 PostgreSQL Server：</p> <div class="language- extra-class"><pre><code> psql -U postgres postgres -h 192.168.66.10
+ ...
+ \q
+</code></pre></div><hr> <p><strong>以 postgres 使用者身份啟動 postgres 管理工具：psql</strong></p> <p>直接使用目前使用者：</p> <div class="language- extra-class"><pre><code>$ sudo -u postgres psql
+</code></pre></div><p>先切換到 postgres 使用者：</p> <div class="language- extra-class"><pre><code>$ sudo -i -u postgres
+$ psql
+</code></pre></div><p>退出 psql</p> <div class="language- extra-class"><pre><code>postgres=# \q
+</code></pre></div><hr> <p><strong>建立資料庫使用者（Create a New Role）</strong></p> <p>使用指令： createuser 。對於指令用法，需要說明時，可用以下方式查明：</p> <div class="language- extra-class"><pre><code>$ man createuser
+</code></pre></div><p>【方法一】：使用登入系統的使用者身份</p> <div class="language- extra-class"><pre><code>$ sudo -u postgres createuser --interactive
+Enter name of role to add: app_user
+Shall the new role be a superuser? (y/n) y
+</code></pre></div><p>【方法二】：切換成 postgres 使用者身份</p> <div class="language- extra-class"><pre><code>$ sudo -i -u postgres
+postgres@srv-01:~$ createuser --interactive
+</code></pre></div><p>【方法三】：切換成作業系統使用者 postgres 身份</p> <div class="language- extra-class"><pre><code>$ su - postgres
+密碼： 
+postgres@srv-01:~$
+
+postgres@srv-01:~$ createdb mytestdb
+postgres@srv-01:~$ psql mytestdb
+psql (9.5.12)
+Type &quot;help&quot; for help.
+
+mytestdb=# \q
+postgres@srv-01:~$ 
+
+postgres@srv-01:~$ su alanjui
+Password: 
+alanjui@srv-01:/var/lib/postgresql$ 
+</code></pre></div><hr> <p>刪除 PostgreSQL 資料庫庫管理系統中的使用者： dropuser</p> <div class="language- extra-class"><pre><code>$ su - postgres
+密碼： 
+postgres@srv-01:~$ dropuser app_user
+postgres@srv-01:~$ 
+</code></pre></div><hr> <p>建立資料庫（Create a New Database）</p> <div class="language- extra-class"><pre><code>sudo -u postgres createdb my_project
+
+
+
+$ sudo adduser app_db
+
+$ sudo -u postgres createuser --interactive
+Enter name of role to add: app_db
+Shall the new role be a superuser? (y/n) y
+
+$ sudo -u app_db createdb app_db
+</code></pre></div><hr> <p>應用案例：建立一個資料庫： app_db ，其資料管理員帳號為： app_user (密碼：changeme)</p> <div class="language- extra-class"><pre><code>$ su - postgres
+密碼： 
+postgres@srv-01:~$
+
+postgres@srv-01:~$ createuser app_user --pwprompt
+Enter password for new role: 
+Enter it again: 
+postgres@srv-01:~$ 
+
+postgres@srv-01:~$ createdb app_db
+postgres@srv-01:~$ 
+
+postgres@srv-01:~$ psql app_db
+psql (9.5.12)
+Type &quot;help&quot; for help.
+
+app_db=# GRANT ALL ON DATABASE app_db TO app_user;
+GRANT
+app_db=# \q
+postgres@srv-01:~$ 
+</code></pre></div><hr> <h1 id="在-os-x-環境運作"><a href="#在-os-x-環境運作" class="header-anchor">#</a> 在 OS X 環境運作</h1> <h2 id="_1-安裝作業"><a href="#_1-安裝作業" class="header-anchor">#</a> (1) 安裝作業</h2> <ul><li><p>下載：使用 <strong>EnterpriseDB 套件安裝，下載處：</strong> https://www.enterprisedb.com/downloads/postgres-postgresql-downloads#linux</p></li> <li><p>安裝處： ~/Applications/PostgreSQL/9.6</p></li> <li><p>設定檔存放路徑： ~~/Applications/PostgreSQL/9.6/data</p></li> <li><p>執行檔存放路徑： ~/Applications/PostgreSQL/9.6/bin</p></li> <li><p>Service 檔存放路徑：/lib/systemd/system/postgresql-9.6.service</p></li></ul> <h2 id="_2-檢驗及確認-postgresql-server-是否已啟動"><a href="#_2-檢驗及確認-postgresql-server-是否已啟動" class="header-anchor">#</a> (2) 檢驗及確認 PostgreSQL Server 是否已啟動</h2> <p>透過目錄 <strong>PATH 檢查及確認己安裝</strong></p> <div class="language- extra-class"><pre><code>$ which pg_ctl
+/home/alanjui/Applications/PostgreSQL/9.6/bin/pg_ctl
+</code></pre></div><p><strong>檢查 Service ，確認是否已啟動</strong></p> <div class="language- extra-class"><pre><code>$ service postgresql-9.6 status
+</code></pre></div><p><strong>檢查 psql shell (PostgreSQL Client) 可連上 PostgreSQL Server</strong></p> <div class="language- extra-class"><pre><code>$ pgsql -h 127.0.0.1 -U postgres
+
+$ pgsql -h localhost -U postgres
+
+$ pgsql -h 192.168.66.10 -U postgres
+</code></pre></div><p><strong>檢查 Port: 5432 是否已在使用中</strong></p> <div class="language- extra-class"><pre><code>$ netstat -tulnp | grep 5432
+</code></pre></div><hr> <h1 id="pgadmin4"><a href="#pgadmin4" class="header-anchor">#</a> pgAdmin4</h1> <h2 id="安裝方法一"><a href="#安裝方法一" class="header-anchor">#</a> 安裝方法一</h2> <div class="language- extra-class"><pre><code>$ sudo sh -c 'echo &quot;deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main&quot; &gt; /etc/apt/sources.list.d/pgdg.list'
+
+$ cat /etc/apt/sources.list.d/pgdg.list                                 
+deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
+</code></pre></div><p>下載 Repository Key ：  https://www.postgresql.org/media/keys/ACCC4CF8.asc</p> <div class="language- extra-class"><pre><code>$ sudo apt-get install wget ca-certificates
+$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo apt-get install pgadmin4
+</code></pre></div><hr> <h2 id="安裝方法二"><a href="#安裝方法二" class="header-anchor">#</a> 安裝方法二</h2> <div class="language- extra-class"><pre><code>$ sudo apt-get install virtualenv python-pip libpq-dev python-dev
+
+$ cd
+$ virtualenv pgadmin4
+$ cd pgadmin4
+$ source bin/activate
+
+$ wget https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v1.6/pip/pgadmin4-1.6-py2.py3-none-any.whl
+
+$ pip install pgadmin4-1.6-py2.py3-none-any.whl
+</code></pre></div><h2 id="設定作業"><a href="#設定作業" class="header-anchor">#</a> 設定作業</h2> <p><strong>設定 SERVER_MODE</strong></p> <p>於設定檔： <code>~/pgadmin4/lib/python2.7/site-packages/pgadmin4/config_local.py</code> 加入「<code>SERVER_MODE = False</code>」設定（run in single-user mode）：</p> <div class="language- extra-class"><pre><code>$ echo &quot;SERVER_MODE = False&quot; &gt;&gt; lib/python2.7/site-packages/pgadmin4/config_local.py
+</code></pre></div><p><strong>在 Shell 設定「別名(alias)」</strong></p> <p>修改下列設定檔：</p> <ul><li>~/.zshrc</li> <li>~/.bashrc</li> <li><h1 id="pgadmin4-2"><a href="#pgadmin4-2" class="header-anchor">#</a> pgAdmin4</h1>
+alias pgadmin='source ~/pgadmin4/bin/activate  &amp;&amp; python ~/pgadmin4/lib/python2.7/site-packages/pgadmin4/pgAdmin4.py'</li></ul> <p>啟動 pgAdmin4</p> <p>（１）在終端機執行指令(alias: pgadmin)</p> <div class="language- extra-class"><pre><code>$ pgadmin
+</code></pre></div><p>（２）在 Web Browser 瀏覽網址： http://127.0.0.1:5050/</p> <hr> <h1 id="資料庫管理"><a href="#資料庫管理" class="header-anchor">#</a> 資料庫管理</h1> <h2 id="建置專案用資料庫"><a href="#建置專案用資料庫" class="header-anchor">#</a> 建置專案用資料庫</h2> <p><strong>建立使用者帳戶</strong></p> <div class="language- extra-class"><pre><code>$ sudo -u postgres createuser django2_helloworld -P
+</code></pre></div><p>-P 表 Password，當要求輸入 password 時，輸入： <strong>Passw0rd</strong> 。</p> <p><strong>建立資料庫並設定使用者帳戶</strong></p> <div class="language- extra-class"><pre><code>$ sudo -u postgres createdb django2_helloworld_db -O django2_helloworld
+</code></pre></div><p>-O: Owner</p> <p>DB URL:  post</p> <h2 id="建置-mail-server"><a href="#建置-mail-server" class="header-anchor">#</a> 建置 Mail Server</h2> <div class="language- extra-class"><pre><code>sudo -u postgres createuser mail_server -P
+sudo -u postgres createdb mail_server_db -O mail_server
+
+
+postgresql://\[user[:password]@\][netloc]\[:port\][/dbname][?param1=value1&amp;...]
+
+
+
+Here are examples from same document
+postgresql://
+postgresql://localhost
+postgresql://localhost:5432
+postgresql://localhost/mydb
+postgresql://user@localhost
+postgresql://user:secret@localhost
+postgresql://other@localhost/otherdb?connect_timeout=10&amp;application_name=myapp
+postgresql://localhost/mydb?user=other&amp;password=secret
+
+
+postgresql://mail_server:Passw0rd@192.168.66.10:5432/mail_server_db
+
+
+
+# vim /opt/postfixadmin/config.local.php
+
+&lt;?php
+$CONF['database_type'] = 'mysqli';
+$CONF['database_user'] = 'postfix';
+$CONF['database_password'] = 'postfix-db-password';
+$CONF['database_name'] = 'postfix';
+
+$CONF['configured'] = true;
+?&gt;
+
+
+# vim /opt/postfixadmin/config.local.php
+
+&lt;?php
+$CONF['database_type'] = 'pgsql';
+$CONF['database_user'] = 'mail_server';
+$CONF['database_password'] = 'Passw0rd';
+$CONF['database_name'] = 'mail_server_db';
+
+$CONF['configured'] = true;
+?&gt;
+</code></pre></div><h1 id="安裝-lepp-伺服器"><a href="#安裝-lepp-伺服器" class="header-anchor">#</a> 安裝 LEPP 伺服器</h1> <div class="language- extra-class"><pre><code>$ sudo -u postgres psql postgres
+psql (11.2 (Ubuntu 11.2-1.pgdg18.04+1))
+Type &quot;help&quot; for help.
+postgres=# create user &quot;www-data&quot; with password 'Passw0rd';
+CREATE ROLE
+postgres=# create database lepp_db with owner &quot;www-data&quot;;
+CREATE DATABASE
+postgres=# grant all privileges on database lepp_db to &quot;www-data&quot;;
+GRANT
+postgres=# \q
+alanjui@SRV-01:~$
+
+
+$ sudo apt install postfix-pgsql sasl2-bin
+</code></pre></div><h1 id="psql-shell-操作"><a href="#psql-shell-操作" class="header-anchor">#</a> PSQL Shell 操作</h1> <h2 id="登入"><a href="#登入" class="header-anchor">#</a> 登入</h2> <div class="language- extra-class"><pre><code>psql -h &lt;IP/Host&gt; -d &lt;Database&gt; -U &lt;UserAccount&gt;
+</code></pre></div><p>登入 localhost</p> <div class="language- extra-class"><pre><code>alanjui at Srv-01 in [~]   
+10:55:31 $ psql -h localhost -d postgres -U postgres
+psql.bin (9.6.3)
+Type &quot;help&quot; for help.
+
+Cannot read termcap database;
+using dumb terminal settings.
+postgres=# quit()
+postgres-# \q
+</code></pre></div><p>登入 192.168.66.10:</p> <div class="language- extra-class"><pre><code>alanjui at Srv-01 in [~]   
+11:03:56 $ psql -h 192.168.66.10 -d postgres -U postgres
+Password for user postgres: 
+psql.bin (9.6.3)
+Type &quot;help&quot; for help.
+
+Cannot read termcap database;
+using dumb terminal settings.
+postgres=# 
+</code></pre></div><hr> <h2 id="常用指令"><a href="#常用指令" class="header-anchor">#</a> 常用指令</h2> <p><strong>條列所有 Database</strong></p> <div class="language- extra-class"><pre><code>\list (\l)
+</code></pre></div><p><strong>切換「使用中的 Database」</strong></p> <div class="language- extra-class"><pre><code>\connect &lt;database&gt;  (\c)
+</code></pre></div><p><strong>條列 Database 所有的 Table</strong></p> <div class="language- extra-class"><pre><code>\dt
+</code></pre></div><hr> <h2 id="退出psql"><a href="#退出psql" class="header-anchor">#</a> 退出PSQL</h2> <p>使用 \q 指令。</p> <div class="language- extra-class"><pre><code>alanjui at Srv-01 in [~]   
+9:30:56 $ psql
+psql.bin (9.6.3)
+Type &quot;help&quot; for help.
+
+Cannot read termcap database;
+using dumb terminal settings.
+alanjui=# \q
+
+alanjui at Srv-01 in [~]   
+10:53:43 $ 
+</code></pre></div><hr> <h2 id="在正式資料庫伺服器建立資料庫及管理員"><a href="#在正式資料庫伺服器建立資料庫及管理員" class="header-anchor">#</a> 在正式資料庫伺服器建立資料庫及管理員</h2> <p>在正式環境的 PostgreSQL ，建立資料庫，並指派資料庫之管理員帳號。</p> <p><strong>(1) Change the user to postgres :</strong></p> <div class="language- extra-class"><pre><code>su - postgres
+</code></pre></div><p><strong>(2) Create User for Postgres</strong></p> <div class="language- extra-class"><pre><code>$ createuser testuser
+</code></pre></div><p><strong>(3) Create Database</strong></p> <div class="language- extra-class"><pre><code>$ createdb testdb
+</code></pre></div><p><strong>(4) Access the postgres Shell</strong></p> <div class="language- extra-class"><pre><code>psql ( enter the password for postgressql)
+</code></pre></div><p><strong>(5) Provide the privileges to the postgres user</strong></p> <div class="language- extra-class"><pre><code>$ alter user testuser with encrypted password 'qwerty';
+$ grant all privileges on database testdb to testuser;
+</code></pre></div><hr> <h2 id="在開發資料庫伺服器建立資料庫及管理員"><a href="#在開發資料庫伺服器建立資料庫及管理員" class="header-anchor">#</a> 在開發資料庫伺服器建立資料庫及管理員</h2> <p>在開發環境用 PostgreSQL 伺服器，建立資料庫及使用者帳號。開發環境的 PostgreSQL ，系以 Docker Image 架設而成。</p> <p>進入  <strong>psql  shell</strong></p> <div class="language- extra-class"><pre><code>docker ps
+docker run -it --rm --link psql-db:postgres postgres psql -h postgres -U postgres
+</code></pre></div><p><strong>建立資料庫</strong></p> <div class="language- extra-class"><pre><code>CREATE DATABASE [Database]
+</code></pre></div><p><strong>建立使用者帳號</strong></p> <div class="language- extra-class"><pre><code>CREATE USER [User] WITH PASSWORD [Password];
+</code></pre></div><p><strong>指派資料庫的管理員</strong></p> <div class="language- extra-class"><pre><code>GRANT ALL PRIVILEGES ON DATABASE [Database] to [User];
+</code></pre></div><p><strong>Revoke privileges from a user</strong></p> <div class="language- extra-class"><pre><code>REVOKE ALL PRIVILEGES ON [Database] FROM [User|readonly];
+</code></pre></div><p><strong>刪除使用者帳號</strong></p> <div class="language- extra-class"><pre><code>DROP USER [User|readonly];
+
+
+
+GRANT ALL ON SEQUENCE public.pups_id_seq TO webapp WITH GRANT OPTION;
+GRANT ALL ON TABLE public.pups TO webapp WITH GRANT OPTION;
+</code></pre></div><p>操作範例：</p> <div class="language- extra-class"><pre><code>$ docker run -it --rm --link psql-db:postgres postgres psql -h postgres -U postgres
+Password for user postgres: 
+psql (10.4 (Debian 10.4-2.pgdg90+1))
+Type &quot;help&quot; for help.
+
+postgres=#
+...
+postgres=# create database django2_helloworld_qa;
+CREATE DATABASE
+postgres=# create user webapp with password 'Passw0rd';
+CREATE ROLE
+postgres=# grant all privileges on database django2_helloworld_qa to webapp;
+GRANT
+postgres=# \q
+</code></pre></div><hr> <h2 id="import-csv-檔案"><a href="#import-csv-檔案" class="header-anchor">#</a> Import CSV 檔案</h2> <p>以下之操作，透過 pgAdmin 4 V2 的 Query Tool 執行</p> <p>（1）<strong>先建立 Table</strong></p> <div class="language- extra-class"><pre><code>CREATE TABLE persons
+(
+  id serial NOT NULL,
+  first_name character varying(50),
+  last_name character varying(50),
+  dob date,
+  email character varying(255),
+  CONSTRAINT persons_pkey PRIMARY KEY (id)
+)
+</code></pre></div><p><strong>（2）匯入 CSV 資料檔</strong></p> <div class="language- extra-class"><pre><code>COPY persons(first_name, last_name, dob, email) 
+FROM '/Users/AlanJui/data/csv/persons.csv' DELIMITER ',' CSV HEADER;
+</code></pre></div><p>【註】：  在 Query Tool 的認定： “~/data” 不等同 “/Users/AlanJui/data” ，所以檔案的路徑不能簡寫成 “~/data/csv/persons.csv” 。</p> <p>參考： http://www.postgresqltutorial.com/import-csv-file-into-posgresql-table/</p> <h2 id="自-table-匯出成-csv-檔案"><a href="#自-table-匯出成-csv-檔案" class="header-anchor">#</a> 自 Table 匯出成 csv 檔案</h2> <div class="language- extra-class"><pre><code>copy public.persons (first_name, last_name, dob, email) 
+TO '/Users/AlanJui/data/csv/persons_out.csv' CSV HEADER;
+</code></pre></div><p>參考： http://www.postgresqltutorial.com/export-postgresql-table-to-csv-file/</p> <p>在「終端機」使用下列指令：</p> <div class="language- extra-class"><pre><code>AlanJui at MacBook-Pro.local in [/usr/local]
+19:17:18 $ psql --command &quot;copy public.persons (first_name, last_name, dob, email) TO '/Users/AlanJui/data/csv/persons_out.csv' CSV HEADER;&quot;
+COPY 3
+
+AlanJui at MacBook-Pro.local in [/usr/local]
+19:18:11 $ cat ~/data/csv/persons_out.csv
+first_name,last_name,dob,email
+Alan, Jui,1960-09-25, alanjui.1960@gmail.com
+Stacy, Wu,1967-08-18, stacywu88@gmail.com
+Amos, Jui,2004-06-04, juchuling@gmail.com
+</code></pre></div><hr> <h2 id="create-database"><a href="#create-database" class="header-anchor">#</a> Create Database</h2> <div class="language- extra-class"><pre><code>CREATE DATABASE learning
+    WITH 
+    OWNER = alanjui
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1;
+</code></pre></div><hr> <h1 id="faq"><a href="#faq" class="header-anchor">#</a> FAQ</h1> <h2 id="無法連上-postgresql-server"><a href="#無法連上-postgresql-server" class="header-anchor">#</a> 無法連上 PostgreSQL Server</h2> <p><img src="https://d2mxuefqeaa7sj.cloudfront.net/s_B5D84C4CD091B402741E9B2DC97DB9F649A1F2200CF14975E381CC7C9BCE25F5_1500778899268_image.png" alt=""></p> <p>Unable to connect to server:</p> <p>FATAL: no pg_hba.conf entry for host &quot;192.168.66.110&quot;, user &quot;postgres&quot;, database &quot;postgres&quot;, SSL off</p> <hr> <p>上述問題係 PostgreSQL 尚未設定成允許 Remote 連線及條件。</p> <p>（1）檢查設定檔 <code>postgresql.conf</code> ，確定任何一個 IP ，都可發出連線要求：</p> <div class="language- extra-class"><pre><code>listen_addresses = '*'
+</code></pre></div><p>（2）檢查設定檔 <code>pg_hba.conf</code> ，確定已設定可供連線的 Host 、資料庫、使用者、IP、身份驗證法</p> <div class="language- extra-class"><pre><code># TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+# &quot;local&quot; is for Unix domain socket connections only
+local   all             all                                     trust
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            trust
+# IPv6 local connections:
+host    all             all             ::1/128                 trust
+
+host    all             all             192.168.66.0/24         md5
+host    all             all             192.168.66.110/32       trust
+#host    all             all             0.0.0.0/0               md5 
+</code></pre></div><p>（3）重新啟動 PostgreSQL Service</p> <div class="language- extra-class"><pre><code>$ service postgresql-9.6 restart
+</code></pre></div><hr> <h2 id="無法進行-db-query"><a href="#無法進行-db-query" class="header-anchor">#</a> 無法進行 DB Query</h2> <p>得到錯誤訊息：</p> <div class="language- extra-class"><pre><code>Error: permission denied for relation pups at Connection.parseE ….
+</code></pre></div><p>使用 pgAdmin 4 (V2) 在 psql shell (非在 Query Tools） 進行如下設定：</p> <div class="language- extra-class"><pre><code>CREATE USER readonly  WITH ENCRYPTED PASSWORD 'readonly';
+GRANT USAGE ON SCHEMA public to readonly;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO readonly;
+
+-- repeat code below for each database:
+
+GRANT CONNECT ON DATABASE puppies to readonly;
+\c puppies
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO readonly; --- this grants privileges on new tables generated in new database &quot;puppies&quot;
+GRANT USAGE ON SCHEMA public to readonly; 
+GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO readonly;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly;
+</code></pre></div><hr> <h2 id="docker-compose-and-django"><a href="#docker-compose-and-django" class="header-anchor">#</a> Docker Compose and Django</h2> <p>有時候，在 docker compose 中的 db 被玩壞了， ./manage.py migrate 再也無法正常運作之時，可以透過以下的方式重建 Database: postgres 。</p> <p><strong>(1) 清除所有 migrations</strong>
+執行以下指令之前，先將「目錄」選在 <Project Rooot=""> 目錄。</Project></p> <div class="language- extra-class"><pre><code>$ find . -path &quot;*/migrations/*.py&quot; -not -name &quot;__init__.py&quot; -delete
+$ find . -path &quot;*/migrations/*.pyc&quot;  -delete
+</code></pre></div><p><strong>(2) 進入 docker-compose 中的 db container</strong></p> <div class="language- extra-class"><pre><code>$ docker-copose up
+$ docker-compose exec db bash
+</code></pre></div><p><strong>(3) 刪除 Database: postgres</strong></p> <div class="language- extra-class"><pre><code>$ dropdb -h localhost -p 5432 -U postgres postgres
+</code></pre></div><p><strong>(4) 重建 Database: postgres</strong></p> <div class="language- extra-class"><pre><code>$ createdb -h localhost -p 5432 -U postgres postgres
+</code></pre></div><p><strong>(5) 驗證</strong></p> <div class="language- extra-class"><pre><code>$ psql -h localhost -p 5432 -U postgres
+postgres=# \l
+                                 List of databases
+   Name    |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges
+-----------+----------+----------+------------+------------+-----------------------
+ postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 |
+ template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+(3 rows)
+
+postgres=#\q
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/han_gi_chu_im/assets/js/app.f2e2805b.js" defer></script><script src="/han_gi_chu_im/assets/js/2.e9bdfe5b.js" defer></script><script src="/han_gi_chu_im/assets/js/205.27e200a2.js" defer></script>
+  </body>
+</html>
